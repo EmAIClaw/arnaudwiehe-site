@@ -1,0 +1,29 @@
+{
+  "name": "arnaudwiehe-www",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/generate-articles-data.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/generate-articles-data.mjs",
+    "build": "next build",
+    "start": "next start",
+    "articles:generate": "node scripts/generate-articles-data.mjs"
+  },
+  "dependencies": {
+    "isomorphic-dompurify": "^3.6.0",
+    "next": "^15.5.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.4.27",
+    "jsdom": "^29.0.1",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "typescript": "5.9.3"
+  }
+}

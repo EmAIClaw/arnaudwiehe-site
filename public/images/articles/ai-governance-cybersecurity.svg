@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg1)"/>
+  <rect x="60" y="60" width="6" height="510" fill="url(#accent1)" rx="3"/>
+  <text x="100" y="180" font-family="Georgia, serif" font-size="72" font-weight="300" fill="#ffffff">AI</text>
+  <text x="100" y="280" font-family="Georgia, serif" font-size="72" font-weight="300" fill="#ffffff">Governance</text>
+  <text x="100" y="400" font-family="Georgia, serif" font-size="72" font-weight="300" fill="url(#accent1)">&amp; Security</text>
+  <text x="100" y="520" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.6)">The Intersection of Artificial Intelligence and Cybersecurity</text>
+  <text x="900" y="580" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.4)" text-anchor="end">arnaudwiehe.com</text>
+</svg>
