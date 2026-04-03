@@ -21,6 +21,394 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "iso-42001-compliance-final",
+    title: "ISO 42001 Compliance: A Practical Guide for AI Governance",
+    subtitle: "What the standard requires, how it aligns with the EU AI Act and NIST AI RMF, and what boards should ask before certification.",
+    date: "2026-04-04",
+    dateFormatted: "April 4, 2026",
+    category: "AI Governance",
+    tags: ["Iso 42001","Ai management system","Ai governance","Eu ai act","Nist ai rmf","Compliance"],
+    readingTime: "6 min read",
+    featured: false,
+    heroImage: "/images/articles/iso-42001-compliance-final.jpg",
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "In December 2023, ISO/IEC 42001 became the world's first certifiable AI management system standard. Here's what it requires, how it relates to the EU AI Act and NIST AI RMF, and what boards should ask before pursuing certification.",
+    content: `
+<p>&gt; "The organizations that implement AI governance now will have structural advantages when regulation becomes mandatory." &gt; - Board governance principle</p>
+
+<p>In December 2023, the International Organization for Standardization published ISO/IEC 42001:2023, becoming the world's first certifiable artificial intelligence management system standard.</p>
+
+<p>Unlike sector-specific regulations, ISO 42001 provides a framework any organization can use to establish, implement, maintain, and continually improve an AI management system. It applies whether you are deploying a single customer service chatbot or managing AI across enterprise operations.</p>
+
+<p>For boards and executives navigating AI governance, ISO 42001 offers something rare which is a practical, audit-ready standard that connects technical implementation to strategic oversight.</p>
+
+<h2>What ISO 42001 Actually Requires</h2>
+
+<p>The standard follows the familiar High-Level Structure (HLS) used in other standards like ISO 27001, ISO 9001, and other management system standards:</p>
+
+<p><strong>Clause 4: Context of the Organization</strong> Understand internal and external issues affecting your AI management system. Identify stakeholders and their expectations. Define the scope-what AI systems are covered, what boundaries exist, and what is excluded.</p>
+
+<p><strong>Clause 5: Leadership</strong> Top management must demonstrate commitment through an AI policy, assigned roles and responsibilities, and integration of AI management system requirements into business processes.</p>
+
+<p><strong>Clause 6: Planning</strong> Address risks and opportunities. Conduct AI system impact assessments. Establish measurable AI objectives that align with your strategic direction.</p>
+
+<p><strong>Clause 7: Support</strong> Provide resources, ensure competence, maintain awareness, and manage documented information. Your AI governance needs educated people, not just documented processes.</p>
+
+<p><strong>Clause 8: Operation</strong> Plan and control AI system lifecycle processes. Manage AI development, procurement, or use. Address risk treatment and externally provided processes (your vendors with AI access).</p>
+
+<p><strong>Clause 9: Performance Evaluation</strong> Monitor, measure, analyze, and evaluate. Internal audits and management reviews ensure the system continues to work as designed.</p>
+
+<p><strong>Clause 10: Improvement</strong> Continually improve suitability, adequacy, and effectiveness. Address nonconformities through corrective action.</p>
+
+<p>Two annexes provide practical guidance: <strong>Annex A</strong> catalogs AI-specific controls for objectives like fairness, transparency, and security. <strong>Annex B</strong> offers implementation guidance.</p>
+
+<h2>The Certification Timeline</h2>
+
+<p>Organizations typically complete initial implementation and certification in <strong>4-12 months</strong>, depending on size, maturity, and existing management systems.</p>
+
+<p>Organizations already ISO 27001-certified often move faster because they understand management system documentation, internal audits, and certification body assessments. Those starting from scratch need more time to build governance muscle.</p>
+
+<p>The critical requirement is that you must demonstrate consistent operation of your AI management system before a certification body will assess you. This is not a documentation exercise. It requires evidence that your processes actually govern AI decisions.</p>
+
+<h2>ISO 42001 and the EU AI Act: Complementary, Not Substitute</h2>
+
+<p>A common misconception: ISO 42001 certification satisfies EU AI Act compliance. It does not.</p>
+
+<p>The EU AI Act entered into force in August 2024. It creates legally binding obligations for AI systems, especially "high-risk" AI in areas like healthcare, finance, law enforcement, and education.</p>
+
+<p><strong>The relationship:</strong></p>
+
+<ul><li><strong>EU AI Act</strong> = mandatory legal compliance. Violations can bring fines up to €35 million or 7% of global turnover.</li><li><strong>ISO 42001</strong> = voluntary management system certification. Demonstrates systematic governance but does not replace legal obligations.</li></ul>
+
+<p>However, the overlap is substantial with approximately 40-50% high-level requirements aligned. Organizations implementing ISO 42001 will find themselves well-positioned for EU AI Act compliance because they have already built:</p>
+
+<ul><li>Risk management processes for AI systems</li><li>Data governance and quality management</li><li>Documentation and record-keeping systems</li><li>Human oversight mechanisms</li><li>Post-market monitoring capabilities</li></ul>
+
+<p>Think of ISO 42001 as building governance infrastructure that makes regulatory compliance easier, not as a shortcut around it.</p>
+
+<h2>NIST AI RMF Alignment</h2>
+
+<p>The U.S. National Institute of Standards and Technology published its AI Risk Management Framework (AI RMF) in January 2023. Organizations operating globally often ask: should we use ISO 42001, NIST AI RMF, or both?</p>
+
+<p><strong>The frameworks share DNA:</strong></p>
+
+<ul><li>Both emphasize risk management throughout the AI lifecycle</li><li>Both identify trustworthiness characteristics (validity, safety, fairness, explainability)</li><li>Both stress governance, accountability, and organizational culture</li></ul>
+
+<p><strong>Practical guidance:</strong></p>
+
+<ul><li>U.S.-focused organizations often start with NIST AI RMF</li><li>Global enterprises seeking external validation pursue ISO 42001 certification</li><li>Organizations can map between frameworks-AI RMF functions align to ISO 42001 clauses</li></ul>
+
+<p>The frameworks are complementary. ISO 42001 adds management system certification capability that NIST AI RMF lacks. NIST AI RMF provides detailed risk taxonomy that can inform ISO 42001 implementation.</p>
+
+<h2>Five Questions for Your Board</h2>
+
+<p>If your organization is considering ISO 42001 certification:</p>
+
+<p><strong>1. Which AI systems fall within scope?</strong> High-risk customer-facing systems? Internal productivity tools? All AI, or specific categories?</p>
+
+<p><strong>2. Do we have existing management system certification?</strong> ISO 27001 experience accelerates implementation significantly.</p>
+
+<p><strong>3. What is our timeline for certification?</strong> Plan 6-12 months from decision to audit, with realistic resource allocation.</p>
+
+<p><strong>4. How does this connect to EU AI Act preparation?</strong> Use ISO 42001 implementation to build capabilities required for regulatory compliance.</p>
+
+<p><strong>5. Who owns AI governance?</strong> The CISO? A dedicated AI governance function? Clarify roles before implementation begins.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>ISO 42001 represents maturation in AI governance. It transforms AI risk from an abstract concern into an auditable management system.</p>
+
+<p>For organizations serious about responsible AI deployment-not just compliance checkbox exercises-ISO 42001 provides a roadmap that connects board-level accountability to operational reality.</p>
+
+<p>The certification is voluntary. The risks of unmanaged AI are not.</p>
+
+<p><strong>Action items to do in the next quarter:</strong></p>
+
+<ul><li>Assess your current AI governance maturity</li><li>Identify which AI systems would fall within ISO 42001 scope</li><li>Review existing management system certifications (ISO 27001, ISO 9001) for integration opportunities</li></ul>
+
+<p><em>Published: 2026-04-04</em></p>
+
+<p><strong>Sources:</strong></p>
+
+<ul><li>ISO/IEC 42001:2023 - Information technology - Artificial intelligence - Management system</li><li>EU AI Act (Regulation 2024/1689)</li><li>NIST AI Risk Management Framework 1.0 (January 2023)</li></ul>
+    `,
+  },
+  {
+    slug: "cyber-resilience-after-the-hype",
+    title: "Cyber Resilience After the Hype: What 'When Disaster Strikes' Means Today",
+    subtitle: "",
+    date: "2026-04-03",
+    dateFormatted: "April 3, 2026",
+    category: "Cyber resilience",
+    tags: ["Cyber resilience","Business continuity","Crisis management","Disaster recovery","Board governance"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/books/Book on Cybersecurity Cover -3d.png",
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
+    excerpt: "The best time to plant a tree was 20 years ago. The second best time is now. In March 2024, a major cloud provider experienced a four-hour outage that cascaded through thousands of businesses worldwide. None of these organizations had been breached. Their problem was not prevention failure but resilience failure.",
+    content: `
+<p><strong>Series:</strong> From the Books, Updated for Now <strong>Source anchor:</strong> <em>The Book on Cybersecurity</em></p>
+
+<p><strong>Published date:</strong> 2026-04-03 <strong>Word count:</strong> ~850 words <strong>Category:</strong> Cyber Resilience <strong>Tags:</strong> Cyber resilience, Business continuity, Crisis management, Disaster recovery, Board governance</p>
+
+<p>&gt; "The best time to plant a tree was 20 years ago. The second best time is now." &gt; - Chinese proverb</p>
+
+<p>In March 2024, a major cloud provider experienced a four-hour outage that cascaded through thousands of businesses worldwide. E-commerce sites went dark. Manufacturing lines stopped. Healthcare systems reverted to paper records. The total cost exceeded $500 million in lost productivity and revenue.</p>
+
+<p>None of these organizations had been breached. Their security controls worked exactly as designed. Their problem was not prevention failure but resilience failure.</p>
+
+<h2>The Shift from Prevention to Resilience</h2>
+
+<p>For years, cybersecurity was framed primarily as a prevention problem. Build enough controls, buy enough tools, hire enough specialists, and perhaps the worst outcomes could be avoided.</p>
+
+<p>Prevention still matters. But resilience is now the more honest leadership frame.</p>
+
+<p>Modern organizations do not operate in stable, closed environments. They depend on external software, cloud infrastructure, distributed teams, identity systems, connected vendors, and increasingly automated decision layers. In that world, the serious question is not whether something will ever go wrong. It is whether the organization can continue, recover, and make sound decisions under pressure.</p>
+
+<p>That is what cyber resilience means today.</p>
+
+<h2>What Resilience Actually Looks Like</h2>
+
+<p>It means the board understands what matters most. It means executives know who decides what in the first hour of a crisis. It means communications, legal, operational, and technical teams are not meeting each other for the first time during the incident itself.</p>
+
+<p>It also means being honest about backups. Many leaders still talk about backups as if their existence proves resilience. It does not.</p>
+
+<p>Backups only matter if they are:</p>
+
+<ul><li>Protected from the same threats that hit production</li><li>Usable when needed</li><li>Current enough to restore meaningful operations</li><li>Regularly tested in a way that reflects operational reality</li></ul>
+
+<h2>The Backup Problem</h2>
+
+<p>In my work with organizations recovering from ransomware attacks, the pattern is predictable. The backup system was configured. The backups ran nightly. The logs showed green checks.</p>
+
+<p>But when recovery became necessary, reality intruded. The backups were encrypted because they were on the same network segment. The restoration process took 48 hours instead of the planned 4 because no one had tested it at scale. The critical database turned out to have a corrupted snapshot from three weeks prior.</p>
+
+<p>Preparation without validation is just hope dressed up as planning.</p>
+
+<h2>Practical Resilience Checklist</h2>
+
+<p>What organizations need is practical resilience:</p>
+
+<p><strong>Clearly defined business priorities</strong> - Which systems must come back first? What is the minimum viable operation?</p>
+
+<p><strong>Tested recovery assumptions</strong> - Not once, but continuously. Tabletop exercises, chaos engineering, actual restoration drills.</p>
+
+<p><strong>Decision rights under pressure</strong> - Who can declare a disaster? Who authorizes ransom payments (my advice: almost never)? Who speaks to the media?</p>
+
+<p><strong>Realistic external dependency planning</strong> - What happens when your cloud provider, your payment processor, your identity vendor goes down?</p>
+
+<p><strong>Disciplined communication during ambiguity</strong> - Stakeholders need updates even when you do not have answers.</p>
+
+<h2>The Real Lesson</h2>
+
+<p>One of the enduring lessons from crisis management is that confusion compounds damage. Poor visibility, delayed escalation, weak ownership, and untested assumptions often do more harm than the initial event.</p>
+
+<p>This is why "when disaster strikes" remains such an important leadership lens. Not because leaders should become fatalistic, but because resilience improves when organizations prepare for disruption as a management problem, not merely a technical one.</p>
+
+<h2>After the Hype</h2>
+
+<p>Cyber resilience after the hype is not glamorous. It is not a product category. It is not a slogan.</p>
+
+<p>It is a discipline.</p>
+
+<p>And in practice, it is often the difference between a serious incident and a lasting business crisis.</p>
+
+<p><strong>Questions for your next board meeting:</strong></p>
+
+<ul><li>What is our maximum tolerable downtime for critical systems?</li><li>When did we last test our disaster recovery plan?</li><li>Who has authority to make decisions during a crisis?</li></ul>
+
+<p><em>Originally appeared in "The Book on Cybersecurity" (2023)</em></p>
+    `,
+  },
+  {
+    slug: "third-party-cyber-risk-board-level",
+    title: "Why Third-Party Cyber Risk Is Now a Board-Level Strategy Problem",
+    subtitle: "",
+    date: "2026-04-03",
+    dateFormatted: "April 3, 2026",
+    category: "Board governance",
+    tags: ["Third Party risk","Supply chain security","Vendor management","Board governance","Nis2","Dora"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/books/Book on Cybersecurity Cover -3d.png",
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
+    excerpt: "A chain is only as strong as its weakest link, and modern organizations have thousands of links. In January 2024, a healthcare technology vendor suffered a ransomware attack that encrypted patient records for 450 hospitals across three countries. The hospitals themselves had robust security programs. None of it mattered. The attack came through a trusted vendor.",
+    content: `
+<p><strong>Series:</strong> From the Books, Updated for Now <strong>Source anchor:</strong> <em>The Book on Cybersecurity</em></p>
+
+<p><strong>Published date:</strong> 2026-04-03 <strong>Word count:</strong> ~900 words <strong>Category:</strong> Board Governance <strong>Tags:</strong> Third-party risk, Supply chain security, Vendor management, Board governance, NIS2, DORA</p>
+
+<p>&gt; "A chain is only as strong as its weakest link, and modern organizations have thousands of links." &gt; - Adapted from cybersecurity principle</p>
+
+<p>In January 2024, a healthcare technology vendor suffered a ransomware attack that encrypted patient records for 450 hospitals across three countries. The hospitals themselves had robust security programs. Their networks were monitored, their endpoints protected, their staff trained.</p>
+
+<p>None of it mattered.</p>
+
+<p>The attack came through a trusted vendor-a medical billing platform with privileged access to core systems. The vendor's security was adequate for their size. It was not adequate for their position in critical infrastructure supply chains.</p>
+
+<h2>The Procurement Fallacy</h2>
+
+<p>Third-party cyber risk used to be treated as a procurement issue.</p>
+
+<p>A vendor questionnaire was sent. A few controls were checked. The contract was signed. The organization moved on.</p>
+
+<p>That approach no longer matches reality.</p>
+
+<p>Today, companies are deeply dependent on cloud platforms, SaaS providers, managed service partners, outsourced development teams, data processors, and increasingly AI vendors. In many cases, the organization's ability to operate depends not just on its own security posture, but on the resilience, discipline, and judgment of external partners.</p>
+
+<p>That is why third-party cyber risk is no longer a vendor-management subcategory. It is a board-level strategy problem.</p>
+
+<h2>The Concentration Risk No One Sees</h2>
+
+<p>The issue is not simply whether a supplier is "secure." The issue is structural dependency.</p>
+
+<p>If one vendor fails, what stops? If a concentration risk emerges, what becomes fragile? If an external platform changes terms, suffers a breach, or experiences an outage, how exposed is the business model?</p>
+
+<p>Consider this: How many critical systems in your organization rely on the same cloud provider? How many different vendors have administrative access to your identity systems? What happens if your primary payment processor goes offline for 24 hours?</p>
+
+<p>This is where leadership teams often underestimate the challenge. They review security by control domain, but experience disruption through dependency chains.</p>
+
+<h2>Five Questions for the Board</h2>
+
+<p>A board that wants a more realistic view should ask:</p>
+
+<p><strong>1. Which third parties are operationally critical?</strong> Not just which vendors cost the most, but which ones could stop the business if they failed.</p>
+
+<p><strong>2. Where are we over-concentrated?</strong> Are we betting the company on a single vendor for a critical function?</p>
+
+<p><strong>3. What data and decision flows leave the organization?</strong> Do we know what information each vendor can access, modify, or export?</p>
+
+<p><strong>4. Which suppliers have become effectively irreplaceable?</strong> Could we switch vendors in 30 days if we had to?</p>
+
+<p><strong>5. What is our contingency plan if one of them fails badly?</strong> Not their disaster recovery plan. Ours.</p>
+
+<h2>The Regulatory Reality</h2>
+
+<p>The European Union's NIS2 Directive, now being transposed into national law, explicitly requires organizations to manage supply chain cyber risk. The Digital Operational Resilience Act (DORA) imposes similar obligations on financial entities and their technology service providers.</p>
+
+<p>In the United States, the Securities and Exchange Commission's disclosure rules expect boards to understand and report on material risks-including those that arise through third parties.</p>
+
+<p>The message from regulators is clear: vendor risk is your risk.</p>
+
+<h2>Beyond Due Diligence</h2>
+
+<p>This is not anti-vendor thinking. Modern business depends on ecosystems. The point is not to eliminate dependence, but to govern it honestly.</p>
+
+<p>In my cybersecurity work, I have long argued that trust should not be confused with assumption. The same principle applies here. Third-party relationships deserve the same seriousness as internal systems because, in practice, they are part of the system.</p>
+
+<p>The organizations that handle this well do not stop at due diligence. They map dependency, prioritize resilience, assign accountability, and revisit assumptions before the next disruption forces the conversation.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>Third-party cyber risk is strategic because business dependency is strategic.</p>
+
+<p>The board's job is not to panic about that fact. It is to see it clearly enough to act on it.</p>
+
+<p><strong>Action items for this quarter:</strong></p>
+
+<ul><li>Map your top 10 critical vendors and their interdependencies</li><li>Review your vendor assessment process-does it match the risk?</li><li>Test your response plan for a major vendor breach</li></ul>
+
+<p><em>Originally appeared in "The Book on Cybersecurity" (2023)</em></p>
+    `,
+  },
+  {
+    slug: "owasp-top-10-agentic-ai",
+    title: "The OWASP Top 10 for Agentic Applications",
+    subtitle: "Why security leaders need a new risk lens for autonomous AI systems",
+    date: "2026-04-01",
+    dateFormatted: "April 1, 2026",
+    category: "AI Security",
+    tags: ["Agentic AI","Owasp","AI Security","Cybersecurity","AI Governance"],
+    readingTime: "6 min read",
+    featured: false,
+    heroImage: "/images/articles/owasp-top-10-agentic-ai.png",
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
+    excerpt: "OWASP's Top 10 for Agentic Applications is one of the clearest early frameworks for understanding how autonomous AI systems change the cybersecurity risk landscape. Here is why it matters for security leaders now.",
+    content: `
+<p>&gt; "Companies are already exposed to Agentic AI attacks, often without realizing that agents are running in their environments. Effectively protecting a company against Agentic AI requires not only strong security intuition but also a deep understanding of how AI agents fundamentally operate." &gt; - Keren Katz, Co-Lead, OWASP Top 10 for Agentic Applications, Senior Group Manager of AI Security at Tenable</p>
+
+<p>In December 2025, the OWASP GenAI Security Project released its inaugural Top 10 for Agentic Applications 2026. It is a globally peer-reviewed framework identifying the most critical security risks facing autonomous AI systems.</p>
+
+<p>This is not just another checklist. It signals a shift in how we need to think about security in an agent-driven world.</p>
+
+<p>Unlike traditional applications, agentic AI systems can plan, act, make decisions, and interact with tools autonomously. That autonomy changes everything. Traditional systems follow predefined paths initiated by humans. Agents define their own paths based on goals, select tools dynamically, maintain memory, and coordinate with other agents.</p>
+
+<p>The result is simple. The potential impact, both positive and negative, expands significantly. As the stakes rise, so does the urgency. Security leaders cannot afford to wait for the first major incident to act.</p>
+
+<h2>Why Agentic AI Requires a New Security Lens</h2>
+
+<p>&gt; "Agentic AI introduces a fundamentally new threshold of security challenges, and we are already seeing real incidents emerge across industry. Our response must match the pace of innovation." &gt; - John Sotiropoulos, GenAI Security Project Board Member and Head of AI Security at Kainos</p>
+
+<p>The OWASP framework is built on two core design principles.</p>
+
+<p>First, Least Agency. Agents should only have the minimum capabilities required to deliver value. Nothing more.</p>
+
+<p>Second, Strong Observability. You need full visibility into what agents are doing, why they are doing it, and which tools and identities they are using.</p>
+
+<p>Without these two foundations, everything else becomes fragile.</p>
+
+<h2>The Ten Risks Every Leader Should Understand</h2>
+
+<p>The OWASP framework outlines ten key risk categories. These are grounded in real-world attack patterns and observed failure modes.</p>
+
+<p>1. <strong>Agent Goal Hijacking</strong> Attackers manipulate an agent's objectives through prompt injection or malicious inputs, redirecting behavior while the system appears to function normally.</p>
+
+<p>2. <strong>Tool Misuse and Exploitation</strong> Agents with access to tools such as email, APIs, or financial systems can be steered into harmful or costly actions.</p>
+
+<p>3. <strong>Identity and Privilege Abuse</strong> Agents inherit and extend user privileges, creating new pathways for escalation and misuse if not properly separated.</p>
+
+<p>4. <strong>Agentic Supply Chain Vulnerabilities</strong> Dependencies such as plugins, MCP servers, and RAG connectors introduce hidden risks across the agent ecosystem.</p>
+
+<p>5. <strong>Unexpected Code Execution</strong> Agents that generate and execute code can turn benign requests into full system compromise without proper controls.</p>
+
+<p>6. <strong>Memory and Context Poisoning</strong> Persistent memory can be seeded with malicious data, gradually influencing future decisions.</p>
+
+<p>7. <strong>Insecure Inter-Agent Communication</strong> As multi-agent systems grow, weak authentication and validation allow spoofing and message manipulation.</p>
+
+<p>8. <strong>Cascading Failures</strong> Errors propagate rapidly across interconnected agents, amplifying impact beyond the original fault.</p>
+
+<p>9. <strong>Human-Agent Trust Exploitation</strong> Attackers exploit human trust in AI outputs to bypass controls and gain approval for harmful actions.</p>
+
+<p>10. <strong>Rogue Agents</strong> Agents drift from intended behavior, acting in ways that resemble insider threats over time.</p>
+
+<p>Even if you are not building agents, you are still exposed.</p>
+
+<p>Organizations already interact with AI-driven traffic, automated systems, and external agents. The question is no longer whether agents will interact with your environment, but how controlled and observable those interactions are.</p>
+
+<p>This raises practical questions for security teams:</p>
+
+<ul><li>How do you distinguish legitimate agent activity from malicious automation?</li><li>What limits exist on what external agents can do?</li><li>How do you detect when agent behavior has been manipulated?</li><li>What visibility do you have into autonomous decision-making processes?</li></ul>
+
+<p>These are operational questions that need answers today.</p>
+
+<h2>Where to Start</h2>
+
+<p>For security leaders, the first steps are clear:</p>
+
+<ul><li>Inventory where agents already exist in your environment</li><li>Review and restrict tool access and permissions</li><li>Implement logging and observability for agent decisions</li><li>Assess third-party dependencies in your agent ecosystem</li><li>Establish governance policies for agent deployment and use</li><li>Train teams on emerging agentic risks</li></ul>
+
+<p>OWASP has also released supporting resources, including a State of Agentic Security report, a solutions landscape, a practical security guide, and a hands-on reference application for testing.</p>
+
+<h2>Final Thought</h2>
+
+<p>Agentic AI is moving from experimentation into production. The real question is not whether your organization will encounter these risks. It is whether you will address them before they become incidents. If AI can act, it can also be exploited.</p>
+
+<p>Supporting resources are available at genai.owasp.org.</p>
+
+<h2>Sources</h2>
+
+<ul><li>OWASP GenAI Security Project: "OWASP Top 10 for Agentic Applications 2026" (December 10, 2025)</li><li>OWASP Press Release: "OWASP GenAI Security Project Releases Top 10 Risks and Mitigations for Agentic AI Security" (December 9, 2025)</li><li>Human Security: "The OWASP Top 10 for Agentic Applications: What It Means for Defenders in the AI Agent Era"</li><li>Security Boulevard: "OWASP Project Publishes List of Top Ten AI Agent Threats" (December 2025)</li><li>Tenable Cybersecurity Snapshot (December 15, 2025)</li></ul>
+    `,
+  },
+  {
     slug: "ai-governance-cybersecurity",
     title: "AI Governance Starts as Cybersecurity Governance",
     subtitle: "Why effective AI oversight builds on existing cybersecurity frameworks",
@@ -218,11 +606,11 @@ export const articles: Article[] = [
     linkedinUrl: "https://www.linkedin.com/pulse/shadow-ai-what-do-2026-arnaud-wiehe-xllwe",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'The Book on Cybersecurity' and 'Emerging Tech, Emerging Threats'. Advisor to boards on AI governance and digital risk.",
-    excerpt: "In 2023, Samsung employees inadvertently uploaded sensitive information to ChatGPT—becoming the most cited example of shadow AI. With 28% of employees now using unapproved AI tools at work, organizations need a Shadow AI Discovery and Response Programme. The EU AI Act now imposes fines up to €15 million for deploying high-risk AI without proper governance.",
+    excerpt: "In 2023, Samsung employees inadvertently uploaded sensitive information to ChatGPT-becoming the most cited example of shadow AI. With 28% of employees now using unapproved AI tools at work, organizations need a Shadow AI Discovery and Response Programme. The EU AI Act now imposes fines up to €15 million for deploying high-risk AI without proper governance.",
     content: `
 <p>In 2023, Samsung Electronics made headlines when employees inadvertently uploaded sensitive information to ChatGPT, including proprietary source code and internal meeting notes. Samsung's response was immediate: they banned consumer AI tools while building controlled internal alternatives. This became the most widely cited example of what we now call <strong>shadow AI</strong>.</p>
 
-<p>Shadow AI is artificial intelligence used within an organization without the knowledge, approval, or oversight of IT, legal, compliance, or governance functions. It is the AI equivalent of shadow IT—but with risks that shadow IT never carried.</p>
+<p>Shadow AI is artificial intelligence used within an organization without the knowledge, approval, or oversight of IT, legal, compliance, or governance functions. It is the AI equivalent of shadow IT-but with risks that shadow IT never carried.</p>
 
 <h2>The Scale of Shadow AI</h2>
 
@@ -232,7 +620,7 @@ export const articles: Article[] = [
 
 <p>Shadow AI presents several distinct categories of risk:</p>
 
-<p><strong>Data Exposure</strong>: When employees use consumer-grade AI tools, the data they input—customer names, contract terms, financial projections, personal information—may be used to train the model or stored on third-party servers.</p>
+<p><strong>Data Exposure</strong>: When employees use consumer-grade AI tools, the data they input-customer names, contract terms, financial projections, personal information-may be used to train the model or stored on third-party servers.</p>
 
 <p><strong>Output Reliance</strong>: Employees acting on AI-generated outputs that have not been validated, particularly in areas like legal research or financial modeling, where an authoritative-sounding hallucination can cause serious harm.</p>
 
@@ -320,7 +708,7 @@ export const articles: Article[] = [
     linkedinUrl: "",
     author: "Arnaud",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building ClawBlade.ai - Security tools for OpenClaw.",
-    excerpt: "The shift to agentic computing has begun, but security is still DIY. This week, five new vulnerabilities dropped for OpenClaw — five ways your AI agent can be turned against you. Just like early web commerce needed SSL and fraud protection to become mainstream, AI agents need security to achieve widespread adoption. Here's why early adopters must roll their own security — and what that means for leaders deploying OpenClaw today.",
+    excerpt: "The shift to agentic computing has begun, but security is still DIY. This week, five new vulnerabilities dropped for OpenClaw - five ways your AI agent can be turned against you. Just like early web commerce needed SSL and fraud protection to become mainstream, AI agents need security to achieve widespread adoption. Here's why early adopters must roll their own security - and what that means for leaders deploying OpenClaw today.",
     content: `
 <p>The Shift to Agentic Computing Has Begun, But Security Is Still DIY</p>
 
@@ -354,7 +742,7 @@ export const articles: Article[] = [
 
 <p>If you're deploying OpenClaw (or any AI agent framework) today, security isn't a feature you can defer. It's a prerequisite.</p>
 
-<p>The shift to agentic computing has begun. That part isn't a prediction anymore — it's a headline.</p>
+<p>The shift to agentic computing has begun. That part isn't a prediction anymore - it's a headline.</p>
 
 <p>What comes next depends on what we do in the next 12 months. Audit your agent deployments. Treat third-party skills like untrusted code. Isolate your instances. Build governance before you need it.</p>
 
@@ -376,7 +764,7 @@ export const articles: Article[] = [
     heroImage: "/images/articles/openclaw-security-best-practices.png",
     linkedinUrl: "",
     author: "Arnaud",
-    authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
     excerpt: "Practical security best practices for OpenClaw deployments. Learn how to harden your AI agent setup with actionable tips for credentials, network security, and configuration management.",
     content: `
 <p>If you read my last article, you know I've been running OpenClaw, the open-source autonomous AI agent, as a personal AI experiment. As an AI and Cybersecurity professional and author of a book on securing Emerging Technologies, it should come as no surprise to anyone. My OpenClaw can access files, runs on a schedule, briefs me in the morning, and remembers who I am, based on what I tell it. But being ultra paranoid about security, I decided to research and build what I can only describe as a full digital airlock.</p>
@@ -473,7 +861,7 @@ export const articles: Article[] = [
     heroImage: "/images/articles/rise-of-openclaw.png",
     linkedinUrl: "",
     author: "Arnaud",
-    authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
     excerpt: "OpenClaw is the fastest-growing AI agent framework. Here's why developers are flocking to it and what it means for the future of work, automation, and human-AI collaboration.",
     content: `
 <p>By now, you may have heard the name. If not, let me catch you up.</p>
@@ -498,7 +886,7 @@ export const articles: Article[] = [
 
 <p><strong>It takes initiative, within limits I define.</strong> Morning intelligence briefs. Calendar reminders. Proactive research on AI governance, cybersecurity, and emerging tech. It doesn't wait to be asked.</p>
 
-<p><strong>It runs on my machine.</strong> No third-party cloud storing my notes, emails, or private context. I built a dedicated, air-gapped laptop on a separate network — unique usernames, emails, and passwords, isolated from my daily systems. Local-first by design.</p>
+<p><strong>It runs on my machine.</strong> No third-party cloud storing my notes, emails, or private context. I built a dedicated, air-gapped laptop on a separate network - unique usernames, emails, and passwords, isolated from my daily systems. Local-first by design.</p>
 
 <p><strong>It gets smarter over time.</strong> Every session adds to persistent memory files. The agent distills what matters and updates its long-term knowledge base. No starting from scratch.</p>
 
