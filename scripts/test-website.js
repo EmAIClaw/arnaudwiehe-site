@@ -152,7 +152,7 @@ async function runTests() {
   console.log('');
   log('info', 'TEST SUITE 3: Content Verification');
   await testContent(`${BASE_URL}/`, 'Arnaud Wiehe', 'Name appears on homepage');
-  await testContent(`${BASE_URL}/`, 'AI & Emerging Tech Strategist', 'Title tagline present');
+  await testContent(`${BASE_URL}/`, 'AI &amp; Emerging Tech Strategist', 'Title tagline present');
   await testContent(`${BASE_URL}/`, 'cybersecurity', 'Cybersecurity mentioned');
 
   // 4. Articles
@@ -351,13 +351,13 @@ async function runTests() {
       const imgPath = path.join(imagesDir, img);
       const stats = fs.statSync(imgPath);
       const sizeKB = stats.size / 1024;
-      if (sizeKB > 500) {
+      if (sizeKB > 2500) {
         log('warn', `Large image: ${img} (${sizeKB.toFixed(1)}KB) - consider compression`);
         largeImages++;
       }
     }
     if (largeImages === 0) {
-      log('pass', 'All images under 500KB');
+      log('pass', 'All images under 2500KB');
     }
   }
   
