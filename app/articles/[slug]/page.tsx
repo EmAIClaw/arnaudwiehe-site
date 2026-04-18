@@ -1,79 +1,59 @@
-'use client'
-
-import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import Nav from '../../../components/Nav'
+import { Metadata } from 'next'
 import DOMPurify from 'isomorphic-dompurify'
-import { getArticleBySlug, getAdjacentArticles } from '../data'
+import { getArticleBySlug, getAdjacentArticles, getAllArticles } from '../data'
+import { notFound } from 'next/navigation'
 
-export default function ArticlePage() {
-  const params = useParams()
-  if (!params?.slug) return (
-    <>
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">Arnaud Wiehe</Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/#music" className="nav-link">Music</Link>
-            <Link href="/#contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
-      <main className="article-page">
-        <p style={{textAlign:'center',padding:'120px 0'}}>Article not found.</p>
-      </main>
-    </>
-  )
-  const slug = params.slug as string
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
   const article = getArticleBySlug(slug)
-  const { prev, next } = getAdjacentArticles(slug)
+  if (!article) return { title: 'Article Not Found | Arnaud Wiehe' }
+
+  return {
+    title: `${article.title} | Arnaud Wiehe`,
+    description: article.excerpt || article.title,
+    alternates: {
+      canonical: `https://arnaudwiehe.com/articles/${slug}`,
+    },
+    openGraph: {
+      title: `${article.title} | Arnaud Wiehe`,
+      description: article.excerpt || article.title,
+      url: `https://arnaudwiehe.com/articles/${slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${article.title} | Arnaud Wiehe`,
+      description: article.excerpt || article.title,
+    },
+  }
+}
+
+export function generateStaticParams() {
+  return getAllArticles().map((article) => ({
+    slug: article.slug,
+  }))
+}
+
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params
+  const article = getArticleBySlug(slug)
 
   if (!article) {
-    return (
-      <>
-        <nav className="nav-wrapper">
-          <div className="nav-inner">
-            <Link href="/" className="nav-logo">Arnaud Wiehe</Link>
-            <div className="nav-links">
-              <Link href="/" className="nav-link">About</Link>
-              <Link href="/speaking" className="nav-link">Speaking</Link>
-              <Link href="/articles" className="nav-link">Writing</Link>
-              <Link href="/books" className="nav-link">Books</Link>
-              <Link href="/#music" className="nav-link">Music</Link>
-              <Link href="/#contact" className="nav-link">Contact</Link>
-            </div>
-          </div>
-        </nav>
-        <main className="article-not-found">
-          <h1>Article not found</h1>
-          <p>The article you're looking for doesn't exist.</p>
-          <Link href="/articles">← Back to all articles</Link>
-        </main>
-      </>
-    )
+    notFound()
   }
+
+  const { prev, next } = getAdjacentArticles(slug)
 
   return (
     <>
       {/* Navigation */}
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            Arnaud Wiehe
-          </Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/#music" className="nav-link">Music</Link>
-            <Link href="/#contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="article-page">
         <article className="article-content">
@@ -94,7 +74,7 @@ export default function ArticlePage() {
 
           {/* Hero image */}
           {article.heroImage && (
-            <div className="article-hero-image-wrap">
+            <div className={`article-hero-image-wrap${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover-hero' : ''}`}>
               <img
                 src={article.heroImage}
                 alt={article.title}

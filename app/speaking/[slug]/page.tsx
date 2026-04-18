@@ -1,38 +1,58 @@
-'use client'
-
-import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { getSpeakingEventBySlug, getAdjacentEvents } from '../data'
+import { Metadata } from 'next'
+import Nav from '../../../components/Nav'
+import DOMPurify from 'isomorphic-dompurify'
+import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
+import { notFound } from 'next/navigation'
 
-export default function SpeakingEventPage() {
-  const params = useParams()
-  const slug = params?.slug as string | undefined
+type Props = {
+  params: Promise<{ slug: string }>
+}
 
-  if (!slug) return <NotFoundLayout />
-
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
   const event = getSpeakingEventBySlug(slug)
-  const { prev, next } = getAdjacentEvents(slug)
+  if (!event) return { title: 'Speaking Event Not Found | Arnaud Wiehe' }
 
-  if (!event) return <NotFoundLayout />
+  return {
+    title: `${event.name} | Arnaud Wiehe`,
+    description: event.topic || `Arnaud Wiehe speaking at ${event.name} in ${event.location}.`,
+    alternates: {
+      canonical: `https://arnaudwiehe.com/speaking/${slug}`,
+    },
+    openGraph: {
+      title: `${event.name} | Arnaud Wiehe`,
+      description: event.topic || `Arnaud Wiehe speaking at ${event.name}.`,
+      url: `https://arnaudwiehe.com/speaking/${slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${event.name} | Arnaud Wiehe`,
+      description: event.topic || `Arnaud Wiehe speaking at ${event.name}.`,
+    },
+  }
+}
+
+export function generateStaticParams() {
+  return getAllSpeakingEvents().map((event) => ({
+    slug: event.slug,
+  }))
+}
+
+export default async function SpeakingEventPage({ params }: Props) {
+  const { slug } = await params
+  const event = getSpeakingEventBySlug(slug)
+
+  if (!event) {
+    notFound()
+  }
+
+  const { prev, next } = getAdjacentEvents(slug)
 
   return (
     <>
-      {/* Navigation */}
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            Arnaud Wiehe
-          </Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/#music" className="nav-link">Music</Link>
-            <Link href="/#contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="speaking-event-page">
 
@@ -91,7 +111,7 @@ export default function SpeakingEventPage() {
             <h2 className="speaking-event-section-heading">About This Talk</h2>
             <div
               className="speaking-event-summary-text"
-              dangerouslySetInnerHTML={{ __html: event.summary }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.summary) }}
             />
           </section>
 
@@ -179,31 +199,6 @@ export default function SpeakingEventPage() {
           </div>
         </nav>
 
-      </main>
-    </>
-  )
-}
-
-function NotFoundLayout() {
-  return (
-    <>
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">Arnaud Wiehe</Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/#music" className="nav-link">Music</Link>
-            <Link href="/#contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
-      <main className="speaking-not-found">
-        <h1>Event Not Found</h1>
-        <p>The speaking event you're looking for doesn't exist.</p>
-        <Link href="/speaking">← Back to all events</Link>
       </main>
     </>
   )

@@ -131,20 +131,23 @@ export default function AIAssessmentPage() {
   }
 
   const calculateLevel = (): number => {
-    const levelScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
-    const levelCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+    const levelScores = new Map<number, number>([[1, 0], [2, 0], [3, 0], [4, 0], [5, 0]])
+    const levelCounts = new Map<number, number>([[1, 0], [2, 0], [3, 0], [4, 0], [5, 0]])
     
     questions.forEach(q => {
-      levelCounts[q.level]++
+      const level = q.level
+      levelCounts.set(level, (levelCounts.get(level) || 0) + 1)
       if (answers[q.id]) {
-        levelScores[q.level]++
+        levelScores.set(level, (levelScores.get(level) || 0) + 1)
       }
     })
     
     // Find highest level where majority is answered yes
     let achievedLevel = 1
     for (let level = 5; level >= 1; level--) {
-      const ratio = levelScores[level] / levelCounts[level]
+      const score = levelScores.get(level) || 0
+      const count = levelCounts.get(level) || 1
+      const ratio = score / count
       if (ratio >= 0.5) {
         achievedLevel = level
         break

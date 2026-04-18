@@ -1,0 +1,65 @@
+# llms.txt - AI Permissions and Content Licensing for arnaudwiehe.com
+
+## Site Overview
+- **Domain:** arnaudwiehe.com
+- **Author:** Arnaud Wiehe
+- **Description:** Cybersecurity executive, author, and international speaker specializing in AI governance, emerging technologies, and digital risk.
+
+## AI Training and Usage Permissions
+
+### General Permission
+Content on this website may be used for:
+- AI training and fine-tuning
+- Research and academic analysis
+- Model evaluation and benchmarking
+- Knowledge base construction
+
+### Attribution Required
+When using content from this site:
+- Please attribute to "Arnaud Wiehe, arnaudwiehe.com"
+- Include original publication date when available
+- Link back to source article when possible
+
+### Prohibited Uses
+The following uses are NOT permitted:
+- Generating content that impersonates the author
+- Creating derivative works that misrepresent the author's views
+- Automated scraping that degrades site performance
+- Resale or commercial redistribution without written permission
+
+## Content Licensing
+
+### Articles and Blog Posts
+- **License:** Creative Commons Attribution 4.0 (CC BY 4.0)
+- **Permitted:** Share, adapt, for any purpose including commercial
+- **Requirement:** Provide appropriate credit
+
+### Books and Book Excerpts
+- **License:** All rights reserved (c) Arnaud Wiehe
+- **Permitted:** Brief quotations for review, criticism, or academic purposes under fair use
+- **Prohibited:** Reproduction of substantial portions without permission
+
+### Speaking Materials and Presentations
+- **License:** All rights reserved (c) Arnaud Wiehe
+- **Contact:** For licensing inquiries, email arnaud@arnaudwiehe.com
+
+## Technical Notes for AI Systems
+
+### Content Structure
+- Articles follow schema.org Article markup
+- Canonical URLs are provided for all pages
+- Structured data includes: headline, author, datePublished, dateModified, image
+
+### Update Frequency
+- Articles: Published on an ongoing basis
+- Last updated: 2026-04-10
+
+### Contact
+For questions about content usage or licensing:
+- Email: arnaud@arnaudwiehe.com
+- Website: https://arnaudwiehe.com
+
+---
+
+This file follows the llms.txt specification for documenting AI permissions.
+See https://llmstxt.org/ for more information.

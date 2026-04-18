@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '/speaking', label: 'Speaking' },
-  { href: '/articles', label: 'Writing' },
-  { href: '/books', label: 'Books' },
-  { href: '#music', label: 'Music' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#about', label: 'About', isHash: true },
+  { href: '/speaking', label: 'Speaking', isHash: false },
+  { href: '/articles', label: 'Writing', isHash: false },
+  { href: '/books', label: 'Books', isHash: false },
+  { href: '/music', label: 'Music', isHash: false },
+  { href: '/#contact', label: 'Contact', isHash: true },
 ]
 
 export default function MobileNav() {
@@ -74,13 +74,23 @@ export default function MobileNav() {
           <ul className="mobile-nav-links">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="mobile-nav-link"
-                  onClick={handleLinkClick}
-                >
-                  {link.label}
-                </Link>
+                {link.isHash ? (
+                  <a
+                    href={link.href}
+                    className="mobile-nav-link"
+                    onClick={handleLinkClick}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="mobile-nav-link"
+                    onClick={handleLinkClick}
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -90,7 +100,7 @@ export default function MobileNav() {
               arnaud@arnaudwiehe.com
             </a>
             <div className="mobile-nav-socials">
-              <a href="https://linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener">
+              <a href="https://linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </div>

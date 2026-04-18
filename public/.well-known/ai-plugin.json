@@ -1,0 +1,13 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Arnaud Wiehe",
+  "name_for_model": "arnaudwiehe",
+  "description_for_human": "AI governance, cybersecurity leadership, and emerging technology insights from Arnaud Wiehe.",
+  "description_for_model": "Provides insights on AI governance, cybersecurity, emerging technology risk, and leadership strategy from author and executive Arnaud Wiehe. Includes articles, speaking engagements, and book content.",
+  "url": "https://arnaudwiehe.com",
+  "contact_email": "arnaud@arnaudwiehe.com",
+  "api": {
+    "type": "none"
+  },
+  "llms_txt_url": "https://arnaudwiehe.com/llms.txt"
+}

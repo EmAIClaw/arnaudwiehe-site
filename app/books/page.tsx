@@ -1,9 +1,22 @@
-'use client'
-
-import { useEffect } from 'react'
 import Link from 'next/link'
+import Nav from '../../components/Nav'
+import { Metadata } from 'next'
 import Book1 from '../../assets/images/books/Book on Cybersecurity Cover -3d.png'
 import Book2 from '../../assets/images/books/Emerging Tech Cover- 3d.png'
+
+export const metadata: Metadata = {
+  title: 'Books | Arnaud Wiehe',
+  description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
+  openGraph: {
+    title: 'Books | Arnaud Wiehe',
+    description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Books | Arnaud Wiehe',
+    description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
+  },
+}
 
 const books = [
   {
@@ -163,33 +176,14 @@ const books = [
 ]
 
 export default function BooksPage() {
-  useEffect(() => {
-    document.title = 'Books by Arnaud Wiehe | AI & Emerging Tech Strategist'
-  }, [])
-
   return (
     <>
       {/* Navigation */}
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            Arnaud Wiehe
-          </Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/#music" className="nav-link">Music</Link>
-            <Link href="/#contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="books-page">
         <header className="books-page-header">
-          <p className="section-label">Books</p>
-          <h1>Author of Two Books</h1>
+          <h1>Books</h1>
           <p className="subtitle">
             Practical guides for leaders navigating cybersecurity, AI, and emerging technology.
           </p>
@@ -344,296 +338,6 @@ export default function BooksPage() {
           </a>
         </div>
       </main>
-
-      <style jsx>{`
-        .book-year {
-          font-size: 0.72rem;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: var(--text-muted);
-          margin-bottom: 0.75rem;
-        }
-        
-        .book-coauthor {
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          font-style: italic;
-          margin-bottom: 1rem;
-        }
-        
-        .book-description {
-          font-size: 1rem;
-          color: var(--text-secondary);
-          line-height: 1.75;
-          margin-bottom: 2rem;
-          font-weight: 300;
-        }
-        
-        .book-section {
-          margin-bottom: 2.5rem;
-        }
-        
-        .book-section-title {
-          font-size: 0.85rem;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: var(--text-muted);
-          margin-bottom: 1rem;
-          font-weight: 500;
-        }
-        
-        .book-audience-list,
-        .book-takeaways-list {
-          list-style: none;
-          padding: 0;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 0.75rem;
-        }
-        
-        .book-audience-list li,
-        .book-takeaways-list li {
-          position: relative;
-          padding-left: 1.5rem;
-          font-size: 0.95rem;
-          color: var(--text-secondary);
-          line-height: 1.5;
-        }
-        
-        .book-audience-list li::before,
-        .book-takeaways-list li::before {
-          content: "✓";
-          position: absolute;
-          left: 0;
-          color: var(--gold);
-          font-weight: bold;
-        }
-        
-        .book-toc-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 0.75rem;
-        }
-        
-        .book-toc-item {
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          padding: 0.75rem 1rem;
-          background: var(--warm-100);
-          border-radius: 4px;
-          border-left: 3px solid var(--gold);
-        }
-        
-        .book-toc-more {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-          font-style: italic;
-          padding: 0.75rem 1rem;
-          text-align: center;
-        }
-        
-        .book-excerpts {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-        
-        .book-excerpt-card {
-          background: linear-gradient(135deg, var(--warm-100) 0%, transparent 100%);
-          padding: 1.5rem;
-          border-radius: 8px;
-          border-left: 4px solid var(--gold);
-        }
-        
-        .book-excerpt-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: var(--text-primary);
-          margin-bottom: 0.75rem;
-        }
-        
-        .book-excerpt-text {
-          font-size: 0.95rem;
-          color: var(--text-secondary);
-          line-height: 1.7;
-          font-style: italic;
-        }
-        
-        .book-testimonials {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-        
-        .book-testimonial-card {
-          background: var(--warm-100);
-          padding: 1.5rem;
-          border-radius: 8px;
-          position: relative;
-        }
-        
-        .book-testimonial-card::before {
-          content: '"';
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 4rem;
-          color: var(--gold);
-          opacity: 0.3;
-          position: absolute;
-          top: -0.5rem;
-          left: 0.75rem;
-          line-height: 1;
-        }
-        
-        .book-testimonial-quote {
-          font-size: 0.95rem;
-          color: var(--text-secondary);
-          line-height: 1.7;
-          font-style: italic;
-          margin-bottom: 1rem;
-          position: relative;
-          z-index: 1;
-        }
-        
-        .book-testimonial-author {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-        
-        .book-testimonial-author strong {
-          color: var(--text-primary);
-          font-size: 0.9rem;
-        }
-        
-        .book-testimonial-author span {
-          color: var(--text-muted);
-          font-size: 0.8rem;
-        }
-        
-        .books-services-section {
-          margin-top: 6rem;
-          padding-top: 4rem;
-          border-top: 1px solid var(--warm-200);
-        }
-        
-        .books-services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-        }
-        
-        .books-service-card {
-          background: linear-gradient(145deg, var(--warm-100) 0%, var(--warm-50) 100%);
-          padding: 2rem;
-          border-radius: 12px;
-          border: 1px solid var(--warm-200);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .books-service-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-        }
-        
-        .books-service-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.3rem;
-          font-weight: 600;
-          color: var(--text-primary);
-          margin-bottom: 1rem;
-        }
-        
-        .books-service-description {
-          font-size: 0.95rem;
-          color: var(--text-secondary);
-          line-height: 1.7;
-          margin-bottom: 1.25rem;
-        }
-        
-        .books-service-benefits {
-          list-style: none;
-          padding: 0;
-        }
-        
-        .books-service-benefits li {
-          position: relative;
-          padding-left: 1.25rem;
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          margin-bottom: 0.5rem;
-        }
-        
-        .books-service-benefits li::before {
-          content: "→";
-          position: absolute;
-          left: 0;
-          color: var(--gold);
-        }
-        
-        .books-cta-section {
-          margin-top: 4rem;
-          padding: 3rem;
-          background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-          border-radius: 16px;
-          text-align: center;
-        }
-        
-        .books-cta-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.75rem;
-          font-weight: 500;
-          color: var(--cream);
-          margin-bottom: 0.75rem;
-        }
-        
-        .books-cta-text {
-          font-size: 1rem;
-          color: rgba(250,248,245,0.7);
-          margin-bottom: 1.5rem;
-          max-width: 500px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        
-        .books-cta-button {
-          display: inline-block;
-          padding: 1rem 2.5rem;
-          background: var(--gold);
-          color: var(--navy);
-          font-size: 0.9rem;
-          font-weight: 500;
-          letter-spacing: 0.05em;
-          border-radius: 4px;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-        
-        .books-cta-button:hover {
-          background: var(--gold-light);
-          transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-          .book-audience-list,
-          .book-takeaways-list,
-          .book-toc-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .books-services-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .books-cta-section {
-            padding: 2rem 1.5rem;
-          }
-          
-          .books-cta-title {
-            font-size: 1.4rem;
-          }
-        }
-      `}</style>
     </>
   )
 }

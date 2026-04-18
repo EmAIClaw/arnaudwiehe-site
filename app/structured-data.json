@@ -1,0 +1,90 @@
+{
+  "website": {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Arnaud Wiehe",
+    "url": "https://arnaudwiehe.com",
+    "description": "Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.",
+    "author": {
+      "@type": "Person",
+      "name": "Arnaud Wiehe",
+      "url": "https://arnaudwiehe.com",
+      "jobTitle": "Managing Director of Information Security and AI Governance",
+      "description": "Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.",
+      "sameAs": [
+        "https://www.linkedin.com/in/arnaudwiehe"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Enterprise Organization"
+      }
+    }
+  },
+  "person": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arnaud Wiehe",
+    "url": "https://arnaudwiehe.com",
+    "image": "https://arnaudwiehe.com/images/headshot.jpg",
+    "jobTitle": "Managing Director of Information Security and AI Governance",
+    "description": "Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.",
+    "sameAs": [
+      "https://www.linkedin.com/in/arnaudwiehe"
+    ],
+    "knowsAbout": [
+      "AI Governance",
+      "Cybersecurity",
+      "Emerging Technologies",
+      "Risk Management",
+      "Digital Transformation"
+    ],
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "ISACA"
+    },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certification",
+        "name": "AIGP - Artificial Intelligence Governance Professional"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certification",
+        "name": "CISSP - Certified Information Systems Security Professional"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certification",
+        "name": "CCSP - Certified Cloud Security Professional"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certification",
+        "name": "CISM - Certified Information Security Manager"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certification",
+        "name": "CISA - Certified Information Systems Auditor"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certification",
+        "name": "CIPP/E - Certified Information Privacy Professional (Europe)"
+      }
+    ],
+    "author": [
+      {
+        "@type": "Book",
+        "name": "The Book on Cybersecurity",
+        "url": "https://www.amazon.com/dp/B0C2SCKX7J"
+      },
+      {
+        "@type": "Book",
+        "name": "Emerging Tech, Emerging Threats",
+        "url": "https://www.amazon.com/dp/B0CXXL8W58"
+      }
+    ]
+  }
+}

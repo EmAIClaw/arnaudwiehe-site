@@ -1,33 +1,28 @@
-'use client'
-
-import { useEffect } from 'react'
+import { Metadata } from 'next'
 import Link from 'next/link'
+import Nav from '../../components/Nav'
 import { getAllArticles } from './data'
 
+export const metadata: Metadata = {
+  title: 'Writing | Arnaud Wiehe',
+  description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies, and what I\'m learning along the way.',
+  openGraph: {
+    title: 'Writing | Arnaud Wiehe',
+    description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Writing | Arnaud Wiehe',
+    description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies.',
+  },
+}
+
 export default function ArticlesPage() {
-  useEffect(() => {
-    document.title = 'Writing | Arnaud Wiehe'
-  }, [])
   const allArticles = getAllArticles()
 
   return (
     <>
-      {/* Navigation — consistent with main page */}
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            Arnaud Wiehe
-          </Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/#music" className="nav-link">Music</Link>
-            <Link href="/#contact" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="articles-page">
         <header className="articles-header">
@@ -40,14 +35,14 @@ export default function ArticlesPage() {
 
         <div className="articles-list">
           {allArticles.map((article) => (
-            <article key={article.slug} className="article-list-card">
+            <article key={article.slug} className={`article-list-card${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover-card' : ''}`}>
               {article.heroImage && (
                 <Link href={`/articles/${article.slug}`} className="article-list-image-link">
                   <div className="article-list-image-wrap">
                     <img
                       src={article.heroImage}
                       alt={article.title}
-                      className="article-list-image"
+                      className={`article-list-image${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover' : ''}`}
                     />
                   </div>
                 </Link>

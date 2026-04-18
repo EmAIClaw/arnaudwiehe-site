@@ -1,50 +1,35 @@
-'use client'
-
-import { useEffect } from 'react'
 import Link from 'next/link'
-import { getUpcomingEvents, getPastEvents } from './data'
+import Nav from '../../components/Nav'
+import { Metadata } from 'next'
+import { getAllSpeakingEvents } from './data'
 import HeroImage from '../../assets/photos/speaking/gitex-dubai-2025-2.jpg'
 
+export const metadata: Metadata = {
+  title: 'Speaking | Arnaud Wiehe',
+  description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies — helping leaders navigate the intersection of innovation and risk.',
+  openGraph: {
+    title: 'Speaking | Arnaud Wiehe',
+    description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Speaking | Arnaud Wiehe',
+    description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies.',
+  },
+}
+
 export default function SpeakingPage() {
-  useEffect(() => {
-    document.title = 'Speaking Engagements | Arnaud Wiehe'
-  }, [])
-  const upcoming = getUpcomingEvents()
-  const past = getPastEvents()
+  const allEvents = getAllSpeakingEvents()
 
   return (
     <>
       {/* Navigation */}
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            Arnaud Wiehe
-          </Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">About</Link>
-            <Link href="/books" className="nav-link">Books</Link>
-            <Link href="/speaking" className="nav-link">Speaking</Link>
-            <Link href="/articles" className="nav-link">Writing</Link>
-            <Link href="/" className="nav-link">Music</Link>
-            <Link href="/" className="nav-link">Contact</Link>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="speaking-page">
-        {/* Hero Image - Better Fit */}
-        <div className="speaking-hero-image-wrap">
-          <img 
-            src={HeroImage.src} 
-            alt="Arnaud Wiehe on stage at GITEX Global Dubai" 
-            className="speaking-hero-image"
-          />
-        </div>
-
         {/* Page Header */}
         <header className="speaking-page-header">
-          <p className="section-label">Speaking</p>
-          <h1>Speaking Engagements</h1>
+          <h1>Speaking</h1>
           <p className="subtitle">
             Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging
             technologies — helping leaders navigate the intersection of innovation and risk.
@@ -56,31 +41,23 @@ export default function SpeakingPage() {
           </div>
         </header>
 
-        {/* Upcoming Events - Simplified List */}
-        {upcoming.length > 0 && (
-          <section className="speaking-section-group">
-            <h2 className="speaking-group-label">Upcoming Events</h2>
-            <div className="speaking-events-list">
-              {upcoming.map((event) => (
-                <SpeakingListItem key={event.slug} event={event} />
-              ))}
-            </div>
-          </section>
-        )}
+        {/* Hero Image */}
+        <div className="speaking-hero-image-wrap">
+          <img 
+            src={HeroImage.src} 
+            alt="Arnaud Wiehe on stage at GITEX Global Dubai" 
+            className="speaking-hero-image"
+          />
+        </div>
 
-        {/* Past Events - Simplified List */}
-        {past.length > 0 && (
-          <section className="speaking-section-group">
-            {upcoming.length > 0 && (
-              <h2 className="speaking-group-label">Past Events</h2>
-            )}
-            <div className="speaking-events-list">
-              {past.map((event) => (
-                <SpeakingListItem key={event.slug} event={event} />
-              ))}
-            </div>
-          </section>
-        )}
+        {/* Speaking Events - Single Section */}
+        <section className="speaking-section-group">
+          <div className="speaking-events-list">
+            {allEvents.map((event) => (
+              <SpeakingListItem key={event.slug} event={event} />
+            ))}
+          </div>
+        </section>
 
         {/* Book CTA */}
         <div className="speaking-book-cta">
@@ -99,7 +76,7 @@ export default function SpeakingPage() {
 }
 
 // Simplified list item - no photos, Watch button on the right
-function SpeakingListItem({ event }: { event: ReturnType<typeof getPastEvents>[number] }) {
+function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEvents>[number] }) {
   return (
     <div className="speaking-list-item">
       <div className="speaking-list-meta">
