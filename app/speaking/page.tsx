@@ -7,9 +7,13 @@ import HeroImage from '../../assets/photos/speaking/gitex-dubai-2025-2.jpg'
 export const metadata: Metadata = {
   title: 'Speaking | Arnaud Wiehe',
   description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies — helping leaders navigate the intersection of innovation and risk.',
+  alternates: {
+    canonical: 'https://arnaudwiehe.com/speaking',
+  },
   openGraph: {
     title: 'Speaking | Arnaud Wiehe',
     description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies.',
+    url: 'https://arnaudwiehe.com/speaking',
   },
   twitter: {
     card: 'summary_large_image',
@@ -93,13 +97,9 @@ function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEv
           ))}
         </div>
       </div>
-      {event.youtubeId ? (
-        <Link href={`/speaking/${event.slug}`} className="speaking-list-cta">
-          Watch →
-        </Link>
-      ) : (
-        <span className="speaking-list-cta speaking-list-cta--disabled"></span>
-      )}
+      <Link href={`/speaking/${event.slug}`} className="speaking-list-cta">
+        {event.youtubeId ? 'Watch →' : 'Details →'}
+      </Link>
     </div>
   )
 }

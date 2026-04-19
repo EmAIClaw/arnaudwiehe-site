@@ -6,9 +6,13 @@ import { getAllArticles } from './data'
 export const metadata: Metadata = {
   title: 'Writing | Arnaud Wiehe',
   description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies, and what I\'m learning along the way.',
+  alternates: {
+    canonical: 'https://arnaudwiehe.com/articles',
+  },
   openGraph: {
     title: 'Writing | Arnaud Wiehe',
     description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies.',
+    url: 'https://arnaudwiehe.com/articles',
   },
   twitter: {
     card: 'summary_large_image',

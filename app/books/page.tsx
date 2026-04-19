@@ -7,9 +7,13 @@ import Book2 from '../../assets/images/books/Emerging Tech Cover- 3d.png'
 export const metadata: Metadata = {
   title: 'Books | Arnaud Wiehe',
   description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
+  alternates: {
+    canonical: 'https://arnaudwiehe.com/books',
+  },
   openGraph: {
     title: 'Books | Arnaud Wiehe',
     description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
+    url: 'https://arnaudwiehe.com/books',
   },
   twitter: {
     card: 'summary_large_image',
@@ -73,7 +77,7 @@ const books = [
     ],
     testimonials: [
       {
-        quote: "Tiago was a thoroughly engaging speaker for our attendees at the Applied IoT Security stage and delivered a clear presentation, which provided valuable key takeaways for those in the space who are seeking advice when it comes to protecting against IoT threats.",
+        quote: "Arnaud was a thoroughly engaging speaker for our attendees at the Applied IoT Security stage and delivered a clear presentation, which provided valuable key takeaways for those in the space who are seeking advice when it comes to protecting against IoT threats.",
         author: "Rosie Fletcher",
         title: "Conference Producer at TechEx Events"
       },
@@ -88,7 +92,7 @@ const books = [
         title: "Senior Programme Editor, The Economist"
       },
       {
-        quote: "Working with Tiago was an invaluable experience for our team. Tiago's extensive knowledge in the field of cybersecurity was evident from the onset. He has a unique ability to simplify complex security concepts, making them accessible to everyone in any organization.",
+        quote: "Working with Arnaud was an invaluable experience for our team. Arnaud's extensive knowledge in the field of cybersecurity was evident from the onset. He has a unique ability to simplify complex security concepts, making them accessible to everyone in any organization.",
         author: "Caroline Wong",
         title: "Chief Strategy Officer at Cobalt and host of Humans of InfoSec Podcast"
       }

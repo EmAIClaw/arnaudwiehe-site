@@ -3440,22 +3440,12 @@ p {
 .nav-hamburger-line {
   width: 100%;
   height: 2px;
-  background: var(--brown);
+  background: var(--cream);
   border-radius: 1px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.nav-hamburger.active .nav-hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav-hamburger.active .nav-hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-hamburger.active .nav-hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+/* Mobile hamburger animated lines handled via :target */
 
 /* Show hamburger, hide desktop links on mobile */
 @media (max-width: 767px) {

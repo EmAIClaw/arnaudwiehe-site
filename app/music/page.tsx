@@ -13,9 +13,13 @@ import Instrument8 from '../../assets/instruments/IMG_9896.jpg'
 export const metadata: Metadata = {
   title: 'Music | Arnaud Wiehe',
   description: 'Beyond technology and security, music provides balance, discipline, and creative expression. Violin, viola, cello, and instrument building.',
+  alternates: {
+    canonical: 'https://arnaudwiehe.com/music',
+  },
   openGraph: {
     title: 'Music | Arnaud Wiehe',
     description: 'Beyond technology and security, music provides balance, discipline, and creative expression.',
+    url: 'https://arnaudwiehe.com/music',
   },
   twitter: {
     card: 'summary_large_image',
