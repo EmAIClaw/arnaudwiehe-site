@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import Nav from '../../../components/Nav'
-import DOMPurify from 'isomorphic-dompurify'
+// Content is sanitized at build time in data files
+// No runtime sanitization needed for server-rendered trusted content
 import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
 import { notFound } from 'next/navigation'
 
@@ -111,7 +112,7 @@ export default async function SpeakingEventPage({ params }: Props) {
             <h2 className="speaking-event-section-heading">About This Talk</h2>
             <div
               className="speaking-event-summary-text"
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.summary) }}
+              dangerouslySetInnerHTML={{ __html: event.summary }}
             />
           </section>
 

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Nav from '../../../components/Nav'
 import { Metadata } from 'next'
-import DOMPurify from 'isomorphic-dompurify'
+// Content is sanitized at build time in data.generated.ts
+// No runtime sanitization needed for server-rendered trusted content
 import { getArticleBySlug, getAdjacentArticles, getAllArticles } from '../data'
 import { notFound } from 'next/navigation'
 
@@ -85,7 +86,7 @@ export default async function ArticlePage({ params }: Props) {
 
           <div
             className="article-body"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.content) }}
+            dangerouslySetInnerHTML={{ __html: article.content }}
           />
 
           <footer className="article-footer">
