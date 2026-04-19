@@ -1,5 +1,4 @@
 import './globals.css'
-import MobileNav from '../components/MobileNav'
 
 export const metadata = {
   title: 'Arnaud Wiehe | AI & Emerging Tech Strategist',
@@ -77,7 +76,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}<MobileNav /></body>
+      <body>{children}</body>
     </html>
   )
 }

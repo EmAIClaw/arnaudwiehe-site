@@ -1210,6 +1210,7 @@ p {
     flex-direction: column;
     width: 100%;
     max-width: 300px;
+    margin: 0 auto;
   }
 
   .btn-primary,
@@ -3463,7 +3464,7 @@ p {
   }
 
   .nav-links {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -3476,7 +3477,14 @@ p {
   bottom: 0;
   background: rgba(42, 36, 32, 0.6);
   z-index: 998;
-  animation: fadeIn 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-panel:target ~ .mobile-nav-overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @keyframes fadeIn {
@@ -3501,7 +3509,7 @@ p {
   overflow-y: auto;
 }
 
-.mobile-nav-panel.active {
+.mobile-nav-panel:target {
   right: 0;
 }
 
