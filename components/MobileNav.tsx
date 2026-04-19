@@ -14,16 +14,6 @@ const navItems = [
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > 300)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -35,10 +25,39 @@ export default function MobileNav() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  // Sync the hamburger button in Nav.tsx with our open state
+  useEffect(() => {
+    const hamburger = document.querySelector('.nav-hamburger')
+    if (!hamburger) return
+
+    const toggle = () => setOpen(prev => !prev)
+    hamburger.addEventListener('click', toggle)
+
+    // Update aria and visual state
+    const updateHamburger = () => {
+      hamburger.setAttribute('aria-expanded', String(open))
+      if (open) {
+        hamburger.classList.add('active')
+      } else {
+        hamburger.classList.remove('active')
+      }
+    }
+    updateHamburger()
+
+    return () => hamburger.removeEventListener('click', toggle)
+  }, [open])
+
+  // Close on Escape key
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // Close menu on navigation
     setOpen(false)
-    // For hash links, scroll after closing
     if (href.startsWith('/#')) {
       e.preventDefault()
       const id = href.slice(2)
@@ -49,23 +68,6 @@ export default function MobileNav() {
 
   return (
     <>
-      {/* Floating menu button */}
-      <button
-        className={`mobile-nav-toggle${visible && !open ? ' visible' : ''}`}
-        onClick={() => setOpen(!open)}
-        aria-label="Toggle navigation menu"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          {open ? (
-            <path d="M18 6L6 18M6 6l12 12" stroke="#FAF8F5" />
-          ) : (
-            <>
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="#FAF8F5" />
-            </>
-          )}
-        </svg>
-      </button>
-
       {/* Overlay */}
       {open && (
         <div

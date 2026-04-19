@@ -15,6 +15,16 @@ export default function Nav() {
           <Link href="/music" className="nav-link">Music</Link>
           <a href="/#contact" className="nav-link">Contact</a>
         </div>
+        {/* Mobile hamburger - controlled by MobileNav.tsx via this button's click */}
+        <button
+          className="nav-hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <span className="nav-hamburger-line"></span>
+          <span className="nav-hamburger-line"></span>
+          <span className="nav-hamburger-line"></span>
+        </button>
       </div>
     </nav>
   )
