@@ -1,5 +1,5 @@
-redirectsOrigin = "inline"
 headersOrigin = "inline"
+redirectsOrigin = "inline"
 
 [functions]
 
@@ -12,7 +12,7 @@ package = "@netlify/plugin-nextjs"
 [plugins.inputs]
 
 [build]
-publish = "/Users/ai/.openclaw/workspace/projects/arnaudwiehe/www/.next"
+publish = "/Users/ai/.openclaw/workspace/projects/arnaudwiehe/www/out"
 publishOrigin = "config"
 commandOrigin = "config"
 command = "npm run build"
@@ -33,15 +33,37 @@ NODE_VERSION = "20"
 [build.services]
 
 [[headers]]
+for = "/*"
+
+[headers.values]
+Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+X-Frame-Options = "SAMEORIGIN"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; frame-src https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com; connect-src 'self'; media-src 'self'"
+
+[[headers]]
 for = "/_next/static/*"
 
 [headers.values]
 Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
-from = "/*"
-to = "/404.html"
-status = 404.0
+from = "/articles/:slug"
+to = "/articles/:slug.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/speaking/:slug"
+to = "/speaking/:slug.html"
+status = 200.0
 force = false
 
 [redirects.query]

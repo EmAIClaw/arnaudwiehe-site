@@ -6,6 +6,8 @@ import Nav from '../../../components/Nav'
 import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
 import { notFound } from 'next/navigation'
 
+export const dynamic = 'force-static'
+
 type Props = {
   params: Promise<{ slug: string }>
 }
