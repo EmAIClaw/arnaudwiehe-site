@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
+import YouTubeEmbed from '../../components/YouTubeEmbed'
 import Instrument1 from '../../assets/instruments/IMG_5695.jpg'
 import Instrument2 from '../../assets/instruments/IMG_5935.jpg'
 import Instrument3 from '../../assets/instruments/IMG_0470.jpg'
@@ -70,13 +71,7 @@ export default function MusicPage() {
 
           <div className="music-video-section">
             <div className="music-video-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/fi0KHOQ1e74"
-                title="Musical Performance"
-                className="music-video-iframe"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <YouTubeEmbed videoId="fi0KHOQ1e74" title="Musical Performance" className="music-video-iframe" />
             </div>
           </div>
 

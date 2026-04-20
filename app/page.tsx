@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Nav from '../components/Nav'
+import YouTubeEmbed from '../components/YouTubeEmbed'
 import Headshot from '../assets/headshots/headshot.jpg'
 import Book1 from '../assets/images/books/Book on Cybersecurity Cover -3d.png'
 import Book2 from '../assets/images/books/Emerging Tech Cover- 3d.png'
@@ -328,13 +329,7 @@ export default function Home() {
           {/* YouTube Video */}
           <div className="music-video-section">
             <div className="music-video-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/fi0KHOQ1e74"
-                title="Musical Performance"
-                className="music-video-iframe"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <YouTubeEmbed videoId="fi0KHOQ1e74" title="Musical Performance" className="music-video-iframe" />
             </div>
           </div>
 

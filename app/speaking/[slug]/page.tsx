@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import Nav from '../../../components/Nav'
+import YouTubeEmbed from '../../../components/YouTubeEmbed'
 // Content is sanitized at build time in data files
 // No runtime sanitization needed for server-rendered trusted content
 import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
@@ -117,13 +118,7 @@ export default async function SpeakingEventPage({ params }: Props) {
         {/* YouTube Embed */}
         {event.youtubeId && (
           <div className="speaking-event-video-wrap">
-            <iframe
-              src={`https://www.youtube.com/embed/${event.youtubeId}`}
-              title={`${event.name} — ${event.topic}`}
-              className="speaking-event-video-iframe"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <YouTubeEmbed videoId={event.youtubeId} title={`${event.name} — ${event.topic}`} className="speaking-event-video-iframe" />
           </div>
         )}
 

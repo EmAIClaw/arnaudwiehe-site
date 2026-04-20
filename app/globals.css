@@ -4185,3 +4185,46 @@ p {
 .not-found-link:hover {
   color: var(--orange-dark);
 }
+
+/* YouTube Embed */
+.youtube-embed {
+  position: relative;
+  width: 100%;
+}
+
+.youtube-embed-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.youtube-embed-thumbnail {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.youtube-embed-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.youtube-embed-link:hover .youtube-embed-play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.youtube-embed-play-btn {
+  width: 68px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+.youtube-embed-link:hover .youtube-embed-thumbnail {
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
