@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
 import { Metadata } from 'next'
@@ -27,11 +28,9 @@ export default function SpeakingPage() {
 
   return (
     <>
-      {/* Navigation */}
       <Nav />
 
       <main id="main-content" className="speaking-page">
-        {/* Page Header */}
         <header className="speaking-page-header">
           <h1>Speaking</h1>
           <p className="subtitle">
@@ -45,16 +44,16 @@ export default function SpeakingPage() {
           </div>
         </header>
 
-        {/* Hero Image */}
         <div className="speaking-hero-image-wrap">
-          <img 
-            src={HeroImage.src} 
-            alt="Arnaud Wiehe on stage at GITEX Global Dubai" 
+          <Image
+            src={HeroImage}
+            alt="Arnaud Wiehe on stage at GITEX Global Dubai"
             className="speaking-hero-image"
+            priority
+            sizes="(max-width: 1200px) 100vw, 1200px"
           />
         </div>
 
-        {/* Speaking Events - Single Section */}
         <section className="speaking-section-group">
           <div className="speaking-events-list">
             {allEvents.map((event) => (
@@ -63,7 +62,6 @@ export default function SpeakingPage() {
           </div>
         </section>
 
-        {/* Book CTA */}
         <div className="speaking-book-cta">
           <h2>Interested in having Arnaud speak?</h2>
           <p>
@@ -79,7 +77,6 @@ export default function SpeakingPage() {
   )
 }
 
-// Simplified list item - no photos, Watch button on the right
 function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEvents>[number] }) {
   return (
     <div className="speaking-list-item">

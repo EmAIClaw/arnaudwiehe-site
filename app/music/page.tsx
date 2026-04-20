@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import { Metadata } from 'next'
-import Link from 'next/link'
 import Nav from '../../components/Nav'
 import YouTubeEmbed from '../../components/YouTubeEmbed'
 import Instrument1 from '../../assets/instruments/IMG_5695.jpg'
@@ -49,7 +49,7 @@ export default function MusicPage() {
         <header className="music-page-header">
           <h1>Music</h1>
           <p className="subtitle">
-            Beyond technology and security, music is a constant source of balance, 
+            Beyond technology and security, music is a constant source of balance,
             discipline, and creative expression.
           </p>
         </header>
@@ -57,14 +57,14 @@ export default function MusicPage() {
         <section className="music-content-section">
           <div className="music-description">
             <p>
-              Music has been a lifelong companion. From performing on violin and viola 
-              to building cellos and exploring the unique cello da spalla, the intersection 
+              Music has been a lifelong companion. From performing on violin and viola
+              to building cellos and exploring the unique cello da spalla, the intersection
               of craftsmanship and artistry provides a different kind of creative outlet.
             </p>
             <p>
-              Instrument building, in particular, teaches patience and precision—qualities 
-              that translate directly to leadership and strategic thinking in the technology world. 
-              Each instrument is a complex system of interdependent parts, requiring both 
+              Instrument building, in particular, teaches patience and precision—qualities
+              that translate directly to leadership and strategic thinking in the technology world.
+              Each instrument is a complex system of interdependent parts, requiring both
               technical skill and artistic vision to bring to life.
             </p>
           </div>
@@ -80,10 +80,12 @@ export default function MusicPage() {
             <div className="music-instruments-grid">
               {instruments.map((instrument, index) => (
                 <div key={index} className="music-instrument-card">
-                  <img
-                    src={instrument.src.src}
+                  <Image
+                    src={instrument.src}
                     alt={instrument.alt}
                     className="music-instrument-img"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 50vw, 200px"
                   />
                 </div>
               ))}

@@ -29,9 +29,7 @@
   --navy: #1A1A2E;
   --navy-light: #16213E;
 
-  /* Typography */
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography variables are injected by next/font on the body element */
 
   /* Font Weights */
   --weight-light: 300;
@@ -2222,7 +2220,7 @@ p {
 }
 
 .book-excerpt-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -2252,7 +2250,7 @@ p {
 
 .book-testimonial-card::before {
   content: '"';
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-heading);
   font-size: 4rem;
   color: var(--gold);
   opacity: 0.3;
@@ -2315,7 +2313,7 @@ p {
 }
 
 .books-service-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-primary);
@@ -2359,7 +2357,7 @@ p {
 }
 
 .books-cta-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 500;
   color: var(--cream);

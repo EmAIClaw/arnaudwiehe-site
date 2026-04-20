@@ -25,6 +25,7 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
             alt={title}
             className="youtube-embed-thumbnail"
             loading="lazy"
+            fetchPriority="low"
             width="640"
             height="360"
           />

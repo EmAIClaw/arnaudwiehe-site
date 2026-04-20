@@ -1,8 +1,7 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../../../components/Nav'
 import { Metadata } from 'next'
-// Content is sanitized at build time in data.generated.ts
-// No runtime sanitization needed for server-rendered trusted content
 import { getArticleBySlug, getAdjacentArticles, getAllArticles } from '../data'
 import { notFound } from 'next/navigation'
 
@@ -10,6 +9,14 @@ export const dynamic = 'force-static'
 
 type Props = {
   params: Promise<{ slug: string }>
+}
+
+function getArticleImageDimensions(slug: string) {
+  if (slug === 'cyber-resilience-after-the-hype' || slug === 'third-party-cyber-risk-board-level') {
+    return { width: 800, height: 1200 }
+  }
+
+  return { width: 1200, height: 675 }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -54,23 +61,25 @@ export default async function ArticlePage({ params }: Props) {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    'headline': article.title,
-    'description': article.excerpt,
-    'datePublished': article.date,
-    'author': {
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    author: {
       '@type': 'Person',
-      'name': 'Arnaud Wiehe',
-      'url': 'https://arnaudwiehe.com',
+      name: 'Arnaud Wiehe',
+      url: 'https://arnaudwiehe.com',
     },
-    'publisher': {
+    publisher: {
       '@type': 'Person',
-      'name': 'Arnaud Wiehe',
-      'url': 'https://arnaudwiehe.com',
+      name: 'Arnaud Wiehe',
+      url: 'https://arnaudwiehe.com',
     },
-    'mainEntityOfPage': `https://arnaudwiehe.com/articles/${slug}`,
+    mainEntityOfPage: `https://arnaudwiehe.com/articles/${slug}`,
   }
 
   const { prev, next } = getAdjacentArticles(slug)
+  const imageDimensions = getArticleImageDimensions(article.slug)
+  const isBookCover = article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level'
 
   return (
     <>
@@ -78,7 +87,6 @@ export default async function ArticlePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      {/* Navigation */}
       <Nav />
 
       <main id="main-content" className="article-page">
@@ -98,13 +106,16 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </header>
 
-          {/* Hero image */}
           {article.heroImage && (
-            <div className={`article-hero-image-wrap${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover-hero' : ''}`}>
-              <img
+            <div className={`article-hero-image-wrap${isBookCover ? ' book-cover-hero' : ''}`}>
+              <Image
                 src={article.heroImage}
                 alt={article.title}
                 className="article-hero-image"
+                width={imageDimensions.width}
+                height={imageDimensions.height}
+                priority
+                sizes={isBookCover ? '(max-width: 768px) 200px, 200px' : '(max-width: 768px) 100vw, 800px'}
               />
             </div>
           )}

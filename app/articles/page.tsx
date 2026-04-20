@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
@@ -21,6 +22,14 @@ export const metadata: Metadata = {
   },
 }
 
+function getArticleImageDimensions(slug: string) {
+  if (slug === 'cyber-resilience-after-the-hype' || slug === 'third-party-cyber-risk-board-level') {
+    return { width: 800, height: 1200 }
+  }
+
+  return { width: 1200, height: 675 }
+}
+
 export default function ArticlesPage() {
   const allArticles = getAllArticles()
 
@@ -38,37 +47,45 @@ export default function ArticlesPage() {
         </header>
 
         <div className="articles-list">
-          {allArticles.map((article) => (
-            <article key={article.slug} className={`article-list-card${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover-card' : ''}`}>
-              {article.heroImage && (
-                <Link href={`/articles/${article.slug}`} className="article-list-image-link">
-                  <div className="article-list-image-wrap">
-                    <img
-                      src={article.heroImage}
-                      alt={article.title}
-                      className={`article-list-image${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover' : ''}`}
-                    />
-                  </div>
-                </Link>
-              )}
-              <div className="article-list-body">
-                <div className="article-meta">
-                  <span className="article-date">{article.dateFormatted}</span>
-                  <span className="article-category">{article.category}</span>
-                  <span className="article-reading-time">{article.readingTime}</span>
-                </div>
-                <h2>
-                  <Link href={`/articles/${article.slug}`} className="article-link">
-                    {article.title}
+          {allArticles.map((article) => {
+            const imageDimensions = getArticleImageDimensions(article.slug)
+
+            return (
+              <article key={article.slug} className={`article-list-card${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover-card' : ''}`}>
+                {article.heroImage && (
+                  <Link href={`/articles/${article.slug}`} className="article-list-image-link">
+                    <div className="article-list-image-wrap">
+                      <Image
+                        src={article.heroImage}
+                        alt={article.title}
+                        className={`article-list-image${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover' : ''}`}
+                        width={imageDimensions.width}
+                        height={imageDimensions.height}
+                        loading="lazy"
+                        sizes={article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? '(max-width: 768px) 100vw, 160px' : '(max-width: 768px) 100vw, 300px'}
+                      />
+                    </div>
                   </Link>
-                </h2>
-                <p className="article-excerpt">{article.excerpt}</p>
-                <Link href={`/articles/${article.slug}`} className="read-more">
-                  Read article →
-                </Link>
-              </div>
-            </article>
-          ))}
+                )}
+                <div className="article-list-body">
+                  <div className="article-meta">
+                    <span className="article-date">{article.dateFormatted}</span>
+                    <span className="article-category">{article.category}</span>
+                    <span className="article-reading-time">{article.readingTime}</span>
+                  </div>
+                  <h2>
+                    <Link href={`/articles/${article.slug}`} className="article-link">
+                      {article.title}
+                    </Link>
+                  </h2>
+                  <p className="article-excerpt">{article.excerpt}</p>
+                  <Link href={`/articles/${article.slug}`} className="read-more">
+                    Read article →
+                  </Link>
+                </div>
+              </article>
+            )
+          })}
         </div>
 
         <div className="newsletter-cta">

@@ -1,8 +1,6 @@
-import Link from 'next/link'
+import Image from 'next/image'
 import Nav from '../../components/Nav'
 import { Metadata } from 'next'
-import Book1 from '../../assets/images/books/Book on Cybersecurity Cover -3d.png'
-import Book2 from '../../assets/images/books/Emerging Tech Cover- 3d.png'
 
 export const metadata: Metadata = {
   title: 'Books | Arnaud Wiehe',
@@ -26,7 +24,9 @@ const books = [
   {
     title: 'Emerging Tech, Emerging Threats',
     subtitle: 'A Cybersecurity Guide for Innovative Leaders',
-    cover: Book2,
+    cover: '/images/books/emerging-tech-cover.jpg',
+    coverWidth: 600,
+    coverHeight: 900,
     quote: '"A strategic guide to navigating the intersection of innovation and risk."',
     description: `AI, quantum computing, extended reality, and IoT are reshaping every industry — and every threat landscape. This book equips technology and business leaders with the strategic thinking needed to harness emerging technologies safely. It examines how each technology creates new attack surfaces, what leaders must understand to govern them responsibly, and how to move beyond fear-driven narratives toward a more nuanced view of innovation and risk.`,
     amazonUrl: 'https://www.amazon.com/dp/B0CXXL8W58',
@@ -77,31 +77,33 @@ const books = [
     ],
     testimonials: [
       {
-        quote: "Arnaud was a thoroughly engaging speaker for our attendees at the Applied IoT Security stage and delivered a clear presentation, which provided valuable key takeaways for those in the space who are seeking advice when it comes to protecting against IoT threats.",
-        author: "Rosie Fletcher",
-        title: "Conference Producer at TechEx Events"
+        quote: 'Arnaud was a thoroughly engaging speaker for our attendees at the Applied IoT Security stage and delivered a clear presentation, which provided valuable key takeaways for those in the space who are seeking advice when it comes to protecting against IoT threats.',
+        author: 'Rosie Fletcher',
+        title: 'Conference Producer at TechEx Events'
       },
       {
         quote: "I've just finished reading The Book on Cybersecurity by Arnaud Wiehe. It is an excellent guide to the growing cyber-threat landscape and provides practical solutions to protect against it. Arnaud has achieved the difficult balance of being understandable to the layman and insightful to the expert. Highly recommended!",
-        author: "Brett McDougall",
-        title: "National Chief Information Officer, SPAR South Africa"
+        author: 'Brett McDougall',
+        title: 'National Chief Information Officer, SPAR South Africa'
       },
       {
-        quote: "We were honored to have Arnaud as a speaker for the virtual day of the Economist Enterprise Metaverse Summit. He shared valuable insights on the topic of 'Securing the Metaverse: The Intersection of Metaverse and Cybersecurity,' and we had positive feedback from our attendees.",
-        author: "Helen Ponsford",
-        title: "Senior Programme Editor, The Economist"
+        quote: 'We were honored to have Arnaud as a speaker for the virtual day of the Economist Enterprise Metaverse Summit. He shared valuable insights on the topic of “Securing the Metaverse: The Intersection of Metaverse and Cybersecurity,” and we had positive feedback from our attendees.',
+        author: 'Helen Ponsford',
+        title: 'Senior Programme Editor, The Economist'
       },
       {
         quote: "Working with Arnaud was an invaluable experience for our team. Arnaud's extensive knowledge in the field of cybersecurity was evident from the onset. He has a unique ability to simplify complex security concepts, making them accessible to everyone in any organization.",
-        author: "Caroline Wong",
-        title: "Chief Strategy Officer at Cobalt and host of Humans of InfoSec Podcast"
+        author: 'Caroline Wong',
+        title: 'Chief Strategy Officer at Cobalt and host of Humans of InfoSec Podcast'
       }
     ]
   },
   {
     title: 'The Book on Cybersecurity',
     subtitle: 'How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World',
-    cover: Book1,
+    cover: '/images/books/cybersecurity-cover.jpg',
+    coverWidth: 600,
+    coverHeight: 900,
     quote: '"A must-read for leaders who want to move from cyber confusion to confident decision-making."',
     description: `Cybersecurity doesn't have to be intimidating. This book cuts through the jargon and gives corporate leaders and board members the practical knowledge they need to make confident decisions in a world of mounting digital risk. Written for the non-technical executive, it covers the fundamentals of cyber risk, governance frameworks, and the boardroom conversations that matter.`,
     amazonUrl: 'https://www.amazon.com/dp/B0C2SCKX7J',
@@ -151,29 +153,29 @@ const books = [
     ],
     testimonials: [
       {
-        quote: "I found The Book on Cybersecurity to be engaging, with language that is clear, concise, and easy to follow. I particularly appreciate the practical tips and insights provided throughout the book. After reading the first few chapters, I was inspired to immediately fix a few things on my phone.",
-        author: "Dmitry Badiarov",
-        title: "Business Owner, Author, Speaker"
+        quote: 'I found The Book on Cybersecurity to be engaging, with language that is clear, concise, and easy to follow. I particularly appreciate the practical tips and insights provided throughout the book. After reading the first few chapters, I was inspired to immediately fix a few things on my phone.',
+        author: 'Dmitry Badiarov',
+        title: 'Business Owner, Author, Speaker'
       },
       {
         quote: "In today's world, cybersecurity is no longer a niche topic. It is a crucial aspect of doing business, and the implications of not having a solid security strategy are far-reaching. The Book on Cybersecurity is an excellent resource for demystifying this important topic.",
-        author: "Phil Cracknell",
-        title: "Former Cabinet Office Cyber Security SME"
+        author: 'Phil Cracknell',
+        title: 'Former Cabinet Office Cyber Security SME'
       },
       {
-        quote: "I worked with Arnaud when he was CISO at TNT. Arnaud is a thought leader in the world of cybersecurity. He brings a wealth of knowledge and experience and has a proven track record of success as a CISO.",
-        author: "Martin Treder",
-        title: "Head of MDM Business Partner, Boehringer Ingelheim, Author of Becoming a Data-driven Organisation"
+        quote: 'I worked with Arnaud when he was CISO at TNT. Arnaud is a thought leader in the world of cybersecurity. He brings a wealth of knowledge and experience and has a proven track record of success as a CISO.',
+        author: 'Martin Treder',
+        title: 'Head of MDM Business Partner, Boehringer Ingelheim, Author of Becoming a Data-driven Organisation'
       },
       {
-        quote: "I have had the pleasure of working with Arnaud for the past few years. He is an asset to any organization. He understands the complexities of the cybersecurity and IT compliance landscape and can develop and implement effective strategies to keep companies safe.",
-        author: "Zouhair Taheri",
-        title: "Partner, PWC"
+        quote: 'I have had the pleasure of working with Arnaud for the past few years. He is an asset to any organization. He understands the complexities of the cybersecurity and IT compliance landscape and can develop and implement effective strategies to keep companies safe.',
+        author: 'Zouhair Taheri',
+        title: 'Partner, PWC'
       },
       {
-        quote: "I have worked in the past with Arnaud, and in my view, he is a true security professional who always puts the needs of the organization first.",
-        author: "Martijn Knuiman",
-        title: "Partner, Deloitte Risk Advisory"
+        quote: 'I have worked in the past with Arnaud, and in my view, he is a true security professional who always puts the needs of the organization first.',
+        author: 'Martijn Knuiman',
+        title: 'Partner, Deloitte Risk Advisory'
       }
     ]
   }
@@ -183,18 +185,18 @@ export default function BooksPage() {
   const bookSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    'itemListElement': books.map((book, i) => ({
+    itemListElement: books.map((book, i) => ({
       '@type': 'ListItem',
-      'position': i + 1,
-      'item': {
+      position: i + 1,
+      item: {
         '@type': 'Book',
-        'name': book.title,
-        'author': {
+        name: book.title,
+        author: {
           '@type': 'Person',
-          'name': book.coauthor ? `Arnaud Wiehe, ${book.coauthor}` : 'Arnaud Wiehe',
+          name: book.coauthor ? `Arnaud Wiehe, ${book.coauthor}` : 'Arnaud Wiehe',
         },
-        'datePublished': book.year,
-        'url': book.amazonUrl,
+        datePublished: book.year,
+        url: book.amazonUrl,
       },
     })),
   }
@@ -205,7 +207,6 @@ export default function BooksPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}
       />
-      {/* Navigation */}
       <Nav />
 
       <main id="main-content" className="books-page">
@@ -217,13 +218,17 @@ export default function BooksPage() {
         </header>
 
         <div className="books-page-list">
-          {books.map((book, index) => (
+          {books.map((book) => (
             <div key={book.title} className="books-page-item">
               <div className="books-page-cover-wrap">
-                <img
-                  src={book.cover.src}
+                <Image
+                  src={book.cover}
                   alt={book.alt}
                   className="books-page-cover"
+                  width={book.coverWidth}
+                  height={book.coverHeight}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 200px, 280px"
                 />
               </div>
               <div className="books-page-details">
@@ -235,8 +240,7 @@ export default function BooksPage() {
                 )}
                 <blockquote className="book-page-quote">{book.quote}</blockquote>
                 <p className="book-description">{book.description}</p>
-                
-                {/* Target Audience */}
+
                 <div className="book-section">
                   <h3 className="book-section-title">Who This Book Is For</h3>
                   <ul className="book-audience-list">
@@ -246,7 +250,6 @@ export default function BooksPage() {
                   </ul>
                 </div>
 
-                {/* Key Takeaways */}
                 <div className="book-section">
                   <h3 className="book-section-title">Key Takeaways</h3>
                   <ul className="book-takeaways-list">
@@ -256,7 +259,6 @@ export default function BooksPage() {
                   </ul>
                 </div>
 
-                {/* Table of Contents Preview */}
                 <div className="book-section">
                   <h3 className="book-section-title">Table of Contents</h3>
                   <div className="book-toc-grid">
@@ -267,7 +269,6 @@ export default function BooksPage() {
                   </div>
                 </div>
 
-                {/* Chapter Excerpts */}
                 <div className="book-section">
                   <h3 className="book-section-title">Chapter Excerpts</h3>
                   <div className="book-excerpts">
@@ -280,7 +281,6 @@ export default function BooksPage() {
                   </div>
                 </div>
 
-                {/* Testimonials */}
                 <div className="book-section">
                   <h3 className="book-section-title">What Readers Are Saying</h3>
                   <div className="book-testimonials">
@@ -309,13 +309,12 @@ export default function BooksPage() {
           ))}
         </div>
 
-        {/* Bulk Orders & Speaking Packages */}
         <div className="books-services-section">
           <div className="books-services-grid">
             <div className="books-service-card">
               <h3 className="books-service-title">Bulk Orders</h3>
               <p className="books-service-description">
-                Looking to distribute copies to your board, leadership team, or organization? 
+                Looking to distribute copies to your board, leadership team, or organization?
                 Bulk orders are available at discounted rates for quantities of 25+ copies.
               </p>
               <ul className="books-service-benefits">
@@ -328,7 +327,7 @@ export default function BooksPage() {
             <div className="books-service-card">
               <h3 className="books-service-title">Speaking Packages</h3>
               <p className="books-service-description">
-                Combine a keynote presentation with copies of the book for your audience. 
+                Combine a keynote presentation with copies of the book for your audience.
                 Perfect for conferences, corporate events, and leadership retreats.
               </p>
               <ul className="books-service-benefits">
@@ -341,7 +340,7 @@ export default function BooksPage() {
             <div className="books-service-card">
               <h3 className="books-service-title">Review Copies</h3>
               <p className="books-service-description">
-                Media professionals, book reviewers, and industry analysts can request 
+                Media professionals, book reviewers, and industry analysts can request
                 review copies for editorial consideration.
               </p>
               <ul className="books-service-benefits">
@@ -354,7 +353,6 @@ export default function BooksPage() {
           </div>
         </div>
 
-        {/* Contact CTA */}
         <div className="books-cta-section">
           <h3 className="books-cta-title">Interested in Bulk Orders or Speaking Packages?</h3>
           <p className="books-cta-text">

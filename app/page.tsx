@@ -1,9 +1,8 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
 import YouTubeEmbed from '../components/YouTubeEmbed'
 import Headshot from '../assets/headshots/headshot.jpg'
-import Book1 from '../assets/images/books/Book on Cybersecurity Cover -3d.png'
-import Book2 from '../assets/images/books/Emerging Tech Cover- 3d.png'
 import SpeakingPhoto1 from '../assets/photos/speaking/gitex-dubai-2025-1.jpg'
 import SpeakingPhoto2 from '../assets/photos/speaking/gitex-dubai-2025-2.jpg'
 import SpeakingPhoto3 from '../assets/photos/speaking/world-summit-ai-2023.jpg'
@@ -20,53 +19,52 @@ import Instrument8 from '../assets/instruments/IMG_9896.jpg'
 
 import { getAllArticles } from './articles/data'
 
-// Featured speaking engagements
 const featuredEngagements = [
-  { 
-    year: '2025', 
-    name: 'Re:invent Security Podcast', 
-    location: 'Global', 
-    topic: 'Next-gen CISO, AI threats, leadership', 
+  {
+    year: '2025',
+    name: 'Re:invent Security Podcast',
+    location: 'Global',
+    topic: 'Next-gen CISO, AI threats, leadership',
     slug: 'reinvent-security-podcast',
     hasVideo: true,
   },
-  { 
-    year: '2025', 
-    name: 'GITEX Global', 
-    location: 'Dubai', 
-    topic: 'AI, cybersecurity, emerging tech', 
+  {
+    year: '2025',
+    name: 'GITEX Global',
+    location: 'Dubai',
+    topic: 'AI, cybersecurity, emerging tech',
     slug: 'gitex-global-dubai-2025',
     hasVideo: false,
   },
-  { 
-    year: '2024', 
-    name: 'Next IT Security – C-Suite Edition', 
-    location: 'Stockholm, Sweden', 
-    topic: 'Leadership, Talent & Strategy', 
+  {
+    year: '2024',
+    name: 'Next IT Security – C-Suite Edition',
+    location: 'Stockholm, Sweden',
+    topic: 'Leadership, Talent & Strategy',
     slug: 'next-it-security-c-suite-stockholm-2024',
     hasVideo: false,
   },
-  { 
-    year: '2023', 
-    name: 'ISACA Risk Event', 
-    location: 'Netherlands', 
-    topic: 'Cybersecurity considerations for AI systems', 
+  {
+    year: '2023',
+    name: 'ISACA Risk Event',
+    location: 'Netherlands',
+    topic: 'Cybersecurity considerations for AI systems',
     slug: 'isaca-risk-event-2023',
     hasVideo: true,
   },
-  { 
-    year: '2023', 
-    name: 'World Summit AI', 
-    location: 'Amsterdam', 
-    topic: 'AI security and governance', 
+  {
+    year: '2023',
+    name: 'World Summit AI',
+    location: 'Amsterdam',
+    topic: 'AI security and governance',
     slug: 'world-summit-ai-2023',
     hasVideo: false,
   },
-  { 
-    year: '2023', 
-    name: 'Economist Metaverse Summit', 
-    location: 'Virtual', 
-    topic: 'Securing the metaverse', 
+  {
+    year: '2023',
+    name: 'Economist Metaverse Summit',
+    location: 'Virtual',
+    topic: 'Securing the metaverse',
     slug: 'economist-impact-metaverse-summit-2023',
     hasVideo: false,
   },
@@ -77,17 +75,17 @@ export default function Home() {
 
   return (
     <main id="main-content" className="min-h-screen bg-cream">
-      {/* Navigation */}
       <Nav />
 
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-inner">
           <div className="hero-headshot-wrap">
-            <img
-              src={Headshot.src}
+            <Image
+              src={Headshot}
               alt="Arnaud Wiehe"
               className="hero-headshot"
+              priority
+              sizes="240px"
             />
             <div className="hero-headshot-glow" />
           </div>
@@ -107,7 +105,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="about-section">
         <div className="section-inner narrow">
           <h2 className="about-heading">
@@ -125,29 +122,28 @@ export default function Home() {
             <p className="certs-label">Certifications</p>
             <div className="certs-logos">
               <div className="cert-item" title="AIGP — Artificial Intelligence Governance Professional">
-                <img src="/images/certifications/aigp.png" alt="AIGP" className="cert-logo" />
+                <Image src="/images/certifications/aigp.png" alt="AIGP" className="cert-logo" width={80} height={80} loading="lazy" />
               </div>
               <div className="cert-item" title="CISSP — Certified Information Systems Security Professional">
-                <img src="/images/certifications/cissp.png" alt="CISSP" className="cert-logo" />
+                <Image src="/images/certifications/cissp.png" alt="CISSP" className="cert-logo" width={80} height={80} loading="lazy" />
               </div>
               <div className="cert-item" title="CCSP — Certified Cloud Security Professional">
-                <img src="/images/certifications/ccsp.png" alt="CCSP" className="cert-logo" />
+                <Image src="/images/certifications/ccsp.png" alt="CCSP" className="cert-logo" width={80} height={80} loading="lazy" />
               </div>
               <div className="cert-item" title="CISM — Certified Information Security Manager">
-                <img src="/images/certifications/cism.png" alt="CISM" className="cert-logo" />
+                <Image src="/images/certifications/cism.png" alt="CISM" className="cert-logo" width={80} height={80} loading="lazy" />
               </div>
               <div className="cert-item" title="CISA — Certified Information Systems Auditor">
-                <img src="/images/certifications/cisa.png" alt="CISA" className="cert-logo" />
+                <Image src="/images/certifications/cisa.png" alt="CISA" className="cert-logo" width={80} height={80} loading="lazy" />
               </div>
               <div className="cert-item" title="CIPP/E — Certified Information Privacy Professional (Europe)">
-                <img src="/images/certifications/cippe.png" alt="CIPP/E" className="cert-logo" />
+                <Image src="/images/certifications/cippe.png" alt="CIPP/E" className="cert-logo" width={80} height={80} loading="lazy" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Social Proof / Testimonials */}
       <section className="testimonials-section">
         <div className="section-inner">
           <div className="testimonials-grid">
@@ -176,10 +172,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise Section: Books + Speaking Combined */}
       <section id="expertise" className="expertise-section">
         <div className="section-inner">
-          {/* Books Subsection */}
           <div className="expertise-block">
             <div className="expertise-header">
               <h2 className="expertise-title">Books</h2>
@@ -187,7 +181,7 @@ export default function Home() {
             <div className="books-showcase">
               <div className="book-showcase-item">
                 <div className="book-cover-wrap">
-                  <img src={Book1.src} alt="The Book on Cybersecurity" className="book-cover" />
+                  <Image src="/images/books/cybersecurity-cover.jpg" alt="The Book on Cybersecurity" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
                 </div>
                 <div className="book-showcase-details">
                   <h3 className="book-showcase-title">The Book on Cybersecurity</h3>
@@ -199,7 +193,7 @@ export default function Home() {
               </div>
               <div className="book-showcase-item">
                 <div className="book-cover-wrap">
-                  <img src={Book2.src} alt="Emerging Tech, Emerging Threats" className="book-cover" />
+                  <Image src="/images/books/emerging-tech-cover.jpg" alt="Emerging Tech, Emerging Threats" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
                 </div>
                 <div className="book-showcase-details">
                   <h3 className="book-showcase-title">Emerging Tech, Emerging Threats</h3>
@@ -212,34 +206,31 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Speaking Subsection */}
           <div className="expertise-block">
             <div className="expertise-header">
               <h2 className="expertise-title">Speaking</h2>
             </div>
-            
-            {/* Speaking Photos - 4 vertical + 1 horizontal */}
+
             <div className="speaking-photos-container">
               <div className="speaking-photos-vertical-row">
                 <div className="speaking-photo-vertical">
-                  <img src={SpeakingPhoto1.src} alt="Speaking at GITEX Dubai 2025" className="speaking-photo-img-full" />
+                  <Image src={SpeakingPhoto1} alt="Speaking at GITEX Dubai 2025" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
                 <div className="speaking-photo-vertical">
-                  <img src={SpeakingPhoto3.src} alt="World Summit AI 2023" className="speaking-photo-img-full" />
+                  <Image src={SpeakingPhoto3} alt="World Summit AI 2023" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
                 <div className="speaking-photo-vertical">
-                  <img src={SpeakingPhoto4.src} alt="ISACA Risk Event Netherlands" className="speaking-photo-img-full" />
+                  <Image src={SpeakingPhoto4} alt="ISACA Risk Event Netherlands" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
                 <div className="speaking-photo-vertical">
-                  <img src={SpeakingPhoto5.src} alt="ISACA Risk Event speaking" className="speaking-photo-img-full" />
+                  <Image src={SpeakingPhoto5} alt="ISACA Risk Event speaking" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
               </div>
               <div className="speaking-photo-horizontal">
-                <img src={SpeakingPhoto2.src} alt="GITEX Dubai 2025 stage" className="speaking-photo-img-full" />
+                <Image src={SpeakingPhoto2} alt="GITEX Dubai 2025 stage" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 768px) 100vw, 700px" />
               </div>
             </div>
 
-            {/* Featured Engagements */}
             <div className="engagements-list">
               {featuredEngagements.map((event, i) => (
                 <div key={i} className="engagement-row">
@@ -254,13 +245,13 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            
+
             <div className="expertise-cta">
               <Link href="/speaking" className="view-all-link">
                 View all speaking engagements →
               </Link>
             </div>
-            
+
             <div className="speaking-cta-box">
               <p className="speaking-cta-text">Interested in having Arnaud speak at your event?</p>
               <a href="mailto:arnaud@arnaudwiehe.com?subject=Speaking Inquiry" className="speaking-cta-button">
@@ -271,7 +262,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Writing Section */}
       <section id="writing" className="articles-section">
         <div className="section-inner">
           <div className="section-header">
@@ -305,7 +295,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Music Section */}
       <section id="music" className="music-section">
         <div className="section-inner">
           <div className="section-header">
@@ -313,53 +302,50 @@ export default function Home() {
             <p className="section-subtitle">Beyond technology, music provides balance, discipline, and creative expression.</p>
           </div>
 
-          {/* Description */}
           <div className="music-description">
             <p>
-              Music has been a lifelong companion. From performing on violin and viola to building cellos 
-              and exploring the unique cello da spalla, the intersection of craftsmanship and artistry 
+              Music has been a lifelong companion. From performing on violin and viola to building cellos
+              and exploring the unique cello da spalla, the intersection of craftsmanship and artistry
               provides a different kind of creative outlet.
             </p>
             <p>
-              Instrument building teaches patience and precision—qualities that translate directly to 
+              Instrument building teaches patience and precision—qualities that translate directly to
               leadership and strategic thinking in the technology world.
             </p>
           </div>
 
-          {/* YouTube Video */}
           <div className="music-video-section">
             <div className="music-video-wrap">
               <YouTubeEmbed videoId="fi0KHOQ1e74" title="Musical Performance" className="music-video-iframe" />
             </div>
           </div>
 
-          {/* Instruments Gallery */}
           <div className="music-instruments-section">
             <h3 className="music-instruments-title">Instrument Collection</h3>
             <div className="music-instruments-grid">
               <div className="music-instrument-card">
-                <img src={Instrument1.src} alt="Violin" className="music-instrument-img" />
+                <Image src={Instrument1} alt="Violin" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument2.src} alt="Viola" className="music-instrument-img" />
+                <Image src={Instrument2} alt="Viola" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument3.src} alt="Cello" className="music-instrument-img" />
+                <Image src={Instrument3} alt="Cello" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument4.src} alt="Cello da spalla" className="music-instrument-img" />
+                <Image src={Instrument4} alt="Cello da spalla" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument5.src} alt="Violin" className="music-instrument-img" />
+                <Image src={Instrument5} alt="Violin" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument6.src} alt="Viola" className="music-instrument-img" />
+                <Image src={Instrument6} alt="Viola" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument7.src} alt="Cello" className="music-instrument-img" />
+                <Image src={Instrument7} alt="Cello" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
               <div className="music-instrument-card">
-                <img src={Instrument8.src} alt="Instrument" className="music-instrument-img" />
+                <Image src={Instrument8} alt="Instrument" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
               </div>
             </div>
           </div>
@@ -370,7 +356,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="contact-section">
         <div className="section-inner narrow">
           <h2 className="contact-title">Get in Touch</h2>
@@ -386,7 +371,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="footer">
         <p>© {new Date().getFullYear()} Arnaud Wiehe. All rights reserved.</p>
       </footer>

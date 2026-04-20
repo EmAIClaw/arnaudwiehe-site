@@ -1,9 +1,8 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import Nav from '../../../components/Nav'
 import YouTubeEmbed from '../../../components/YouTubeEmbed'
-// Content is sanitized at build time in data files
-// No runtime sanitization needed for server-rendered trusted content
 import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
 import { notFound } from 'next/navigation'
 
@@ -11,6 +10,21 @@ export const dynamic = 'force-static'
 
 type Props = {
   params: Promise<{ slug: string }>
+}
+
+function getEventImageDimensions(src: string) {
+  switch (src) {
+    case '/images/speaking/gitex-dubai-2025-1.jpg':
+      return { width: 2433, height: 3650 }
+    case '/images/speaking/world-summit-ai-2023.jpg':
+      return { width: 2421, height: 3631 }
+    case '/images/speaking/ISACA Risk Speaker Photo1.jpg':
+      return { width: 1707, height: 2560 }
+    case '/images/speaking/ISACA Risk Speaker Photo2.jpg':
+      return { width: 1707, height: 2560 }
+    default:
+      return { width: 1200, height: 1800 }
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -55,21 +69,22 @@ export default async function SpeakingEventPage({ params }: Props) {
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'Event',
-    'name': event.name,
-    'description': event.topic,
-    'location': {
+    name: event.name,
+    description: event.topic,
+    location: {
       '@type': 'Place',
-      'name': event.location,
+      name: event.location,
     },
-    'startDate': event.date,
-    'performer': {
+    startDate: event.date,
+    performer: {
       '@type': 'Person',
-      'name': 'Arnaud Wiehe',
-      'url': 'https://arnaudwiehe.com',
+      name: 'Arnaud Wiehe',
+      url: 'https://arnaudwiehe.com',
     },
   }
 
   const { prev, next } = getAdjacentEvents(slug)
+  const imageDimensions = event.heroImage ? getEventImageDimensions(event.heroImage) : null
 
   return (
     <>
@@ -80,13 +95,10 @@ export default async function SpeakingEventPage({ params }: Props) {
       <Nav />
 
       <main id="main-content" className="speaking-event-page">
-
-        {/* Breadcrumb */}
         <nav className="speaking-breadcrumb">
           <Link href="/speaking" className="breadcrumb-link">← All Speaking Engagements</Link>
         </nav>
 
-        {/* Hero Section */}
         <header className="speaking-event-hero">
           <div className="speaking-event-hero-meta">
             <span className="speaking-event-hero-category">{event.category}</span>
@@ -96,7 +108,6 @@ export default async function SpeakingEventPage({ params }: Props) {
           <h1 className="speaking-event-hero-title">{event.name}</h1>
           <p className="speaking-event-hero-topic">{event.topic}</p>
 
-          {/* Tags */}
           <div className="speaking-event-tags-row">
             {event.tags.map((tag) => (
               <span key={tag} className="speaking-tag">{tag}</span>
@@ -104,28 +115,27 @@ export default async function SpeakingEventPage({ params }: Props) {
           </div>
         </header>
 
-        {/* Event Photo */}
-        {event.heroImage && !event.youtubeId && (
+        {event.heroImage && !event.youtubeId && imageDimensions && (
           <div className="speaking-event-hero-image-wrap">
-            <img
+            <Image
               src={event.heroImage}
               alt={event.name}
               className="speaking-event-hero-image"
+              width={imageDimensions.width}
+              height={imageDimensions.height}
+              priority
+              sizes="(max-width: 768px) 100vw, 900px"
             />
           </div>
         )}
 
-        {/* YouTube Embed */}
         {event.youtubeId && (
           <div className="speaking-event-video-wrap">
             <YouTubeEmbed videoId={event.youtubeId} title={`${event.name} — ${event.topic}`} className="speaking-event-video-iframe" />
           </div>
         )}
 
-        {/* Content Grid */}
         <div className="speaking-event-body">
-
-          {/* Summary */}
           <section className="speaking-event-summary">
             <h2 className="speaking-event-section-heading">About This Talk</h2>
             <div
@@ -134,7 +144,6 @@ export default async function SpeakingEventPage({ params }: Props) {
             />
           </section>
 
-          {/* Key Takeaways */}
           <section className="speaking-event-takeaways">
             <h2 className="speaking-event-section-heading">Key Takeaways</h2>
             <ul className="speaking-event-takeaways-list">
@@ -147,7 +156,6 @@ export default async function SpeakingEventPage({ params }: Props) {
             </ul>
           </section>
 
-          {/* Related Topics */}
           {event.relatedTopics.length > 0 && (
             <section className="speaking-event-related">
               <h2 className="speaking-event-section-heading">Related Topics</h2>
@@ -159,23 +167,24 @@ export default async function SpeakingEventPage({ params }: Props) {
             </section>
           )}
 
-          {/* Photo (for events with video, show the photo below) */}
-          {event.heroImage && event.youtubeId && (
+          {event.heroImage && event.youtubeId && imageDimensions && (
             <section className="speaking-event-photo-section">
               <h2 className="speaking-event-section-heading">At the Event</h2>
               <div className="speaking-event-inline-photo-wrap">
-                <img
+                <Image
                   src={event.heroImage}
                   alt={`Arnaud Wiehe speaking at ${event.name}`}
                   className="speaking-event-inline-photo"
+                  width={imageDimensions.width}
+                  height={imageDimensions.height}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
             </section>
           )}
-
         </div>
 
-        {/* Book CTA */}
         <div className="speaking-event-book-cta">
           <div className="speaking-event-book-cta-inner">
             <h2>Book Arnaud for Your Event</h2>
@@ -193,7 +202,6 @@ export default async function SpeakingEventPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Navigation between events */}
         <nav className="speaking-event-nav">
           <div className="speaking-nav-prev">
             {prev && (
@@ -217,7 +225,6 @@ export default async function SpeakingEventPage({ params }: Props) {
             )}
           </div>
         </nav>
-
       </main>
     </>
   )
