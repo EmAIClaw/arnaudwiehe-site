@@ -30,7 +30,7 @@ export default function SpeakingPage() {
       {/* Navigation */}
       <Nav />
 
-      <main className="speaking-page">
+      <main id="main-content" className="speaking-page">
         {/* Page Header */}
         <header className="speaking-page-header">
           <h1>Speaking</h1>

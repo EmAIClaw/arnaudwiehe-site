@@ -81,7 +81,7 @@ export default async function ArticlePage({ params }: Props) {
       {/* Navigation */}
       <Nav />
 
-      <main className="article-page">
+      <main id="main-content" className="article-page">
         <article className="article-content">
           <header className="article-header">
             <div className="article-meta">

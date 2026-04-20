@@ -1,13 +1,21 @@
 import Link from 'next/link'
+import Nav from '../components/Nav'
 
 export default function NotFound() {
   return (
     <>
-      <main className="not-found-page">
+      <Nav />
+      <main id="main-content" className="not-found-page">
         <div className="not-found-content">
-          <h1>404</h1>
-          <p>Page not found.</p>
-          <Link href="/" className="not-found-link">← Back to home</Link>
+          <span className="not-found-number">404</span>
+          <h1>Page not found</h1>
+          <p className="not-found-subtitle">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+          <div className="not-found-actions">
+            <Link href="/" className="not-found-home-btn">Return home</Link>
+            <Link href="/articles" className="not-found-secondary-btn">Browse articles</Link>
+          </div>
         </div>
       </main>
     </>

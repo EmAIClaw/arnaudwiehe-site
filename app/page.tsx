@@ -76,7 +76,7 @@ export default function Home() {
   const latestArticles = getAllArticles().slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-cream">
+    <main id="main-content" className="min-h-screen bg-cream">
       {/* Navigation */}
       <Nav />
 

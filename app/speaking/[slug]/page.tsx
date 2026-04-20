@@ -79,7 +79,7 @@ export default async function SpeakingEventPage({ params }: Props) {
       />
       <Nav />
 
-      <main className="speaking-event-page">
+      <main id="main-content" className="speaking-event-page">
 
         {/* Breadcrumb */}
         <nav className="speaking-breadcrumb">

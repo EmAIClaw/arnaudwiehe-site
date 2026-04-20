@@ -28,7 +28,7 @@ export default function ArticlesPage() {
     <>
       <Nav />
 
-      <main className="articles-page">
+      <main id="main-content" className="articles-page">
         <header className="articles-header">
           <h1>Writing</h1>
           <p className="subtitle">
@@ -72,10 +72,10 @@ export default function ArticlesPage() {
         </div>
 
         <div className="newsletter-cta">
-          <h3>Get articles in your inbox</h3>
-          <p>Join the newsletter for weekly insights on AI leadership and emerging technology.</p>
-          <a href="mailto:arnaud@arnaudwiehe.com?subject=Newsletter Subscribe" className="newsletter-button">
-            Subscribe →
+          <h3>Stay current</h3>
+          <p>Connect on LinkedIn for weekly insights on AI governance, cybersecurity leadership, and emerging technology.</p>
+          <a href="https://www.linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener noreferrer" className="newsletter-button">
+            Follow on LinkedIn →
           </a>
         </div>
       </main>

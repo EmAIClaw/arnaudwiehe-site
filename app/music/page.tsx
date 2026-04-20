@@ -45,7 +45,7 @@ export default function MusicPage() {
     <>
       <Nav />
 
-      <main className="music-page">
+      <main id="main-content" className="music-page">
         <header className="music-page-header">
           <h1>Music</h1>
           <p className="subtitle">

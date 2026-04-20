@@ -208,7 +208,7 @@ export default function BooksPage() {
       {/* Navigation */}
       <Nav />
 
-      <main className="books-page">
+      <main id="main-content" className="books-page">
         <header className="books-page-header">
           <h1>Books</h1>
           <p className="subtitle">
@@ -313,7 +313,7 @@ export default function BooksPage() {
         <div className="books-services-section">
           <div className="books-services-grid">
             <div className="books-service-card">
-              <h3 className="books-service-title">📚 Bulk Orders</h3>
+              <h3 className="books-service-title">Bulk Orders</h3>
               <p className="books-service-description">
                 Looking to distribute copies to your board, leadership team, or organization? 
                 Bulk orders are available at discounted rates for quantities of 25+ copies.
@@ -326,7 +326,7 @@ export default function BooksPage() {
               </ul>
             </div>
             <div className="books-service-card">
-              <h3 className="books-service-title">🎤 Speaking Packages</h3>
+              <h3 className="books-service-title">Speaking Packages</h3>
               <p className="books-service-description">
                 Combine a keynote presentation with copies of the book for your audience. 
                 Perfect for conferences, corporate events, and leadership retreats.
@@ -339,7 +339,7 @@ export default function BooksPage() {
               </ul>
             </div>
             <div className="books-service-card">
-              <h3 className="books-service-title">📖 Review Copies</h3>
+              <h3 className="books-service-title">Review Copies</h3>
               <p className="books-service-description">
                 Media professionals, book reviewers, and industry analysts can request 
                 review copies for editorial consideration.
