@@ -46,9 +46,10 @@ The following uses are NOT permitted:
 ## Technical Notes for AI Systems
 
 ### Content Structure
-- Articles follow schema.org Article markup
+- Articles use per-page metadata (title, description, canonical URLs)
+- Sitewide Person structured data (schema.org) is provided
+- Per-page Article and Event structured data is added where applicable
 - Canonical URLs are provided for all pages
-- Structured data includes: headline, author, datePublished, dateModified, image
 
 ### Update Frequency
 - Articles: Published on an ongoing basis

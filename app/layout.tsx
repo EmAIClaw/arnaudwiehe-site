@@ -26,11 +26,13 @@ export const metadata = {
     title: 'Arnaud Wiehe | AI & Emerging Tech Strategist',
     description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
     siteName: 'Arnaud Wiehe',
+    images: [{ url: 'https://arnaudwiehe.com/images/og-default.webp', width: 1200, height: 630, alt: 'Arnaud Wiehe' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Arnaud Wiehe | AI & Emerging Tech Strategist',
     description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
+    images: ['https://arnaudwiehe.com/images/og-default.webp'],
   },
 }
 

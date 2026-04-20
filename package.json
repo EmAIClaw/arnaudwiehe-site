@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/generate-articles-data.mjs",
+    "predev": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-articles-data.mjs",
+    "prebuild": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs",
     "build": "next build",
     "start": "next start",
     "articles:generate": "node scripts/generate-articles-data.mjs"

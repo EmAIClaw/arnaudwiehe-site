@@ -180,8 +180,31 @@ const books = [
 ]
 
 export default function BooksPage() {
+  const bookSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'itemListElement': books.map((book, i) => ({
+      '@type': 'ListItem',
+      'position': i + 1,
+      'item': {
+        '@type': 'Book',
+        'name': book.title,
+        'author': {
+          '@type': 'Person',
+          'name': book.coauthor ? `Arnaud Wiehe, ${book.coauthor}` : 'Arnaud Wiehe',
+        },
+        'datePublished': book.year,
+        'url': book.amazonUrl,
+      },
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}
+      />
       {/* Navigation */}
       <Nav />
 

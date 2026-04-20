@@ -51,10 +51,33 @@ export default async function ArticlePage({ params }: Props) {
     notFound()
   }
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    'headline': article.title,
+    'description': article.excerpt,
+    'datePublished': article.date,
+    'author': {
+      '@type': 'Person',
+      'name': 'Arnaud Wiehe',
+      'url': 'https://arnaudwiehe.com',
+    },
+    'publisher': {
+      '@type': 'Person',
+      'name': 'Arnaud Wiehe',
+      'url': 'https://arnaudwiehe.com',
+    },
+    'mainEntityOfPage': `https://arnaudwiehe.com/articles/${slug}`,
+  }
+
   const { prev, next } = getAdjacentArticles(slug)
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Navigation */}
       <Nav />
 

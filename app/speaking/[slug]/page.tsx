@@ -51,10 +51,31 @@ export default async function SpeakingEventPage({ params }: Props) {
     notFound()
   }
 
+  const eventSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    'name': event.name,
+    'description': event.topic,
+    'location': {
+      '@type': 'Place',
+      'name': event.location,
+    },
+    'startDate': event.date,
+    'performer': {
+      '@type': 'Person',
+      'name': 'Arnaud Wiehe',
+      'url': 'https://arnaudwiehe.com',
+    },
+  }
+
   const { prev, next } = getAdjacentEvents(slug)
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
+      />
       <Nav />
 
       <main className="speaking-event-page">

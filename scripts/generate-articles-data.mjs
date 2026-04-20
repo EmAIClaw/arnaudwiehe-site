@@ -84,7 +84,13 @@ function markdownToHtml(markdown) {
     return escaped
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+      .replace(/\[(.+?)\]\((.+?)\)/g, (_, text, url) => {
+        const safe = url.trim().toLowerCase()
+        if (safe.startsWith('https:') || safe.startsWith('http:') || safe.startsWith('mailto:') || safe.startsWith('/')) {
+          return `<a href="${url}">${text}</a>`
+        }
+        return `[${text}](${url})`
+      })
   }
 
   for (const rawLine of lines) {
