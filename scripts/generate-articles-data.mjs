@@ -1,5 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { marked } from 'marked'
+import sanitizeHtml from 'sanitize-html'
 
 const workspaceRoot = path.resolve(process.cwd(), '..', '..', '..')
 const publishedRoot = path.join(workspaceRoot, 'memory', 'content', 'published')
@@ -57,101 +59,47 @@ function stripFrontmatter(markdown) {
   return markdown.slice(end + 5)
 }
 
+function stripGeneratedSections(markdown) {
+  return stripFrontmatter(markdown)
+    .split('\n')
+    .filter((line) => {
+      const trimmed = line.trim()
+      return !(
+        trimmed === '---' ||
+        trimmed.startsWith('**Status:**') ||
+        trimmed.startsWith('**Created:**') ||
+        trimmed.startsWith('**Updated:**') ||
+        trimmed.startsWith('**Topic:**') ||
+        trimmed.startsWith('**Agent:**') ||
+        trimmed.startsWith('**Published URL:**') ||
+        trimmed === '## Hashtags' ||
+        trimmed === '## Performance Metrics' ||
+        trimmed === '## Related Content'
+      )
+    })
+    .join('\n')
+}
+
 function markdownToHtml(markdown) {
-  const lines = stripFrontmatter(markdown).replace(/\r\n/g, '\n').split('\n')
-  const blocks = []
-  let paragraph = []
-  let list = []
+  const rendered = marked.parse(stripGeneratedSections(markdown), {
+    async: false,
+    gfm: true,
+    breaks: false,
+  })
 
-  const flushParagraph = () => {
-    if (!paragraph.length) return
-    blocks.push(`<p>${inline(paragraph.join(' '))}</p>`)
-    paragraph = []
-  }
-
-  const flushList = () => {
-    if (!list.length) return
-    blocks.push(`<ul>${list.map(item => `<li>${inline(item)}</li>`).join('')}</ul>`)
-    list = []
-  }
-
-  const inline = (text) => {
-    const escaped = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-
-    return escaped
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/\[(.+?)\]\((.+?)\)/g, (_, text, url) => {
-        const safe = url.trim().toLowerCase()
-        if (safe.startsWith('https:') || safe.startsWith('http:') || safe.startsWith('mailto:') || safe.startsWith('/')) {
-          return `<a href="${url}">${text}</a>`
-        }
-        return `[${text}](${url})`
-      })
-  }
-
-  for (const rawLine of lines) {
-    const line = rawLine.trim()
-
-    if (!line) {
-      flushParagraph()
-      flushList()
-      continue
-    }
-
-    if (line === '---' || line.startsWith('**Status:**') || line.startsWith('**Created:**') || line.startsWith('**Updated:**') || line.startsWith('**Topic:**') || line.startsWith('**Agent:**') || line.startsWith('**Published URL:**') || line === '## Hashtags' || line === '## Performance Metrics' || line === '## Related Content') {
-      flushParagraph()
-      flushList()
-      continue
-    }
-
-    if (line.startsWith('# ')) {
-      flushParagraph()
-      flushList()
-      blocks.push(`<h1>${inline(line.slice(2).trim())}</h1>`)
-      continue
-    }
-
-    if (line.startsWith('## ')) {
-      flushParagraph()
-      flushList()
-      const heading = line.slice(3).trim()
-      if (heading === 'Full Article') continue
-      blocks.push(`<h2>${inline(heading)}</h2>`)
-      continue
-    }
-
-    if (line.startsWith('### ')) {
-      flushParagraph()
-      flushList()
-      blocks.push(`<h3>${inline(line.slice(4).trim())}</h3>`)
-      continue
-    }
-
-    if (line.startsWith('- ')) {
-      flushParagraph()
-      list.push(line.slice(2).trim())
-      continue
-    }
-
-    if (line.startsWith('#')) {
-      flushParagraph()
-      flushList()
-      continue
-    }
-
-    paragraph.push(line)
-  }
-
-  flushParagraph()
-  flushList()
-
-  return blocks
-    .join('\n\n')
-    .replace(/<p><strong>(.+?)<\/strong><\/p>/g, '<p><strong>$1</strong></p>')
+  return sanitizeHtml(rendered, {
+    allowedTags: [
+      'p', 'br', 'strong', 'em', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'blockquote', 'a', 'code', 'pre'
+    ],
+    allowedAttributes: {
+      a: ['href'],
+    },
+    allowedSchemes: ['http', 'https', 'mailto'],
+    allowProtocolRelative: false,
+    transformTags: {
+      a: sanitizeHtml.simpleTransform('a', { rel: 'noopener noreferrer' }),
+    },
+  }).replace(/^<h1>.*?<\/h1>\s*/s, '').trim()
 }
 
 async function fileExists(filePath) {
@@ -197,8 +145,7 @@ async function collectArticles() {
 
     let heroImage = null
     for (const candidate of heroCandidates) {
-      // Check for common image formats: jpg/jpeg, png, svg
-      const extensions = ['.jpg', '.jpeg', '.png', '.svg']
+      const extensions = ['.jpg', '.jpeg', '.png', '.svg', '.webp']
       for (const ext of extensions) {
         if (await fileExists(path.join(websiteImagesDir, `${candidate}${ext}`))) {
           heroImage = `/images/articles/${candidate}${ext}`
@@ -211,8 +158,7 @@ async function collectArticles() {
       ? metadata.seo.readingTime.replace(/minutes?/i, 'min read')
       : '5 min read'
 
-    let html = markdownToHtml(articleRaw)
-    html = html.replace(/^<h1>.*?<\/h1>\s*/s, '')
+    const html = markdownToHtml(articleRaw)
 
     articles.push({
       slug,
@@ -229,7 +175,7 @@ async function collectArticles() {
       author: metadata.author || fallbackAuthor,
       authorBio: metadata.authorBio || fallbackAuthorBio,
       excerpt: excerptRaw.trim(),
-      content: html.trim(),
+      content: html,
     })
   }
 
@@ -239,7 +185,48 @@ async function collectArticles() {
 async function main() {
   const articles = await collectArticles()
 
-  const fileContents = `// AUTO-GENERATED by scripts/generate-articles-data.mjs\n// Do not edit manually. Update memory/content/published/* and re-run generation.\n\nexport interface Article {\n  slug: string\n  title: string\n  subtitle: string\n  date: string\n  dateFormatted: string\n  category: string\n  tags: string[]\n  readingTime: string\n  excerpt: string\n  content: string\n  linkedinUrl: string\n  author: string\n  authorBio: string\n  featured: boolean\n  heroImage?: string\n}\n\nexport const articles: Article[] = [\n${articles.map(article => `  {\n    slug: ${JSON.stringify(article.slug)},\n    title: ${JSON.stringify(article.title)},\n    subtitle: ${JSON.stringify(article.subtitle)},\n    date: ${JSON.stringify(article.date)},\n    dateFormatted: ${JSON.stringify(article.dateFormatted)},\n    category: ${JSON.stringify(article.category)},\n    tags: ${JSON.stringify(article.tags)},\n    readingTime: ${JSON.stringify(article.readingTime)},\n    featured: ${article.featured},\n    ${article.heroImage ? `heroImage: ${JSON.stringify(article.heroImage)},` : ''}\n    linkedinUrl: ${JSON.stringify(article.linkedinUrl)},\n    author: ${JSON.stringify(article.author)},\n    authorBio: ${JSON.stringify(article.authorBio)},\n    excerpt: ${JSON.stringify(article.excerpt)},\n    content: \`\n${escapeTemplateLiteral(article.content)}\n    \`,\n  }`).join(',\n')}\n]\n` 
+  const fileContents = `// AUTO-GENERATED by scripts/generate-articles-data.mjs
+// Do not edit manually. Update memory/content/published/* and re-run generation.
+
+export interface Article {
+  slug: string
+  title: string
+  subtitle: string
+  date: string
+  dateFormatted: string
+  category: string
+  tags: string[]
+  readingTime: string
+  excerpt: string
+  content: string
+  linkedinUrl: string
+  author: string
+  authorBio: string
+  featured: boolean
+  heroImage?: string
+}
+
+export const articles: Article[] = [
+${articles.map(article => `  {
+    slug: ${JSON.stringify(article.slug)},
+    title: ${JSON.stringify(article.title)},
+    subtitle: ${JSON.stringify(article.subtitle)},
+    date: ${JSON.stringify(article.date)},
+    dateFormatted: ${JSON.stringify(article.dateFormatted)},
+    category: ${JSON.stringify(article.category)},
+    tags: ${JSON.stringify(article.tags)},
+    readingTime: ${JSON.stringify(article.readingTime)},
+    featured: ${article.featured},
+    ${article.heroImage ? `heroImage: ${JSON.stringify(article.heroImage)},` : ''}
+    linkedinUrl: ${JSON.stringify(article.linkedinUrl)},
+    author: ${JSON.stringify(article.author)},
+    authorBio: ${JSON.stringify(article.authorBio)},
+    excerpt: ${JSON.stringify(article.excerpt)},
+    content: \
+\`${escapeTemplateLiteral(article.content)}\`,
+  }`).join(',\n')}
+]
+`
 
   await fs.writeFile(outputPath, fileContents)
   console.log(`Generated ${path.relative(process.cwd(), outputPath)} with ${articles.length} articles.`)

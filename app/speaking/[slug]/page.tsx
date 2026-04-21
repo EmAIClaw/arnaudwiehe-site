@@ -5,6 +5,7 @@ import Nav from '../../../components/Nav'
 import YouTubeEmbed from '../../../components/YouTubeEmbed'
 import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
 import { notFound } from 'next/navigation'
+import { buildPageMetadata, siteUrl } from '../../metadata'
 
 export const dynamic = 'force-static'
 
@@ -32,24 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = getSpeakingEventBySlug(slug)
   if (!event) return { title: 'Speaking Event Not Found | Arnaud Wiehe' }
 
-  return {
+  return buildPageMetadata({
     title: `${event.name} | Arnaud Wiehe`,
     description: event.topic || `Arnaud Wiehe speaking at ${event.name} in ${event.location}.`,
-    alternates: {
-      canonical: `https://arnaudwiehe.com/speaking/${slug}`,
-    },
-    openGraph: {
-      title: `${event.name} | Arnaud Wiehe`,
-      description: event.topic || `Arnaud Wiehe speaking at ${event.name}.`,
-      url: `https://arnaudwiehe.com/speaking/${slug}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${event.name} | Arnaud Wiehe`,
-      description: event.topic || `Arnaud Wiehe speaking at ${event.name}.`,
-    },
-  }
+    path: `/speaking/${slug}`,
+    type: 'article',
+    image: event.heroImage ? `${siteUrl}${event.heroImage}` : undefined,
+  })
 }
 
 export function generateStaticParams() {
@@ -79,7 +69,7 @@ export default async function SpeakingEventPage({ params }: Props) {
     performer: {
       '@type': 'Person',
       name: 'Arnaud Wiehe',
-      url: 'https://arnaudwiehe.com',
+      url: siteUrl,
     },
   }
 

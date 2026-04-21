@@ -1,5 +1,19 @@
 import Link from 'next/link'
 import Nav from '../components/Nav'
+import { Metadata } from 'next'
+import { buildPageMetadata } from './metadata'
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: 'Page Not Found | Arnaud Wiehe',
+    description: 'The page you are looking for does not exist on arnaudwiehe.com.',
+    path: '/404',
+  }),
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 export default function NotFound() {
   return (

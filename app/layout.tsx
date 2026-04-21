@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
+import { defaultOgImage, siteUrl } from './metadata'
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
@@ -33,21 +34,21 @@ export const metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://arnaudwiehe.com',
+    canonical: siteUrl,
   },
   openGraph: {
     type: 'website',
-    url: 'https://arnaudwiehe.com',
+    url: siteUrl,
     title: 'Arnaud Wiehe | AI & Emerging Tech Strategist',
     description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
     siteName: 'Arnaud Wiehe',
-    images: [{ url: 'https://arnaudwiehe.com/images/og-default.webp', width: 1200, height: 630, alt: 'Arnaud Wiehe' }],
+    images: [{ url: defaultOgImage, width: 1200, height: 630, alt: 'Arnaud Wiehe' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Arnaud Wiehe | AI & Emerging Tech Strategist',
     description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
-    images: ['https://arnaudwiehe.com/images/og-default.webp'],
+    images: [defaultOgImage],
   },
 }
 
@@ -66,7 +67,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Arnaud Wiehe',
-              url: 'https://arnaudwiehe.com',
+              url: siteUrl,
               jobTitle: 'Managing Director of Information Security and AI Governance',
               description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
               sameAs: ['https://www.linkedin.com/in/arnaudwiehe'],

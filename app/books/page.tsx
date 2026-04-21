@@ -1,24 +1,13 @@
 import Image from 'next/image'
 import Nav from '../../components/Nav'
 import { Metadata } from 'next'
+import { buildPageMetadata } from '../metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Books | Arnaud Wiehe',
   description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
-  alternates: {
-    canonical: 'https://arnaudwiehe.com/books',
-  },
-  openGraph: {
-    title: 'Books | Arnaud Wiehe',
-    description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
-    url: 'https://arnaudwiehe.com/books',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Books | Arnaud Wiehe',
-    description: 'Practical guides for leaders navigating cybersecurity, AI, and emerging technology.',
-  },
-}
+  path: '/books',
+})
 
 const books = [
   {

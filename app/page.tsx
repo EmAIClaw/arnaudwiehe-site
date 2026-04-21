@@ -2,22 +2,53 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
 import YouTubeEmbed from '../components/YouTubeEmbed'
-import Headshot from '../assets/headshots/headshot.jpg'
-import SpeakingPhoto1 from '../assets/photos/speaking/gitex-dubai-2025-1.jpg'
-import SpeakingPhoto2 from '../assets/photos/speaking/gitex-dubai-2025-2.jpg'
-import SpeakingPhoto3 from '../assets/photos/speaking/world-summit-ai-2023.jpg'
-import SpeakingPhoto4 from '../assets/photos/speaking/ISACA Risk Speaker Photo1.jpg'
-import SpeakingPhoto5 from '../assets/photos/speaking/ISACA Risk Speaker Photo2.jpg'
-import Instrument1 from '../assets/instruments/IMG_5695.jpg'
-import Instrument2 from '../assets/instruments/IMG_5935.jpg'
-import Instrument3 from '../assets/instruments/IMG_0470.jpg'
-import Instrument4 from '../assets/instruments/IMG_0472.jpg'
-import Instrument5 from '../assets/instruments/IMG_0099.jpg'
-import Instrument6 from '../assets/instruments/IMG_5954.jpg'
-import Instrument7 from '../assets/instruments/IMG_9109.jpg'
-import Instrument8 from '../assets/instruments/IMG_9896.jpg'
 
 import { getAllArticles } from './articles/data'
+
+const headshotImage = {
+  src: '/images/headshots/headshot.jpg',
+  width: 933,
+  height: 1400,
+}
+
+const speakingPhotos = {
+  gitexVertical: {
+    src: '/images/speaking/gitex-dubai-2025-1.jpg',
+    width: 1066,
+    height: 1600,
+  },
+  gitexStage: {
+    src: '/images/speaking/gitex-dubai-2025-2.jpg',
+    width: 1800,
+    height: 1200,
+  },
+  worldSummit: {
+    src: '/images/speaking/world-summit-ai-2023.jpg',
+    width: 1067,
+    height: 1600,
+  },
+  isacaOne: {
+    src: '/images/speaking/ISACA Risk Speaker Photo1.jpg',
+    width: 1707,
+    height: 2560,
+  },
+  isacaTwo: {
+    src: '/images/speaking/ISACA Risk Speaker Photo2.jpg',
+    width: 1707,
+    height: 2560,
+  },
+}
+
+const instrumentImages = [
+  { src: '/images/music/IMG_5695.webp', alt: 'Violin', width: 1200, height: 1200 },
+  { src: '/images/music/IMG_5935.webp', alt: 'Viola', width: 1400, height: 1045 },
+  { src: '/images/music/IMG_0470.webp', alt: 'Cello', width: 1365, height: 2048 },
+  { src: '/images/music/IMG_0472.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
+  { src: '/images/music/IMG_0099.webp', alt: 'Violin', width: 854, height: 1280 },
+  { src: '/images/music/IMG_5954.webp', alt: 'Viola', width: 1100, height: 1640 },
+  { src: '/images/music/IMG_9109.webp', alt: 'Cello', width: 1400, height: 1045 },
+  { src: '/images/music/IMG_9896.webp', alt: 'Instrument', width: 1050, height: 1400 },
+]
 
 const featuredEngagements = [
   {
@@ -81,9 +112,11 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-headshot-wrap">
             <Image
-              src={Headshot}
+              src={headshotImage.src}
               alt="Arnaud Wiehe"
               className="hero-headshot"
+              width={headshotImage.width}
+              height={headshotImage.height}
               priority
               sizes="240px"
             />
@@ -214,20 +247,20 @@ export default function Home() {
             <div className="speaking-photos-container">
               <div className="speaking-photos-vertical-row">
                 <div className="speaking-photo-vertical">
-                  <Image src={SpeakingPhoto1} alt="Speaking at GITEX Dubai 2025" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
+                  <Image src={speakingPhotos.gitexVertical.src} alt="Speaking at GITEX Dubai 2025" className="speaking-photo-img-full" width={speakingPhotos.gitexVertical.width} height={speakingPhotos.gitexVertical.height} loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
                 <div className="speaking-photo-vertical">
-                  <Image src={SpeakingPhoto3} alt="World Summit AI 2023" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
+                  <Image src={speakingPhotos.worldSummit.src} alt="World Summit AI 2023" className="speaking-photo-img-full" width={speakingPhotos.worldSummit.width} height={speakingPhotos.worldSummit.height} loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
                 <div className="speaking-photo-vertical">
-                  <Image src={SpeakingPhoto4} alt="ISACA Risk Event Netherlands" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
+                  <Image src={speakingPhotos.isacaOne.src} alt="ISACA Risk Event Netherlands" className="speaking-photo-img-full" width={speakingPhotos.isacaOne.width} height={speakingPhotos.isacaOne.height} loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
                 <div className="speaking-photo-vertical">
-                  <Image src={SpeakingPhoto5} alt="ISACA Risk Event speaking" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
+                  <Image src={speakingPhotos.isacaTwo.src} alt="ISACA Risk Event speaking" className="speaking-photo-img-full" width={speakingPhotos.isacaTwo.width} height={speakingPhotos.isacaTwo.height} loading="lazy" sizes="(max-width: 900px) 50vw, 220px" />
                 </div>
               </div>
               <div className="speaking-photo-horizontal">
-                <Image src={SpeakingPhoto2} alt="GITEX Dubai 2025 stage" className="speaking-photo-img-full" loading="lazy" sizes="(max-width: 768px) 100vw, 700px" />
+                <Image src={speakingPhotos.gitexStage.src} alt="GITEX Dubai 2025 stage" className="speaking-photo-img-full" width={speakingPhotos.gitexStage.width} height={speakingPhotos.gitexStage.height} loading="lazy" sizes="(max-width: 768px) 100vw, 700px" />
               </div>
             </div>
 
@@ -323,30 +356,19 @@ export default function Home() {
           <div className="music-instruments-section">
             <h3 className="music-instruments-title">Instrument Collection</h3>
             <div className="music-instruments-grid">
-              <div className="music-instrument-card">
-                <Image src={Instrument1} alt="Violin" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument2} alt="Viola" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument3} alt="Cello" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument4} alt="Cello da spalla" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument5} alt="Violin" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument6} alt="Viola" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument7} alt="Cello" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
-              <div className="music-instrument-card">
-                <Image src={Instrument8} alt="Instrument" className="music-instrument-img" loading="lazy" sizes="(max-width: 768px) 50vw, 200px" />
-              </div>
+              {instrumentImages.map((instrument) => (
+                <div key={instrument.src} className="music-instrument-card">
+                  <Image
+                    src={instrument.src}
+                    alt={instrument.alt}
+                    className="music-instrument-img"
+                    width={instrument.width}
+                    height={instrument.height}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 50vw, 200px"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 

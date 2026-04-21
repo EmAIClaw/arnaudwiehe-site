@@ -3,24 +3,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
 import { getAllArticles } from './data'
+import { buildPageMetadata } from '../metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Writing | Arnaud Wiehe',
   description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies, and what I\'m learning along the way.',
-  alternates: {
-    canonical: 'https://arnaudwiehe.com/articles',
-  },
-  openGraph: {
-    title: 'Writing | Arnaud Wiehe',
-    description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies.',
-    url: 'https://arnaudwiehe.com/articles',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Writing | Arnaud Wiehe',
-    description: 'Thoughts on AI governance, cybersecurity leadership, emerging technologies.',
-  },
-}
+  path: '/articles',
+})
 
 function getArticleImageDimensions(slug: string) {
   if (slug === 'cyber-resilience-after-the-hype' || slug === 'third-party-cyber-risk-board-level') {

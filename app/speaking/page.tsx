@@ -3,25 +3,19 @@ import Link from 'next/link'
 import Nav from '../../components/Nav'
 import { Metadata } from 'next'
 import { getAllSpeakingEvents } from './data'
-import HeroImage from '../../assets/photos/speaking/gitex-dubai-2025-2.jpg'
+import { buildPageMetadata } from '../metadata'
 
-export const metadata: Metadata = {
-  title: 'Speaking | Arnaud Wiehe',
-  description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies — helping leaders navigate the intersection of innovation and risk.',
-  alternates: {
-    canonical: 'https://arnaudwiehe.com/speaking',
-  },
-  openGraph: {
-    title: 'Speaking | Arnaud Wiehe',
-    description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies.',
-    url: 'https://arnaudwiehe.com/speaking',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Speaking | Arnaud Wiehe',
-    description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies.',
-  },
+const speakingHeroImage = {
+  src: '/images/speaking/gitex-dubai-2025-2.jpg',
+  width: 1800,
+  height: 1200,
 }
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Speaking | Arnaud Wiehe',
+  description: 'Arnaud speaks at leading global conferences on AI, cybersecurity, and emerging technologies, helping leaders navigate the intersection of innovation and risk.',
+  path: '/speaking',
+})
 
 export default function SpeakingPage() {
   const allEvents = getAllSpeakingEvents()
@@ -46,9 +40,11 @@ export default function SpeakingPage() {
 
         <div className="speaking-hero-image-wrap">
           <Image
-            src={HeroImage}
+            src={speakingHeroImage.src}
             alt="Arnaud Wiehe on stage at GITEX Global Dubai"
             className="speaking-hero-image"
+            width={speakingHeroImage.width}
+            height={speakingHeroImage.height}
             priority
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
@@ -88,14 +84,12 @@ function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEv
       <div className="speaking-list-content">
         <h3 className="speaking-list-name">{event.name}</h3>
         <p className="speaking-list-topic">{event.topic}</p>
-        <div className="speaking-list-tags">
-          {event.tags.slice(0, 4).map((tag) => (
-            <span key={tag} className="speaking-list-tag">{tag}</span>
-          ))}
-        </div>
+        <p className="speaking-list-tags" aria-label="Topics">
+          {event.tags.slice(0, 4).join(' · ')}
+        </p>
       </div>
       <Link href={`/speaking/${event.slug}`} className="speaking-list-cta">
-        {event.youtubeId ? 'Watch →' : 'Details →'}
+        View event →
       </Link>
     </div>
   )

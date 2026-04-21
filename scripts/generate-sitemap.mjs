@@ -27,24 +27,29 @@ const staticPages = [
   { url: '/music', priority: 0.7, changefreq: 'monthly' },
 ]
 
-const today = new Date().toISOString().split('T')[0]
+function fileLastModified(filePath) {
+  return fs.statSync(filePath).mtime.toISOString().split('T')[0]
+}
+
+const articleLastmod = fileLastModified('app/articles/data.generated.ts')
+const speakingLastmod = fileLastModified('app/speaking/data.ts')
 
 const urls = [
   ...staticPages.map(p => `  <url>
     <loc>${BASE_URL}${p.url}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${fileLastModified(`app${p.url === '/' ? '/page.tsx' : `${p.url}/page.tsx`}`)}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`),
   ...articleSlugs.map(slug => `  <url>
     <loc>${BASE_URL}/articles/${slug}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${articleLastmod}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>`),
   ...speakingSlugs.map(slug => `  <url>
     <loc>${BASE_URL}/speaking/${slug}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${speakingLastmod}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>`),

@@ -169,18 +169,7 @@ export default function AIAssessmentPage() {
 
   if (showResult) {
     return (
-      <>
-        <nav className="nav-wrapper">
-          <div className="nav-inner">
-            <Link href="/" className="nav-logo">Arnaud Wiehe</Link>
-            <div className="nav-links">
-              <Link href="/" className="nav-link">Home</Link>
-              <Link href="/ai-assessment" className="nav-link">AI Assessment</Link>
-            </div>
-          </div>
-        </nav>
-
-        <main className="assessment-page">
+      <main id="main-content" className="assessment-page">
           <div className="assessment-result">
             <div className="result-header" style={{ borderColor: result.color }}>
               <span className="result-level" style={{ backgroundColor: result.color }}>
@@ -235,24 +224,12 @@ export default function AIAssessmentPage() {
               )}
             </div>
           </div>
-        </main>
-      </>
+      </main>
     )
   }
 
   return (
-    <>
-      <nav className="nav-wrapper">
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">Arnaud Wiehe</Link>
-          <div className="nav-links">
-            <Link href="/" className="nav-link">Home</Link>
-            <Link href="/ai-assessment" className="nav-link">AI Assessment</Link>
-          </div>
-        </div>
-      </nav>
-
-      <main className="assessment-page">
+      <main id="main-content" className="assessment-page">
         <div className="assessment-container">
           <header className="assessment-header">
             <h1>Board AI Readiness Assessment</h1>
@@ -297,6 +274,5 @@ export default function AIAssessmentPage() {
           </div>
         </div>
       </main>
-    </>
   )
 }

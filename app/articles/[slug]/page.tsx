@@ -4,6 +4,7 @@ import Nav from '../../../components/Nav'
 import { Metadata } from 'next'
 import { getArticleBySlug, getAdjacentArticles, getAllArticles } from '../data'
 import { notFound } from 'next/navigation'
+import { buildPageMetadata, siteUrl } from '../../metadata'
 
 export const dynamic = 'force-static'
 
@@ -24,24 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticleBySlug(slug)
   if (!article) return { title: 'Article Not Found | Arnaud Wiehe' }
 
-  return {
+  return buildPageMetadata({
     title: `${article.title} | Arnaud Wiehe`,
     description: article.excerpt || article.title,
-    alternates: {
-      canonical: `https://arnaudwiehe.com/articles/${slug}`,
-    },
-    openGraph: {
-      title: `${article.title} | Arnaud Wiehe`,
-      description: article.excerpt || article.title,
-      url: `https://arnaudwiehe.com/articles/${slug}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${article.title} | Arnaud Wiehe`,
-      description: article.excerpt || article.title,
-    },
-  }
+    path: `/articles/${slug}`,
+    type: 'article',
+    image: article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
+  })
 }
 
 export function generateStaticParams() {
@@ -74,7 +64,8 @@ export default async function ArticlePage({ params }: Props) {
       name: 'Arnaud Wiehe',
       url: 'https://arnaudwiehe.com',
     },
-    mainEntityOfPage: `https://arnaudwiehe.com/articles/${slug}`,
+    mainEntityOfPage: `${siteUrl}/articles/${slug}`,
+    image: article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
   }
 
   const { prev, next } = getAdjacentArticles(slug)

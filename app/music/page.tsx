@@ -2,42 +2,23 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 import Nav from '../../components/Nav'
 import YouTubeEmbed from '../../components/YouTubeEmbed'
-import Instrument1 from '../../assets/instruments/IMG_5695.jpg'
-import Instrument2 from '../../assets/instruments/IMG_5935.jpg'
-import Instrument3 from '../../assets/instruments/IMG_0470.jpg'
-import Instrument4 from '../../assets/instruments/IMG_0472.jpg'
-import Instrument5 from '../../assets/instruments/IMG_0099.jpg'
-import Instrument6 from '../../assets/instruments/IMG_5954.jpg'
-import Instrument7 from '../../assets/instruments/IMG_9109.jpg'
-import Instrument8 from '../../assets/instruments/IMG_9896.jpg'
+import { buildPageMetadata } from '../metadata'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Music | Arnaud Wiehe',
   description: 'Beyond technology and security, music provides balance, discipline, and creative expression. Violin, viola, cello, and instrument building.',
-  alternates: {
-    canonical: 'https://arnaudwiehe.com/music',
-  },
-  openGraph: {
-    title: 'Music | Arnaud Wiehe',
-    description: 'Beyond technology and security, music provides balance, discipline, and creative expression.',
-    url: 'https://arnaudwiehe.com/music',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Music | Arnaud Wiehe',
-    description: 'Beyond technology and security, music provides balance, discipline, and creative expression.',
-  },
-}
+  path: '/music',
+})
 
 const instruments = [
-  { src: Instrument1, alt: 'Violin' },
-  { src: Instrument2, alt: 'Viola' },
-  { src: Instrument3, alt: 'Cello' },
-  { src: Instrument4, alt: 'Cello da spalla' },
-  { src: Instrument5, alt: 'Violin' },
-  { src: Instrument6, alt: 'Viola' },
-  { src: Instrument7, alt: 'Cello' },
-  { src: Instrument8, alt: 'Instrument' },
+  { src: '/images/music/IMG_5695.webp', alt: 'Violin', width: 1200, height: 1200 },
+  { src: '/images/music/IMG_5935.webp', alt: 'Viola', width: 1400, height: 1045 },
+  { src: '/images/music/IMG_0470.webp', alt: 'Cello', width: 1365, height: 2048 },
+  { src: '/images/music/IMG_0472.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
+  { src: '/images/music/IMG_0099.webp', alt: 'Violin', width: 854, height: 1280 },
+  { src: '/images/music/IMG_5954.webp', alt: 'Viola', width: 1100, height: 1640 },
+  { src: '/images/music/IMG_9109.webp', alt: 'Cello', width: 1400, height: 1045 },
+  { src: '/images/music/IMG_9896.webp', alt: 'Instrument', width: 1050, height: 1400 },
 ]
 
 export default function MusicPage() {
@@ -62,10 +43,14 @@ export default function MusicPage() {
               of craftsmanship and artistry provides a different kind of creative outlet.
             </p>
             <p>
-              Instrument building, in particular, teaches patience and precision—qualities
-              that translate directly to leadership and strategic thinking in the technology world.
+              Instrument building, in particular, teaches patience and precision, qualities
+              that translate directly to leadership, judgment, and long-horizon thinking in the technology world.
               Each instrument is a complex system of interdependent parts, requiring both
               technical skill and artistic vision to bring to life.
+            </p>
+            <p>
+              That same balance, precision, restraint, and performance under pressure also shapes Arnaud's work
+              with boards and executives navigating AI, cybersecurity, and emerging technology risk.
             </p>
           </div>
 
@@ -84,6 +69,8 @@ export default function MusicPage() {
                     src={instrument.src}
                     alt={instrument.alt}
                     className="music-instrument-img"
+                    width={instrument.width}
+                    height={instrument.height}
                     loading="lazy"
                     sizes="(max-width: 768px) 50vw, 200px"
                   />
