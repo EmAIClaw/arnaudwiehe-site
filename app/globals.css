@@ -1048,6 +1048,7 @@ p {
   object-fit: cover;
   transition: transform 0.3s ease;
   display: block;
+  image-orientation: from-image;
 }
 
 .music-instrument-card:hover .music-instrument-img {
