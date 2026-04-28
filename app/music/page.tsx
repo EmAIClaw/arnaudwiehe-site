@@ -11,14 +11,14 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 const instruments = [
-  { src: '/images/music/IMG_5695.webp', alt: 'Violin', width: 1200, height: 1200 },
-  { src: '/images/instruments/IMG_5935.jpg', alt: 'Viola', width: 1045, height: 1400 },
-  { src: '/images/music/IMG_0470.webp', alt: 'Cello', width: 1365, height: 2048 },
-  { src: '/images/music/IMG_0472.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
-  { src: '/images/music/IMG_0099.webp', alt: 'Violin', width: 854, height: 1280 },
-  { src: '/images/music/IMG_5954.webp', alt: 'Viola', width: 1100, height: 1640 },
-  { src: '/images/instruments/IMG_9109.jpg', alt: 'Cello', width: 1045, height: 1400 },
-  { src: '/images/music/IMG_9896.webp', alt: 'Instrument', width: 1050, height: 1400 },
+  { src: '/images/music/IMG_5695-thumb.webp', alt: 'Violin', width: 1200, height: 1200 },
+  { src: '/images/instruments/IMG_5935-thumb.webp', alt: 'Viola', width: 1936, height: 2592 },
+  { src: '/images/music/IMG_0470-thumb.webp', alt: 'Cello', width: 1365, height: 2048 },
+  { src: '/images/music/IMG_0472-thumb.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
+  { src: '/images/music/IMG_0099-thumb.webp', alt: 'Violin', width: 854, height: 1280 },
+  { src: '/images/music/IMG_5954-thumb.webp', alt: 'Viola', width: 1100, height: 1640 },
+  { src: '/images/instruments/IMG_9109-thumb.webp', alt: 'Cello', width: 1936, height: 2592 },
+  { src: '/images/music/IMG_9896-thumb.webp', alt: 'Instrument', width: 1050, height: 1400 },
 ]
 
 export default function MusicPage() {

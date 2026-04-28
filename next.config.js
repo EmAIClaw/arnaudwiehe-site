@@ -6,6 +6,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Performance optimizations
+  compress: true,
+  generateEtags: true,
+  trailingSlash: true,
 }
 
 module.exports = nextConfig

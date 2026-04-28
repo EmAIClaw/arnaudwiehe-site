@@ -17,9 +17,90 @@ export interface Article {
   authorBio: string
   featured: boolean
   heroImage?: string
+  thumbnailImage?: string
 }
 
 export const articles: Article[] = [
+  {
+    slug: "mcp-security-new-attack-surface",
+    title: "MCP Security: A New Attack Surface Emerges",
+    subtitle: "The Model Context Protocol has become the newest front in AI security — and most organizations haven't even mapped it yet",
+    date: "2026-04-27",
+    dateFormatted: "April 27, 2026",
+    category: "Ai security",
+    tags: ["Mcp","Ai security","Agentic ai","Mcp security","Owasp","Supply chain","Ai governance"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/articles/mcp-security-new-attack-surface.png",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "MCP is becoming a critical dependency layer for AI systems. The real question is no longer what the model can do — it is what it can reach.",
+    content: `<p>Most organizations are not ready for it</p>
+<p>In April 2026, researchers at OX Security published findings that should get every security leader’s attention. They did not break into any systems, they used one. By exploiting the way some MCP-connected tools use the protocol’s STDIO interface to pass commands to underlying subprocesses, they were able to run arbitrary OS commands on production systems belonging to real companies with real paying customers.</p>
+<p>The research led to multiple high and critical severity findings and triggered dozens of responsible disclosure processes. When asked about the root cause, the response suggested this was a consequence of how these implementations were designed to work, rather than a traditional software bug.</p>
+<p>That last part should give you pause.</p>
+<p>⸻</p>
+<p>Model Context Protocol (MCP) was supposed to be the USB of AI. A universal standard for connecting agents to tools, databases, and services. In many ways, it delivers on that promise. It gives AI systems a consistent way to retrieve data, trigger workflows, and act across systems. Which is exactly where the problem lies.</p>
+<p>The OX research did not reveal any entirely new categories of vulnerabilities, like poor secret management, weak authentication, or command injection. Instead, what MCP integrations do is amplify their impact. Because agents chain actions and operate with delegated permissions, a single vulnerability can propagate across multiple tools and workflows in ways that traditional software simply cannot.</p>
+<p>One of the more troubling patterns in the research was how seemingly legitimate tools or inputs could carry hidden instructions. The agent does not see this as malicious. It sees it as context. Agents are designed to follow context, they comply. There is no jailbreak involved. This is just the right input, through the right channel.</p>
+<p>⸻</p>
+<p>What makes this genuinely difficult to defend against is that these attacks do not look like attacks.</p>
+<p>The agent is making valid API calls, accessing approved systems, and following what appear to be legitimate instructions. Most detection mechanisms, built around anomalies, signatures, and known attack patterns, simply do not trigger. You cannot easily firewall context.</p>
+<p>Authentication and authorization are also proving to be weak points, particularly in early deployments. Many implementations rely on implicit trust between components, especially in internal environments. That assumption breaks down quickly when agents are dynamically discovering and interacting with tools across systems.</p>
+<p>Context leakage is similarly underestimated. When context is shared across sessions or insufficiently scoped, sensitive information can persist longer than intended or bleed between tasks.</p>
+<p>⸻</p>
+<p>We have seen a version of this before.</p>
+<p>Supply chain attacks shifted the focus from securing your own code to securing the dependencies you trust. MCP is becoming a similar dependency layer for AI systems.</p>
+<p>Anything that connects everything becomes critical infrastructure, and currently most organizations are not treating it that way.</p>
+<p>⸻</p>
+<p>The practical starting point is visibility. Most organizations do not have a clear inventory of where and how their agents are interacting with tools. Without that, any risk assessment is guesswork.</p>
+<p>From there, the fundamentals apply. Remove implicit trust. Enforce least privilege. Require strong authentication between components. Automatic tool execution with broad permissions may feel like it enables speed. In practice, it creates systemic risk that compounds as agent deployments scale.</p>
+<p>The harder shift is organizational. MCP and similar integration layers are not helper components. They are central to how AI systems operate, and therefore central to how they fail. That conversation needs to move beyond the engineering team. Governance frameworks and risk discussions need to include how AI systems interact with tools and data, not just how models behave in isolation.</p>
+<p>⸻</p>
+<p>The question is no longer what the model can do. It is what it can reach.</p>
+<p>In most organizations right now, the honest answer is still: far too much.</p>`,
+  },
+  {
+    slug: "ai-security-2026",
+    title: "AI Security in 2026",
+    subtitle: "The shift from model intelligence to connected autonomy, tool use, and containment",
+    date: "2026-04-22",
+    dateFormatted: "April 22, 2026",
+    category: "Ai security",
+    tags: ["Ai security","Agentic ai","Aisi","Containment","Governance","Owasp","Cisa","Nist","Ncsc"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/articles/ai-security-2026.webp",
+    thumbnailImage: "/images/articles/ai-security-2026-thumb.webp",
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
+    excerpt: "AI Security in 2026: The shift from model intelligence to connected autonomy, tool use, and containment.",
+    content: `<p><em>The real AI security story of 2026 is no longer just model intelligence. It is connected autonomy, tool use, and weak containment.</em></p>
+<p>For the past few years, most AI security conversations have focused on model behaviour. Will it hallucinate? Will it leak sensitive data? Will it produce unsafe output?</p>
+<p>Those questions still matter.</p>
+<p>But recent official-source signals point to something else. The bigger AI cybersecurity issue is what happens when AI systems are connected to tools, given access to live environments, and allowed to operate across multiple steps with limited containment.</p>
+<h2>The UK AI Security Institute Signal</h2>
+<p>The most important signal came from the UK AI Security Institute. In its April 13 evaluation of Claude Mythos Preview, AISI reported continued improvement in cyber capability, including significant improvement on multi-step cyber-attack simulations. In controlled testing, it found the model could execute multi-stage attacks on vulnerable networks and autonomously discover and exploit vulnerabilities, tasks it said would take human professionals days of work.</p>
+<p>This matters because it shows that AI risk is no longer just about what a model can say. It is increasingly about what an agent can do when connected, directed, and given room to operate. It also suggests that the tempo of cyber capability is increasing, which puts more pressure on defenders to strengthen monitoring, containment, and response.</p>
+<h2>The Containment Problem</h2>
+<p>Just as importantly, AISI also made containment a much more practical security issue.</p>
+<p>In a separate April 20 post, it described how an open-source agent inside a sandboxed research environment was able to identify the organisation by name, infer the identity of a human operator, and reconstruct aspects of prior research activity. AISI noted that this kind of environment awareness could undermine evaluation integrity and help an agent identify routes for exfiltration or exploitation.</p>
+<p>That is a very different level of concern from ordinary prompt safety.</p>
+<p>It points to a world where assurance is no longer just about model alignment. It is about secure deployment, permissions, observability, and the ability to contain systems that can reason across context, tools, and infrastructure.</p>
+<h2>Implementation Guidance</h2>
+<p>OWASP is reinforcing the same shift from the implementation side. Its 2026 guidance on GenAI data security focuses on the full data layer, from training and fine-tuning data through to prompts and outputs, and calls for AI-specific security testing, constant monitoring, and robust validation throughout the lifecycle. That is exactly the kind of practical security capability organisations need if they want to move beyond AI experimentation and into real operational control.</p>
+<p>CISA's Operational Technology guidance adds another important dimension. Its joint guidance on AI in OT is framed around secure integration and risk mitigation for owners and operators of critical environments. This is an important reminder that once AI is influencing industrial or operational systems, the issue is not just productivity. It is also about safety, resilience, and operational consequence.</p>
+<h2>Framework Anchors</h2>
+<p>NIST and NCSC remain the most useful implementation anchors for AI risk. NIST's AI RMF is still one of the clearest baseline frameworks for incorporating trustworthiness into the design, development, use, and evaluation of AI systems. NCSC's secure AI system development guidance remains highly relevant too, especially its lifecycle emphasis on secure design, secure development, secure deployment, and secure operation and maintenance, including logging and monitoring.</p>
+<h2>The Strategic Implication</h2>
+<p>The strategic implication is straightforward. AI risk is becoming operational.</p>
+<p>That is why the real security conversation in 2026 is shifting. Less focus on model intelligence alone. More focus on connected autonomy, permission design, containment, monitoring, and kill-switch authority.</p>
+<p>If your organisation is deploying agentic AI, make sure to ask what it can connect to, what it is allowed to do, and how confidently you can stop it if necessary.</p>
+<p><em>Arnaud Wiehe writes and speaks on AI governance, AI risk, cybersecurity leadership, and emerging technologies. He is the author of "Emerging Tech, Emerging Threats" and the forthcoming "AI Governance Guide."</em></p>`,
+  },
   {
     slug: "trusted-feature-breach",
     title: "The next AI breach may not be a hack, but a trusted feature doing exactly what it was allowed to do",
@@ -30,7 +111,8 @@ export const articles: Article[] = [
     tags: ["Ai governance","Ai security","Enterprise ai","Risk management","Board oversight"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/trusted-feature-breach.jpg",
+    heroImage: "/images/articles/trusted-feature-breach.webp",
+    thumbnailImage: "/images/articles/trusted-feature-breach-thumb.webp",
     linkedinUrl: "https://www.linkedin.com/pulse/next-ai-breach-may-not-hack-trusted-feature-doing-exactly-what-it",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
@@ -104,15 +186,15 @@ export const articles: Article[] = [
     tags: ["Ai governance","Board oversight","Ai risk","Operating model","Decision rights","Ai literacy","Eu ai act","Nist ai rmf"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/board-oversight-operating-model.jpg",
+    heroImage: "/images/articles/board-oversight-operating-model.webp",
+    thumbnailImage: "/images/articles/board-oversight-operating-model-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
-    excerpt: "AI has clearly entered the boardroom. Directors are asking better questions. Regulators are raising Obligations. Audit and risk committees increasingly want to know where AI is used, who is accountable, and what could go wrong. That is progress. But in many organizations, the visible maturity is still misleading. The board deck looks polished. The principles sound sensible. The policy exists. The steering committee has been announced. And underneath that, the operating model is still missing.",
+    excerpt: "AI has clearly entered the boardroom. Directors are asking harder questions. Regulators are raising obligations. Audit and risk committees increasingly want to know where AI is used, who is accountable, and what could go wrong. That is progress. But in many organizations, the visible maturity is still misleading. The board deck looks polished. The principles sound sensible. The policy exists. The steering committee has been announced. And underneath that, the operating model is still missing.",
     content: `<p>AI has clearly entered the boardroom.</p>
-<p>Directors are asking better questions. Regulators are raising Obligations. Audit and risk committees increasingly want to know where AI is used, who is accountable, and what could go wrong.</p>
-<p>That is progress.</p>
-<p>But in many organizations, the visible maturity is still misleading.</p>
+<p>Directors are asking harder questions. Regulators are raising obligations. Audit and risk committees increasingly want to know where AI is used, who is accountable, and what could go wrong.</p>
+<p>That is progress. But in many organizations, the visible maturity is still misleading.</p>
 <p>The board deck looks polished. The principles sound sensible. The policy exists. The steering committee has been announced.</p>
 <p>And underneath that, the operating model is still missing.</p>
 <p>That gap matters more than most companies think.</p>
@@ -135,20 +217,20 @@ export const articles: Article[] = [
 <li>a cross-functional committee with unclear authority</li>
 <li>scattered inventories or risk registers</li>
 <li>training that raises awareness, but does not change decision rights or workflow</li>
-<li>no standardized tools across the enterprize</li>
-<li>no controls to mitigate risk or enforce compliance to policies</li>
+<li>no standardized tools across the enterprise</li>
+<li>no controls to mitigate risk or enforce compliance with policy</li>
 </ul>
-<p>None of these things are useless. But on their own, none of them, make up an effective operating model.</p>
+<p>None of these things are useless. But on their own, none of them make up an effective operating model.</p>
 <p>An AI governance operating model answers practical questions such as:</p>
 <ul>
 <li>who is allowed to approve which use cases?</li>
-<li>what standard should every business team must meet before deployment?</li>
+<li>what standard must every business team meet before deployment?</li>
 <li>when must legal, security, risk, and procurement be involved?</li>
 <li>how are exceptions handled?</li>
 <li>how do monitoring, incident escalation, and review actually work?</li>
 <li>what does the board see, how often, and in what form?</li>
 </ul>
-<p>If these questions can't be answered, then the organization does not yet have operational AI governance. It has AI Governance intent.</p>
+<p>If these questions cannot be answered, then the organization does not yet have operational AI governance. It has AI governance intent.</p>
 <h2>Boards Are Right to Ask Harder Questions</h2>
 <p>This is where I think many organizations are underestimating the board's role.</p>
 <p>Good boards are not asking to manage AI day to day. They are asking whether management has implemented systems to manage AI adoption.</p>
@@ -164,7 +246,7 @@ export const articles: Article[] = [
 </ul>
 <p>These are not just theoretical questions, but rather operating model questions.</p>
 <h2>The Missing Piece is Decision Rights</h2>
-<p>When AI governance stalls, one of the biggest missing pieces is decision rights. There is general consensus that AI should be governed. But few rganizations are clear on who gets to decide what.</p>
+<p>When AI governance stalls, one of the biggest missing pieces is decision rights. There is general consensus that AI should be governed. But few organizations are clear on who gets to decide what.</p>
 <p>For example:</p>
 <ul>
 <li>Can a business unit adopt a low-risk generative AI tool on its own?</li>
@@ -208,15 +290,22 @@ export const articles: Article[] = [
 <p>Start with five questions:</p>
 <ol>
 <li>Do we know where material AI use cases actually are?</li>
-<li>Are decision rights explicit, or is there informal coordination?</li>
+<li>Are decision rights explicit, or is there still informal coordination?</li>
 <li>What minimum control standard applies across the enterprise?</li>
 <li>Where is federated ownership working, and where is it creating inconsistency?</li>
 <li>What evidence could management show the board that governance is functioning in practice?</li>
 </ol>
 <p>Those questions tend to expose the real maturity level very quickly.</p>
+<h2>Open Verification Points</h2>
+<p>Before wider republication or reuse, verify three practical points:</p>
+<ul>
+<li>whether references to the EU AI Act, NIST AI RMF, and board oversight expectations should be backed by explicit source links for the target channel</li>
+<li>whether the closing should lean more toward a board call to action or an executive operating-model checklist</li>
+<li>whether the website version should include a short pull-quote or sidebar on decision rights as the core operating-model test</li>
+</ul>
 <h2>Final Thought</h2>
-<p>Board oversight of AI is getting real, but organizations that will benefit from that pressure are not the ones with the most polished principles. They are the ones that build an effective operating model underneath it.</p>
-<p>In AI governance, the distance between performative maturity and actual control is still surprisingly wide. In many companies, that distance is where a meaningful share of enterprise AI risk is still hiding.</p>`,
+<p>Board oversight of AI is getting real, but the organizations that will benefit from that pressure are not the ones with the most polished principles. They are the ones that build an operating model underneath them.</p>
+<p>That is the leadership test now: turn AI governance from a slide deck into management capability.</p>`,
   },
   {
     slug: "the-ai-agent-problem",
@@ -228,7 +317,8 @@ export const articles: Article[] = [
     tags: ["Ai governance","Ai security","Agentic ai","Cybersecurity","Board governance","Eu ai act","Risk management"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/the-ai-agent-problem.jpg",
+    heroImage: "/images/articles/the-ai-agent-problem.webp",
+    thumbnailImage: "/images/articles/the-ai-agent-problem-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
@@ -264,7 +354,8 @@ export const articles: Article[] = [
     tags: ["Ncsc","Vibe coding","Ai security","Software supply chain","Governance","Rsa 2026"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/ncsc-vibe-coding-safeguards.png",
+    heroImage: "/images/articles/ncsc-vibe-coding-safeguards.webp",
+    thumbnailImage: "/images/articles/ncsc-vibe-coding-safeguards-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
@@ -366,7 +457,8 @@ export const articles: Article[] = [
     tags: ["Ai governance","Chief ai officer","Eu ai act","Iso 42001","Competitive advantage"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/ai-governance-journey.png",
+    heroImage: "/images/articles/ai-governance-journey.webp",
+    thumbnailImage: "/images/articles/ai-governance-journey-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
@@ -478,7 +570,8 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
     tags: ["Iso 42001","Ai management system","Ai governance","Eu ai act","Nist ai rmf","Compliance"],
     readingTime: "6 min read",
     featured: false,
-    heroImage: "/images/articles/iso-42001-compliance-final.jpg",
+    heroImage: "/images/articles/iso-42001-compliance-final.webp",
+    thumbnailImage: "/images/articles/iso-42001-compliance-final-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
@@ -570,7 +663,8 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
     tags: ["Agentic AI","Owasp","AI Security","Cybersecurity","AI Governance"],
     readingTime: "6 min read",
     featured: false,
-    heroImage: "/images/articles/owasp-top-10-agentic-ai.png",
+    heroImage: "/images/articles/owasp-top-10-agentic-ai.webp",
+    thumbnailImage: "/images/articles/owasp-top-10-agentic-ai-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
@@ -658,6 +752,7 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
     readingTime: "7 min read",
     featured: false,
     heroImage: "/images/articles/ai-governance-cybersecurity.svg",
+    
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
@@ -738,6 +833,7 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
     readingTime: "8 min read",
     featured: true,
     heroImage: "/images/articles/boards-cyber-agenda-2026.svg",
+    
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'The Book on Cybersecurity' and 'Emerging Tech, Emerging Threats'. Advisor to boards on digital risk.",
@@ -793,7 +889,8 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
     tags: ["Shadow ai","Ai governance","Eu ai act","Risk management","Compliance"],
     readingTime: "8 min read",
     featured: true,
-    heroImage: "/images/articles/shadow-ai-guide-2026.jpg",
+    heroImage: "/images/articles/shadow-ai-guide-2026.webp",
+    thumbnailImage: "/images/articles/shadow-ai-guide-2026-thumb.webp",
     linkedinUrl: "https://www.linkedin.com/pulse/shadow-ai-what-do-2026-arnaud-wiehe-xllwe",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'The Book on Cybersecurity' and 'Emerging Tech, Emerging Threats'. Advisor to boards on AI governance and digital risk.",
@@ -838,7 +935,8 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
     tags: ["Autonomous Agents","Openclaw","AI Governance","Agent Security","Emerging Tech"],
     readingTime: "4 min read",
     featured: false,
-    heroImage: "/images/articles/year-of-autonomous-agents.jpg",
+    heroImage: "/images/articles/year-of-autonomous-agents.webp",
+    thumbnailImage: "/images/articles/year-of-autonomous-agents-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building ClawBlade.ai - security tools for OpenClaw users.",
@@ -871,7 +969,8 @@ The organisations getting this right are treating autonomous agents less like so
     tags: ["Openclaw","CVE","Security","AI Agents","Cybersecurity","Vulnerability","China Cybersecurity","Emerging Tech"],
     readingTime: "5 min read",
     featured: true,
-    heroImage: "/images/articles/openclaw-security-crisis.png",
+    heroImage: "/images/articles/openclaw-security-crisis.webp",
+    thumbnailImage: "/images/articles/openclaw-security-crisis-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building ClawBlade.ai - Security tools for OpenClaw.",
@@ -908,7 +1007,8 @@ The organisations getting this right are treating autonomous agents less like so
     tags: ["Openclaw","Security","Best Practices","AI Agents"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/openclaw-security-best-practices.jpg",
+    heroImage: "/images/articles/openclaw-security-best-practices.webp",
+    thumbnailImage: "/images/articles/openclaw-security-best-practices-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
@@ -965,7 +1065,8 @@ The organisations getting this right are treating autonomous agents less like so
     tags: ["Openclaw","AI Agents","Trends","Emerging Tech"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/rise-of-openclaw.png",
+    heroImage: "/images/articles/rise-of-openclaw.webp",
+    thumbnailImage: "/images/articles/rise-of-openclaw-thumb.webp",
     linkedinUrl: "",
     author: "Arnaud",
     authorBio: "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",

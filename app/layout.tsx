@@ -1,6 +1,7 @@
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import { defaultOgImage, siteUrl } from './metadata'
+import Footer from './components/Footer'
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
@@ -60,6 +61,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -91,6 +96,7 @@ export default function RootLayout({
       <body className={`${cormorantGaramond.variable} ${inter.variable}`}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         {children}
+        <Footer />
       </body>
     </html>
   )

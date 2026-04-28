@@ -19,12 +19,17 @@ const speakingSlugs = extractSlugs(
   /slug:\s*['"]([^'"]+)['"]/g
 )
 
+const bookSlugs = extractSlugs(
+  'app/books/data.ts',
+  /slug:\s*['"]([^'"]+)['"]/g
+)
+
 const staticPages = [
   { url: '/', priority: 1.0, changefreq: 'monthly' },
-  { url: '/books', priority: 0.8, changefreq: 'monthly' },
-  { url: '/speaking', priority: 0.8, changefreq: 'monthly' },
-  { url: '/articles', priority: 0.8, changefreq: 'weekly' },
-  { url: '/music', priority: 0.7, changefreq: 'monthly' },
+  { url: '/books/', priority: 0.8, changefreq: 'monthly' },
+  { url: '/speaking/', priority: 0.8, changefreq: 'monthly' },
+  { url: '/articles/', priority: 0.8, changefreq: 'weekly' },
+  { url: '/music/', priority: 0.7, changefreq: 'monthly' },
 ]
 
 function fileLastModified(filePath) {
@@ -33,6 +38,7 @@ function fileLastModified(filePath) {
 
 const articleLastmod = fileLastModified('app/articles/data.generated.ts')
 const speakingLastmod = fileLastModified('app/speaking/data.ts')
+const bookLastmod = fileLastModified('app/books/data.ts')
 
 const urls = [
   ...staticPages.map(p => `  <url>
@@ -42,14 +48,20 @@ const urls = [
     <priority>${p.priority}</priority>
   </url>`),
   ...articleSlugs.map(slug => `  <url>
-    <loc>${BASE_URL}/articles/${slug}</loc>
+    <loc>${BASE_URL}/articles/${slug}/</loc>
     <lastmod>${articleLastmod}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>`),
   ...speakingSlugs.map(slug => `  <url>
-    <loc>${BASE_URL}/speaking/${slug}</loc>
+    <loc>${BASE_URL}/speaking/${slug}/</loc>
     <lastmod>${speakingLastmod}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>`),
+  ...bookSlugs.map(slug => `  <url>
+    <loc>${BASE_URL}/books/${slug}/</loc>
+    <lastmod>${bookLastmod}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>`),
