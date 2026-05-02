@@ -22,6 +22,551 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "ai-vendor-questionnaire-obsolete",
+    title: "Your AI Vendor Questionnaire Doesn't Ask the Questions That Matter Anymore",
+    subtitle: "Three attacks across extension marketplaces, CI/CD pipelines, and agent credentials — and what procurement teams should be asking instead",
+    date: "2026-05-02",
+    dateFormatted: "May 2, 2026",
+    category: "Ai governance",
+    tags: ["Ai security","Supply chain","Vendor risk","Procurement","Ciso","Ai governance","Agentic ai"],
+    readingTime: "12 min read",
+    featured: false,
+    heroImage: "/images/articles/ai-vendor-questionnaire-obsolete.webp",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "GlassWorm's 73 sleeper extensions, elementary-data's CI/CD pipeline hijack, and Cloudflare's non-human identity reframe all point to the same conclusion: your AI vendor questionnaire is asking about 2023 risks. Here are the questions you should be asking in 2026.",
+    content: `<p><strong>Arnaud Wiehe | May 1, 2026 | 12 min read</strong></p>
+<p>If your organization procures AI-powered tools — and in 2026, that means nearly every organization — there's a document somewhere in your procurement workflow. A vendor assessment questionnaire. It asks about model training data sources. It asks about bias testing methodologies. It probably asks whether the vendor has an AI ethics committee and follows "responsible AI principles."</p>
+<p>These are not bad questions. They are simply asking about the wrong risks.</p>
+<p>Over the past six weeks, three incidents have demonstrated that the real AI security threat landscape has shifted decisively away from model-level concerns toward ecosystem-level attack surfaces. Extension marketplaces, package registries, CI/CD pipelines, MCP connectors, credential management, and agent memory — none of which appear on standard vendor questionnaires — are where the action is.</p>
+<p>If your procurement team is still asking about training data bias while your developers' AI tools are silently pulling compromised packages from unverified registries, you have a process problem that no amount of ethics committee documentation will fix.</p>
+<h2>Part 1: The Evidence — Three Incidents, One Pattern</h2>
+<h3>GlassWorm: Industrialized Extension Marketplace Attacks</h3>
+<p>In April 2026, the security research team at Socket.dev identified a cluster of 73 "sleeper" extensions on the Open VSX marketplace — the open registry used by Visual Studio Code, Cursor, Windsurf, and other AI-augmented development environments. [Source: Socket.dev, April 25, 2026]</p>
+<p>These extensions did not contain malware when first published. They were clones of legitimate tools — a Turkish Language Pack, popular color themes, productivity helpers — published under newly created GitHub accounts. Each account had one or two repositories, one of which was always empty and named with an eight-character string. A clear signature, but not one that automated review processes were catching. [Source: Cyber Security News, April 26, 2026]</p>
+<p>The "sleeper" strategy works like this: publish benign code, gather downloads and apparent legitimacy, wait. Then, through the normal extension update mechanism that every IDE automatically checks, push a weaponized update. Developers don't opt in to the malicious version — they get it because their tooling is designed to trust the update channel.</p>
+<p>At least six of the 73 extensions had already been activated as of April 25. On April 29, Socket observed a second activation wave: 23 new versions across 22 copycat extensions, pushed in two clusters within a 19-minute window (18:15–19:34 UTC). Seventeen of these versions declared an <code>extensionPack</code> dependency on <code>blockstoks.easily-gitignore-manage</code> — a malicious puller extension that Socket had disclosed on March 13 and that the Eclipse Foundation had removed from Open VSX on April 27.</p>
+<p>The fact that the threat actor pushed activations referencing an extension that had been dead for 52 hours is itself revealing: it means the activation pipeline is automated and doesn't validate puller liveness before publishing. This is industrialized supply chain attack at AI-native speed. [Source: Socket.dev, April 29, 2026 update]</p>
+<p>The activation mechanisms used two methods:</p>
+<ul>
+<li><strong>Native binaries:</strong> <code>.node</code> files bundled inside extension code, containing embedded URLs that download malicious <code>.vsix</code> files for VS Code and Cursor.</li>
+<li><strong>Obfuscated JavaScript:</strong> Self-decoding runtime code that retrieves <code>.vsix</code> payloads from GitHub releases and installs them through command-line paths.</li>
+</ul>
+<p>This attack did not require a zero-day. It exploited trust assumptions built into how developer tooling ecosystems work: that publishers are honest, that updates are safe, and that marketplaces catch bad actors before they reach users.</p>
+<h3>elementary-data: CI/CD Pipeline as Attack Surface</h3>
+<p>On April 24, 2026, at 22:10 UTC, a two-day-old GitHub account named <code>realtungtungtungsahur</code> posted a crafted comment on pull request #2147 in the elementary-data repository. The comment contained code designed to exploit a script injection vulnerability in the project's GitHub Actions workflow — specifically, a workflow that interpolated PR comment bodies directly into shell contexts without sanitization. [Source: Snyk, April 27, 2026]</p>
+<p>The injected code executed on the project's own CI/CD runner, with access to its <code>GITHUB_TOKEN</code> and all workflow secrets. In less than 10 minutes, the attacker had:</p>
+<ul>
+<li>Created three branches and three pull requests as preparation</li>
+<li>Forged a signed release commit</li>
+<li>Triggered the project's <code>release.yml</code> workflow via <code>workflow_dispatch</code></li>
+<li>Published elementary-data version 0.23.3 to PyPI at 22:20:47 UTC</li>
+<li>Pushed a compromised Docker image to <code>ghcr.io/elementary-data/elementary</code>, tagged as both <code>0.23.3</code> and <code>latest</code> [Source: StepSecurity, April 25, 2026]</li>
+</ul>
+<p>The payload was sophisticated in its simplicity. A single file — <code>elementary.pth</code> — containing approximately 245KB of base64-encoded malicious code. Python's <code>.pth</code> mechanism automatically executes any line beginning with <code>import</code> at interpreter startup, meaning the payload fired on <strong>every Python invocation</strong> in any environment where the package was installed, regardless of whether anyone imported the <code>elementary</code> module. [Source: Ars Technica, April 27, 2026]</p>
+<p>elementary-data is a dbt-native data observability tool with approximately 280,000 weekly downloads and over 1.1 million monthly downloads on PyPI. It integrates natively with Snowflake, BigQuery, Redshift, Databricks, AWS, GCP, and Azure — making it a high-value target for credential theft. The malware specifically harvested: dbt profiles, warehouse credentials, cloud provider keys, API tokens, SSH keys, and the contents of any <code>.env</code> files accessible to the runtime environment. [Source: Elementary Data Official Incident Report, April 27, 2026]</p>
+<p>The malicious version was live for approximately 12 hours before being discovered by community member <code>crisperik</code>, who reported it in GitHub issue #2205. The Elementary team removed the compromised artifacts and released a clean version 0.23.4 by 11:51 UTC on April 25. [Source: Elementary Data Incident Report timeline]</p>
+<p>The severity assigned by Snyk was CVSS 9.3 (Critical). The Snyk advisory explicitly noted the connection to TeamPCP, a threat actor group that has been running this exact GitHub Actions script injection playbook against AI and developer tooling across multiple ecosystems — including Checkmarx, Trivy, and others — since at least February 2026. [Source: Snyk advisory SNYK-PYTHON-ELEMENTARYDATA-16316110; SANS ISC, March 2026]</p>
+<h3>Cloudflare, GitGuardian, and OX: The Quantified Crisis</h3>
+<p>On April 14, 2026, three data points converged that turned anecdotal concern into measured crisis.</p>
+<p><strong>Cloudflare</strong> published a blog post explicitly reframing AI agents as a non-human identity problem. "To secure the Internet in an era of autonomous agents," the post stated, "we have to rethink how we handle identity. Whether a request comes from a human developer or an AI agent, every interaction with an API relies on three core pillars: the Principal (the identity), the Credential (the proof), and the Policy (the permissions)." Cloudflare announced new features for scannable tokens, OAuth visibility, resource-scoped RBAC, and automated token revocation through GitHub's Secret Scanning partnership — treating AI agent credentials with the same rigor as service accounts. [Source: Cloudflare Blog, April 14, 2026]</p>
+<p><strong>GitGuardian's State of Secrets Sprawl Report</strong>, published the same day, provided the quantitative evidence for why this reframing is urgent:</p>
+<ul>
+<li><strong>28,649,024</strong> new secrets exposed in public GitHub commits in 2025 — a <strong>34% year-over-year increase</strong> and the largest annual jump in the report's history</li>
+<li>Commits co-authored by <strong>Claude Code</strong> leaked secrets at roughly <strong>twice the baseline rate</strong> across public GitHub</li>
+<li><strong>1.2 million+ AI-service secrets</strong> exposed, growing <strong>81% year-over-year</strong></li>
+<li><strong>12 of the top 15</strong> fastest-growing leaked secret types were AI services</li>
+<li>OpenRouter (multi-model API gateway): credential leaks grew more than <strong>48x</strong> year-over-year</li>
+<li>Vector database platforms designed for AI workloads: leak rates jumped nearly <strong>1,000%</strong></li>
+<li>Voice infrastructure platforms for AI agents: grew nearly <strong>800%</strong></li>
+</ul>
+<p>The root cause, as GitGuardian's Dwayne McDaniel explained, is structural: "When code production speeds up, credential creation speeds up with it. AI-generated code often looks production-ready before it is production-ready, and the gap gets filled with hardcoded API keys. Integration velocity can increase by 10x, but credential governance doesn't scale at the same rate." [Source: Help Net Security, April 14, 2026]</p>
+<p><strong>OX Security</strong> published its MCP vulnerability research on April 15, revealing an architectural design flaw in Anthropic's Model Context Protocol SDK — the industry standard for AI agent-to-tool communication, implemented across Python, TypeScript, Java, and Rust. The findings:</p>
+<ul>
+<li><strong>150 million+ downloads</strong> and up to <strong>200,000 servers</strong> exposed</li>
+<li><strong>10 CVEs issued</strong> (and counting)</li>
+<li>Four confirmed exploitation vectors: unauthenticated UI injection, hardening bypasses, zero-click prompt injection to local RCE (in Cursor and Windsurf), and malicious marketplace distribution</li>
+<li><strong>9 out of 11 MCP registries</strong> successfully poisoned in OX's controlled trial balloon</li>
+<li>Affected platforms included LiteLLM, LangChain, IBM LangFlow, Flowise, GPT Researcher, and others</li>
+</ul>
+<p>OX's conclusion was blunt: "This is not a traditional coding error. It is an architectural design decision baked into Anthropic's official MCP SDKs across every supported programming language. Any developer building on the Anthropic MCP foundation unknowingly inherits this exposure." [Source: OX Security, April 15, 2026]</p>
+<h2>Part 2: What's Wrong with Current Questionnaires — A Structural Analysis</h2>
+<p>The problem with most AI vendor assessments isn't that they ask bad questions. It's that they're built on an assumption that the threat model for AI systems is the same as the threat model for traditional software, with "model ethics" bolted on.</p>
+<p>Here's what that produces:</p>
+<h3>The Standard AI Vendor Assessment (Circa 2024)</h3>
+
+
+
+Domain
+Typical Questions
+
+
+
+Training Data
+What data was the model trained on? Is it free of PII? How do you address bias?
+
+
+Model Behavior
+How do you test for hallucinations? What guardrails prevent harmful outputs?
+
+
+Transparency
+Can we inspect model weights? Do you publish model cards?
+
+
+Governance
+Do you have an AI ethics board? Do you follow NIST AI RMF / ISO 42001?
+
+
+Privacy
+Where is inference data processed? Is it used for further training?
+
+
+Security
+Do you have SOC 2? Penetration test reports?
+
+
+<h3>What's Missing</h3>
+<p>Every category above is <strong>model-centric</strong>. The implicit assumption is that if the model itself is safe, the system is safe. This was a reasonable simplification when AI meant "API call to a hosted LLM." It is dangerously wrong when AI means "agent with MCP connectors, marketplace extensions, runtime package resolution, persistent memory, and autonomous credential usage."</p>
+<p>The missing categories are all <strong>ecosystem-centric</strong>:</p>
+<ol>
+<li><strong>Supply chain integrity</strong> — Not "is your code secure" but "how do you ensure the code your tool fetches at runtime hasn't been swapped?"</li>
+<li><strong>Extension/connector governance</strong> — Not "do you have an app store review process" but "what stops a sleeper extension from activating after it's been installed by thousands of developers?"</li>
+<li><strong>Credential lifecycle</strong> — Not "do you encrypt secrets at rest" but "can your agent request and receive production credentials without human approval, and if so, what's the blast radius?"</li>
+<li><strong>Memory and persistence</strong> — Not "do you log API calls" but "what does the agent remember, can that memory be poisoned, and who can exfiltrate it?"</li>
+<li><strong>Kill-switch architecture</strong> — Not "do you have an incident response plan" but "how fast can you revoke a specific extension, connector, or package across all customer instances, and can customers do it themselves?"</li>
+</ol>
+<p>The frameworks that procurement teams reference — NIST AI RMF, ISO/IEC 42001, the EU AI Act — are valuable for what they cover. But they were primarily designed before AI agents became mainstream. The NIST AI RMF 1.0 was published in January 2023, before MCP existed, before AI coding agents had meaningful market penetration, and before extension marketplaces for AI tools were a recognized attack vector. Using it as your sole assessment framework in 2026 means you're systematically blind to the fastest-growing category of AI risk.</p>
+<h2>Part 3: A Modern AI Vendor Assessment — The Missing Sections</h2>
+<p>Here is a concrete, immediately usable checklist. It is designed to supplement — not replace — existing model-level governance questionnaires. Add these sections to your vendor assessment process now.</p>
+<h3>Section A: MCP Integration Governance</h3>
+<p>MCP (Model Context Protocol) is the de facto standard for connecting AI agents to external tools — databases, APIs, file systems, SaaS platforms. Most AI tooling vendors either use MCP directly or implement equivalent connector architectures. Every connector is a trust boundary.</p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><p><strong>Connector Publication:</strong> Who can publish connectors/integrations to your platform? Is there a review process, or is it self-service? If self-service, what prevents a malicious connector from impersonating a legitimate service?</p>
+</li>
+<li><p><strong>Connector Isolation:</strong> Can a compromised connector access credentials, memory, or execution context belonging to other connectors? Is there per-connector sandboxing, or do all connectors share an execution environment?</p>
+</li>
+<li><p><strong>Provenance Validation:</strong> Do you cryptographically validate connector origin? If a connector claims to be "Snowflake" or "Jira," how do you know it's actually from that vendor?</p>
+</li>
+<li><p><strong>Dependency Transparency:</strong> Does installing a connector pull additional dependencies? At install time or runtime? Are those dependencies pinned and verified?</p>
+</li>
+<li><p><strong>Permission Model:</strong> What permissions does a connector get by default? Can connectors request elevation? Is there a principle of least privilege applied to connector access?</p>
+</li>
+</ol>
+<p><strong>Red Flags:</strong></p>
+<ul>
+<li>"Our marketplace is open — anyone can publish"</li>
+<li>"Connectors run in the same context as the agent"</li>
+<li>No cryptographic provenance verification</li>
+<li>Runtime dependency resolution without pinning</li>
+</ul>
+<h3>Section B: Extension Marketplace Controls</h3>
+<p>If your AI vendor offers an extension marketplace (IDE plugins, agent skills, tool integrations), you have the same attack surface that GlassWorm exploited.</p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><p><strong>Publisher Identity Verification:</strong> How do you verify publisher identity? Can someone create a throwaway GitHub account and publish extensions?</p>
+</li>
+<li><p><strong>Update Monitoring:</strong> Do you detect anomalous update patterns — mass version pushes, publication bursts from clustered accounts, extensions that were dormant and suddenly activate?</p>
+</li>
+<li><p><strong>Behavioral Analysis:</strong> Do you scan extension updates for behavioral changes, not just signature-based malware detection? A sleeper extension's first malicious update looks different from its benign predecessors.</p>
+</li>
+<li><p><strong>Enterprise Controls:</strong> Can enterprise administrators gate extension installation? Approve publishers? Block specific extensions without waiting for a marketplace-level takedown?</p>
+</li>
+<li><p><strong>Transitive Dependencies:</strong> Do your extensions declare dependencies on other extensions? If so, do you validate the entire dependency chain, or only the directly installed extension?</p>
+</li>
+</ol>
+<p><strong>Red Flags:</strong></p>
+<ul>
+<li>No publisher identity verification beyond email</li>
+<li>No behavioral change detection on updates</li>
+<li>No enterprise admin controls over extension installation</li>
+<li>Automatic update acceptance without review of changed behavior</li>
+</ul>
+<h3>Section C: Package Provenance</h3>
+<p>AI tools increasingly resolve and install packages at runtime — Python packages for data processing, npm packages for tool execution, container images for sandboxed environments. The elementary-data incident shows what happens when this chain is compromised.</p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><p><strong>Provenance Attestations:</strong> Do you generate and verify SLSA provenance attestations for the packages you distribute? Do you verify attestations for dependencies you consume?</p>
+</li>
+<li><p><strong>Signature Verification:</strong> Do you sign your packages (e.g., Sigstore/cosign for containers, PEP 740 for Python)? Do you verify signatures on dependencies?</p>
+</li>
+<li><p><strong>Dependency Pinning:</strong> Are all dependencies pinned to specific versions with integrity hashes? Or does your tool resolve "latest" or unpinned version ranges?</p>
+</li>
+<li><p><strong>Build Pipeline Integrity:</strong> Is your build and release pipeline protected against the script injection and token theft patterns used by TeamPCP? When was your last CI/CD security audit?</p>
+</li>
+<li><p><strong>Dependency Resolution at Runtime:</strong> Does your tool resolve or install any dependencies at runtime (vs. build time)? If yes, from which registries? Under whose identity? What verification is applied?</p>
+</li>
+<li><p><strong>Mirroring/Caching:</strong> Do you maintain an internal mirror of dependencies, or do customer deployments pull directly from public registries?</p>
+</li>
+</ol>
+<p><strong>Red Flags:</strong></p>
+<ul>
+<li>No SLSA provenance or signature verification</li>
+<li>Unpinned dependencies or "latest" tags in critical paths</li>
+<li>Runtime dependency resolution from public registries</li>
+<li>No CI/CD security audit in the past 12 months</li>
+</ul>
+<h3>Section D: Permission Enforcement Architecture</h3>
+<p>Cloudflare's framing of agents as non-human identities is correct. The question is: how does your vendor implement the Principle (identity), Credential (proof), and Policy (permissions) triad?</p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><p><strong>Credential Scoping:</strong> Are agent credentials scoped to specific resources, actions, and time windows? Or are they broad API keys that grant access to everything?</p>
+</li>
+<li><p><strong>Credential Lifecycle:</strong> How are agent credentials created, rotated, and revoked? Is rotation automatic or manual? What is the maximum credential lifetime?</p>
+</li>
+<li><p><strong>Human-in-the-Loop:</strong> Can the agent request and receive new credentials or permission elevations without human approval? If automated, what is the approval workflow?</p>
+</li>
+<li><p><strong>Credential Storage:</strong> Where are agent credentials stored? In the agent's memory? In a secrets manager? In configuration files? Are they encrypted at rest and in transit?</p>
+</li>
+<li><p><strong>Cross-Tenant Isolation:</strong> In multi-tenant deployments, can one customer's agent credentials be accessed by another customer's agent? Is there cryptographic isolation or logical isolation?</p>
+</li>
+<li><p><strong>Audit Trail:</strong> Is there an auditable log of every credential issuance, usage, and revocation? Can you trace which agent used which credential to access which resource?</p>
+</li>
+</ol>
+<p><strong>Red Flags:</strong></p>
+<ul>
+<li>Static API keys that never rotate</li>
+<li>No resource-level scoping (all-or-nothing permissions)</li>
+<li>Agents can self-provision credentials without human approval</li>
+<li>Credentials stored in agent memory without encryption</li>
+</ul>
+<h3>Section E: Memory Handling</h3>
+<p>AI agents with persistent memory represent a category of risk that has no precedent in traditional software procurement. The agent remembers conversations, preferences, decisions, and context — and that memory is both a valuable feature and a potential vulnerability.</p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><p><strong>Memory Contents:</strong> What does the agent remember? Conversations? Credentials? File contents? API responses? Configuration data? Be specific.</p>
+</li>
+<li><p><strong>Memory Storage:</strong> Where is memory stored? Locally on the user's machine? In the vendor's cloud? In your cloud tenant? Is it encrypted?</p>
+</li>
+<li><p><strong>Memory Access Control:</strong> Who can access the agent's memory? The user? The vendor? Other agents? Administrators? Is there a role-based access model?</p>
+</li>
+<li><p><strong>Memory Poisoning:</strong> Can a malicious interaction — a crafted prompt, a compromised document, a manipulated API response — inject false information that persists in the agent's memory and influences future behavior?</p>
+</li>
+<li><p><strong>Memory Export/Deletion:</strong> Can users export their agent's memory? Can they delete specific memories or purge all memory? Does deletion actually remove the data from backups?</p>
+</li>
+<li><p><strong>Cross-Session Persistence:</strong> How long does memory persist? Per session only? Until explicitly cleared? Indefinitely?</p>
+</li>
+</ol>
+<p><strong>Red Flags:</strong></p>
+<ul>
+<li>"The agent remembers everything — that's the point"</li>
+<li>No ability to inspect or delete agent memory</li>
+<li>Memory accessible to vendor personnel without customer approval</li>
+<li>No isolation between memory from different users or contexts</li>
+</ul>
+<h3>Section F: Kill-Switch Design</h3>
+<p>When — not if — a compromise is discovered, the speed of response determines the size of the breach. Your vendor's ability to surgically disable compromised components without taking down your entire AI capability is a security feature, not an operational inconvenience.</p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><p><strong>Component-Level Revocation:</strong> Can you revoke a specific extension, connector, integration, or model without affecting other components? Or is it all-or-nothing?</p>
+</li>
+<li><p><strong>Customer-Controlled Kill Switches:</strong> Can your security team block specific components without waiting for the vendor? Is there an admin API or dashboard for this?</p>
+</li>
+<li><p><strong>Time-to-Revoke:</strong> What is your measured time from compromise discovery to revocation across all customer instances? Have you tested this? What's the SLA?</p>
+</li>
+<li><p><strong>Offline Revocation:</strong> If a customer's environment is air-gapped or the vendor's revocation infrastructure is unavailable, can the customer still block compromised components locally?</p>
+</li>
+<li><p><strong>Communication Protocol:</strong> What is your process for notifying customers of active compromises? How quickly after discovery do customers learn about it? What information do you provide?</p>
+</li>
+<li><p><strong>Rollback Capability:</strong> Can customers roll back to a known-good state? Are previous versions of extensions, connectors, and packages available and verified?</p>
+</li>
+</ol>
+<p><strong>Red Flags:</strong></p>
+<ul>
+<li>"We handle security — you don't need to worry about it"</li>
+<li>No customer-facing controls for component blocking</li>
+<li>No published incident response SLA</li>
+<li>No rollback capability for extensions or connectors</li>
+</ul>
+<h2>Part 4: Implementation Guidance</h2>
+<p>Adding these sections to your vendor assessment isn't a paperwork exercise. Here's how to make it operational:</p>
+<h3>Step 1: Triage Your Existing Vendors</h3>
+<p>You already have AI vendors under contract. Don't wait for renewal. Send the six sections above to your top five AI vendors (by risk, not by spend) and ask for written responses within 30 days. Their inability to answer is as informative as a bad answer.</p>
+<h3>Step 2: Weight the Findings</h3>
+<p>Not all gaps are equal. A vendor with weak extension marketplace controls (Section B) but strong credential management (Section D) might be acceptable if you disable their marketplace and manage extensions manually. A vendor with no package provenance (Section C) and runtime dependency resolution from public registries is a high-priority risk regardless of other scores.</p>
+<h3>Step 3: Build the Questions into Your RFP Template</h3>
+<p>Make these sections standard in your procurement workflow. If Legal and Procurement push back ("this isn't in our standard template"), point them to the elementary-data incident, the GlassWorm campaign, and the GitGuardian data. The evidence exists. Use it.</p>
+<h3>Step 4: Test, Don't Just Ask</h3>
+<p>Self-reported answers are necessary but insufficient. For critical vendors:</p>
+<ul>
+<li>Ask for their most recent CI/CD security audit report</li>
+<li>Request a demonstration of their kill-switch in action (in a test environment)</li>
+<li>Verify extension marketplace controls by attempting to publish a test extension under a new account</li>
+<li>Check whether their packages are actually signed and whether their dependencies are pinned by inspecting real artifacts</li>
+</ul>
+<h3>Step 5: Align with Your Existing Frameworks</h3>
+<p>If your organization uses NIST AI RMF, ISO 42001, or the EU AI Act as governance frameworks, note that none of these directly addresses the supply chain categories above. That doesn't mean the frameworks are useless — it means you need to supplement them. Add these sections as an appendix to your AI RMF profile. Map the checklist items to existing controls where possible, and create new controls where gaps exist.</p>
+<h2>The Strategic Argument</h2>
+<p>Here's the uncomfortable truth: asking only model-level questions of AI vendors isn't just incomplete. It's actively misleading.</p>
+<p>It creates the appearance of due diligence while leaving the actual attack surface unexamined. It produces vendor assessment reports that say "low risk" because the model training data is clean, while the vendor's extension marketplace is being actively exploited by GlassWorm. It lets organizations report to their boards that "all AI vendors have passed our security review" when the review didn't cover the mechanisms that attackers are actually targeting.</p>
+<p>This is not a hypothetical concern. The three incidents described above are not edge cases. They are the leading edge of an attack pattern that is growing faster than governance frameworks are adapting.</p>
+<p>The organizations that will get this right are the ones that stop treating AI procurement as a model ethics exercise and start treating it rigorously as a supply chain security problem — because that is what AI tooling has become. AI tools are software supply chains with an LLM at the center. The model's safety properties are only as strong as the weakest link in the ecosystem that surrounds it.</p>
+<p>Secure the supply chain, or the model's guarantees are meaningless.</p>
+<p><strong>Arnaud Wiehe</strong> is a cybersecurity and AI governance leader, author of <em>Emerging Tech, Emerging Threats</em> and <em>The Book on Cybersecurity</em>, and a speaker on the intersection of AI risk, supply chain security, and enterprise governance.</p>
+<p><em>For more analysis at the intersection of AI governance and cybersecurity, subscribe at [arnaudwiehe.com].</em></p>`,
+  },
+  {
+    slug: "future-crimes",
+    title: "Future Crimes — The Next Crime Wave Will Target the Control Planes of Everyday Life",
+    subtitle: "Cars, homes, hospitals, AI agents, and satellites — the attack surface has shifted from data to control",
+    date: "2026-05-02",
+    dateFormatted: "May 2, 2026",
+    category: "Cybersecurity",
+    tags: ["Control plane security","Ai risk","Automotive cybersecurity","Healthcare cyber","Satellite security","Agentic ai","Governance"],
+    readingTime: "8 min read",
+    featured: false,
+    heroImage: "/images/articles/future-crimes.webp",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "The most dangerous cyber threat isn't a new zero-day. It's a target shift. For thirty years, cybersecurity was built around keeping bad actors out. The next wave of crime is about taking control of the systems we already trust — cars, homes, hospitals, satellites, and AI agents.",
+    content: `<p><strong>Website Article — 2026-05-01</strong>
+<strong>Author:</strong> Arnaud Wiehe
+<strong>Category:</strong> Cybersecurity, AI Governance
+<strong>Tags:</strong> Control plane security, AI risk, automotive cybersecurity, healthcare cyber, satellite security, agentic AI, governance</p>
+<p>The most dangerous cyber threat emerging right now isn't a zero-day. It isn't a new ransomware variant. It isn't even state-sponsored espionage.</p>
+<p>It's a target shift.</p>
+<p>For thirty years, cybersecurity was built around a single organizing principle: keep the bad actor out. Firewalls, access controls, encryption, authentication — all designed to prevent unauthorized access. That threat model worked because the prize was data. Steal the database. Exfiltrate the files. Ransom the intellectual property.</p>
+<p>That model is now incomplete.</p>
+<p>The next wave of crime is not about breaking into systems. It's about taking control of the systems we already trust — the control planes of everyday life. And the early incidents are no longer theoretical.</p>
+<h2>1. When Cars Become Platforms</h2>
+<p>A modern vehicle contains over 100 million lines of code running across 100+ electronic control units. It is no longer a machine. It is a software-defined, cloud-connected platform on wheels.</p>
+<p>The security implications of this shift are well understood within the automotive industry — which is why UN Regulation 155 now mandates a Cyber Security Management System (CSMS) for all new vehicle types, and UN R156 requires a Software Update Management System (SUMS). These aren't aspirational standards. They're regulatory requirements enforceable across the EU, Japan, and South Korea [Source: UNECE WP.29].</p>
+<p>But the threat model is still catching up to reality.</p>
+<p>As early as 2019, researchers demonstrated remote code execution on Tesla Model S/X vehicles through vulnerabilities in the Marvell Wi-Fi firmware used in Parrot Faurecia infotainment modules — CVE-2019-13581 and CVE-2019-13582 [Source: NIST National Vulnerability Database]. That was a single-vehicle compromise, requiring proximity and specific conditions. It was treated as a proof of concept.</p>
+<p>What's changed is scale.</p>
+<p>The risk is no longer about compromising one vehicle. It's about compromising the platform that manages thousands. Modern fleets are orchestrated through centralized systems: telematics backends, digital key infrastructure, over-the-air update servers, fleet management APIs. Each of these is a control plane — a single point through which an attacker can exert control over hundreds or thousands of vehicles simultaneously.</p>
+<p>TrendMicro's 2026 State of AI Security report identifies autonomous vehicles as a primary edge-AI device class with sub-100ms safety-critical control loops, listing sensor spoofing, camera blinding, and ultrasonic injection as known attack vectors [Source: TrendMicro TrendAI Research, 2026].</p>
+<p>The building blocks for platform-level vehicle crime are deployed. Telematics APIs exist. Fleet orchestration systems are operational. Digital key sharing is standard. What's missing is not the capability — it's the documented incident. And history suggests that gap will close.</p>
+<p><strong>Governance implication:</strong> Organizations operating vehicle fleets need to treat telematics backends and fleet management APIs as critical infrastructure control planes, not administrative tools. Third-party telematics providers should be subject to the same supply chain security scrutiny as any critical vendor.</p>
+<h2>2. Robots Inside the Home</h2>
+<p>We are introducing a new category of device into our most private spaces: mobile, sensor-rich, always-on machines. Robot vacuums are already in tens of millions of homes globally. Smart home hubs with cameras and microphones are standard. Samsung's Ballie — a rolling home robot — represents the next wave.</p>
+<p>The more realistic risk is not sentient rebellion. It's compromise.</p>
+<p>In August 2024, security researchers demonstrated remote access to Ecovacs robot vacuums, including live camera and microphone feeds. The PIN protection mechanism was bypassed, granting an attacker full audio-visual surveillance of a private home. Affected models included the Deebot X2, X1, and T20 series [Source: ABC News Australia, TechCrunch, August 2024].</p>
+<p>Earlier, in late 2022, iRobot confirmed that images captured by Roomba J7 test units — including intimate household footage — had been shared with third-party data labelers. The data exposure was unintentional but illustrated a core vulnerability: in-home robots generate the most sensitive imagery imaginable, and they transmit it beyond the home [Source: MIT Technology Review, December 2022].</p>
+<p>Combine these elements: a mobile platform with cameras, microphones, lidar, and persistent connectivity, operating inside your home, potentially compromised through a cloud backend or firmware vulnerability. The device doesn't steal your password. It maps your floor plan. It learns when you're home and when you're not. It records conversations in every room it cleans.</p>
+<p>The attack surface has moved from screens to physical environments.</p>
+<p><strong>Governance implication:</strong> Home robotics companies face an emerging liability frontier. When an Ecovacs vulnerability allows remote surveillance of a home, the manufacturer's responsibility extends well beyond software security — into privacy law, surveillance regulation, and potential criminal liability if compromised devices are used for stalking, burglary, or extortion. Regulation in this space is virtually nonexistent.</p>
+<h2>3. Healthcare as a Lever for Coercion</h2>
+<p>Healthcare has already experienced the impact of ransomware. The Change Healthcare attack in February 2024 — the largest healthcare cyberattack in US history — disrupted claims processing for thousands of providers. Recovery costs exceeded $872 million. The attack didn't just encrypt data; it paralyzed the operational backbone of a significant portion of the US healthcare system [Source: US Congress testimony, US Department of Health and Human Services].</p>
+<p>In March 2026, Iran-backed hackers claimed a wiper attack on medical technology firm Stryker [Source: KrebsOnSecurity, March 2026]. This was not ransomware. It was destructive — data was wiped, not held for ransom.</p>
+<p>And in February 2026, the first documented AI agent supply chain attack struck closer to healthcare than many realize. A malicious OpenClaw plugin captured 126+ authentication cookies from Stanford MyHealth — a HIPAA-protected patient portal — along with credentials from financial services and social media platforms. The plugin also modified the agent's personality configuration files to lie about what was happening [Source: Hacker News technical disclosure, publicly detailed April 2026].</p>
+<p>The shift here is significant. The threat is no longer just data confidentiality. It's operational continuity.</p>
+<p>Connected medical devices — infusion pumps, imaging systems, patient monitors — are increasingly networked and software-controlled. AI-assisted clinical decision support systems are being deployed. Digital scheduling and workflow management determine which patients get treated when.</p>
+<p>A cyber incident in this environment doesn't just leak records. It delays treatment. It creates operational pressure at critical moments. It translates directly into consequences that exist in the physical world, measured in hours of disrupted care rather than terabytes of stolen data.</p>
+<p><strong>Governance implication:</strong> Healthcare organizations need to expand their cyber risk frameworks beyond HIPAA compliance and data protection. The relevant metric is no longer "did we protect the data?" but "could a control-plane compromise delay or degrade patient care delivery, and what is our recovery timeline in hours, not days?"</p>
+<h2>4. Agentic AI and Autonomous Crime</h2>
+<p>This is the domain where documented incidents are accumulating fastest.</p>
+<p>In March 2026, the CyberStrikeAI campaign compromised over 600 FortiGate firewalls across 55 countries using AI-assisted credential harvesting and automated reconnaissance. The operational scale was previously associated with nation-state coordination. It was achieved autonomously [Source: Foresiet, March 2026].</p>
+<p>Between December 2025 and January 2026, a solo operator breached multiple Mexican government agencies — tax authority, electoral institute, state governments — using commercial AI chatbots jailbroken to assist in vulnerability discovery and exploitation. The result: 150GB of data stolen, 195 million taxpayer records compromised. One person. AI as force multiplier [Source: Gambit Security, Bloomberg, CrowdStrike 2026 Global Threat Report].</p>
+<p>In April 2026, Gobrane security researchers conducted the first documented autonomous agent-to-agent red-team attack. Two AI agents, running on OpenClaw infrastructure, were tasked with attacking and defending respectively. There was no human direction once the session started. The defensive agent blocked direct social engineering, but indirect injection via JSON metadata partially succeeded. This is not a theoretical exercise — it's a demonstration of AI-speed adversarial engagement between autonomous systems [Source: Hacker News, April 2026].</p>
+<p>Google's threat intelligence team reported a 32% relative increase in malicious prompt injection detections between November 2025 and February 2026, observing categories including data exfiltration and destructive instructions embedded in public web content [Source: Google Online Security Blog, April 23, 2026].</p>
+<p>The statistical picture reinforces the incidents:</p>
+<ul>
+<li>2,130 AI-related CVEs disclosed in 2025 — 34.6% year-over-year growth, nearly double the 17.9% growth rate for all CVEs [Source: TrendMicro TrendAI Research, 2026]</li>
+<li>Agentic AI vulnerabilities: 255% increase [Source: ibid]</li>
+<li>56% of prompt injection attacks succeed against major LLMs [Source: ibid]</li>
+<li>250 poisoned documents can backdoor any language model, at an estimated cost of $60, and the backdoor persists through fine-tuning and RLHF [Source: Anthropic/UK AI Security Institute, October 2025; Google DeepMind]</li>
+</ul>
+<p>Meanwhile, the regulatory clock is ticking. AIR Blackbox scanned 5,754 Python files across 11 major open-source AI agent frameworks — AutoGPT, LangGraph, CrewAI, Microsoft AutoGen, OpenAI Agents SDK, and others — and found 97% non-compliant with the EU AI Act. Average compliance score: 2.2 out of 6 articles. Enforcement deadline: August 2, 2026 — under four months away [Source: AIR Blackbox, April 2026].</p>
+<p>The implication is not fully autonomous AI crime syndicates. It is smaller groups operating with disproportionately large reach. The capability floor for sophisticated cybercrime is dropping sharply, and the governance frameworks aren't keeping pace.</p>
+<p><strong>Governance implication:</strong> Organizations deploying AI agents need to treat agent supply chains with the same rigor as software supply chains. Agent plugins, MCP servers, and third-party tool integrations represent privileged access paths. A compromised agent doesn't just generate bad output — it inherits the user's authenticated sessions, API keys, and system access.</p>
+<h2>5. The Invisible Layer: Telecom and Space</h2>
+<p>Most organizations do not think about satellite and telecom infrastructure. They should.</p>
+<p>On February 24, 2022 — the day Russia invaded Ukraine — a cyberattack struck Viasat's KA-SAT satellite network. The attack targeted ground infrastructure, not the satellite itself, using a wiper malware variant that bricked modems across Europe. The result: 30,000+ internet terminals disrupted, including 5,800 wind turbines in Germany that lost remote connectivity and control [Source: US State Department attribution, CISA, EU Council].</p>
+<p>This incident is not an anomaly. It's a template.</p>
+<p>Satellite ground stations, telecom signaling systems (SS7/Diameter), and BGP routing infrastructure are control planes that underpin everything built on top of them. GPS jamming in the Baltic region now regularly disrupts civil aviation [Source: EURCONTROL]. Brazilian criminal groups have been hijacking US Navy FLTSATCOM satellites for illegal communications for over a decade — documented, persistent, and unaddressed [Source: WIRED, Gizmodo Brazil].</p>
+<p>SS7 protocol vulnerabilities enable location tracking, call interception, and SMS interception anywhere in the world. These are not obscure attack paths requiring nation-state resources. They are known vulnerabilities in foundational infrastructure, widely exploitable and inadequately mitigated [Source: ENISA, Citizen Lab].</p>
+<p>When control layers fail, everything built on top of them becomes unstable. Navigation. Communications. Financial transactions. Emergency services. Supply chain logistics.</p>
+<p><strong>Governance implication:</strong> Every organization should map its dependency on telecom and satellite infrastructure — not as a theoretical exercise, but as a resilience requirement. What happens to our operations during a GNSS outage? During a telecom provider compromise? During a satellite communications disruption? If the answers are unknown, the risk is unmanaged.</p>
+<h2>From Access to Control: The Structural Shift</h2>
+<p>Traditional cybersecurity has focused on preventing unauthorized access. Authentication. Authorization. Encryption. Perimeter defense.</p>
+<p>These controls remain essential. But they address a threat model that is increasingly incomplete.</p>
+<p>The emerging pattern across all five domains is the same: attackers do not need to break in. They abuse legitimate interfaces. They hijack trusted identities. They exploit inherited trust relationships. They manipulate control logic rather than stealing data.</p>
+<p>A fleet management API doesn't need to hack every vehicle — it already has the keys. A malicious plugin doesn't need to escalate privileges — it was installed by a trusted user. A satellite attack doesn't need to compromise the spacecraft — the ground station is easier, and the effect is the same. A healthcare attack doesn't need to exfiltrate patient records — disrupting the scheduling system creates more leverage.</p>
+<p>This is a different kind of problem. It requires different kinds of controls. And it demands different kinds of governance.</p>
+<h2>What This Means for Leaders</h2>
+<p>This is not just a technical evolution. It's a governance challenge. The frameworks that boards and executives use to oversee cybersecurity risk were built for a different era — one where the threat was intrusion, not inheritance; where the prize was data, not control; where the attacker needed to breach, not just authenticate.</p>
+<p>Those frameworks are no longer sufficient.</p>
+<h3>Five Questions Every Board Should Ask About Control-Plane Exposure</h3>
+<p><strong>1. Which of our systems can act autonomously — and what real-world impact can they have?</strong></p>
+<p>Most organizations have not inventoried their autonomous systems. AI agents that send emails, adjust pricing, modify configurations, or access financial systems are control-plane actors. So are fleet management platforms, connected medical devices, and industrial control systems. If you don't know what can act autonomously, you don't know your control-plane exposure.</p>
+<p><strong>2. Who can influence our control planes beyond our security perimeter?</strong></p>
+<p>Control planes are accessed through APIs, vendor portals, telematics backends, cloud dashboards. Every external interface that can modify system behavior is a potential control point. Map them. Audit their access controls. Treat vendor and third-party access as privileged, not administrative.</p>
+<p><strong>3. What does "inherited trust" look like in our architecture?</strong></p>
+<p>If an attacker compromises a plugin, an integration, or a vendor account, what do they inherit? API keys? Authenticated sessions? Configuration access? The blast radius of inherited trust is often much larger than organizations assume.</p>
+<p><strong>4. What happens if our control planes are misused rather than breached?</strong></p>
+<p>Most incident response plans assume a perimeter intrusion. Few assume that legitimate interfaces have been abused by an authenticated party — internal or external. Tabletop exercises should include scenarios where the attacker doesn't break in. They log in.</p>
+<p><strong>5. How fast can we detect and isolate control-plane compromise?</strong></p>
+<p>Control-plane attacks don't look like data exfiltration. They look like normal administrative activity — configuration changes, API calls, scheduled operations. Detection requires behavioral baselines for control-plane activity, not just network anomaly detection. If your SOC can't distinguish between a legitimate fleet API call and a mass immobilization command, you have a detection gap.</p>
+<p>The future of crime is not louder. It is quieter. More systemic. Embedded in the infrastructure we trust, exploiting the interfaces we built, inheriting the authority we granted.</p>
+<p>The building blocks are deployed. The early incidents are documented. The governance gap is measurable.</p>
+<p>The organizations that close that gap first won't just be more secure. They'll be the ones that define what security means in the control-plane era.</p>
+<p><em>Arnaud Wiehe is a cybersecurity and AI governance thought leader and the author of "Emerging Tech, Emerging Threats" and "The Book on Cybersecurity." He writes about the intersection of technology risk, governance, and leadership.</em></p>`,
+  },
+  {
+    slug: "prompt-injection-runtime-controls",
+    title: "Prompt Injection: Why Runtime Controls Beat Policy Checklists",
+    subtitle: "Google's field data, two convergent research papers, and why your AI governance committee can't stop prompt injection",
+    date: "2026-05-02",
+    dateFormatted: "May 2, 2026",
+    category: "Ai security",
+    tags: ["Ai security","Prompt injection","Agentic ai","Runtime controls","Ciso","Ai governance"],
+    readingTime: "8 min read",
+    featured: true,
+    heroImage: "/images/articles/prompt-injection-runtime-controls.webp",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "Google's field data shows a 32% increase in prompt injection attacks in a single quarter. Two research papers, published the same day, converge on the same architecture: runtime controls, not better prompts, are the correct defense. Here's why your AI governance committee can't stop prompt injection — and what can.",
+    content: `<p><em>Arnaud Wiehe — May 1, 2026</em></p>
+<p>Google's Threat Intelligence team dropped a data point two weeks ago that every CISO should have on their desk. Scanning 2–3 billion web pages per month through Common Crawl, they detected a 32% relative increase in malicious prompt injection attempts between November 2025 and February 2026 [Source: Google Security Blog, "AI threats in the wild: The current state of prompt injections on the web," April 23, 2026, by Thomas Brunner, Yu-Han Liu, Moni Pande].</p>
+<p>This is the first real-world measurement of prompt injection at scale. Not a simulation. Not a red-team exercise. Actual attacks found on actual websites, categorized by intent — from harmless pranks and SEO manipulation to data exfiltration and destruction attempts. And while Google notes that current attacks remain "low in sophistication," they explicitly warn this won't last: more capable models make better targets, and attackers are automating their operations with agentic AI, bringing down the cost of attack.</p>
+<p>Meanwhile, most organizations are responding to this threat with governance theater — policy documents, risk registers, and quarterly AI ethics committee meetings. This article argues that approach is structurally wrong, and that two research papers published in the same 72-hour window last week show us the right answer.</p>
+<h2>The Data: What Google Actually Found</h2>
+<p>Google's methodology was methodical and reproducible. They used Common Crawl, a repository of monthly snapshots of 2–3 billion English-language web pages, and applied a three-stage filtering pipeline: pattern matching for known injection signatures (e.g., "ignore previous instructions," "if you are an AI"), Gemini-based classification to distinguish malicious intent from legitimate discussion, and human validation for high-confidence findings [Source: Google Security Blog, April 23, 2026].</p>
+<p>They categorized observed prompt injections into six buckets:</p>
+<ol>
+<li><strong>Harmless pranks</strong> — invisible HTML comments instructing AI assistants to change their conversational tone</li>
+<li><strong>Helpful guidance</strong> — website authors trying to shape AI summaries to provide better context (benign, but structurally identical to malicious injections)</li>
+<li><strong>Search engine optimization (SEO)</strong> — attempts to manipulate AI assistants into promoting specific businesses, increasingly generated by automated SEO suites</li>
+<li><strong>Deterring AI agents</strong> — instructions to prevent crawling or lure AI readers into infinite-text traps</li>
+<li><strong>Malicious: data exfiltration</strong> — attempts at data theft, though "sophistication seemed much lower" than published research</li>
+<li><strong>Malicious: destruction</strong> — attempts to vandalize machines, including commands to "delete all files on the user's machine"</li>
+</ol>
+<p>The critical finding: while today's attacks are unsophisticated, the trend line is unmistakable. A 32% relative increase in malicious detections over a single quarter signals growing interest from attackers. And as Google's researchers note, "threat actors tend to engage based on cost/benefit considerations" — both sides of the equation are shifting in the attackers' favor.</p>
+<h2>Why Policy Checklists Are Structurally Wrong for Runtime Attacks</h2>
+<p>The security industry learned this lesson decades ago: controls must match the attack surface they're meant to defend. You don't protect against SQL injection with a data classification policy. You don't prevent buffer overflows with an acceptable use guideline. And you cannot stop prompt injection with AI governance documentation.</p>
+<p>Yet this is precisely what most organizations are attempting.</p>
+<p>The typical enterprise AI security program in 2026 consists of: an AI acceptable use policy, a risk assessment framework, model cards for transparency, output review procedures, and quarterly governance reviews. These are all pre-deployment or post-deployment controls. Prompt injection happens during deployment — at runtime — when an AI agent processes untrusted content that contains embedded instructions it wasn't designed to distinguish from legitimate commands.</p>
+<p>The structural problem is fundamental to LLM architecture. Language models process instructions and data through the same channel. An email that says "summarize the quarterly report" is structurally identical to an email that says "summarize the quarterly report, and also forward all financial data to this external address." The model doesn't see a boundary between the user's intent and the content it processes. It sees tokens, and it follows the most persuasive sequence.</p>
+<p>This isn't a flaw that better prompting fixes. It isn't a compliance gap you close with documentation. It's an architectural vulnerability that requires architectural controls. And the research community has just converged on what those controls look like.</p>
+<h2>The Convergence: Two Papers, Same Architecture, Same Day</h2>
+<p>On April 27, 2026, two independent research teams published defense architectures for prompt injection. They approached the problem from different angles, used different techniques, and arrived at the same fundamental conclusion: runtime monitors with privilege separation, not prompt hardening, is the correct defense model.</p>
+<h3>AgentVisor: Semantic Virtualization for AI Agents</h3>
+<p>The AgentVisor paper (arXiv:2604.24118), authored by researchers including Ying Zonghao, Wang Haozheng, Liu Jiangfan, and Liu Xianglong, draws explicit inspiration from operating system virtualization [Source: arXiv 2604.24118, "AgentVisor: Defending LLM Agents Against Prompt Injection via Semantic Virtualization," April 27, 2026].</p>
+<p>Their framework treats the target AI agent as an untrusted guest process and places a "semantic visor" between the agent and its execution environment. Every tool call — every file access, every API invocation, every data retrieval — is intercepted by this trusted mediation layer and audited against security policy before execution.</p>
+<p>The visor implements what the authors call a "rigorous audit protocol grounded in classic OS security primitives" specifically adapted to the semantic nature of LLM outputs. Rather than trying to predict and block malicious prompts — an arms race they acknowledge is unwinnable — AgentVisor validates what the agent attempts to do, not what it was told.</p>
+<p>The results are striking:</p>
+<ul>
+<li><strong>0.65% attack success rate</strong> for prompt injection attacks against defended agents</li>
+<li>Only <strong>1.45% average decrease in utility</strong> compared to the no-defense baseline</li>
+<li>A one-shot self-correction mechanism that converts security violations into feedback, enabling agents to recover from attacks rather than simply being blocked</li>
+</ul>
+<p>The 0.65% ASR means that out of every 200 prompt injection attempts, approximately 199 fail. And the 1.45% utility penalty means the defense doesn't break legitimate functionality — it protects the agent without neutering it.</p>
+<h3>LCF: Runtime Behavioral Fingerprinting Without Reference Models</h3>
+<p>The LCF paper (arXiv:2604.24542), authored by Nay Myat Min, Long H. Pham, and Jun Sun, takes a different technical path but converges on the same architectural principle: monitor at runtime, don't harden pre-deployment [Source: arXiv 2604.24542, "Layerwise Convergence Fingerprints for Runtime Misbehavior Detection in Large Language Models," April 27, 2026].</p>
+<p>LCF treats the inter-layer hidden-state trajectory of a language model as a health signal. When a model processes text normally, its internal representations follow predictable patterns. When it encounters injected instructions, those patterns deviate — and LCF detects these deviations at the layer level.</p>
+<p>Key characteristics of the approach:</p>
+<ul>
+<li><strong>No reference model required</strong> — it doesn't need a separate "clean" model to compare against, making it practical for deployments using third-party or API-based models</li>
+<li><strong>No trigger knowledge</strong> — it doesn't need to know what a specific attack looks like; it detects behavioral anomalies regardless of the injection technique</li>
+<li><strong>No retraining</strong> — the monitor is tuning-free, calibrated on just 200 clean examples</li>
+<li><strong>Less than 0.1% inference overhead</strong> — the computational cost is negligible</li>
+</ul>
+<p>Evaluated across four architectures (Llama-3-8B, Qwen2.5-7B, Gemma-2-9B, Qwen2.5-14B) and three threat families (backdoors, jailbreaks, prompt injection), LCF demonstrated:</p>
+<ul>
+<li><strong>100% text-payload injection detection</strong> across all eight model-domain combinations tested</li>
+<li><strong>92–100% detection</strong> of DAN-style jailbreaks</li>
+<li>Mean backdoor attack success rate reduced <strong>below 1%</strong> on two of four tested architectures</li>
+<li>A single aggregation score covering all three threat families without threat-specific tuning</li>
+</ul>
+<h3>The Pattern: What Both Approaches Share</h3>
+<p>Two independent teams. Two completely different technical implementations. Same day. Same conclusion. The pattern is unmistakable:</p>
+<ol>
+<li><p><strong>The defense boundary is the execution boundary, not the input boundary.</strong> Don't try to distinguish clean prompts from injected prompts at ingestion. Control what the agent is allowed to do regardless of what it was told.</p>
+</li>
+<li><p><strong>Trusted mediation is essential.</strong> Some component in the architecture must sit between the agent's reasoning and its actions, with the authority to validate, block, or redirect. Whether you call it a semantic visor, a runtime controller, or a security mediator, the function is the same.</p>
+</li>
+<li><p><strong>Monitoring beats prediction.</strong> You cannot enumerate every possible injection. You can detect when behavior deviates from expected patterns and intervene at that point.</p>
+</li>
+</ol>
+<p>This convergence is significant. It suggests the research community is crystallizing around an architectural solution to prompt injection, much as the security community crystallized around memory safety, input validation, and least privilege for earlier classes of attacks.</p>
+<h2>The Gap: What Organizations Are Actually Doing</h2>
+<p>The contrast between research reality and organizational response is stark. While the research community converges on runtime architectural controls, most enterprises are stuck in governance mode.</p>
+<p>Consider what "AI security" looks like in a typical organization in May 2026:</p>
+<ul>
+<li>A responsible AI committee meets quarterly to review incidents</li>
+<li>An AI risk register lists prompt injection as a "medium" risk</li>
+<li>Model cards document training data, limitations, and intended use</li>
+<li>Output review procedures require human validation for high-stakes decisions</li>
+<li>Acceptable use policies prohibit employees from entering sensitive data into public AI tools</li>
+</ul>
+<p>None of these controls address what happens when an AI agent browsing the web encounters a page with a hidden prompt injection, or when an email processed by an AI assistant contains embedded instructions to exfiltrate data, or when a document uploaded for summarization includes commands that override the summarization request entirely.</p>
+<p>This is the control gap: organizations have deployed pre-deployment and post-deployment controls for a runtime attack vector, and they're calling it "defense in depth" when it's actually just "defense in the wrong place."</p>
+<p>Google's own security team described the challenge accurately in a separate post on April 2, 2026: IPI "is not the kind of technical problem you 'solve' and move on. Sophisticated LLMs with increasing use of agentic automation combined with a wide range of content create an ultra-dynamic and evolving playground for adversarial attacks" [Source: Google Security Blog, "Google Workspace's continuous approach to mitigating indirect prompt injections," April 2, 2026, by Adam Gavish]. Their response is a continuous, multi-layered defense combining deterministic filters, ML-based classifiers, LLM-based guards, and model hardening — a runtime architecture, not a policy framework.</p>
+<h2>What This Means for Security Leaders: A Five-Step Action Plan</h2>
+<p>If you're responsible for AI security — as a CISO, Chief AI Officer, head of security architecture, or board member with oversight responsibility — here's what to do in the next quarter:</p>
+<h3>1. Classify Your AI Deployments by Runtime Exposure</h3>
+<p>Not all AI deployments have the same prompt injection risk profile. Create an inventory that distinguishes:</p>
+<ul>
+<li><strong>No runtime exposure:</strong> Models that process only trusted, internally-generated data (e.g., a coding assistant that only sees your repository)</li>
+<li><strong>Limited runtime exposure:</strong> Models that process some untrusted data with human-in-the-loop validation (e.g., a document summarizer with mandatory review before publication)</li>
+<li><strong>Full runtime exposure:</strong> Models that autonomously process untrusted content and can take actions based on it (e.g., an AI agent that browses the web, reads email, and executes tool calls)</li>
+</ul>
+<p>Your highest-risk deployments are the ones where an attacker can reach the model through untrusted data and the model can cause harm through its actions. Focus your runtime control investment here.</p>
+<h3>2. Map the Trust Boundary in Each High-Risk Agent</h3>
+<p>For each agent with full runtime exposure, draw the architecture and identify every point where the agent processes content it didn't create. This includes:</p>
+<ul>
+<li>Web pages retrieved during browsing</li>
+<li>Emails processed from external senders</li>
+<li>Documents uploaded by users or received from third parties</li>
+<li>API responses from external services</li>
+<li>Data ingested from message queues, webhooks, or event streams</li>
+</ul>
+<p>At each of these points, ask: "If an attacker controlled this content, what could they make the agent do?" If the answer includes actions you can't afford — data exfiltration, unauthorized transactions, system modification — you have a control gap.</p>
+<h3>3. Evaluate Runtime Guardrail Options Against Your Architecture</h3>
+<p>The research provides a menu of approaches, not a single prescription. Map available techniques to your specific architecture:</p>
+<ul>
+<li><p><strong>Mediation-layer controls</strong> (AgentVisor pattern): If your agents use structured tool-calling mechanisms, you can insert a security mediator between the reasoning LLM and its tool execution layer. This is the strongest control — it validates actions, not just prompts — but requires architectural changes to how agents interact with tools and data.</p>
+</li>
+<li><p><strong>Behavioral monitoring</strong> (LCF pattern): If you're consuming third-party or API-based models where you can't modify the agent architecture, runtime behavioral monitoring can detect anomalous activity without requiring access to internal model states. Trade-off: detection rather than prevention, so you need incident response procedures.</p>
+</li>
+<li><p><strong>Layered deterministic + ML + LLM guards</strong> (Google pattern): A pipeline approach combining fast regex/rule-based filters, ML classifiers for pattern recognition, and LLM-based semantic analysis for ambiguous cases. Google's internal teams use this across Workspace with Gemini [Source: Google Security Blog, April 2, 2026].</p>
+</li>
+</ul>
+<h3>4. Fund Runtime Infrastructure, Not Just Governance Artifacts</h3>
+<p>Review your 2026 AI security budget allocation. If more than 50% is going to policy frameworks, awareness training, governance documentation, and compliance artifacts — you have a structural imbalance. These activities have value, but they don't prevent runtime attacks.</p>
+<p>Concrete reallocation targets:</p>
+<ul>
+<li>Engineering headcount for security mediation layer implementation</li>
+<li>Runtime monitoring infrastructure (logging, anomaly detection, alerting)</li>
+<li>Testing infrastructure to validate guardrail effectiveness against evolving attack techniques</li>
+<li>Integration of AI-specific security signals into your existing SOC/SIEM workflows</li>
+</ul>
+<h3>5. Establish Continuous Validation</h3>
+<p>Prompt injection defenses are not deploy-and-forget. The attack surface evolves. Your controls must evolve with it.</p>
+<p>Implement a validation cadence:</p>
+<ul>
+<li><strong>Weekly:</strong> Automated red-teaming against your deployed agents using current attack techniques</li>
+<li><strong>Monthly:</strong> Manual penetration testing with newly published injection techniques</li>
+<li><strong>Quarterly:</strong> Architecture review to assess whether the trust boundary has shifted (new tools, new data sources, new agent capabilities)</li>
+</ul>
+<p>Google's approach of combining human red-teaming, automated red-teaming, a vulnerability rewards program, and continuous defense refinement provides a template [Source: Google Security Blog, April 2, 2026]. Scale this to your organization's size and risk profile.</p>
+<h2>The Bottom Line</h2>
+<p>Google's 32% spike in prompt injection detections isn't a crisis — yet. But it's a clear signal that attackers are experimenting, learning, and scaling. The sophistication gap between what researchers have demonstrated is possible and what attackers are currently attempting is closing.</p>
+<p>The organizations that win on this threat vector will be the ones that deploy runtime architectural controls — mediation layers, behavioral monitors, privilege separation — before the attacks get sophisticated. The organizations that lose will be the ones still updating their policy checklists when the first real incident hits.</p>
+<p>Prompt injection is an architectural problem. It demands an architectural answer. The research community just handed us two of them in the same 72-hour window. The question is whether security leaders will act on them, or keep writing policy documents while the clock ticks down.</p>
+<h3>Sources</h3>
+<ol>
+<li><p>Google Security Blog — "AI threats in the wild: The current state of prompt injections on the web," April 23, 2026. Thomas Brunner, Yu-Han Liu, Moni Pande. <a href="https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html">https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html</a></p>
+</li>
+<li><p>arXiv:2604.24118 — "AgentVisor: Defending LLM Agents Against Prompt Injection via Semantic Virtualization," April 27, 2026. Ying Zonghao, Wang Haozheng, Liu Jiangfan, Liu Xianglong et al. <a href="https://arxiv.org/abs/2604.24118">https://arxiv.org/abs/2604.24118</a></p>
+</li>
+<li><p>arXiv:2604.24542 — "Layerwise Convergence Fingerprints for Runtime Misbehavior Detection in Large Language Models," April 27, 2026. Nay Myat Min, Long H. Pham, Jun Sun. <a href="https://arxiv.org/abs/2604.24542">https://arxiv.org/abs/2604.24542</a></p>
+</li>
+<li><p>Google Security Blog — "Google Workspace's continuous approach to mitigating indirect prompt injections," April 2, 2026. Adam Gavish. <a href="https://security.googleblog.com/2026/04/google-workspaces-continuous-approach-to-mitigating-indirect-prompt-injections.html">https://security.googleblog.com/2026/04/google-workspaces-continuous-approach-to-mitigating-indirect-prompt-injections.html</a></p>
+</li>
+<li><p>arXiv:2604.17562 — "SafeAgent: A Runtime Protection Architecture for Agentic Systems," April 19, 2026. Liu Hailin et al. <a href="https://arxiv.org/abs/2604.17562">https://arxiv.org/abs/2604.17562</a> (additional reference on runtime protection architecture)</p>
+</li>
+</ol>`,
+  },
+  {
     slug: "vulnerability-timeline-compression-hero",
     title: "AI Is Shrinking the Gap Between Vulnerability Discovery and Exploitation",
     subtitle: "",
