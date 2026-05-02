@@ -1,3 +1,4 @@
+import sanitizeHtml from 'sanitize-html'
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../../../components/Nav'
@@ -113,7 +114,18 @@ export default async function ArticlePage({ params }: Props) {
 
           <div
             className="article-body"
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content, {
+              allowedTags: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'blockquote', 'a', 'img', 'code', 'pre', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+              allowedAttributes: {
+                'a': ['href', 'target', 'rel'],
+                'img': ['src', 'alt', 'width', 'height'],
+                'code': ['class'],
+                'pre': ['class'],
+                'th': ['colspan', 'rowspan'],
+                'td': ['colspan', 'rowspan']
+              },
+              allowedSchemes: ['http', 'https', 'mailto'],
+            }) }}
           />
 
           <footer className="article-footer">

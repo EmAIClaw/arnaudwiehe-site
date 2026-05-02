@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
+import YouTubeEmbed from '../../components/YouTubeEmbed'
 import { Metadata } from 'next'
 import { getAllSpeakingEvents } from './data'
 import { buildPageMetadata } from '../metadata'
 
 const speakingHeroImage = {
-  src: '/images/speaking/gitex-dubai-2025-2.jpg',
+  src: '/images/speaking/gitex-dubai-2025-2.webp',
   width: 1800,
   height: 1200,
 }
@@ -19,6 +20,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function SpeakingPage() {
   const allEvents = getAllSpeakingEvents()
+  const videoEvents = allEvents.filter((event) => event.youtubeId)
 
   return (
     <>
@@ -49,6 +51,28 @@ export default function SpeakingPage() {
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
         </div>
+
+        {videoEvents.length > 0 && (
+          <section className="speaking-video-showcase" aria-labelledby="speaking-video-showcase-title">
+            <div className="speaking-video-showcase-header">
+              <p className="section-label">Watch</p>
+              <h2 id="speaking-video-showcase-title">Selected talks</h2>
+            </div>
+            <div className="speaking-video-grid">
+              {videoEvents.map((event) => (
+                <article key={event.slug} className="speaking-video-card">
+                  <YouTubeEmbed
+                    videoId={event.youtubeId!}
+                    title={`${event.name} — ${event.topic}`}
+                    className="speaking-video-card-embed"
+                  />
+                  <h3>{event.name}</h3>
+                  <p>{event.topic}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="speaking-section-group">
           <div className="speaking-events-list">
@@ -88,9 +112,11 @@ function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEv
           {event.tags.slice(0, 4).join(' · ')}
         </p>
       </div>
-      <Link href={`/speaking/${event.slug}`} className="speaking-list-cta">
-        View event →
-      </Link>
+      {event.youtubeId && (
+        <Link href={`/speaking/${event.slug}`} className="speaking-list-cta" aria-label={`Watch ${event.name}`}>
+          Watch here →
+        </Link>
+      )}
     </div>
   )
 }

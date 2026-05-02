@@ -1,25 +1,26 @@
 # Assets for ArnaudWiehe.com
 
+`public/images/` is the single canonical source for images served by the website.
+
+This `assets/` directory is archive-only source material and should not be referenced by app code. If an image is meant to appear on the live site, place it in `public/images/` and wire that path directly.
+
 ## Folder Structure
 
 ```
 assets/
-├── images/          # General site images
-├── photos/          # Event/conference photos
-├── headshots/       # Professional headshots
-├── documents/       # PDFs, whitepapers, etc.
-└── instruments/    # Violin making photos (future)
+├── images/          # Archive/source material only
+├── photos/          # Archive event/source photos
+└── documents/       # Archive PDFs or other source material
 ```
 
 ## Usage
 
-Upload photos here and reference them in your site:
-- `/assets/photos/speaking-venue.jpg`
-- `/assets/headshots/headshot-2024.jpg`
-- `/assets/instruments/violin-wip.jpg`
+Use this directory only for offline/source material that is not part of the live site pipeline.
+Do not reference `/assets/...` paths from pages, components, or generated content.
 
-## To Do
-- [ ] Upload speaking photos
-- [ ] Upload headshots
-- [ ] Upload instrument making photos
-- [ ] Add book cover images once designed
+## Canonical Runtime Paths
+
+- Headshots: `public/images/headshots/`
+- Speaking photos: `public/images/speaking/`
+- Music and instrument photos: `public/images/music/` and `public/images/instruments/`
+- Book covers: `public/images/books/`

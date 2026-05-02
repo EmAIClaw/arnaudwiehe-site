@@ -45,7 +45,7 @@ export default function ArticlesPage() {
                   <Link href={`/articles/${article.slug}`} className="article-list-image-link">
                     <div className="article-list-image-wrap">
                       <Image
-                        src={article.heroImage}
+                        src={article.thumbnailImage || article.heroImage}
                         alt={article.title}
                         className={`article-list-image${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover' : ''}`}
                         width={imageDimensions.width}

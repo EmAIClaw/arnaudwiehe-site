@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import sanitizeHtml from 'sanitize-html'
 import Nav from '../../../components/Nav'
 import YouTubeEmbed from '../../../components/YouTubeEmbed'
 import { getSpeakingEventBySlug, getAdjacentEvents, getAllSpeakingEvents } from '../data'
@@ -15,13 +16,13 @@ type Props = {
 
 function getEventImageDimensions(src: string) {
   switch (src) {
-    case '/images/speaking/gitex-dubai-2025-1.jpg':
+    case '/images/speaking/gitex-dubai-2025-1.webp':
       return { width: 2433, height: 3650 }
-    case '/images/speaking/world-summit-ai-2023.jpg':
+    case '/images/speaking/world-summit-ai-2023.webp':
       return { width: 2421, height: 3631 }
-    case '/images/speaking/ISACA Risk Speaker Photo1.jpg':
+    case '/images/speaking/ISACA Risk Speaker Photo1.webp':
       return { width: 1707, height: 2560 }
-    case '/images/speaking/ISACA Risk Speaker Photo2.jpg':
+    case '/images/speaking/ISACA Risk Speaker Photo2.webp':
       return { width: 1707, height: 2560 }
     default:
       return { width: 1200, height: 1800 }
@@ -46,6 +47,20 @@ export function generateStaticParams() {
   return getAllSpeakingEvents().map((event) => ({
     slug: event.slug,
   }))
+}
+
+function sanitizeSpeakingSummary(summary: string) {
+  return sanitizeHtml(summary, {
+    allowedTags: ['p', 'br', 'strong', 'em', 'ul', 'ol', 'li', 'a'],
+    allowedAttributes: {
+      a: ['href'],
+    },
+    allowedSchemes: ['http', 'https', 'mailto'],
+    allowProtocolRelative: false,
+    transformTags: {
+      a: sanitizeHtml.simpleTransform('a', { rel: 'noopener noreferrer' }),
+    },
+  })
 }
 
 export default async function SpeakingEventPage({ params }: Props) {
@@ -75,6 +90,7 @@ export default async function SpeakingEventPage({ params }: Props) {
 
   const { prev, next } = getAdjacentEvents(slug)
   const imageDimensions = event.heroImage ? getEventImageDimensions(event.heroImage) : null
+  const sanitizedSummary = sanitizeSpeakingSummary(event.summary)
 
   return (
     <>
@@ -130,7 +146,7 @@ export default async function SpeakingEventPage({ params }: Props) {
             <h2 className="speaking-event-section-heading">About This Talk</h2>
             <div
               className="speaking-event-summary-text"
-              dangerouslySetInnerHTML={{ __html: event.summary }}
+              dangerouslySetInnerHTML={{ __html: sanitizedSummary }}
             />
           </section>
 

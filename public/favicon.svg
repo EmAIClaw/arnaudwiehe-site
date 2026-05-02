@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text y=".9em" font-size="90">🎻</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Arnaud Wiehe">
+  <rect width="64" height="64" rx="14" fill="#2A2420"/>
+  <path d="M16 46L27.4 18h3.2L42 46h-4.5l-3-7.7H23.4L20.5 46H16zm8.8-11.4h8.4L29 23.5l-4.2 11.1z" fill="#FAF8F5"/>
+  <path d="M39.5 18h4.2l4.1 19.4L52.2 18H56l-6.5 28h-3.4L41.7 27l-4.4 19h-3.4l-2.2-9.5 3.4-8.4 2.4 9.3L39.5 18z" fill="#D4A843"/>
 </svg>

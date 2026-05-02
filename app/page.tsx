@@ -6,48 +6,48 @@ import YouTubeEmbed from '../components/YouTubeEmbed'
 import { getAllArticles } from './articles/data'
 
 const headshotImage = {
-  src: '/images/headshots/headshot.jpg',
+  src: '/images/headshots/headshot-thumb.webp',
   width: 933,
   height: 1400,
 }
 
 const speakingPhotos = {
   gitexVertical: {
-    src: '/images/speaking/gitex-dubai-2025-1.jpg',
+    src: '/images/speaking/gitex-dubai-2025-1-thumb.webp',
     width: 1066,
     height: 1600,
   },
   gitexStage: {
-    src: '/images/speaking/gitex-dubai-2025-2.jpg',
+    src: '/images/speaking/gitex-dubai-2025-2.webp',
     width: 1800,
     height: 1200,
   },
   worldSummit: {
-    src: '/images/speaking/world-summit-ai-2023.jpg',
+    src: '/images/speaking/world-summit-ai-2023-thumb.webp',
     width: 1067,
     height: 1600,
   },
   isacaOne: {
-    src: '/images/speaking/ISACA Risk Speaker Photo1.jpg',
+    src: '/images/speaking/ISACA Risk Speaker Photo1-thumb.webp',
     width: 1707,
     height: 2560,
   },
   isacaTwo: {
-    src: '/images/speaking/ISACA Risk Speaker Photo2.jpg',
+    src: '/images/speaking/ISACA Risk Speaker Photo2-thumb.webp',
     width: 1707,
     height: 2560,
   },
 }
 
 const instrumentImages = [
-  { src: '/images/music/IMG_5695.webp', alt: 'Violin', width: 1200, height: 1200 },
-  { src: '/images/music/IMG_5935.webp', alt: 'Viola', width: 1400, height: 1045 },
-  { src: '/images/music/IMG_0470.webp', alt: 'Cello', width: 1365, height: 2048 },
-  { src: '/images/music/IMG_0472.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
-  { src: '/images/music/IMG_0099.webp', alt: 'Violin', width: 854, height: 1280 },
-  { src: '/images/music/IMG_5954.webp', alt: 'Viola', width: 1100, height: 1640 },
-  { src: '/images/music/IMG_9109.webp', alt: 'Cello', width: 1400, height: 1045 },
-  { src: '/images/music/IMG_9896.webp', alt: 'Instrument', width: 1050, height: 1400 },
+  { src: '/images/music/IMG_5695-thumb.webp', alt: 'Violin', width: 1200, height: 1200 },
+  { src: '/images/instruments/IMG_5935-thumb.webp', alt: 'Viola', width: 1936, height: 2592 },
+  { src: '/images/music/IMG_0470-thumb.webp', alt: 'Cello', width: 1365, height: 2048 },
+  { src: '/images/music/IMG_0472-thumb.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
+  { src: '/images/music/IMG_0099-thumb.webp', alt: 'Violin', width: 854, height: 1280 },
+  { src: '/images/music/IMG_5954-thumb.webp', alt: 'Viola', width: 1100, height: 1640 },
+  { src: '/images/instruments/IMG_9109-thumb.webp', alt: 'Cello', width: 1936, height: 2592 },
+  { src: '/images/music/IMG_9896-thumb.webp', alt: 'Instrument', width: 1050, height: 1400 },
 ]
 
 const featuredEngagements = [
@@ -151,57 +151,6 @@ export default function Home() {
               With over two decades of experience, Arnaud helps organizations move beyond fear-driven narratives toward a strategic view of innovation. His work focuses on how emerging technologies—AI, quantum computing, extended reality—are reshaping risk and opportunity.
             </p>
           </div>
-          <div className="certs-section">
-            <p className="certs-label">Certifications</p>
-            <div className="certs-logos">
-              <div className="cert-item" title="AIGP — Artificial Intelligence Governance Professional">
-                <Image src="/images/certifications/aigp.png" alt="AIGP" className="cert-logo" width={80} height={80} loading="lazy" />
-              </div>
-              <div className="cert-item" title="CISSP — Certified Information Systems Security Professional">
-                <Image src="/images/certifications/cissp.png" alt="CISSP" className="cert-logo" width={80} height={80} loading="lazy" />
-              </div>
-              <div className="cert-item" title="CCSP — Certified Cloud Security Professional">
-                <Image src="/images/certifications/ccsp.png" alt="CCSP" className="cert-logo" width={80} height={80} loading="lazy" />
-              </div>
-              <div className="cert-item" title="CISM — Certified Information Security Manager">
-                <Image src="/images/certifications/cism.png" alt="CISM" className="cert-logo" width={80} height={80} loading="lazy" />
-              </div>
-              <div className="cert-item" title="CISA — Certified Information Systems Auditor">
-                <Image src="/images/certifications/cisa.png" alt="CISA" className="cert-logo" width={80} height={80} loading="lazy" />
-              </div>
-              <div className="cert-item" title="CIPP/E — Certified Information Privacy Professional (Europe)">
-                <Image src="/images/certifications/cippe.png" alt="CIPP/E" className="cert-logo" width={80} height={80} loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="testimonials-section">
-        <div className="section-inner">
-          <div className="testimonials-grid">
-            <blockquote className="testimonial-card">
-              <p className="testimonial-quote">"I've had the pleasure of working with Arnaud for the past few years. He is an asset to any organization. He understands the complexities of the cybersecurity and IT compliance landscape and can develop and implement effective strategies to keep companies safe."</p>
-              <footer className="testimonial-author">
-                <strong>Zouhair Taheri</strong>
-                <span>Partner, PWC</span>
-              </footer>
-            </blockquote>
-            <blockquote className="testimonial-card">
-              <p className="testimonial-quote">"Arnaud is a thought leader in the world of cybersecurity. He brings a wealth of knowledge and experience and has a proven track record of success as a CISO."</p>
-              <footer className="testimonial-author">
-                <strong>Martin Treder</strong>
-                <span>Head of MDM Business Partner, Boehringer Ingelheim</span>
-              </footer>
-            </blockquote>
-            <blockquote className="testimonial-card">
-              <p className="testimonial-quote">"Arnaud delivered a clear presentation which provided valuable key takeaways for those in the space who are seeking advice when it comes to protecting against IoT threats."</p>
-              <footer className="testimonial-author">
-                <strong>Rosie Fletcher</strong>
-                <span>Conference Producer, TechEx Events</span>
-              </footer>
-            </blockquote>
-          </div>
         </div>
       </section>
 
@@ -212,30 +161,30 @@ export default function Home() {
               <h2 className="expertise-title">Books</h2>
             </div>
             <div className="books-showcase">
-              <div className="book-showcase-item">
+              <Link href="/books/the-book-on-cybersecurity" className="book-showcase-item">
                 <div className="book-cover-wrap">
-                  <Image src="/images/books/cybersecurity-cover.jpg" alt="The Book on Cybersecurity" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
+                  <Image src="/images/books/cybersecurity-cover-thumb.webp" alt="The Book on Cybersecurity" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
                 </div>
                 <div className="book-showcase-details">
                   <h3 className="book-showcase-title">The Book on Cybersecurity</h3>
                   <p className="book-showcase-subtitle">How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World</p>
-                  <a href="https://www.amazon.com/dp/B0C2SCKX7J" target="_blank" rel="noopener noreferrer" className="book-showcase-link">
-                    Buy on Amazon →
-                  </a>
+                  <span className="book-showcase-link">
+                    Explore the book →
+                  </span>
                 </div>
-              </div>
-              <div className="book-showcase-item">
+              </Link>
+              <Link href="/books/emerging-tech-emerging-threats" className="book-showcase-item">
                 <div className="book-cover-wrap">
-                  <Image src="/images/books/emerging-tech-cover.jpg" alt="Emerging Tech, Emerging Threats" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
+                  <Image src="/images/books/emerging-tech-cover-thumb.webp" alt="Emerging Tech, Emerging Threats" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
                 </div>
                 <div className="book-showcase-details">
                   <h3 className="book-showcase-title">Emerging Tech, Emerging Threats</h3>
                   <p className="book-showcase-subtitle">A Cybersecurity Guide for Innovative Leaders</p>
-                  <a href="https://www.amazon.com/dp/B0CXXL8W58" target="_blank" rel="noopener noreferrer" className="book-showcase-link">
-                    Buy on Amazon →
-                  </a>
+                  <span className="book-showcase-link">
+                    Explore the book →
+                  </span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 

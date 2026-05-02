@@ -15,8 +15,8 @@ export interface SpeakingEvent {
   status: 'upcoming' | 'past'
   youtubeId?: string        // YouTube video ID (for embed)
   youtubeUrl?: string       // Full YouTube watch URL
-  heroImage?: string        // path relative to assets/
-  thumbnail?: string        // path relative to assets/ (for listing)
+  heroImage?: string        // path under public/images/
+  thumbnail?: string        // path under public/images/ (for listing)
   metaDescription: string
   summary: string           // HTML/markdown rich summary
   keyTakeaways: string[]
@@ -37,8 +37,8 @@ export const speakingEvents: SpeakingEvent[] = [
     category: 'Global Conference',
     tags: ['AI', 'Cybersecurity', 'Emerging Tech', 'Digital Transformation'],
     status: 'upcoming',
-    heroImage: '/images/speaking/gitex-dubai-2025-1.jpg',
-    thumbnail: '/images/speaking/gitex-dubai-2025-2.jpg',
+    heroImage: '/images/speaking/gitex-dubai-2025-1.webp',
+    thumbnail: '/images/speaking/gitex-dubai-2025-2-thumb.webp',
     metaDescription: 'Arnaud Wiehe at GITEX Europe Berlin 2026 on AI, cybersecurity, and emerging technologies.',
     summary: '<p>GITEX Europe brings the globally renowned GITEX brand to the heart of Europe. Arnaud spoke on navigating the intersection of AI capabilities and cybersecurity risk.</p>',
     keyTakeaways: ['AI governance frameworks must evolve with technology', 'Cybersecurity in the age of AI requires new approaches'],
@@ -144,8 +144,8 @@ export const speakingEvents: SpeakingEvent[] = [
     category: 'Global Conference',
     tags: ['AI', 'Cybersecurity', 'Emerging Tech', 'Digital Transformation'],
     status: 'past',
-    heroImage: '/images/speaking/gitex-dubai-2025-1.jpg',
-    thumbnail: '/images/speaking/gitex-dubai-2025-2.jpg',
+    heroImage: '/images/speaking/gitex-dubai-2025-1.webp',
+    thumbnail: '/images/speaking/gitex-dubai-2025-2-thumb.webp',
     metaDescription: 'Arnaud Wiehe at GITEX Global Dubai 2025 — the world\'s largest tech exhibition — on AI and cybersecurity.',
     summary: '<p>At GITEX Global 2025, Arnaud addressed harnessing AI\'s transformative potential while managing security and governance risks. The session explored moving beyond reactive responses to strategic AI risk posture.</p>',
     keyTakeaways: ['AI governance requires embedding risk management', 'AI threats are often mundane misuse, not superintelligence'],
@@ -235,8 +235,8 @@ export const speakingEvents: SpeakingEvent[] = [
     status: 'past',
     youtubeId: 'HqTlT8vjIyI',
     youtubeUrl: 'https://www.youtube.com/watch?v=HqTlT8vjIyI',
-    heroImage: '/images/speaking/ISACA Risk Speaker Photo1.jpg',
-    thumbnail: '/images/speaking/ISACA Risk Speaker Photo2.jpg',
+    heroImage: '/images/speaking/ISACA Risk Speaker Photo1.webp',
+    thumbnail: '/images/speaking/ISACA Risk Speaker Photo2-thumb.webp',
     metaDescription: 'Arnaud Wiehe at ISACA Risk Event 2023 on cybersecurity considerations for AI systems.',
     summary: '<p>ISACA session for risk professionals on governing AI systems. Covered model governance, data risk, third-party AI dependencies, and audit challenges for AI decision-making.</p>',
     keyTakeaways: ['AI risk extends existing frameworks', 'Third-party AI risk is significant', 'Audit needs new methods for AI'],
@@ -288,8 +288,8 @@ export const speakingEvents: SpeakingEvent[] = [
     category: 'Global Conference',
     tags: ['AI', 'Cybersecurity', 'AI Governance', 'AI Safety'],
     status: 'past',
-    heroImage: '/images/speaking/world-summit-ai-2023.jpg',
-    thumbnail: '/images/speaking/world-summit-ai-2023.jpg',
+    heroImage: '/images/speaking/world-summit-ai-2023.webp',
+    thumbnail: '/images/speaking/world-summit-ai-2023-thumb.webp',
     metaDescription: 'Arnaud Wiehe at World Summit AI 2023 Amsterdam — Europe\'s premier AI conference — on AI system security.',
     summary: '<p>World Summit AI session addressing what happens when AI systems are attacked, how to protect training data, and the security implications of AI-as-a-service dependencies.</p>',
     keyTakeaways: ['AI security is not traditional software security', 'Training data integrity is paramount', 'AI-as-a-service creates new dependencies'],

@@ -145,7 +145,7 @@ async function collectArticles() {
 
     let heroImage = null
     for (const candidate of heroCandidates) {
-      const extensions = ['.jpg', '.jpeg', '.png', '.svg', '.webp']
+      const extensions = ['.svg', '.webp', '.jpg', '.jpeg', '.png']
       for (const ext of extensions) {
         if (await fileExists(path.join(websiteImagesDir, `${candidate}${ext}`))) {
           heroImage = `/images/articles/${candidate}${ext}`
@@ -153,6 +153,13 @@ async function collectArticles() {
         }
       }
       if (heroImage) break
+    }
+    let thumbnailImage = null
+    for (const candidate of heroCandidates) {
+      if (await fileExists(path.join(websiteImagesDir, `${candidate}-thumb.webp`))) {
+        thumbnailImage = `/images/articles/${candidate}-thumb.webp`
+        break
+      }
     }
     const readingTime = metadata?.seo?.readingTime
       ? metadata.seo.readingTime.replace(/minutes?/i, 'min read')
@@ -171,6 +178,7 @@ async function collectArticles() {
       readingTime,
       featured: Boolean(metadata?.seo?.featured),
       heroImage,
+      thumbnailImage,
       linkedinUrl: metadata.linkedinUrl || '',
       author: metadata.author || fallbackAuthor,
       authorBio: metadata.authorBio || fallbackAuthorBio,
@@ -204,6 +212,7 @@ export interface Article {
   authorBio: string
   featured: boolean
   heroImage?: string
+  thumbnailImage?: string
 }
 
 export const articles: Article[] = [
@@ -218,6 +227,7 @@ ${articles.map(article => `  {
     readingTime: ${JSON.stringify(article.readingTime)},
     featured: ${article.featured},
     ${article.heroImage ? `heroImage: ${JSON.stringify(article.heroImage)},` : ''}
+    ${article.thumbnailImage ? `thumbnailImage: ${JSON.stringify(article.thumbnailImage)},` : ''}
     linkedinUrl: ${JSON.stringify(article.linkedinUrl)},
     author: ${JSON.stringify(article.author)},
     authorBio: ${JSON.stringify(article.authorBio)},
