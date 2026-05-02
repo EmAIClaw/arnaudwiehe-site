@@ -1,5 +1,3 @@
-/albumvault/*  /albumvault/index.html  200!
-/albumvault/*  /albumvault/index.html  200!
 # AlbumVault: serve static assets directly
 /albumvault/assets/*  /albumvault/assets/:splat  200!
 /albumvault/covers/*  /albumvault/covers/:splat  200!
