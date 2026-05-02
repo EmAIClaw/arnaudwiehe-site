@@ -1,8 +1,2 @@
-# AlbumVault: serve static assets directly
-/albumvault/assets/*  /albumvault/assets/:splat  200!
-/albumvault/covers/*  /albumvault/covers/:splat  200!
-# AlbumVault SPA: all other routes fall back to index.html
-/albumvault/*  /albumvault/index.html  200!
-# Main site
 /articles/:slug  /articles/:slug.html  200
 /speaking/:slug  /speaking/:slug.html  200
