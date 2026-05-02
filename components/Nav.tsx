@@ -6,6 +6,7 @@ const navItems = [
   { href: '/speaking', label: 'Speaking' },
   { href: '/articles', label: 'Writing' },
   { href: '/music', label: 'Music' },
+  { href: '/albumvault/', label: 'AlbumVault' },
   { href: '/#contact', label: 'Contact' },
 ]
 
