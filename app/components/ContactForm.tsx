@@ -25,13 +25,15 @@ export default function ContactForm() {
       const form = e.target as HTMLFormElement
       const formDataObj = new FormData(form)
 
-      const response = await fetch('/contact-form.html', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
+        redirect: 'manual', // Don't follow the 303 redirect in fetch
       })
 
-      if (response.ok || response.redirected) {
+      // A 303 redirect means success
+      if (response.status === 303 || response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
       } else {
