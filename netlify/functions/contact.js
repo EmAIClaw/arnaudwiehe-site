@@ -1,6 +1,6 @@
 export default function handler(req, context) {
   if (req.method !== 'POST') {
-    return { statusCode: 405, body: 'Method not allowed' }
+    return new Response('Method not allowed', { status: 405 })
   }
 
   let body = ''
@@ -13,23 +13,18 @@ export default function handler(req, context) {
   const params = new URLSearchParams(body)
   const botField = params.get('bot-field')
   if (botField) {
-    return { statusCode: 303, headers: { Location: '/contact/thanks/' } }
+    return Response.redirect('/contact/thanks/', 303)
   }
 
-  console.log('Contact form submission:', {
+  // Log the submission
+  console.log('Contact form submission:', JSON.stringify({
     name: params.get('name'),
     email: params.get('email'),
     subject: params.get('subject'),
-    message: params.get('message')?.substring(0, 100),
-  })
+    message: params.get('message')?.substring(0, 200),
+  }))
 
-  return {
-    statusCode: 303,
-    headers: {
-      Location: '/contact/thanks/',
-      'Cache-Control': 'no-cache',
-    },
-  }
+  return Response.redirect('/contact/thanks/', 303)
 }
 
 export const config = {
