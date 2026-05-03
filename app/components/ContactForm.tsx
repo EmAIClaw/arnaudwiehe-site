@@ -29,10 +29,9 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
-        redirect: 'manual',
       })
 
-      if (response.status === 303 || response.ok) {
+      if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
       } else {

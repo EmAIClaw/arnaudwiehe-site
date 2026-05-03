@@ -2,13 +2,15 @@
  * Netlify Function: handles contact form submissions
  *
  * Bypasses the Next.js runtime plugin which intercepts POSTs to static pages.
- * Receives form data at /api/contact, then forwards it to Netlify's
- * form detection page (contact-form.html) so submissions appear in
- * the Netlify Forms dashboard. Redirects to /contact/thanks/ on success.
+ * Receives form data at /api/contact, forwards to Netlify Forms for
+ * dashboard visibility, and returns a JSON success response for the AJAX client.
  */
 export default async function handler(req, context) {
   if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 })
+    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+      status: 405,
+      headers: { 'Content-Type': 'application/json' },
+    })
   }
 
   // Read the request body
@@ -30,16 +32,15 @@ export default async function handler(req, context) {
 
   const params = new URLSearchParams(body)
 
-  // Honeypot check
+  // Honeypot check — if filled, silently accept (it's a bot)
   if (params.get('bot-field')) {
-    return new Response(null, {
-      status: 303,
-      headers: { Location: 'https://arnaudwiehe.com/contact/thanks/' },
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
     })
   }
 
-  // Forward the submission to Netlify Forms via the HTML form page
-  // This ensures the submission appears in the Netlify Forms dashboard
+  // Forward to Netlify Forms (contact-form.html has data-netlify for detection)
   try {
     await fetch('https://arnaudwiehe.com/contact-form.html', {
       method: 'POST',
@@ -49,7 +50,7 @@ export default async function handler(req, context) {
     })
   } catch (e) {
     console.error('Netlify Forms forward error:', e)
-    // Still redirect to success — don't block the user
+    // Don't block the user — submission still logged
   }
 
   console.log('Contact form submission:', JSON.stringify({
@@ -58,9 +59,9 @@ export default async function handler(req, context) {
     subject: params.get('subject'),
   }))
 
-  return new Response(null, {
-    status: 303,
-    headers: { Location: 'https://arnaudwiehe.com/contact/thanks/' },
+  return new Response(JSON.stringify({ success: true }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
   })
 }
 
