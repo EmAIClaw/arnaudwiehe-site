@@ -29,10 +29,9 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
-        redirect: 'manual', // Don't follow the 303 redirect in fetch
+        redirect: 'manual',
       })
 
-      // A 303 redirect means success
       if (response.status === 303 || response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
@@ -61,6 +60,7 @@ export default function ContactForm() {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      action="/contact/thanks/"
       onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head><title>Contact Form</title></head>
+<html lang="en">
+<head><title>Contact</title></head>
 <body>
-<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/contact/thanks/">
+<form name="contact" netlify netlify-honeypot="bot-field" action="/contact/thanks/">
   <input type="hidden" name="form-name" value="contact" />
-  <p style="position:absolute;left:-9999px;"><label>Don't fill this out: <input name="bot-field" /></label></p>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <input type="text" name="subject" />
-  <textarea name="message"></textarea>
-  <button type="submit">Send</button>
+  <p style="position:absolute;left:-9999px;"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+  <p><label>Name <input type="text" name="name" required /></label></p>
+  <p><label>Email <input type="email" name="email" required /></label></p>
+  <p><label>Subject <input type="text" name="subject" /></label></p>
+  <p><label>Message <textarea name="message" required></textarea></label></p>
+  <p><button type="submit">Send</button></p>
 </form>
 </body>
 </html>
