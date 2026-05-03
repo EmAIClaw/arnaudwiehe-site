@@ -1,12 +1,8 @@
 /**
  * Netlify Function: handles contact form submissions
  * 
- * The Netlify Next.js runtime plugin intercepts POST requests to static pages
- * and returns 404 for form submissions. This function bypasses that by
- * receiving the form POST at /api/contact and storing it.
- * 
- * Submissions are stored in Netlify Blobs and can be retrieved later.
- * The function also returns a 303 redirect to the thank-you page.
+ * Bypasses the Next.js runtime plugin which intercepts POSTs to static pages.
+ * Stores submissions in Netlify Blobs and redirects to thank-you page.
  */
 export default async (req, context) => {
   if (req.method !== 'POST') {
@@ -16,6 +12,8 @@ export default async (req, context) => {
   let body = ''
   if (typeof req.body === 'string') {
     body = req.body
+  } else if (Buffer.isBuffer(req.body)) {
+    body = req.body.toString('utf-8')
   } else if (req.body) {
     body = JSON.stringify(req.body)
   }
@@ -24,10 +22,9 @@ export default async (req, context) => {
   const params = new URLSearchParams(body)
   const formName = params.get('form-name')
 
-  // Honeypot check — if bot-field is filled, silently accept (don't store)
+  // Honeypot check — if bot-field is filled, silently accept
   const botField = params.get('bot-field')
   if (botField) {
-    // Likely a bot — redirect as if successful but don't store
     return {
       statusCode: 303,
       headers: { Location: '/contact/thanks/' },
@@ -46,16 +43,17 @@ export default async (req, context) => {
     submittedAt: new Date().toISOString(),
   }
 
-  // Store in Netlify Blobs so submissions are persistent and retrievable
+  // Store in Netlify Blobs
   try {
-    const store = context.store('form-submissions')
+    const store = await context.store('form-submissions')
     const id = `contact-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
     await store.set(id, JSON.stringify(submission))
+    console.log('Stored submission:', id)
   } catch (e) {
-    console.error('Failed to store submission:', e)
+    console.error('Blob store error:', e.message || e)
+    // Still return success — we don't want to block the user
   }
 
-  // Return success redirect
   return {
     statusCode: 303,
     headers: {
