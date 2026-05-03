@@ -22,19 +22,21 @@ export default function ContactForm() {
     setErrorMessage('')
 
     try {
-      const response = await fetch('https://formspree.io/f/xaneanrw', {
+      const form = e.target as HTMLFormElement
+      const formDataObj = new FormData(form)
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj as any).toString(),
       })
 
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
       } else {
-        const data = await response.json()
         setStatus('error')
-        setErrorMessage(data.error || 'Something went wrong. Please try again.')
+        setErrorMessage('Something went wrong. Please try again.')
       }
     } catch {
       setStatus('error')
@@ -51,7 +53,21 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form
+      className="contact-form"
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden" aria-hidden="true">
+        <label>
+          Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
+
       <div className="contact-form-group">
         <label className="contact-form-label" htmlFor="name">Name <span className="required">*</span></label>
         <input
