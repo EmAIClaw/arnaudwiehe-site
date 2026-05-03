@@ -1,4 +1,4 @@
-export default async (req, context) => {
+export default function handler(req, context) {
   if (req.method !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' }
   }
@@ -16,7 +16,6 @@ export default async (req, context) => {
     return { statusCode: 303, headers: { Location: '/contact/thanks/' } }
   }
 
-  // Log the submission for debugging
   console.log('Contact form submission:', {
     name: params.get('name'),
     email: params.get('email'),
