@@ -1,7 +1,15 @@
-functionsDirectory = "/Users/ai/.openclaw/workspace/projects/arnaudwiehe/www/netlify/functions"
-functionsDirectoryOrigin = "default"
 headersOrigin = "inline"
 redirectsOrigin = "inline"
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/plugin-nextjs"
+
+[plugins.inputs]
 
 [build]
 publish = "/Users/ai/.openclaw/workspace/projects/arnaudwiehe/www/out"
@@ -9,7 +17,6 @@ publishOrigin = "config"
 commandOrigin = "config"
 command = "npm run build"
 framework = "static"
-functions = "/Users/ai/.openclaw/workspace/projects/arnaudwiehe/www/netlify/functions"
 
 [build.environment]
 NODE_VERSION = "20"
@@ -25,16 +32,6 @@ NODE_VERSION = "20"
 [build.processing.js]
 
 [build.services]
-
-[functions]
-
-[functions."*"]
-
-[[plugins]]
-origin = "default"
-package = "@netlify/plugin-nextjs"
-
-[plugins.inputs]
 
 [[headers]]
 for = "/ /"
