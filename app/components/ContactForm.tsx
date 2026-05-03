@@ -9,47 +9,9 @@ export default function ContactForm() {
     subject: '',
     message: '',
   })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    setErrorMessage('')
-
-    try {
-      const form = e.target as HTMLFormElement
-      const formDataObj = new FormData(form)
-
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj as any).toString(),
-      })
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', subject: '', message: '' })
-      } else {
-        setStatus('error')
-        setErrorMessage('Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setErrorMessage('Network error. Please check your connection and try again.')
-    }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className="contact-form-status success">
-        <p>Message sent. I will get back to you soon.</p>
-      </div>
-    )
   }
 
   return (
@@ -59,14 +21,15 @@ export default function ContactForm() {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
+      action="/contact/thanks/"
     >
       <input type="hidden" name="form-name" value="contact" />
-      <p className="hidden" aria-hidden="true">
+      {/* Honeypot — visually hidden, never visible to real users */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', overflow: 'hidden', height: '0', width: '0' }}>
         <label>
           Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
         </label>
-      </p>
+      </div>
 
       <div className="contact-form-group">
         <label className="contact-form-label" htmlFor="name">Name <span className="required">*</span></label>
@@ -78,7 +41,6 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          disabled={status === 'sending'}
         />
       </div>
 
@@ -92,7 +54,6 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          disabled={status === 'sending'}
         />
       </div>
 
@@ -105,7 +66,6 @@ export default function ContactForm() {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          disabled={status === 'sending'}
         />
       </div>
 
@@ -119,22 +79,14 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={6}
-          disabled={status === 'sending'}
         />
       </div>
-
-      {status === 'error' && (
-        <div className="contact-form-status error">
-          <p>{errorMessage}</p>
-        </div>
-      )}
 
       <button
         className="contact-form-submit"
         type="submit"
-        disabled={status === 'sending'}
       >
-        {status === 'sending' ? 'Sending...' : 'Send Message'}
+        Send Message
       </button>
     </form>
   )
