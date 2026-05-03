@@ -1,13 +1,23 @@
-export default function handler(req, context) {
+export default async function handler(req, context) {
   if (req.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 })
   }
 
+  // Parse body from the request stream
   let body = ''
-  if (typeof req.body === 'string') {
-    body = req.body
-  } else if (Buffer.isBuffer(req.body)) {
-    body = req.body.toString('utf-8')
+  try {
+    const reader = req.body?.getReader()
+    if (reader) {
+      const chunks = []
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
+        chunks.push(value)
+      }
+      body = Buffer.concat(chunks).toString('utf-8')
+    }
+  } catch (e) {
+    console.error('Body parse error:', e)
   }
 
   const params = new URLSearchParams(body)
@@ -16,7 +26,6 @@ export default function handler(req, context) {
     return Response.redirect('/contact/thanks/', 303)
   }
 
-  // Log the submission
   console.log('Contact form submission:', JSON.stringify({
     name: params.get('name'),
     email: params.get('email'),
