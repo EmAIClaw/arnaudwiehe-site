@@ -9,9 +9,47 @@ export default function ContactForm() {
     subject: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('sending')
+    setErrorMessage('')
+
+    try {
+      const form = e.target as HTMLFormElement
+      const formDataObj = new FormData(form)
+
+      const response = await fetch('/contact-form.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
+      })
+
+      if (response.ok || response.redirected) {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        setStatus('error')
+        setErrorMessage('Something went wrong. Please try again.')
+      }
+    } catch {
+      setStatus('error')
+      setErrorMessage('Network error. Please check your connection and try again.')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="contact-form-status success">
+        <p>Message sent. I will get back to you soon.</p>
+      </div>
+    )
   }
 
   return (
@@ -21,10 +59,10 @@ export default function ContactForm() {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action="/contact/thanks/"
+      onSubmit={handleSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />
-      {/* Honeypot — visually hidden, never visible to real users */}
+      {/* Honeypot — visually hidden */}
       <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', overflow: 'hidden', height: '0', width: '0' }}>
         <label>
           Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
@@ -82,11 +120,18 @@ export default function ContactForm() {
         />
       </div>
 
+      {status === 'error' && (
+        <div className="contact-form-status error">
+          <p>{errorMessage}</p>
+        </div>
+      )}
+
       <button
         className="contact-form-submit"
         type="submit"
+        disabled={status === 'sending'}
       >
-        Send Message
+        {status === 'sending' ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   )

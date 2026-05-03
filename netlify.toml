@@ -3,10 +3,6 @@
   publish = "out"
   framework = "static"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-  enabled = false
-
 [build.environment]
   NODE_VERSION = "20"
 
