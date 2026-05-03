@@ -26,10 +26,12 @@ const bookSlugs = extractSlugs(
 
 const staticPages = [
   { url: '/', priority: 1.0, changefreq: 'monthly' },
+  { url: '/about/', priority: 0.9, changefreq: 'monthly' },
   { url: '/books/', priority: 0.8, changefreq: 'monthly' },
   { url: '/speaking/', priority: 0.8, changefreq: 'monthly' },
   { url: '/articles/', priority: 0.8, changefreq: 'weekly' },
-  { url: '/music/', priority: 0.7, changefreq: 'monthly' },
+  { url: '/contact/', priority: 0.7, changefreq: 'monthly' },
+  { url: '/music/', priority: 0.5, changefreq: 'monthly' },
 ]
 
 function fileLastModified(filePath) {

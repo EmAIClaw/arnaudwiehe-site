@@ -34,9 +34,9 @@ export default function SpeakingPage() {
             technologies — helping leaders navigate the intersection of innovation and risk.
           </p>
           <div className="speaking-page-cta">
-            <a href="mailto:arnaud@arnaudwiehe.com?subject=Speaking Inquiry" className="btn-primary-dark">
-              Book Arnaud to Speak →
-            </a>
+            <Link href="/contact" className="btn-primary">
+              Get in Touch →
+            </Link>
           </div>
         </header>
 
@@ -88,9 +88,9 @@ export default function SpeakingPage() {
             Arnaud speaks at conferences, corporate events, and executive forums on AI governance,
             cybersecurity leadership, and emerging technology strategy. Get in touch to discuss your event.
           </p>
-          <a href="mailto:arnaud@arnaudwiehe.com?subject=Speaking Inquiry" className="btn-primary-dark">
+          <Link href="/contact" className="btn-primary">
             Get in Touch →
-          </a>
+          </Link>
         </div>
       </main>
     </>

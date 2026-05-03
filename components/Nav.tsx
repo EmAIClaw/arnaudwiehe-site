@@ -1,12 +1,13 @@
 import Link from 'next/link'
 
 const navItems = [
-  { href: '/', label: 'About' },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
   { href: '/books', label: 'Books' },
   { href: '/speaking', label: 'Speaking' },
   { href: '/articles', label: 'Writing' },
   { href: '/music', label: 'Music' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Nav() {

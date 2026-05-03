@@ -1,0 +1,40 @@
+# Arnaud Wiehe
+
+> Cybersecurity executive, author, and international speaker specializing in AI governance, emerging technologies, and digital risk.
+
+## Who
+
+Arnaud Wiehe is Managing Director of Information Security and AI Governance. He holds AIGP, CISSP, CCSP, CISM, CISA, and CIPP/E certifications. With over two decades of experience, he helps organizations translate complex technological change into clear, actionable business strategy.
+
+## Topics
+
+- AI governance and risk management
+- Cybersecurity leadership and strategy
+- Emerging technology risk (AI, quantum, XR)
+- Board-level technology governance
+- Agent governance and runtime controls
+- EU AI Act compliance
+- CISO leadership and operating models
+
+## Books
+
+- **The Book on Cybersecurity**: How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World
+- **Emerging Tech, Emerging Threats**: A Cybersecurity Guide for Innovative Leaders
+
+## Speaking
+
+GITEX Global Dubai, World Summit AI, Economist Metaverse Summit, ISACA Risk Events, Next IT Security Stockholm. Topics: AI governance, cybersecurity strategy, emerging technology leadership.
+
+## Articles
+
+Published at https://arnaudwiehe.com/articles/ — covering AI governance, agent security, vendor risk, vulnerability management, and board oversight.
+
+## Credentials
+
+AIGP · CISSP · CCSP · CISM · CISA · CIPP/E
+
+## Contact
+
+- Website: https://arnaudwiehe.com
+- LinkedIn: https://www.linkedin.com/in/arnaudwiehe
+- Contact form: https://arnaudwiehe.com/contact/

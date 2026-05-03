@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function NotFound() {
   return (
     <div className="not-found-page">
@@ -8,9 +10,9 @@ export default function NotFound() {
           The page you are looking for does not exist or has been moved.
         </p>
         <div className="not-found-actions">
-          <a href="/" className="not-found-home-btn">
+          <Link href="/" className="not-found-home-btn">
             Return Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

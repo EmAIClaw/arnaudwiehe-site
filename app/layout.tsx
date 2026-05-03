@@ -34,6 +34,9 @@ export const metadata = {
       },
     ],
   },
+  other: {
+    'theme-color': '#2A2420',
+  },
   alternates: {
     canonical: siteUrl,
   },

@@ -199,12 +199,9 @@ export default async function SpeakingEventPage({ params }: Props) {
               cybersecurity leadership, and emerging technology strategy. Available for keynotes,
               panels, and workshops.
             </p>
-            <a
-              href="mailto:arnaud@arnaudwiehe.com?subject=Speaking Inquiry"
-              className="btn-primary-dark"
-            >
+            <Link href="/contact" className="btn-primary">
               Get in Touch →
-            </a>
+            </Link>
           </div>
         </div>
 

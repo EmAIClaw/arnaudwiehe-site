@@ -22,6 +22,133 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "agent-governance-kill-switch",
+    title: "Before You Scale AI Agents, Give Them an Identity, a Privilege Boundary, and a Kill Switch",
+    subtitle: "Agent governance is moving from policy decks to runtime controls. The organizations that implement this now will be the ones with a defensible position when incidents occur.",
+    date: "2026-05-03",
+    dateFormatted: "May 3, 2026",
+    category: "Ai governance",
+    tags: ["Ai governance","Ai security","Agentic ai","Cybersecurity","Board governance","Risk management","Owasp"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/articles/agent-governance-kill-switch.webp",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of \"Emerging Tech, Emerging Threats\" and \"AI Governance Guide\".",
+    excerpt: "In March 2026, Meta experienced a SEV1 security incident caused by an AI agent. The agent gave flawed technical advice on an internal forum. An engineer acted on that advice, and sensitive company and user data became accessible to unauthorized employees for nearly two hours. The failure was not just a hallucination — it was a chain of trust without verification.",
+    content: `<p>Before You Scale AI Agents, Give Them an Identity, a Privilege Boundary, and a Kill Switch</p>
+<p>“Trust, but verify.”
+Russian proverb, popularized by Ronald Reagan</p>
+<p>That line became famous in the context of nuclear arms control. It is just as relevant to AI agents.</p>
+<p>Because the question is no longer whether organizations will trust AI agents. In many companies, that decision has already been made. Agents are being connected to tools, repositories, cloud services, support processes, internal knowledge bases, and operational workflows.</p>
+<p>The real question is whether that trust is being verified at runtime.</p>
+<p>In March 2026, Meta experienced a serious internal security incident involving an AI agent. According to reporting from The Verge and others, the agent gave flawed technical advice on an internal forum. An engineer acted on that advice, and sensitive company and user data became accessible to unauthorized employees for nearly two hours. Meta said no user data was mishandled, but the incident was serious enough to trigger a SEV1 alert.  </p>
+<p>That is the agent governance problem in one incident.</p>
+<p>The agent did not need to exfiltrate data. It did not need to execute malicious code. It did not need to exploit a vulnerability. It only needed to be trusted. The failure was not just a hallucination. It was a chain of trust, an agent produced output, a human acted on it, and that action created operational impact.</p>
+<p>AI governance is moving rapidly from policy and standards documentation to real, runtime controls.</p>
+<p>The Gap Between Deployment and Control</p>
+<p>Organizations are deploying AI agents faster than they are learning to govern them. Not governance as in principles, committees, and responsible AI statements. Those may still matter, but they are not enough. The harder challenge is operational. Who owns the agent? What can it access? What tools can it call? What decisions can it influence? What logs are created? Who can stop it?</p>
+<p>One recent audit of 30 popular AI agent projects found that 93% relied on unscoped API keys as the only authorization mechanism. That finding should be treated as one audit, not universal proof, but it points to a familiar pattern that agents are often given broad credentials first, and narrowed later, if at all, which is a fundamental governance and control failure.</p>
+<p>Palo Alto Networks Unit 42 has highlighted similar concerns in cloud-based agent platforms. Its research into Google Cloud Vertex AI Agent Engine showed how overprivileged AI agents could become “double agents,” with access to sensitive cloud resources beyond the agent’s intended role.  </p>
+<p>The pattern is becoming clear. The deployment of agents is accelerating. The control model around them is lagging. That gap is where the next failures will come from. The minimum viable governance stack for AI agents should include four operational controls, namely identity, privilege boundary, monitoring, and a kill switch.</p>
+<ol>
+<li>Identity</li>
+</ol>
+<p>If you cannot identify an agent, you cannot govern it. Every production agent needs a defined identity. Not just a friendly name in a register, but a control-level identity that links the agent to an owner, purpose, environment, permissions, logs, and lifecycle.</p>
+<p>This matters because identity is the foundation for everything else. You cannot scope permissions, attribute actions, investigate incidents, revoke access, or decommission an agent properly if you do not know exactly what the agent is and who is accountable for it.</p>
+<p>OWASP’s Top 10 for Agentic Applications 2026 explicitly identifies Agent Identity and Privilege Abuse as one of the key risks in agentic systems. It sits alongside risks such as Agent Goal Hijack, Tool Misuse, Insecure Inter-Agent Communication, Cascading Agent Failures, and Rogue Agents.  </p>
+<p>In agentic systems, identity is not paperwork. It is the foundation of governance.</p>
+<ol>
+<li>Privilege Boundary</li>
+</ol>
+<p>Agents retrieve information. They summarize. They recommend. They call tools. They trigger workflows. Some write code. Some interact with cloud services. Some will coordinate with other agents. Each of these capabilities needs a boundary.</p>
+<p>What data can the agent access? What systems can it touch? What actions can it initiate? What requires human approval? What is explicitly forbidden?</p>
+<p>The important point is that the boundary cannot live only in a prompt.</p>
+<p>Prompts are not privilege boundaries. Responsible AI principles are not privilege boundaries. A policy document is not a privilege boundary.</p>
+<p>The boundary needs to be enforced through scoped credentials, tool mediation, runtime policy checks, approval flows, logging, and revocation.</p>
+<p>Microsoft’s open-source Agent Governance Toolkit is one example of where the market is moving. Microsoft describes it as a runtime governance layer for autonomous agents, with deterministic policy enforcement, identity controls, execution sandboxing, and coverage across the OWASP agentic AI risk categories.  </p>
+<p>The important point is not the tool itself. The important point is the architecture. The governance layer sits between the agent and the action. It evaluates what the agent is trying to do before execution. That separation matters. It moves governance out of the agent’s own reasoning and into an enforceable control layer.</p>
+<ol>
+<li>Monitoring</li>
+</ol>
+<p>Every significant agent action should be observable. What was requested? What data was retrieved? Which tool was called? What action was taken? Which human approved it? Which policy allowed it? Which policy blocked it? If you cannot see what an agent did, you cannot govern it.</p>
+<p>Observability is not only useful after an incident. It is also a preventive control. It can reveal abnormal tool use, unexpected access patterns, policy violations, excessive permissions, or agents drifting outside their intended role.</p>
+<p>The Meta incident is useful here because the organization was able to reconstruct the chain from agent output to human action to data exposure. Without that visibility, the same incident would have been harder to understand, harder to contain, and harder to explain.  </p>
+<p>The leadership lesson is simple. Do not scale agents faster than you scale visibility.</p>
+<ol>
+<li>Kill Switch</li>
+</ol>
+<p>Every production agent needs a kill switch. That does not necessarily mean a dramatic red button. It means the defined ability to suspend the agent, revoke its permissions, block its tools, isolate its session, or stop a workflow when something goes wrong.</p>
+<p>This should be decided before deployment. Who can stop the agent? Under what conditions? What evidence is required? What happens to in-flight tasks? How is the business owner notified? How is access restored?</p>
+<p>A kill switch is not an edge case. It is a basic operational control for any autonomous or semi-autonomous system. Governance without enforcement is documentation. Governance without revocation is trust without verification.</p>
+<p>The Direction Is Clear</p>
+<p>Agent governance is still maturing, but the direction is clear.</p>
+<p>OWASP now has a dedicated Top 10 for Agentic Applications. Cloud security researchers are showing how overprivileged agents can create new attack paths. Microsoft and others are building runtime governance layers. Regulators are increasing expectations around AI transparency, accountability, logging, oversight, and risk management.  </p>
+<p>This is the major shift that leaders need to understand. AI governance cannot stay at the level of policy intent. It has to become operational control.</p>
+<p>What Leaders Should Do Now</p>
+<p>Require identity before deployment. No production agent should go live without a defined owner, purpose, environment, scope, and lifecycle.</p>
+<p>Define privilege boundaries in code. Decide what tools the agent can use, what data it can access, what actions it can take, and what requires human approval. Then enforce those boundaries technically.</p>
+<p>Instrument before scale. Logging and monitoring should be built into the deployment process, not added after the first incident.</p>
+<p>Define kill-switch authority. Decide who can suspend an agent, revoke permissions, or block tool access. Test that process before it is needed.</p>
+<p>Use a recognized taxonomy. OWASP’s Agentic AI Top 10 gives security, risk, legal, engineering, and leadership teams a common language. If your agent governance framework cannot map to a recognized risk taxonomy, it probably has not been stress-tested.</p>
+<p>These are not advanced features. They are the minimum viable governance stack for production AI agents. </p>
+<p>Remember, trust, but verify. In the age of AI agents, verification needs to happen before the action, not after the incident.</p>`,
+  },
+  {
+    slug: "ai-induced-misconfiguration",
+    title: "AI Governance Is Becoming Operational",
+    subtitle: "The near-term risk is not that AI will produce bad content. It is that organizations will deploy AI-enabled systems with unsafe permissions, weak defaults, and incomplete controls — then discover too late that the real exposure came from configuration, not cognition.",
+    date: "2026-05-03",
+    dateFormatted: "May 3, 2026",
+    category: "Ai security",
+    tags: ["Ai security","Ai governance","Cloud security","Iam","Vulnerability management","Ciso","Devsecops"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/articles/ai-induced-misconfiguration.webp",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of \"Emerging Tech, Emerging Threats\" and \"AI Governance Guide\".",
+    excerpt: "Between March 31 and April 8, 2026, Palo Alto Networks Unit 42 published three separate research reports on AI agent security. Together they paint a clear picture: the near-term AI risk is not that models will produce bad content. It is that organizations will deploy AI-enabled systems with unsafe permissions, weak defaults, and incomplete controls.",
+    content: `<p>Most executives still picture AI risk in two buckets.</p>
+<p>Either the model says something wrong, or an attacker uses AI to do something malicious.</p>
+<p>Both matter. Neither is the category leaders are underestimating most right now.</p>
+<p>The more immediate operational risk is AI-induced misconfiguration: what happens when organizations give AI agents, copilots, orchestration layers, or AI deployment toolkits real permissions, broad connectivity, and weak guardrails, then assume the defaults are safe enough.</p>
+<p>No dramatic breach is required. No novel malware is required. Sometimes the system is simply mis-scoped, over-privileged, or wired together in a way that turns ordinary mistakes into material exposure.</p>
+<p>This risk is not theoretical anymore. In the span of nine days, between March 31 and April 8, 2026, Palo Alto Networks Unit 42 published three separate research reports that collectively paint a clear picture of where AI risk is heading — and it's not where most board decks are looking.</p>
+<h2>Agent God Mode</h2>
+<p>On April 8, Unit 42 published research on Amazon Bedrock AgentCore under the title "Cracks in the Bedrock: Agent God Mode." The finding was not that Bedrock had been magically broken. It was something more mundane and more revealing: the AgentCore starter toolkit's default deployment logic created IAM roles with permissions broad enough to span the entire AWS account, rather than being tightly scoped to individual resources.</p>
+<p>A compromised agent could exploit that excessive access through a concrete kill chain: pull any ECR image in the account, extract another agent's MemoryID from static container configuration, then dump or poison that agent's conversation history. The researchers called it "Agent God Mode" because the overly broad IAM permissions effectively granted an individual agent the omniscient ability to escalate privileges and compromise every other AgentCore agent in the same AWS account.</p>
+<p>The failure was not "AI is risky." The failure was a deployment model that favored convenience over least privilege.</p>
+<p>AWS subsequently updated its documentation to include a security warning that the default roles are "designed for development and testing purposes" and not recommended for production. That's the right response from a responsible vendor. It also confirms the pattern: the platform will not enforce least privilege by default. The governance burden falls on the deployer.</p>
+<h2>Double Agents</h2>
+<p>A week earlier, on March 31, Unit 42 published separate research on Google Cloud Vertex AI Agent Engine under the title "Double Agents: Exposing Security Blind Spots in GCP Vertex AI." The researchers warned that a misconfigured or compromised agent could become a "double agent" — one that appears to perform its intended role while secretly exfiltrating sensitive data, compromising infrastructure, and creating backdoors into an organization's most critical systems.</p>
+<p>The specific attack path was striking. Researchers deployed a malicious agent that extracted the Per-Project, Per-Product Service Account (P4SA) credentials from Google's metadata service, then used those credentials to gain unrestricted read access to all GCS buckets within the consumer project. More significantly, the P4SA credentials also granted access to restricted Google Artifact Registry repositories including <code>cloud-aiplatform-private/reasoning-engine</code> and <code>cloud-aiplatform-private/llm-extension/reasoning-engine-py310:prod</code> — repositories that are part of Google's own infrastructure.</p>
+<p>Within tenant project GCS buckets, researchers found <code>Dockerfile.zip</code>, <code>code.pkl</code>, and <code>requirements.txt</code>. The Dockerfile contained hardcoded references to Google's internal <code>reasoning-engine-restricted</code> bucket. The <code>code.pkl</code> file, a Python pickle serialization artifact, represents a supply-chain risk in itself: pickle is well-documented as unsafe for deserialization from untrusted sources.</p>
+<p>Google's response mirrored AWS's: revised documentation that explicitly explains how Vertex AI uses resources, accounts, and agents, with a recommendation to use Bring Your Own Service Account (BYOSA) as the mitigation. Again, the platform-level fix was not a code change. It was documentation. The governance responsibility remains with the deployer.</p>
+<h2>Multi-Agent Attack Chains</h2>
+<p>A third report, published April 3 by Unit 42 researchers Jay Chen and Royce Lu, examined multi-agent applications in Amazon Bedrock. The team demonstrated a four-stage attack methodology: determining the application's agent collaboration framework, discovering collaborator agents, enumerating their exposed instructions and tool schemas, and invoking tools with attacker-supplied inputs.</p>
+<p>The critical detail was this: Bedrock's built-in prompt attack guardrail stopped these attacks when enabled. The difference between a resilient AI deployment and a fragile one was as mundane as whether a guardrail switch was turned on.</p>
+<p>That is the definition of AI-induced misconfiguration. The risk comes not only from the model. It comes from the surrounding configuration decisions: how permissions are scoped, how tools are exposed, how agents are allowed to call one another, how secrets are stored, how guardrails are enabled, and how much autonomy is granted before auditability exists.</p>
+<h2>What's Old, What's New</h2>
+<p>In traditional security language, this sounds familiar. Least privilege, segmentation, secure defaults, change control, logging, and kill switches are not new concepts.</p>
+<p>What is new is the speed and opacity with which AI systems can turn bad configuration into real impact. A misconfigured SaaS integration might leak data slowly. A misconfigured AI agent can act on that access at machine speed, across multiple systems, while appearing to perform legitimate work.</p>
+<p>What is also new is the degree to which major platform defaults accelerate the problem. When AWS AgentCore's starter toolkit creates account-wide IAM roles by default, and when Google Vertex AI grants P4SA credentials with broad access by default, the platforms themselves are shaping deployment behavior in ways that work against secure practices.</p>
+<h2>Five Questions for Leaders</h2>
+<p>This is a governance problem, not just a technical one. It means many organizations are measuring the wrong things. They ask whether the model is accurate, whether users like the assistant, and whether a red team can jailbreak a prompt. Those are reasonable questions. But they miss the infrastructure question: what can this system do if it is wrong, manipulated, or simply over-trusted?</p>
+<p>A few practical questions help reframe the conversation.</p>
+<p><strong>First, does this AI system have permissions that a human employee would never receive by default?</strong> If the answer is yes, you may already have an AI-induced misconfiguration problem. No employee gets account-wide IAM access on day one. Why would an agent?</p>
+<p><strong>Second, does your deployment tooling create broad permissions for speed and ease of setup?</strong> Unit 42's Bedrock AgentCore research shows that convenience-first defaults create exactly that failure mode. Any tool that auto-generates IAM roles should be reviewed before production use.</p>
+<p><strong>Third, are prompt-attack protections, tool restrictions, and approval checkpoints enabled by default, enforced centrally, and tested regularly?</strong> Unit 42's April 3 Bedrock research is a useful reminder that a guardrail that exists but is not enabled is not a control. It is a checkbox that didn't fire.</p>
+<p><strong>Fourth, can your logs clearly reconstruct what an agent saw, decided, and executed?</strong> If not, you may not be able to distinguish error from abuse after the fact. This is particularly important for multi-agent systems, where the attack surface includes inter-agent communication.</p>
+<p><strong>Fifth, does AI governance in your organization still live mostly in policy documents and ethics language, while deployment decisions are made in product teams and cloud consoles?</strong> If so, the control gap is already open.</p>
+<h2>Governance Is Becoming Operational</h2>
+<p>The executive takeaway is straightforward. The near-term AI risk is not only that models will produce bad content or help bad actors. The near-term risk is that organizations will deploy AI-enabled systems with unsafe permissions, weak defaults, and incomplete controls — then discover too late that the real exposure came from configuration, not cognition.</p>
+<p>Leaders who understand this now can get ahead of it. Review agent permissions. Enforce least privilege. Turn on guardrails. Require approval boundaries for sensitive actions. Log every tool call. Test multi-agent flows as attack surfaces, not just productivity features. Treat AI deployment templates the way you treat any other security-sensitive infrastructure-as-code artifact.</p>
+<p>Because the next serious AI incident in your environment may not look like a model failure at all. It may look like a perfectly authorized system doing exactly what its configuration allowed.</p>`,
+  },
+  {
     slug: "ai-vendor-questionnaire-obsolete",
     title: "Your AI Vendor Questionnaire Doesn't Ask the Questions That Matter Anymore",
     subtitle: "Three attacks across extension marketplaces, CI/CD pipelines, and agent credentials — and what procurement teams should be asking instead",
@@ -576,7 +703,7 @@ Do you have SOC 2? Penetration test reports?
     tags: ["Ai security","Vulnerability management","Appsec","Threat intelligence","Ciso"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/vulnerability-timeline-compression-hero.png",
+    heroImage: "/images/articles/vulnerability-timeline-compression-hero.webp",
     
     linkedinUrl: "",
     author: "Arnaud Wiehe",
@@ -612,7 +739,7 @@ Do you have SOC 2? Penetration test reports?
     tags: ["Mcp","Ai security","Agentic ai","Mcp security","Owasp","Supply chain","Ai governance"],
     readingTime: "5 min read",
     featured: false,
-    heroImage: "/images/articles/mcp-security-new-attack-surface.png",
+    heroImage: "/images/articles/mcp-security-new-attack-surface.webp",
     
     linkedinUrl: "",
     author: "Arnaud Wiehe",

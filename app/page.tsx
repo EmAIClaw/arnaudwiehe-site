@@ -39,17 +39,6 @@ const speakingPhotos = {
   },
 }
 
-const instrumentImages = [
-  { src: '/images/music/IMG_5695-thumb.webp', alt: 'Violin', width: 1200, height: 1200 },
-  { src: '/images/instruments/IMG_5935-thumb.webp', alt: 'Viola', width: 1936, height: 2592 },
-  { src: '/images/music/IMG_0470-thumb.webp', alt: 'Cello', width: 1365, height: 2048 },
-  { src: '/images/music/IMG_0472-thumb.webp', alt: 'Cello da spalla', width: 1343, height: 2048 },
-  { src: '/images/music/IMG_0099-thumb.webp', alt: 'Violin', width: 854, height: 1280 },
-  { src: '/images/music/IMG_5954-thumb.webp', alt: 'Viola', width: 1100, height: 1640 },
-  { src: '/images/instruments/IMG_9109-thumb.webp', alt: 'Cello', width: 1936, height: 2592 },
-  { src: '/images/music/IMG_9896-thumb.webp', alt: 'Instrument', width: 1050, height: 1400 },
-]
-
 const featuredEngagements = [
   {
     year: '2025',
@@ -128,17 +117,20 @@ export default function Home() {
             <p className="hero-tagline">
               Helping leaders navigate AI governance, cybersecurity risk, and the strategic opportunities of emerging technology.
             </p>
-            <p className="hero-social-proof">
-              Author of 2 books · International speaker · CISSP, CCSP, CISM, CISA
+            <h2 className="hero-credentials-heading">
+              Author of 2 books · International speaker
+            </h2>
+            <p className="hero-credentials-sub">
+              CISSP, CCSP, CISM, CISA, CIPP/E, AIGP
             </p>
             <div className="hero-actions">
-              <Link href="/speaking" className="btn-primary">Book Me to Speak</Link>
+              <Link href="/contact" className="btn-primary">Get in Touch →</Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="about-section">
+      <section className="about-section">
         <div className="section-inner narrow">
           <h2 className="about-heading">
             Helping organizations translate complex technological change into clear, actionable business strategy.
@@ -150,6 +142,9 @@ export default function Home() {
             <p>
               With over two decades of experience, Arnaud helps organizations move beyond fear-driven narratives toward a strategic view of innovation. His work focuses on how emerging technologies—AI, quantum computing, extended reality—are reshaping risk and opportunity.
             </p>
+          </div>
+          <div className="about-learn-more">
+            <Link href="/about" className="view-all-link">Learn more about Arnaud →</Link>
           </div>
         </div>
       </section>
@@ -236,9 +231,9 @@ export default function Home() {
 
             <div className="speaking-cta-box">
               <p className="speaking-cta-text">Interested in having Arnaud speak at your event?</p>
-              <a href="mailto:arnaud@arnaudwiehe.com?subject=Speaking Inquiry" className="speaking-cta-button">
-                Check Availability →
-              </a>
+              <Link href="/contact" className="btn-primary">
+                Get in Touch →
+              </Link>
             </div>
           </div>
         </div>
@@ -277,74 +272,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="music" className="music-section">
-        <div className="section-inner">
-          <div className="section-header">
-            <h2 className="section-title">Music</h2>
-            <p className="section-subtitle">Beyond technology, music provides balance, discipline, and creative expression.</p>
-          </div>
-
-          <div className="music-description">
-            <p>
-              Music has been a lifelong companion. From performing on violin and viola to building cellos
-              and exploring the unique cello da spalla, the intersection of craftsmanship and artistry
-              provides a different kind of creative outlet.
-            </p>
-            <p>
-              Instrument building teaches patience and precision—qualities that translate directly to
-              leadership and strategic thinking in the technology world.
-            </p>
-          </div>
-
-          <div className="music-video-section">
-            <div className="music-video-wrap">
-              <YouTubeEmbed videoId="fi0KHOQ1e74" title="Musical Performance" className="music-video-iframe" />
-            </div>
-          </div>
-
-          <div className="music-instruments-section">
-            <h3 className="music-instruments-title">Instrument Collection</h3>
-            <div className="music-instruments-grid">
-              {instrumentImages.map((instrument) => (
-                <div key={instrument.src} className="music-instrument-card">
-                  <Image
-                    src={instrument.src}
-                    alt={instrument.alt}
-                    className="music-instrument-img"
-                    width={instrument.width}
-                    height={instrument.height}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 50vw, 200px"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="section-footer">
-            <Link href="/music" className="view-all-link">View more about music →</Link>
-          </div>
-        </div>
-      </section>
-
       <section id="contact" className="contact-section">
         <div className="section-inner narrow">
           <h2 className="contact-title">Get in Touch</h2>
           <p className="contact-description">
             For speaking inquiries, consulting, or collaboration.
           </p>
-          <div className="contact-links">
-            <a href="mailto:arnaud@arnaudwiehe.com" className="contact-link primary">arnaud@arnaudwiehe.com</a>
-            <div className="contact-socials">
-              <a href="https://linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener noreferrer" className="contact-link">LinkedIn</a>
-            </div>
-          </div>
+          <Link href="/contact" className="btn-primary">Get in Touch →</Link>
         </div>
       </section>
-
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} Arnaud Wiehe. All rights reserved.</p>
-      </footer>
     </main>
   )
 }

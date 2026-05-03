@@ -102,9 +102,9 @@ export default async function BookDetailPage({ params }: Props) {
               >
                 Buy on Amazon →
               </a>
-              <a href="mailto:arnaud@arnaudwiehe.com?subject=Book%20Inquiry" className="book-detail-secondary-link">
-                Ask about bulk orders
-              </a>
+              <Link href="/contact" className="btn-primary">
+                Get in Touch →
+              </Link>
             </div>
           </div>
         </article>

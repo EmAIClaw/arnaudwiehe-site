@@ -42,8 +42,7 @@ export default function BooksPage() {
 
       <main id="main-content" className="books-page books-overview-page">
         <header className="books-page-header books-overview-header">
-          <p className="section-label">Books</p>
-          <h1>Books for leaders navigating technology risk</h1>
+          <h1>Books for Technology Leaders</h1>
           <p className="subtitle">
             Practical guides for board members, executives, CISOs, and innovation leaders working at the intersection of cybersecurity, AI, and emerging technology.
           </p>
@@ -104,9 +103,9 @@ export default function BooksPage() {
           <p className="books-cta-text">
             Get in touch to discuss your needs and receive a customized quote.
           </p>
-          <a href="mailto:arnaud@arnaudwiehe.com?subject=Book%20Inquiry" className="books-cta-button">
-            Contact for Details
-          </a>
+          <Link href="/contact" className="btn-primary">
+            Get in Touch →
+          </Link>
         </div>
       </main>
     </>

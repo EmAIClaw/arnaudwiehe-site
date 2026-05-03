@@ -80,8 +80,8 @@ export default function ArticlesPage() {
         <div className="newsletter-cta">
           <h3>Stay current</h3>
           <p>Connect on LinkedIn for weekly insights on AI governance, cybersecurity leadership, and emerging technology.</p>
-          <a href="https://www.linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener noreferrer" className="newsletter-button">
-            Follow on LinkedIn →
+          <a href="https://www.linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Connect on LinkedIn →
           </a>
         </div>
       </main>
