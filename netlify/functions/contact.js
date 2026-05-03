@@ -23,7 +23,10 @@ export default async function handler(req, context) {
   const params = new URLSearchParams(body)
   const botField = params.get('bot-field')
   if (botField) {
-    return Response.redirect('/contact/thanks/', 303)
+    return new Response(null, {
+      status: 303,
+      headers: { Location: 'https://arnaudwiehe.com/contact/thanks/' },
+    })
   }
 
   console.log('Contact form submission:', JSON.stringify({
@@ -33,7 +36,10 @@ export default async function handler(req, context) {
     message: params.get('message')?.substring(0, 200),
   }))
 
-  return Response.redirect('/contact/thanks/', 303)
+  return new Response(null, {
+    status: 303,
+    headers: { Location: 'https://arnaudwiehe.com/contact/thanks/' },
+  })
 }
 
 export const config = {
