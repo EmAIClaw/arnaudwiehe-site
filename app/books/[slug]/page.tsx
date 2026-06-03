@@ -55,6 +55,20 @@ export default async function BookDetailPage({ params }: Props) {
     image: `${siteUrl}${book.cover}`,
     url: `${siteUrl}/books/${book.slug}`,
     sameAs: book.amazonUrl,
+    isbn: book.slug === 'the-book-on-cybersecurity' ? 'B0C2SCKX7J' : 'B0CXXL8W58',
+    numberOfPages: book.slug === 'the-book-on-cybersecurity' ? 228 : 242,
+    bookFormat: 'https://schema.org/Paperback',
+    inLanguage: 'en',
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Books', item: 'https://arnaudwiehe.com/books/' },
+      { '@type': 'ListItem', position: 3, name: book.title, item: `${siteUrl}/books/${book.slug}/` },
+    ],
   }
 
   return (
@@ -62,6 +76,10 @@ export default async function BookDetailPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Nav />
 

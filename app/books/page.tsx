@@ -11,6 +11,23 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/books',
 })
 
+function BreadcrumbJsonLd() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Books', item: 'https://arnaudwiehe.com/books/' },
+    ],
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export default function BooksPage() {
   const bookSchema = {
     '@context': 'https://schema.org',
@@ -34,6 +51,7 @@ export default function BooksPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}

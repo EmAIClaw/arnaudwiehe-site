@@ -67,17 +67,42 @@ export default async function ArticlePage({ params }: Props) {
     },
     mainEntityOfPage: `${siteUrl}/articles/${slug}`,
     image: article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
+    inLanguage: 'en-US',
+    articleSection: article.category.charAt(0).toUpperCase() + article.category.slice(1),
+    keywords: article.tags.join(', '),
+    about: {
+      '@type': 'Thing',
+      name: article.title,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.article-list-excerpt', '.article-body p:first-of-type'],
+    },
   }
 
   const { prev, next } = getAdjacentArticles(slug)
   const imageDimensions = getArticleImageDimensions(article.slug)
   const isBookCover = article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level'
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Articles', item: 'https://arnaudwiehe.com/articles/' },
+      { '@type': 'ListItem', position: 3, name: article.title, item: `${siteUrl}/articles/${slug}/` },
+    ],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Nav />
 

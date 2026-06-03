@@ -9,9 +9,27 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/contact',
 })
 
+function BreadcrumbJsonLd() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://arnaudwiehe.com/contact/' },
+    ],
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export default function ContactPage() {
   return (
     <main id="main-content" className="min-h-screen bg-cream">
+      <BreadcrumbJsonLd />
       <Nav />
 
       <header className="articles-header">

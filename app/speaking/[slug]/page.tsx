@@ -81,11 +81,31 @@ export default async function SpeakingEventPage({ params }: Props) {
       name: event.location,
     },
     startDate: event.date,
+    eventAttendanceMode: event.location.toLowerCase().includes('online') || event.location.toLowerCase().includes('virtual')
+      ? 'https://schema.org/OnlineEventAttendanceMode'
+      : 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
     performer: {
       '@type': 'Person',
       name: 'Arnaud Wiehe',
       url: siteUrl,
     },
+    organizer: {
+      '@type': 'Person',
+      name: 'Arnaud Wiehe',
+      url: siteUrl,
+    },
+    url: `${siteUrl}/speaking/${slug}/`,
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Speaking', item: 'https://arnaudwiehe.com/speaking/' },
+      { '@type': 'ListItem', position: 3, name: event.name, item: `${siteUrl}/speaking/${slug}/` },
+    ],
   }
 
   const { prev, next } = getAdjacentEvents(slug)
@@ -94,9 +114,17 @@ export default async function SpeakingEventPage({ params }: Props) {
 
   return (
     <>
+      <head>
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+      </head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Nav />
 

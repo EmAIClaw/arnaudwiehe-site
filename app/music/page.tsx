@@ -21,9 +21,27 @@ const instruments = [
   { src: '/images/music/IMG_9896-thumb.webp', alt: 'Instrument', width: 1050, height: 1400 },
 ]
 
+function BreadcrumbJsonLd() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Music', item: 'https://arnaudwiehe.com/music/' },
+    ],
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export default function MusicPage() {
   return (
     <>
+      <BreadcrumbJsonLd />
       <Nav />
 
       <main id="main-content" className="music-page">

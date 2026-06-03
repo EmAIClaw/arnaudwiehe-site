@@ -3,30 +3,30 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs",
+    "predev": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs",
+    "prebuild": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "build": "next build",
     "start": "next start",
     "articles:generate": "node scripts/generate-articles-data.mjs"
   },
   "dependencies": {
-    "marked": "^16.4.1",
-    "sanitize-html": "^2.17.0"
+    "marked": "^18.0.4",
+    "sanitize-html": "^2.17.4"
   },
   "devDependencies": {
     "@netlify/blobs": "^10.7.4",
     "@types/node": "25.5.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
     "@types/sanitize-html": "^2.16.1",
-    "autoprefixer": "^10.4.27",
-    "jsdom": "^29.0.1",
-    "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2",
-    "typescript": "5.9.3",
-    "next": "^16.2.3",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "autoprefixer": "^10.5.0",
+    "jsdom": "^29.1.1",
+    "next": "^16.2.6",
+    "postcss": "^8.5.15",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.3.0",
+    "typescript": "5.9.3"
   }
 }

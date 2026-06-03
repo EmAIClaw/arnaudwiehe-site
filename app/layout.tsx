@@ -66,8 +66,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="alternate" type="application/rss+xml" title="Arnaud Wiehe (RSS)" href="/rss.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Arnaud Wiehe (Atom)" href="/atom.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -79,7 +79,23 @@ export default function RootLayout({
               jobTitle: 'Managing Director of Information Security and AI Governance',
               description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
               sameAs: ['https://www.linkedin.com/in/arnaudwiehe'],
-              knowsAbout: ['AI Governance', 'Cybersecurity', 'Emerging Technologies', 'Risk Management', 'Digital Transformation'],
+              knowsAbout: [
+                'AI Governance',
+                'AI Safety',
+                'Agentic AI Security',
+                'Cybersecurity',
+                'Emerging Technologies',
+                'Risk Management',
+                'Digital Transformation',
+                'LLM Security',
+                'AI Regulation and Compliance',
+                'Agent Governance',
+                'Digital Sovereignty',
+                'Quantum Computing Risk',
+                'Non-Human Identity Security',
+                'AI Vendor Risk Management',
+                'Executive Cyber Leadership',
+              ],
               hasCredential: [
                 { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'AIGP' },
                 { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CISSP' },
@@ -92,6 +108,27 @@ export default function RootLayout({
                 { '@type': 'Book', name: 'The Book on Cybersecurity', url: 'https://www.amazon.com/dp/B0C2SCKX7J' },
                 { '@type': 'Book', name: 'Emerging Tech, Emerging Threats', url: 'https://www.amazon.com/dp/B0CXXL8W58' }
               ]
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Arnaud Wiehe',
+              url: siteUrl,
+              description: 'Cybersecurity executive, author, and international speaker specializing in AI governance, emerging technologies, and digital risk.',
+              inLanguage: 'en-US',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: siteUrl + '/search?q={search_term_string}',
+                },
+                'query-input': 'required name=search_term_string',
+              },
             }),
           }}
         />

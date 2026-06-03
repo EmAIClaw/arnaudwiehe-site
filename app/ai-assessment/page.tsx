@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 interface Question {
   id: number
@@ -195,33 +194,38 @@ export default function AIAssessmentPage() {
                 </ul>
               </div>
 
-              {!submitted ? (
-                <div className="email-capture">
+              <div className="email-capture">
                   <h3>Get Your Full Report</h3>
                   <p>Receive a detailed assessment report with action steps and resources.</p>
-                  <form onSubmit={handleEmailSubmit} className="email-form">
+                  <form
+                    name="ai-assessment"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    action="/contact/thanks/"
+                    onSubmit={handleEmailSubmit}
+                    className="email-form"
+                  >
+                    <input type="hidden" name="form-name" value="ai-assessment" />
+                    <input type="hidden" name="assessment-level" value={currentLevel.toString()} />
+                    <input type="hidden" name="assessment-title" value={result.title} />
+                    <p style={{ position: 'absolute', left: '-9999px', overflow: 'hidden', height: 0 }}>
+                      <label>Don't fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+                    </p>
                     <input
                       type="email"
+                      name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                       required
                       className="email-input"
                     />
-                    <button type="submit" className="btn-primary">
-                      Get My Report
+                    <button type="submit" className="btn-primary" disabled={submitted}>
+                      {submitted ? 'Sent!' : 'Get My Report'}
                     </button>
                   </form>
                 </div>
-              ) : (
-                <div className="thank-you">
-                  <h3>Thank You!</h3>
-                  <p>Your detailed report has been sent to {email}.</p>
-                  <Link href="/articles" className="btn-ghost">
-                    Read Related Articles
-                  </Link>
-                </div>
-              )}
             </div>
           </div>
       </main>

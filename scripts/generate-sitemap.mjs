@@ -52,7 +52,7 @@ const urls = [
   ...articleSlugs.map(slug => `  <url>
     <loc>${BASE_URL}/articles/${slug}/</loc>
     <lastmod>${articleLastmod}</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`),
   ...speakingSlugs.map(slug => `  <url>

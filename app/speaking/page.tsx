@@ -18,12 +18,34 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/speaking',
 })
 
+function BreadcrumbJsonLd() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Speaking', item: 'https://arnaudwiehe.com/speaking/' },
+    ],
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export default function SpeakingPage() {
   const allEvents = getAllSpeakingEvents()
   const videoEvents = allEvents.filter((event) => event.youtubeId)
 
   return (
     <>
+      <head>
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+      </head>
+      <BreadcrumbJsonLd />
       <Nav />
 
       <main id="main-content" className="speaking-page">

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Arnaud Wiehe | AI &amp; Emerging Tech Strategist</title>
+  <link href="https://arnaudwiehe.com" rel="alternate" type="text/html"/>
+  <link href="https://arnaudwiehe.com/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://arnaudwiehe.com/</id>
+  <updated>2026-06-03T00:00:00.000Z</updated>
+  <subtitle>Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.</subtitle>
+    <entry>
+      <title>AI Agent Debt — The Governance Gap Nobody Is Measuring</title>
+      <link href="https://arnaudwiehe.com/articles/ai-agent-debt/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-agent-debt/</id>
+      <published>2026-06-02T00:00:00.000Z</published>
+      <updated>2026-06-02T00:00:00.000Z</updated>
+      <summary type="html">By 2027, Gartner predicts that 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production. The pilot that never ended. The chatbot nobody owns. The automation still holding credentials long after its purpose has been forgotten. This is AI Agent Debt — and it is accumulating faster than anyone is measuring it.</summary>
+      <category term="AI Governance"/>
+    </entry>
+    <entry>
+      <title>AI Governance Is Becoming Operational</title>
+      <link href="https://arnaudwiehe.com/articles/ai-induced-misconfiguration/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-induced-misconfiguration/</id>
+      <published>2026-05-03T00:00:00.000Z</published>
+      <updated>2026-05-03T00:00:00.000Z</updated>
+      <summary type="html">Between March 31 and April 8, 2026, Palo Alto Networks Unit 42 published three separate research reports on AI agent security. Together they paint a clear picture: the near-term AI risk is not that models will produce bad content. It is that organizations will deploy AI-enabled systems with unsafe permissions, weak defaults, and incomplete controls.</summary>
+      <category term="AI Security"/>
+    </entry>
+    <entry>
+      <title>Before You Scale AI Agents, Give Them an Identity, a Privilege Boundary, and a Kill Switch</title>
+      <link href="https://arnaudwiehe.com/articles/agent-governance-kill-switch/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/agent-governance-kill-switch/</id>
+      <published>2026-05-03T00:00:00.000Z</published>
+      <updated>2026-05-03T00:00:00.000Z</updated>
+      <summary type="html">In March 2026, Meta experienced a SEV1 security incident caused by an AI agent. The agent gave flawed technical advice on an internal forum. An engineer acted on that advice, and sensitive company and user data became accessible to unauthorized employees for nearly two hours. The failure was not just a hallucination — it was a chain of trust without verification.</summary>
+      <category term="AI Governance"/>
+    </entry>
+    <entry>
+      <title>AI Governance Is About Visibility</title>
+      <link href="https://arnaudwiehe.com/articles/ai-governance-is-about-visibility/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-governance-is-about-visibility/</id>
+      <published>2026-05-02T00:00:00.000Z</published>
+      <updated>2026-05-02T00:00:00.000Z</updated>
+      <summary type="html">Most organizations do not have an AI governance problem because they lack ambition. They have a governance problem because they lack visibility. The first move is practical: find the AI usage, classify it, assign an owner, assess the risk, and keep the register alive. This article draws from Chapter 1 of my AI Governance Guide and outlines the six-step AI Inventory Audit every organization should complete.</summary>
+      <category term="AI Governance"/>
+    </entry>
+    <entry>
+      <title>AI Is Shrinking the Gap Between Vulnerability Discovery and Exploitation</title>
+      <link href="https://arnaudwiehe.com/articles/vulnerability-timeline-compression-hero/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/vulnerability-timeline-compression-hero/</id>
+      <published>2026-05-01T00:00:00.000Z</published>
+      <updated>2026-05-01T00:00:00.000Z</updated>
+      <summary type="html">On April 14, 2026, Cloudflare published a framing of agents as non-human identity problems — exactly the right way to think about them. The industry is converging on a runtime-first defense model. Your vendor questionnaire should be updated to reflect this.</summary>
+      <category term="AI Security"/>
+    </entry>
+    <entry>
+      <title>Prompt Injection: Why Runtime Controls Beat Policy Checklists</title>
+      <link href="https://arnaudwiehe.com/articles/prompt-injection-runtime-controls/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/prompt-injection-runtime-controls/</id>
+      <published>2026-05-02T00:00:00.000Z</published>
+      <updated>2026-05-02T00:00:00.000Z</updated>
+      <summary type="html">Google&apos;s field data shows a 32% increase in prompt injection attacks in a single quarter. Two research papers, published the same day, converge on the same architecture: runtime controls, not better prompts, are the correct defense. Here&apos;s why your AI governance committee can&apos;t stop prompt injection — and what can.</summary>
+      <category term="AI Security"/>
+    </entry>
+    <entry>
+      <title>Future Crimes — The Next Crime Wave Will Target the Control Planes of Everyday Life</title>
+      <link href="https://arnaudwiehe.com/articles/future-crimes/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/future-crimes/</id>
+      <published>2026-05-02T00:00:00.000Z</published>
+      <updated>2026-05-02T00:00:00.000Z</updated>
+      <summary type="html">The most dangerous cyber threat isn&apos;t a new zero-day. It&apos;s a target shift. For thirty years, cybersecurity was built around keeping bad actors out. The next wave of crime is about taking control of the systems we already trust — cars, homes, hospitals, satellites, and AI agents.</summary>
+      <category term="Cybersecurity"/>
+    </entry>
+    <entry>
+      <title>Your AI Vendor Questionnaire Doesn&apos;t Ask the Questions That Matter Anymore</title>
+      <link href="https://arnaudwiehe.com/articles/ai-vendor-questionnaire-obsolete/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-vendor-questionnaire-obsolete/</id>
+      <published>2026-05-02T00:00:00.000Z</published>
+      <updated>2026-05-02T00:00:00.000Z</updated>
+      <summary type="html">GlassWorm&apos;s 73 sleeper extensions, elementary-data&apos;s CI/CD pipeline hijack, and Cloudflare&apos;s non-human identity reframe all point to the same conclusion: your AI vendor questionnaire is asking about 2023 risks. Here are the questions you should be asking in 2026.</summary>
+      <category term="AI Governance"/>
+    </entry>
+    <entry>
+      <title>MCP Security: A New Attack Surface Emerges</title>
+      <link href="https://arnaudwiehe.com/articles/mcp-security-new-attack-surface/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/mcp-security-new-attack-surface/</id>
+      <published>2026-04-27T00:00:00.000Z</published>
+      <updated>2026-04-27T00:00:00.000Z</updated>
+      <summary type="html">MCP is becoming a critical dependency layer for AI systems. The real question is no longer what the model can do — it is what it can reach.</summary>
+      <category term="AI Security"/>
+    </entry>
+    <entry>
+      <title>AI Security in 2026</title>
+      <link href="https://arnaudwiehe.com/articles/ai-security-2026/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-security-2026/</id>
+      <published>2026-04-22T00:00:00.000Z</published>
+      <updated>2026-04-22T00:00:00.000Z</updated>
+      <summary type="html">AI Security in 2026: The shift from model intelligence to connected autonomy, tool use, and containment.</summary>
+      <category term="AI Security"/>
+    </entry>
+    <entry>
+      <title>The next AI breach may not be a hack, but a trusted feature doing exactly what it was allowed to do</title>
+      <link href="https://arnaudwiehe.com/articles/trusted-feature-breach/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/trusted-feature-breach/</id>
+      <published>2026-04-16T00:00:00.000Z</published>
+      <updated>2026-04-16T00:00:00.000Z</updated>
+      <summary type="html">Many future AI incidents may not start with attackers breaking in. They may start with trusted features doing exactly what they were allowed to do, inside workflows that were never governed tightly enough.</summary>
+      <category term="AI Governance"/>
+    </entry>
+    <entry>
+      <title>Board oversight of AI is getting real, but most companies still have no operating model beneath the slide deck</title>
+      <link href="https://arnaudwiehe.com/articles/board-oversight-operating-model/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/board-oversight-operating-model/</id>
+      <published>2026-04-12T00:00:00.000Z</published>
+      <updated>2026-04-12T00:00:00.000Z</updated>
+      <summary type="html">AI has clearly entered the boardroom. Directors are asking harder questions. Regulators are raising obligations. Audit and risk committees increasingly want to know where AI is used, who is accountable, and what could go wrong. That is progress. But in many organizations, the visible maturity is still misleading. The board deck looks polished. The principles sound sensible. The policy exists. The steering committee has been announced. And underneath that, the operating model is still missing.</summary>
+      <category term="Article"/>
+    </entry>
+    <entry>
+      <title>The AI Agent Problem</title>
+      <link href="https://arnaudwiehe.com/articles/the-ai-agent-problem/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/the-ai-agent-problem/</id>
+      <published>2026-04-10T00:00:00.000Z</published>
+      <updated>2026-04-10T00:00:00.000Z</updated>
+      <summary type="html">Enterprise leaders say they expect a major AI agent security incident within the next year, but most still lack the governance, visibility, and accountability needed to manage that risk.</summary>
+      <category term="Article"/>
+    </entry>
+    <entry>
+      <title>NCSC on Vibe Coding Safeguards: The Real Risk Is Control, Not Code</title>
+      <link href="https://arnaudwiehe.com/articles/ncsc-vibe-coding-safeguards/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ncsc-vibe-coding-safeguards/</id>
+      <published>2026-04-08T00:00:00.000Z</published>
+      <updated>2026-04-08T00:00:00.000Z</updated>
+      <summary type="html">The NCSC&apos;s clear signal to security leaders: AI-generated &quot;vibe coding&quot; is inevitable. The question isn&apos;t whether to adopt it, but how to control it before it scales insecurity across your organization.</summary>
+      <category term="Article"/>
+    </entry>
+    <entry>
+      <title>The AI Governance Journey (It&apos;s Not About a Checklist)</title>
+      <link href="https://arnaudwiehe.com/articles/ai-governance-journey/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-governance-journey/</id>
+      <published>2026-04-07T00:00:00.000Z</published>
+      <updated>2026-04-07T00:00:00.000Z</updated>
+      <summary type="html">Stop treating AI governance like a spreadsheet exercise. Framework implementation is not a checklist—it is a transformation journey. And increasingly, it is a competitive differentiator.</summary>
+      <category term="Article"/>
+    </entry>
+    <entry>
+      <title>ISO 42001 Compliance: A Practical Guide for AI Governance</title>
+      <link href="https://arnaudwiehe.com/articles/iso-42001-compliance-final/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/iso-42001-compliance-final/</id>
+      <published>2026-04-04T00:00:00.000Z</published>
+      <updated>2026-04-04T00:00:00.000Z</updated>
+      <summary type="html">In December 2023, ISO/IEC 42001 became the world’s first certifiable AI management system standard. Here’s what it requires, how it relates to the EU AI Act and NIST AI RMF, and what boards should ask before pursuing certification.</summary>
+      <category term="ai-governance"/>
+    </entry>
+    <entry>
+      <title>The OWASP Top 10 for Agentic Applications</title>
+      <link href="https://arnaudwiehe.com/articles/owasp-top-10-agentic-ai/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/owasp-top-10-agentic-ai/</id>
+      <published>2026-04-01T00:00:00.000Z</published>
+      <updated>2026-04-01T00:00:00.000Z</updated>
+      <summary type="html">OWASP’s Top 10 for Agentic Applications is one of the clearest early frameworks for understanding how autonomous AI systems change the cybersecurity risk landscape. Here is why it matters for security leaders now.</summary>
+      <category term="ai-security"/>
+    </entry>
+    <entry>
+      <title>Shadow AI: What to Do in 2026</title>
+      <link href="https://arnaudwiehe.com/articles/shadow-ai-guide-2026/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/shadow-ai-guide-2026/</id>
+      <published>2026-03-25T00:00:00.000Z</published>
+      <updated>2026-03-25T00:00:00.000Z</updated>
+      <summary type="html">In 2023, Samsung employees inadvertently uploaded sensitive information to ChatGPT—becoming the most cited example of shadow AI. With 28% of employees now using unapproved AI tools at work, organizations need a Shadow AI Discovery and Response Programme. The EU AI Act now imposes fines up to €15 million for deploying high-risk AI without proper governance.</summary>
+      <category term="ai-governance"/>
+    </entry>
+    <entry>
+      <title>The Board&apos;s Cyber Agenda Has Changed: What Directors Need to Ask in 2026</title>
+      <link href="https://arnaudwiehe.com/articles/boards-cyber-agenda-2026/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/boards-cyber-agenda-2026/</id>
+      <published>2026-03-25T00:00:00.000Z</published>
+      <updated>2026-03-25T00:00:00.000Z</updated>
+      <summary type="html">Something fundamental shifted in how boards must approach cybersecurity. Directors are now expected to understand cyber as a business resilience issue, a fiduciary responsibility, and increasingly, a personal liability concern. Here are the five questions that should now be standard in every boardroom.</summary>
+      <category term="board-governance"/>
+    </entry>
+    <entry>
+      <title>AI Governance Starts as Cybersecurity Governance</title>
+      <link href="https://arnaudwiehe.com/articles/ai-governance-cybersecurity/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/ai-governance-cybersecurity/</id>
+      <published>2026-03-25T00:00:00.000Z</published>
+      <updated>2026-03-25T00:00:00.000Z</updated>
+      <summary type="html">The good news is that effective AI governance does not require inventing entirely new frameworks. Organizations that have built robust cybersecurity governance already have the foundation. The challenge is extending those structures to address AI&apos;s unique risks.</summary>
+      <category term="ai-governance"/>
+    </entry>
+    <entry>
+      <title>The Year of Autonomous Agents</title>
+      <link href="https://arnaudwiehe.com/articles/year-of-autonomous-agents/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/year-of-autonomous-agents/</id>
+      <published>2026-03-22T00:00:00.000Z</published>
+      <updated>2026-03-22T00:00:00.000Z</updated>
+      <summary type="html">Autonomous agents change the security model fundamentally. Why 2026 feels like an inflection point for AI governance, accountability, and agent security.</summary>
+      <category term="ai-governance"/>
+    </entry>
+    <entry>
+      <title>5 CVEs in 7 Days: The OpenClaw Security Crisis Is Here</title>
+      <link href="https://arnaudwiehe.com/articles/openclaw-security-crisis-5-cves-2026/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/openclaw-security-crisis-5-cves-2026/</id>
+      <published>2026-03-20T00:00:00.000Z</published>
+      <updated>2026-03-20T00:00:00.000Z</updated>
+      <summary type="html">The shift to agentic computing has begun, but security is still DIY. This week, five new vulnerabilities dropped for OpenClaw — five ways your AI agent can be turned against you. Just like early web commerce needed SSL and fraud protection to become mainstream, AI agents need security to achieve widespread adoption. Here&apos;s why early adopters must roll their own security — and what that means for leaders deploying OpenClaw today.</summary>
+      <category term="cybersecurity"/>
+    </entry>
+    <entry>
+      <title>OpenClaw Security Best Practices: A Practical Guide</title>
+      <link href="https://arnaudwiehe.com/articles/openclaw-security-best-practices/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/openclaw-security-best-practices/</id>
+      <published>2026-03-18T00:00:00.000Z</published>
+      <updated>2026-03-18T00:00:00.000Z</updated>
+      <summary type="html">Practical security best practices for OpenClaw deployments. Learn how to harden your AI agent setup with actionable tips for credentials, network security, and configuration management.</summary>
+      <category term="cybersecurity"/>
+    </entry>
+    <entry>
+      <title>The Rise of OpenClaw: Why AI Agents Are Taking Over</title>
+      <link href="https://arnaudwiehe.com/articles/rise-of-openclaw/" rel="alternate" type="text/html"/>
+      <id>https://arnaudwiehe.com/articles/rise-of-openclaw/</id>
+      <published>2026-03-16T00:00:00.000Z</published>
+      <updated>2026-03-16T00:00:00.000Z</updated>
+      <summary type="html">OpenClaw is the fastest-growing AI agent framework. Here&apos;s why developers are flocking to it and what it means for the future of work, automation, and human-AI collaboration.</summary>
+      <category term="industry-trends"/>
+    </entry>
+</feed>

@@ -9,47 +9,16 @@ export default function ContactForm() {
     subject: '',
     message: '',
   })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    setErrorMessage('')
-
-    try {
-      const form = e.target as HTMLFormElement
-      const formDataObj = new FormData(form)
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
-      })
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', subject: '', message: '' })
-      } else {
-        setStatus('error')
-        setErrorMessage('Something went wrong. Please try again.')
-      }
-    } catch {
-      setStatus('error')
-      setErrorMessage('Network error. Please check your connection and try again.')
-    }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className="contact-form-status success">
-        <p>Message sent. I will get back to you soon.</p>
-      </div>
-    )
+  const handleSubmit = () => {
+    setSubmitting(true)
+    // Form is handled natively by Netlify Forms — no JS fetch needed.
+    // The browser will navigate to /contact/thanks/ on success.
   }
 
   return (
@@ -121,18 +90,12 @@ export default function ContactForm() {
         />
       </div>
 
-      {status === 'error' && (
-        <div className="contact-form-status error">
-          <p>{errorMessage}</p>
-        </div>
-      )}
-
       <button
         className="contact-form-submit"
         type="submit"
-        disabled={status === 'sending'}
+        disabled={submitting}
       >
-        {status === 'sending' ? 'Sending...' : 'Send Message'}
+        {submitting ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   )

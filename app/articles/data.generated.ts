@@ -22,6 +22,73 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "ai-agent-debt",
+    title: "AI Agent Debt — The Governance Gap Nobody Is Measuring",
+    subtitle: "By 2027, Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production.",
+    date: "2026-06-02",
+    dateFormatted: "June 2, 2026",
+    category: "Ai governance",
+    tags: ["Ai governance","Ai security","Agentic ai","Technical debt","Cybersecurity","Risk management","Ciso"],
+    readingTime: "6 min read",
+    featured: false,
+    heroImage: "/images/articles/ai-agent-debt.webp",
+    
+    linkedinUrl: "https://www.linkedin.com/in/arnaudwiehe/",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "By 2027, Gartner predicts that 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production. The pilot that never ended. The chatbot nobody owns. The automation still holding credentials long after its purpose has been forgotten. This is AI Agent Debt — and it is accumulating faster than anyone is measuring it.",
+    content: `<p>AI Agent Debt — The Governance Gap Nobody Is Measuring</p>
+<p>"With great power comes great responsibility."
+— Voltaire</p>
+<p>By 2027, Gartner predicts that 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production.</p>
+<p>Think about that for a moment.</p>
+<p>Not because the technology failed. Not because the business case disappeared. Because governance failed.</p>
+<p>As organisations race to deploy AI agents, a new risk is emerging: agents that are forgotten, abandoned, over-permissioned, or simply no longer understood.</p>
+<p>The pilot that never ended. The chatbot nobody owns. The automation still holding credentials long after its purpose has been forgotten.</p>
+<p>This is a new form of technical debt. AI Agent Debt.</p>
+<h2>What Is AI Agent Debt?</h2>
+<p>Technical debt in software is well understood. You take a shortcut to ship faster, and the cost accumulates as interest — harder maintenance, slower changes, higher risk of defects.</p>
+<p>AI Agent Debt follows the same pattern, but with higher stakes. An abandoned agent doesn't just sit there unused like old code. It keeps running. It keeps holding permissions. It keeps consuming API quota. It keeps accessing data. And because it is autonomous or semi-autonomous, it can keep acting on that access in ways no human is monitoring.</p>
+<p>The debt compounds silently until someone — an auditor, a security team, or an attacker — discovers it.</p>
+<h2>The Three Types of AI Agent Debt</h2>
+<h3>1. Ghost Agents</h3>
+<p>The pilot project that went live and never got reviewed. The customer support chatbot deployed by a product team without involving IT security. The internal automation built by an engineer who has since left the company.</p>
+<p>Ghost agents are the most common form of AI Agent Debt. They exist in the gap between shadow IT and shadow AI — tools that were deployed for a specific purpose, achieved their goal, and were never decommissioned or re-evaluated.</p>
+<p>A ghost agent may still be calling APIs, processing data, and making decisions. Nobody can tell you what it does, what it accesses, or who owns it. But it is still live in production.</p>
+<h3>2. Over-Permissioned Agents</h3>
+<p>When an AI agent is deployed quickly — for a hackathon, a proof of concept, or an urgent business need — the easiest path is to give it broad permissions. Full access to the knowledge base. Read-write on the shared drive. API keys with account-wide scope. The agent needs to work, and scoping permissions takes time.</p>
+<p>The problem is that those permissions almost never get narrowed after deployment. What started as a temporary convenience becomes a permanent exposure.</p>
+<p>Recent research confirms this is structural, not accidental. Audits of popular agent deployment platforms show that default configurations routinely create account-wide IAM roles rather than resource-scoped permissions. The platforms prioritise speed of deployment over least privilege. The governance burden falls entirely on the deployer — and most deployers do not know they need to fix it.</p>
+<h3>3. Credential-Carrying Agents</h3>
+<p>The most dangerous category of AI Agent Debt is the agent that holds active credentials — API keys, service account tokens, database connection strings — long after its original purpose has ended.</p>
+<p>These credentials may be stored in the agent's configuration, its memory store, or environment variables. They may be valid. They may grant access to sensitive systems. And because nobody remembers the agent exists, the credentials are never rotated.</p>
+<p>GitGuardian's 2026 State of Secrets Sprawl report found that AI-service credential leaks grew 81% year-over-year, with some platforms seeing leak rates grow 48x. Agents are a primary contributor: they need credentials to function, and those credentials are often hardcoded, cached in memory, or stored in configuration files that outlive the agent's useful life.</p>
+<h2>Why This Matters Now</h2>
+<p>AI Agent Debt is not a future concern. It is already accumulating.</p>
+<p>The same forces that created shadow IT in the 2010s — accessible tools, decentralised procurement, fast-moving business teams — are now creating shadow AI agents. The difference is that a shadow SaaS subscription costs money. A shadow AI agent costs money, holds permissions, processes data, makes decisions, and can be compromised without anyone noticing.</p>
+<p>Three converging trends make this urgent:</p>
+<p><strong>First, the deployment rate is accelerating.</strong> Organisations with formal AI governance programs are still a minority. Most AI agent deployments happen outside the oversight of security, risk, or governance teams.</p>
+<p><strong>Second, the attack surface is expanding.</strong> The malicious npm package that targeted Claude user data, the compromised Red Hat npm packages deploying credential-stealing worms, the MCP registries successfully poisoned in controlled tests — each of these is a vector that an ungoverned agent can exploit or become a target of.</p>
+<p><strong>Third, regulatory exposure is growing.</strong> The EU AI Act applies to AI systems deployed in the EU, including agentic systems. NIST AI RMF and ISO 42001 both require inventory and risk assessment. An organisation that cannot answer the question "how many AI agents are we running?" cannot comply with any of these frameworks.</p>
+<h2>The Governance Response</h2>
+<p>AI Agent Debt is manageable. The first step is the same as with any form of debt: acknowledge it exists, measure it, and create a plan to reduce it.</p>
+<h3>Step 1: Inventory Every Agent</h3>
+<p>You cannot govern what you cannot see. Every production agent needs a record: owner, purpose, permissions, data it accesses, tools it uses, deployment date, last review date. This is not paperwork. It is the foundation for every subsequent control.</p>
+<h3>Step 2: Classify by Risk</h3>
+<p>Not all agents carry the same debt exposure. An internal Slack bot that reads meeting transcripts is different from an agent with API credentials and database access. Classify each agent by data sensitivity, permission scope, autonomy level, and business criticality. Prioritise the high-risk ones first.</p>
+<h3>Step 3: Enforce Identity and Lifecycle</h3>
+<p>Every agent needs an identity that ties it to an owner and a purpose. That identity should be revocable. Every agent should have a defined lifecycle with review cadences, credential rotation schedules, and a decommission process.</p>
+<h3>Step 4: Scope Permissions and Rotate Credentials</h3>
+<p>Default configurations are almost always over-privileged. Review agent permissions against the principle of least privilege. Rotate credentials on a schedule independent of the agent's deployment cycle. Use secrets managers rather than environment variables or configuration files.</p>
+<h3>Step 5: Monitor for Ghosts</h3>
+<p>Run periodic scans to detect agents that are still running but have no documented owner, no recent activity review, or no business justification. Treat an undocumentable agent as a security finding until proven otherwise.</p>
+<h2>The Strategic View</h2>
+<p>The question is not whether your organisation will have AI Agent Debt. The question is whether you will find it before an auditor, security team, or attacker does.</p>
+<p>Organisations that treat AI agent governance as an operational control — not a policy exercise — will be the ones with a defensible position when the first major AI Agent Debt incident hits. They will know what they are running, who owns it, what it can access, and how to turn it off.</p>
+<p>The organisations that do not will discover their debt the hard way: in an incident post-mortem, a regulatory finding, or a security report.</p>
+<p>AI Agent Debt is real, measurable, and manageable. The time to start measuring it is now.</p>`,
+  },
+  {
     slug: "agent-governance-kill-switch",
     title: "Before You Scale AI Agents, Give Them an Identity, a Privilege Boundary, and a Kill Switch",
     subtitle: "Agent governance is moving from policy decks to runtime controls. The organizations that implement this now will be the ones with a defensible position when incidents occur.",
@@ -692,6 +759,80 @@ Do you have SOC 2? Penetration test reports?
 <li><p>arXiv:2604.17562 — "SafeAgent: A Runtime Protection Architecture for Agentic Systems," April 19, 2026. Liu Hailin et al. <a href="https://arxiv.org/abs/2604.17562">https://arxiv.org/abs/2604.17562</a> (additional reference on runtime protection architecture)</p>
 </li>
 </ol>`,
+  },
+  {
+    slug: "ai-governance-is-about-visibility",
+    title: "AI Governance Is About Visibility",
+    subtitle: "Most organizations do not have an AI governance problem because they lack ambition. They have a governance problem because they lack visibility.",
+    date: "2026-05-02",
+    dateFormatted: "May 2, 2026",
+    category: "Ai governance",
+    tags: ["Ai governance","Eu ai act","Shadow ai","Ai inventory","Board governance","Risk management","Iso 42001"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/articles/ai-governance-is-about-visibility.webp",
+    
+    linkedinUrl: "",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
+    excerpt: "Most organizations do not have an AI governance problem because they lack ambition. They have a governance problem because they lack visibility. The first move is practical: find the AI usage, classify it, assign an owner, assess the risk, and keep the register alive. This article draws from Chapter 1 of my AI Governance Guide and outlines the six-step AI Inventory Audit every organization should complete.",
+    content: `<p>AI Governance Is About Visibility</p>
+<p>"What gets measured gets managed."<br />Often attributed to Peter Drucker</p>
+<p>Most organizations do not have an AI governance problem because they lack ambition. They have a governance problem because they lack visibility.</p>
+<p>Ask yourself this simple question: how many AI systems are running across your organization right now?</p>
+<p>For many leadership teams, the honest answer is uncomfortable. They do not really know, and that is where AI governance should begin, because the first governance failure is usually an incomplete picture of what is already operating inside the business.</p>
+<h2>The Invisible AI Estate</h2>
+<p>AI is no longer sitting neatly inside the technology function. It is embedded in HR screening tools, CRM platforms, legal review software, cybersecurity products, meeting transcription services, customer support workflows, analytics platforms, and productivity tools adopted quietly by teams trying to move faster. Some of it was procured formally. Some of it arrived as a feature update. Some of it is being used by employees without approval.</p>
+<p>The same survey that found 72% of organizations use AI also found most could not accurately count their AI systems. Different departments had different definitions of "using AI."</p>
+<p>That is why AI governance should start with an inventory. You cannot govern what you cannot see.</p>
+<h2>The EU AI Act Makes This Urgent</h2>
+<p>The EU AI Act creates immediate legal exposure. In force since August 2024 with global reach — any organization serving EU users is in scope.</p>
+<p>Four risk tiers:</p>
+<ul>
+<li><strong>Prohibited</strong> — social scoring, manipulative AI, real-time biometric identification</li>
+<li><strong>High-risk</strong> — CV screening, credit scoring, employment tools (full compliance burden)</li>
+<li><strong>Limited risk</strong> — chatbots, synthetic media (transparency obligations)</li>
+<li><strong>Minimal risk</strong> — spam filters, recommendation engines (voluntary codes)</li>
+</ul>
+<p>The penalty for non-compliant high-risk systems: up to €15 million or 3% of global annual turnover. For prohibited practices: up to €35 million or 7% of turnover.</p>
+<p>Organizations need to know which AI systems are prohibited, high-risk, limited risk, or minimal risk. They also need to understand that using general-purpose AI models or AI tools does not outsource accountability to the vendor. The provider has obligations, but so does the organization deploying the system in a real business context.</p>
+<h2>Shadow AI Is Already Happening</h2>
+<p>28% of employees use AI tools their employer has not approved. In knowledge work, that number is higher.</p>
+<p>Samsung learned this the hard way in 2023: engineers uploaded proprietary source code to ChatGPT, accidentally sharing confidential IP with an external system.</p>
+<p>Blanket bans do not work. Employees who find value will use these tools regardless. The question is not whether shadow AI exists in your organization — it is whether your governance structure can detect it, respond to it, and channel it productively.</p>
+<h2>The AI Inventory Audit: Your First Move</h2>
+<p>The first move is practical. Find the AI usage, classify it, assign an owner, assess the risk, and keep the register alive. That register then becomes the foundation for governance, vendor oversight, incident response, monitoring, and board reporting.</p>
+<p>Six steps to build your AI Inventory Audit:</p>
+<ol>
+<li><strong>Define what counts as AI</strong> — broader than you think. If a system makes predictions, classifications, recommendations, or automated decisions using machine learning, it counts.</li>
+<li><strong>Survey every department simultaneously</strong> — not just IT. HR, legal, finance, sales, operations, customer support. Each has different AI exposure.</li>
+<li><strong>Enrich the data</strong> — for each system, document: use case, data types processed, vendor, business owner, technical owner, deployment date.</li>
+<li><strong>Classify against EU AI Act risk tiers</strong> — be honest. When in doubt, classify higher.</li>
+<li><strong>Present findings to leadership</strong> with an honest gap analysis. Do not sugarcoat the number of unknowns.</li>
+<li><strong>Make it live</strong> — update the inventory when systems change, new tools are adopted, or existing ones are retired.</li>
+</ol>
+<p>The inventory is not glamorous work. It will uncover systems you did not know you were running and accountability gaps requiring uncomfortable conversations. But it is the foundation everything else builds on.</p>
+<h2>Seven Questions Every Board Should Answer</h2>
+<p>Every board should be able to answer these basic questions with confidence:</p>
+<ol>
+<li>How many AI systems are we running?</li>
+<li>Which ones are high-risk under the EU AI Act?</li>
+<li>Who owns them?</li>
+<li>When were they last assessed?</li>
+<li>Have we had AI-related incidents?</li>
+<li>Do our vendors meet our governance requirements?</li>
+<li>How confident are we in these answers?</li>
+</ol>
+<p>That final question may reveal more than all the others. Because in AI governance, confidence without visibility is not maturity. It is exposure.</p>
+<h2>The GPAI Blind Spot</h2>
+<p>Deploying GPT-4, Claude, or Llama in your products or workflows? Even if you did not build the model, you carry governance obligations under the EU AI Act if it is used in high-risk contexts.</p>
+<p>The provider (OpenAI, Anthropic) handles technical documentation. You handle deployment governance. Both are accountable.</p>
+<p>GPAI obligations came into force in August 2025. If you are deploying foundation models in EU markets, this is a present consideration — not future.</p>
+<h2>What This Means for Your Organization</h2>
+<p>AI governance is moving rapidly from policy and standards documentation to real, operational controls. The organizations that build visibility first will be the ones that can respond when incidents occur, when regulators ask questions, or when boards demand accountability.</p>
+<p>The alternative — governing from a position of uncertainty — is not a strategy. It is a liability.</p>
+<p>This insight comes from <strong>Chapter 1: The Awakening</strong> in my AI Governance Guide — practical frameworks for Chief AI Officers navigating ISO 42001, NIST AI RMF, and the EU AI Act.</p>
+<p>The book follows the hero's journey structure because governance implementation is a journey, not a checklist.</p>`,
   },
   {
     slug: "vulnerability-timeline-compression-hero",

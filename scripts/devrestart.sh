@@ -2,7 +2,7 @@
 # Dev Server Manager for arnaudwiehe.com
 # Usage: ./devrestart.sh or source this file and run devrestart function
 
-PROJECT_DIR="/Users/ai/.openclaw/workspace/projects/arnaudwiehe/www"
+PROJECT_DIR="/Users/ai/.hermes/workspace/projects/arnaudwiehe-site"
 PORT_FILE="$PROJECT_DIR/.port"
 START_PORT=3000
 MAX_PORT=3010

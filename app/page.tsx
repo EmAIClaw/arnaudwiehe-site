@@ -93,8 +93,20 @@ const featuredEngagements = [
 export default function Home() {
   const latestArticles = getAllArticles().slice(0, 3)
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arnaudwiehe.com/' },
+    ],
+  }
+
   return (
     <main id="main-content" className="min-h-screen bg-cream">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Nav />
 
       <section className="hero-section">
