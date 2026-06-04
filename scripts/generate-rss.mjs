@@ -10,6 +10,15 @@ const publishedRoot = path.join(workspaceRoot, 'memory', 'content', 'published')
 const rssPath = path.resolve('public/rss.xml')
 const atomPath = path.resolve('public/atom.xml')
 
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath)
+    return true
+  } catch {
+    return false
+  }
+}
+
 async function extractArticles() {
   let dirs
   try {
@@ -20,8 +29,8 @@ async function extractArticles() {
       .sort()
       .reverse()
   } catch {
-    console.log('Published directory not found, skipping RSS.')
-    return []
+    console.log(`Published content directory not found at ${publishedRoot}; keeping committed RSS/Atom files.`)
+    return null
   }
 
   const articles = []
@@ -65,6 +74,11 @@ function isoDate(dateStr) {
 
 async function main() {
   const articles = await extractArticles()
+  if (articles === null) {
+    if ((await fileExists(rssPath)) && (await fileExists(atomPath))) return
+    throw new Error(`Published content directory not found at ${publishedRoot} and committed RSS/Atom files are missing.`)
+  }
+
   if (articles.length === 0) {
     console.log('No published articles found — skipping RSS generation.')
     await fs.writeFile(rssPath, '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>' + escapeXml(SITE_TITLE) + '</title><link>' + BASE_URL + '</link><description>' + escapeXml(SITE_DESC) + '</description></channel></rss>')
