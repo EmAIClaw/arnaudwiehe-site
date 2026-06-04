@@ -38,9 +38,11 @@ export function ScrollReveal({
           if (entry.isIntersecting) {
             // Add delay if specified
             if (delay > 0) {
-              setTimeout(() => {
+              const timeoutId = setTimeout(() => {
                 entry.target.classList.add('visible')
               }, delay * 1000)
+              // Store timeout on element for cleanup
+              ;(entry.target as any)._revealTimeout = timeoutId
             } else {
               entry.target.classList.add('visible')
             }
@@ -58,6 +60,10 @@ export function ScrollReveal({
     observer.observe(element)
 
     return () => {
+      // Clear any pending timeouts
+      if ((element as any)._revealTimeout) {
+        clearTimeout((element as any)._revealTimeout)
+      }
       observer.disconnect()
     }
   }, [delay, threshold, rootMargin])
@@ -80,7 +86,7 @@ export function ScrollReveal({
     <div
       ref={ref}
       className={`${getRevealClass()} ${className}`}
-      style={{ willChange: 'opacity, transform' }}
+      style={{}}
     >
       {children}
     </div>

@@ -189,7 +189,7 @@ export default function AIAssessmentPage() {
                 <h2>Priority Recommendations</h2>
                 <ul>
                   {result.recommendations.map((rec, index) => (
-                    <li key={index}>{rec}</li>
+                    <li key={`rec-${index}`}>{rec}</li>
                   ))}
                 </ul>
               </div>

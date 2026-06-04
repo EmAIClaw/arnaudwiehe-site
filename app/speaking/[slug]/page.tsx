@@ -182,7 +182,7 @@ export default async function SpeakingEventPage({ params }: Props) {
             <h2 className="speaking-event-section-heading">Key Takeaways</h2>
             <ul className="speaking-event-takeaways-list">
               {event.keyTakeaways.map((takeaway, i) => (
-                <li key={i} className="speaking-event-takeaway-item">
+                <li key={`takeaway-${i}`} className="speaking-event-takeaway-item">
                   <span className="speaking-event-takeaway-number">{i + 1}</span>
                   <span className="speaking-event-takeaway-text">{takeaway}</span>
                 </li>

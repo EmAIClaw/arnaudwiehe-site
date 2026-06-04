@@ -132,7 +132,7 @@ export default async function BookDetailPage({ params }: Props) {
             <h2 className="book-section-title">Who This Book Is For</h2>
             <ul className="book-audience-list">
               {book.audience.map((item, i) => (
-                <li key={i}>{item}</li>
+                <li key={`audience-${i}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -141,7 +141,7 @@ export default async function BookDetailPage({ params }: Props) {
             <h2 className="book-section-title">Key Takeaways</h2>
             <ul className="book-takeaways-list">
               {book.takeaways.map((item, i) => (
-                <li key={i}>{item}</li>
+                <li key={`takeaway-${i}`}>{item}</li>
               ))}
             </ul>
           </div>
@@ -150,7 +150,7 @@ export default async function BookDetailPage({ params }: Props) {
             <h2 className="book-section-title">Table of Contents</h2>
             <div className="book-toc-grid">
               {book.toc.map((chapter, i) => (
-                <div key={i} className="book-toc-item">{chapter}</div>
+                <div key={`toc-${i}`} className="book-toc-item">{chapter}</div>
               ))}
             </div>
           </div>
@@ -159,7 +159,7 @@ export default async function BookDetailPage({ params }: Props) {
             <h2 className="book-section-title">Chapter Excerpts</h2>
             <div className="book-excerpts">
               {book.excerpts.map((excerpt, i) => (
-                <div key={i} className="book-excerpt-card">
+                <div key={`excerpt-${i}`} className="book-excerpt-card">
                   <h3 className="book-excerpt-title">{excerpt.title}</h3>
                   <p className="book-excerpt-text">{excerpt.content}</p>
                 </div>
@@ -171,7 +171,7 @@ export default async function BookDetailPage({ params }: Props) {
             <h2 className="book-section-title">What Readers Are Saying</h2>
             <div className="book-testimonials">
               {book.testimonials.map((testimonial, i) => (
-                <div key={i} className="book-testimonial-card">
+                <div key={`testimonial-${i}`} className="book-testimonial-card">
                   <blockquote className="book-testimonial-quote">“{testimonial.quote}”</blockquote>
                   <div className="book-testimonial-author">
                     <strong>{testimonial.author}</strong>
