@@ -5,14 +5,14 @@
     <link>https://arnaudwiehe.com</link>
     <description>Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://arnaudwiehe.com/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AI Agent Debt — The Governance Gap Nobody Is Measuring</title>
       <link>https://arnaudwiehe.com/articles/ai-agent-debt/</link>
       <guid isPermaLink="true">https://arnaudwiehe.com/articles/ai-agent-debt/</guid>
       <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
-      <description>By 2027, Gartner predicts that 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production. The pilot that never ended. The chatbot nobody owns. The automation still holding credentials long after its purpose has been forgotten. This is AI Agent Debt — and it is accumulating faster than anyone is measuring it.</description>
+      <description>AI agent debt is the accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify. Organisations are deploying agents faster than they can govern them, and the lifecycle conversation has barely started.</description>
       <category>AI Governance</category>
     </item>
     <item>

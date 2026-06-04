@@ -24,69 +24,47 @@ export const articles: Article[] = [
   {
     slug: "ai-agent-debt",
     title: "AI Agent Debt — The Governance Gap Nobody Is Measuring",
-    subtitle: "By 2027, Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production.",
+    subtitle: "The accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify.",
     date: "2026-06-02",
     dateFormatted: "June 2, 2026",
     category: "Ai governance",
     tags: ["Ai governance","Ai security","Agentic ai","Technical debt","Cybersecurity","Risk management","Ciso"],
-    readingTime: "6 min read",
+    readingTime: "3 min read",
     featured: false,
     heroImage: "/images/articles/ai-agent-debt.webp",
     
     linkedinUrl: "https://www.linkedin.com/in/arnaudwiehe/",
     author: "Arnaud Wiehe",
     authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
-    excerpt: "By 2027, Gartner predicts that 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production. The pilot that never ended. The chatbot nobody owns. The automation still holding credentials long after its purpose has been forgotten. This is AI Agent Debt — and it is accumulating faster than anyone is measuring it.",
-    content: `<p>AI Agent Debt — The Governance Gap Nobody Is Measuring</p>
-<p>"With great power comes great responsibility."
-— Voltaire</p>
-<p>By 2027, Gartner predicts that 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after they are already running in production.</p>
-<p>Think about that for a moment.</p>
-<p>Not because the technology failed. Not because the business case disappeared. Because governance failed.</p>
-<p>As organisations race to deploy AI agents, a new risk is emerging: agents that are forgotten, abandoned, over-permissioned, or simply no longer understood.</p>
-<p>The pilot that never ended. The chatbot nobody owns. The automation still holding credentials long after its purpose has been forgotten.</p>
-<p>This is a new form of technical debt. AI Agent Debt.</p>
-<h2>What Is AI Agent Debt?</h2>
-<p>Technical debt in software is well understood. You take a shortcut to ship faster, and the cost accumulates as interest — harder maintenance, slower changes, higher risk of defects.</p>
-<p>AI Agent Debt follows the same pattern, but with higher stakes. An abandoned agent doesn't just sit there unused like old code. It keeps running. It keeps holding permissions. It keeps consuming API quota. It keeps accessing data. And because it is autonomous or semi-autonomous, it can keep acting on that access in ways no human is monitoring.</p>
-<p>The debt compounds silently until someone — an auditor, a security team, or an attacker — discovers it.</p>
-<h2>The Three Types of AI Agent Debt</h2>
-<h3>1. Ghost Agents</h3>
-<p>The pilot project that went live and never got reviewed. The customer support chatbot deployed by a product team without involving IT security. The internal automation built by an engineer who has since left the company.</p>
-<p>Ghost agents are the most common form of AI Agent Debt. They exist in the gap between shadow IT and shadow AI — tools that were deployed for a specific purpose, achieved their goal, and were never decommissioned or re-evaluated.</p>
-<p>A ghost agent may still be calling APIs, processing data, and making decisions. Nobody can tell you what it does, what it accesses, or who owns it. But it is still live in production.</p>
-<h3>2. Over-Permissioned Agents</h3>
-<p>When an AI agent is deployed quickly — for a hackathon, a proof of concept, or an urgent business need — the easiest path is to give it broad permissions. Full access to the knowledge base. Read-write on the shared drive. API keys with account-wide scope. The agent needs to work, and scoping permissions takes time.</p>
-<p>The problem is that those permissions almost never get narrowed after deployment. What started as a temporary convenience becomes a permanent exposure.</p>
-<p>Recent research confirms this is structural, not accidental. Audits of popular agent deployment platforms show that default configurations routinely create account-wide IAM roles rather than resource-scoped permissions. The platforms prioritise speed of deployment over least privilege. The governance burden falls entirely on the deployer — and most deployers do not know they need to fix it.</p>
-<h3>3. Credential-Carrying Agents</h3>
-<p>The most dangerous category of AI Agent Debt is the agent that holds active credentials — API keys, service account tokens, database connection strings — long after its original purpose has ended.</p>
-<p>These credentials may be stored in the agent's configuration, its memory store, or environment variables. They may be valid. They may grant access to sensitive systems. And because nobody remembers the agent exists, the credentials are never rotated.</p>
-<p>GitGuardian's 2026 State of Secrets Sprawl report found that AI-service credential leaks grew 81% year-over-year, with some platforms seeing leak rates grow 48x. Agents are a primary contributor: they need credentials to function, and those credentials are often hardcoded, cached in memory, or stored in configuration files that outlive the agent's useful life.</p>
-<h2>Why This Matters Now</h2>
-<p>AI Agent Debt is not a future concern. It is already accumulating.</p>
-<p>The same forces that created shadow IT in the 2010s — accessible tools, decentralised procurement, fast-moving business teams — are now creating shadow AI agents. The difference is that a shadow SaaS subscription costs money. A shadow AI agent costs money, holds permissions, processes data, makes decisions, and can be compromised without anyone noticing.</p>
-<p>Three converging trends make this urgent:</p>
-<p><strong>First, the deployment rate is accelerating.</strong> Organisations with formal AI governance programs are still a minority. Most AI agent deployments happen outside the oversight of security, risk, or governance teams.</p>
-<p><strong>Second, the attack surface is expanding.</strong> The malicious npm package that targeted Claude user data, the compromised Red Hat npm packages deploying credential-stealing worms, the MCP registries successfully poisoned in controlled tests — each of these is a vector that an ungoverned agent can exploit or become a target of.</p>
-<p><strong>Third, regulatory exposure is growing.</strong> The EU AI Act applies to AI systems deployed in the EU, including agentic systems. NIST AI RMF and ISO 42001 both require inventory and risk assessment. An organisation that cannot answer the question "how many AI agents are we running?" cannot comply with any of these frameworks.</p>
-<h2>The Governance Response</h2>
-<p>AI Agent Debt is manageable. The first step is the same as with any form of debt: acknowledge it exists, measure it, and create a plan to reduce it.</p>
-<h3>Step 1: Inventory Every Agent</h3>
-<p>You cannot govern what you cannot see. Every production agent needs a record: owner, purpose, permissions, data it accesses, tools it uses, deployment date, last review date. This is not paperwork. It is the foundation for every subsequent control.</p>
-<h3>Step 2: Classify by Risk</h3>
-<p>Not all agents carry the same debt exposure. An internal Slack bot that reads meeting transcripts is different from an agent with API credentials and database access. Classify each agent by data sensitivity, permission scope, autonomy level, and business criticality. Prioritise the high-risk ones first.</p>
-<h3>Step 3: Enforce Identity and Lifecycle</h3>
-<p>Every agent needs an identity that ties it to an owner and a purpose. That identity should be revocable. Every agent should have a defined lifecycle with review cadences, credential rotation schedules, and a decommission process.</p>
-<h3>Step 4: Scope Permissions and Rotate Credentials</h3>
-<p>Default configurations are almost always over-privileged. Review agent permissions against the principle of least privilege. Rotate credentials on a schedule independent of the agent's deployment cycle. Use secrets managers rather than environment variables or configuration files.</p>
-<h3>Step 5: Monitor for Ghosts</h3>
-<p>Run periodic scans to detect agents that are still running but have no documented owner, no recent activity review, or no business justification. Treat an undocumentable agent as a security finding until proven otherwise.</p>
-<h2>The Strategic View</h2>
-<p>The question is not whether your organisation will have AI Agent Debt. The question is whether you will find it before an auditor, security team, or attacker does.</p>
-<p>Organisations that treat AI agent governance as an operational control — not a policy exercise — will be the ones with a defensible position when the first major AI Agent Debt incident hits. They will know what they are running, who owns it, what it can access, and how to turn it off.</p>
-<p>The organisations that do not will discover their debt the hard way: in an incident post-mortem, a regulatory finding, or a security report.</p>
-<p>AI Agent Debt is real, measurable, and manageable. The time to start measuring it is now.</p>`,
+    excerpt: "AI agent debt is the accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify. Organisations are deploying agents faster than they can govern them, and the lifecycle conversation has barely started.",
+    content: `<p>"Technical debt is not a sin. Not paying it off is." — Ward Cunningham, who coined the term "technical debt" in 1992</p>
+<p>I was talking to a CISO last week who said something that shocked me: "I think we have more AI agents running right now than we know about, and I have no idea how to find them."</p>
+<p>The assistant that was configured for a Q3 pilot that never launched and still has Slack access. The chatbot that was built for a marketing campaign that ended in January and is still connected to the CRM. The automation script that an intern wrote two jobs ago and is still running on a production server and still holding API keys.</p>
+<p>This is AI agent debt. The accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify.</p>
+<p>Gartner recently made a striking prediction. By 2027, 40% of enterprises will demote or decommission autonomous AI agents due to governance failures discovered only after those agents are already running in production.</p>
+<p>Most people will read that as a governance problem. I think part of it is also a lifecycle problem.</p>
+<p>Organisations are deploying agents faster than they can govern them. But the lifecycle conversation has barely started.</p>
+<p>Very few organisations are asking:</p>
+<ul>
+<li>When does an agent retire?</li>
+<li>What happens to its credentials?</li>
+<li>Who decommissions its permissions?</li>
+<li>How much does this agent cost to run?</li>
+</ul>
+<p>In traditional IT, we have decommissioning procedures for servers, applications, and accounts. Most organisations have processes to identify orphaned cloud resources.</p>
+<p>For AI agents, in many organisations, there is no equivalent process. An agent deployed today could still have valid API keys in 18 months. Its model may have been replaced. Its purpose may have disappeared. Yet its permissions remain.</p>
+<p>The problem compounds quickly. One abandoned agent may represent a future incident nobody has identified yet.</p>
+<p>A few things that may help:</p>
+<ul>
+<li>Agent inventory as a security control. You can't govern what you can't see. Treat agent discovery like asset discovery.</li>
+<li>Expiry dates built into agent credentials. API keys tied to agents should auto-rotate and auto-expire, not persist indefinitely.</li>
+<li>"What retires this agent?" Make it a required field on every deployment request, just as you would document a server decommissioning plan.</li>
+<li>Quarterly agent lifecycle reviews. Review every agent in production. Is it still needed? Does anyone still own it? If not, shut it down.</li>
+</ul>
+<p>AI agent debt is invisible until it isn't. When it becomes visible, it's usually because someone discovered an agent they didn't know existed, with access they didn't realise it still had, or worse, an incident occurs.</p>
+<p>Do you know how many AI agents are running in your environment today?</p>
+<p>More importantly, do you know how many should no longer be there?</p>
+<p>#AIAgents #AIGovernance #Cybersecurity #ShadowIT</p>`,
   },
   {
     slug: "agent-governance-kill-switch",
