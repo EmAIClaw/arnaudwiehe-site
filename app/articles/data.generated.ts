@@ -22,6 +22,61 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "instagram-ai-account-recovery-abuse",
+    title: "20,225 Instagram Users Potentially Impacted by AI-Assisted Account Recovery Abuse",
+    subtitle: "Meta disclosed that 20,225 Instagram users were potentially impacted after attackers abused an AI-assisted account recovery workflow that failed to verify who was making the request.",
+    date: "2026-06-04",
+    dateFormatted: "June 4, 2026",
+    category: "Ai security",
+    tags: ["Ai security","Ai governance","Account recovery","Identity security","Mfa","Instagram","Meta","Cybersecurity"],
+    readingTime: "5 min read",
+    featured: false,
+    heroImage: "/images/articles/instagram-ai-account-recovery-abuse.webp",
+    thumbnailImage: "/images/articles/instagram-ai-account-recovery-abuse-thumb.webp",
+    linkedinUrl: "https://www.linkedin.com/in/arnaudwiehe/",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "Meta disclosed that 20,225 Instagram users were potentially impacted after attackers abused an AI-assisted account recovery workflow that failed to verify who was making the request. The incident shows why AI agents connected to sensitive actions need hard identity checks, MFA, human approval, and audit trails.",
+    content: `<p>“AI chatbots create interesting new attack surface, and we’re likely going to see a lot more of these kinds of attacks.” — Ian Goldin, threat researcher at Lumen’s Black Lotus Labs, speaking to Krebs on Security, June 2026</p>
+<p>At the end of May 2026, instructions began circulating on Telegram showing how attackers could abuse Meta’s AI-assisted Instagram account recovery process.</p>
+<p>The steps were almost embarrassingly simple. Use a VPN to appear near the target’s location. Request a password reset. Chat with Meta’s AI support assistant. Ask it to link the account to a new email address. Receive the reset code. Change the password.</p>
+<p>No malware. No phishing emails. No stolen credentials. The attackers simply took advantage of a support process that failed to verify who was making the request. That was all it took.</p>
+<p>The Instagram accounts of the Obama White House and the Chief Master Sergeant of the U.S. Space Force were briefly defaced with pro-Iranian images and messages. Other high-profile accounts were reportedly affected too.</p>
+<p>Meta later disclosed that 20,225 Instagram users were potentially impacted, although the company said the final number may be lower because some of those accounts may have been accessed by their legitimate owners.</p>
+<p>The flaw was in Meta’s High Touch Support system, an AI-assisted account recovery tool for Instagram. According to Meta’s disclosure, the tool failed to properly verify that the email address provided during recovery matched the email address already associated with the account.</p>
+<p>If the account did not have two-factor authentication enabled, the attacker could receive a reset link and take control.</p>
+<p>Even SMS-based MFA, often treated as the weakest form of multi-factor authentication, appears to have been enough to stop this attack. The attackers reportedly said the method failed against accounts with MFA enabled.</p>
+<p>The issue was not some science-fiction version of AI hacking. The system followed the path available to it. It sat inside an identity-critical workflow, and that workflow allowed the wrong person to reach a sensitive action.</p>
+<p>AI support agents are moving into IT, HR, customer service, finance, fraud operations, and identity management. They will reset passwords, update account details, trigger workflows, open tickets, approve exceptions, and route sensitive requests.</p>
+<p>Once an AI system can take action, the risk changes. It is no longer just about what the model says. It is also about what the surrounding workflow allows it to do.</p>
+<p>If an AI agent can trigger account recovery, change an email address, downgrade MFA, issue credentials, export data, update payment details, or make a contractual commitment, the organization has moved into operational control risk.</p>
+<p>For these high-risk workflows, good intentions are not enough.</p>
+<p>I have heard versions of this many times:</p>
+<p>“The agent knows to verify the user.”</p>
+<p>“We’ve told it not to do that.”</p>
+<p>“We tested it and it behaved correctly.”</p>
+<p>None of those are real safeguards.</p>
+<p>What matters is what happens when someone reaches a sensitive action. Before an email address can be changed, before a password can be reset, before recovery details can be updated, what actually stops the wrong person from getting through?</p>
+<p>Is there a hard identity check? Is MFA required? Does a high-risk change need human approval? Is there an audit trail if something goes wrong?</p>
+<p>These are the questions that matter now. Any organization putting AI into real operational workflows should be asking them early, while the design can still be changed.</p>
+<p>The Meta incident is useful because it cuts through a lot of the hype around AI. The concerning part was not that the AI did something unusually clever. The concerning part was that it was connected to a sensitive account recovery process without enough safeguards to prevent misuse.</p>
+<p>Every AI governance program should classify the following as high-risk agent actions:</p>
+<ul>
+<li>Account recovery and password reset</li>
+<li>Email address or phone number reassignment</li>
+<li>Credential issuance or rotation</li>
+<li>MFA bypass, downgrade, or reset</li>
+<li>Payment instrument changes</li>
+<li>Data export or deletion requests</li>
+<li>Legal, contractual, or financial commitments</li>
+</ul>
+<p>For each of these, the key question is simple: what prevents the wrong person from getting from a conversation to a sensitive action?</p>
+<p>If the answer is mainly “the agent has been told how to handle it,” the safeguard probably is not strong enough.</p>
+<p>Meta fixed this issue. Many enterprises are still at the beginning of wiring AI into support and operations, which means they still have a chance to design the right controls before something similar happens inside their own environment.</p>
+<p>AI agents can create real value. They can reduce friction, speed up support, and remove tedious manual steps. But when they are connected to sensitive actions, the workflow needs to prove who is making the request before anything happens.</p>
+<p>Sources: Krebs on Security, BleepingComputer, SecurityWeek.</p>`,
+  },
+  {
     slug: "ai-agent-debt",
     title: "AI Agent Debt — The Governance Gap Nobody Is Measuring",
     subtitle: "The accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify.",

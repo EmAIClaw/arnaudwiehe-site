@@ -5,8 +5,16 @@
     <link>https://arnaudwiehe.com</link>
     <description>Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://arnaudwiehe.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>20,225 Instagram Users Potentially Impacted by AI-Assisted Account Recovery Abuse</title>
+      <link>https://arnaudwiehe.com/articles/instagram-ai-account-recovery-abuse/</link>
+      <guid isPermaLink="true">https://arnaudwiehe.com/articles/instagram-ai-account-recovery-abuse/</guid>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Meta disclosed that 20,225 Instagram users were potentially impacted after attackers abused an AI-assisted account recovery workflow that failed to verify who was making the request. The incident shows why AI agents connected to sensitive actions need hard identity checks, MFA, human approval, and audit trails.</description>
+      <category>AI Security</category>
+    </item>
     <item>
       <title>AI Agent Debt — The Governance Gap Nobody Is Measuring</title>
       <link>https://arnaudwiehe.com/articles/ai-agent-debt/</link>
