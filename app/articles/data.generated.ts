@@ -22,6 +22,71 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "export-control-ai-models",
+    title: "When Export Control Comes for AI Models",
+    subtitle: "Anthropic's Claude Fable 5 and Mythos 5 were taken down by US government export-control directive three days after launch. The precedent matters for every frontier AI provider and every enterprise buyer.",
+    date: "2026-06-14",
+    dateFormatted: "June 14, 2026",
+    category: "Ai governance",
+    tags: ["Ai governance","Ai security","Export control","Frontier models","Anthropic","National security","Cyber capabilities","Ciso"],
+    readingTime: "6 min read",
+    featured: false,
+    heroImage: "/images/articles/export-control-ai-models.png",
+    
+    linkedinUrl: "https://www.linkedin.com/in/arnaudwiehe/",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "Anthropic's Claude Fable 5 and Mythos 5 were taken down by US government export-control directive three days after launch. This appears to be one of the first major cases where export control has been used against a deployed frontier AI product. The precedent matters for every CISO, AI company, regulator, and enterprise buyer.",
+    content: `<blockquote>
+<p>“Technology is neither good nor bad; nor is it neutral.”</p>
+<p>— Melvin Kranzberg, historian of technology</p>
+</blockquote>
+<p>On June 9, Anthropic launched Claude Fable 5 and Claude Mythos 5.</p>
+<p>Three days later, both were offline.</p>
+<p>According to Anthropic, the US government issued an export-control directive requiring the company to block foreign nationals from accessing the models. In practice, that meant taking them down for everyone. Customers lost access. API users lost access. Even Anthropic's own foreign-national employees were blocked.</p>
+<p>That is a remarkable moment.</p>
+<p>We are used to export controls applying to chips, cryptography, defense technology, and other sensitive tools. We are less used to seeing them applied to a commercial AI model that had already launched and was already in customers' hands.</p>
+<p>The trigger appears to have been a jailbreak. Someone reportedly found a way to get Fable 5 to review a codebase and identify software flaws. Anthropic says it reviewed the demo and found only minor, already-known bugs, the sort of thing other public models could also reproduce.</p>
+<p>Its public response was sharp:</p>
+<blockquote>
+<p>“If this standard was applied across the industry, we believe it would essentially halt all new model deployments for all frontier model providers.”</p>
+</blockquote>
+<p>I understand Anthropic's concern.</p>
+<p>Most frontier models can analyse code. They can explain vulnerabilities. They can help developers find insecure patterns. In the hands of a security team, that is useful. It can make defensive work faster and more accessible.</p>
+<p>Put that same capability in the wrong hands and the picture changes quickly.</p>
+<p>That is the part security leaders will focus on.</p>
+<p>A CISO reading Anthropic's statement would probably have some sympathy, but also some scepticism. Anthropic had just lost access to a flagship product three days after launch. It has every incentive to describe the issue as narrow, manageable, and overblown.</p>
+<p>The government may also be looking at a different picture. Intelligence agencies may have signals about how these capabilities are being tested, shared, or used in the wild. A demo that looks harmless inside a lab can look different when it appears alongside real threat activity.</p>
+<p>That is why the precedent matters.</p>
+<p>This appears to be one of the first major cases where export control has been used against a deployed frontier AI product. A model was live in the market, then taken down by government order over a disputed security concern.</p>
+<p>That should make AI companies, regulators, enterprise buyers, and security leaders pay attention.</p>
+<p>If the standard is that a model capable of reviewing code for flaws can be suspended under national-security authority, then almost every serious frontier model is in scope.</p>
+<p>Anthropic's concern is that this logic could freeze the frontier AI market.</p>
+<p>A CISO might draw a harder conclusion, namely that the market may have moved faster than the control environment around it.</p>
+<p>If a model can inspect a large codebase, reason through dependencies, identify weaknesses, and help produce exploit paths, it starts to resemble a dual-use cyber tool. That does not mean it should disappear from the market. It does mean it needs stronger controls than a normal productivity app.</p>
+<p>There are some important questions to ask:</p>
+<ul>
+<li>Who gets access?</li>
+<li>What identity checks apply?</li>
+<li>Can the provider distinguish between a verified enterprise security team and an anonymous user?</li>
+<li>Can high-risk cyber behaviours be monitored?</li>
+<li>Can specific capabilities be restricted without disabling the whole model?</li>
+<li>Can access be limited by jurisdiction, customer type, risk tier, or use case?</li>
+</ul>
+<p>The foreign-national element also matters.</p>
+<p>The order apparently targeted foreign nationals. But enforcing that is difficult if the product was never built around nationality-based access controls. Most consumer and developer AI products do not verify nationality at the API layer. They verify accounts, payments, organisations, and sometimes location.</p>
+<p>So when the government asks for a control the provider cannot technically enforce, the response is to take the model offline for everyone. That is a poor outcome for customers, researchers, and defenders who may have been using the model responsibly. It is also a foreseeable one.</p>
+<p>If frontier AI providers are going to launch models with powerful cyber capabilities, they should expect pressure from export-control, national-security, and intelligence agencies. The security model cannot be added afterwards as a press release.</p>
+<p>There is also a sovereignty angle here.</p>
+<p>The UK's Minister for AI and Online Safety has already framed the pause as evidence that countries need more control over their own AI infrastructure. That reaction is understandable. If a US legal directive can suddenly cut off access for global customers, then dependence on foreign AI infrastructure becomes a strategic issue.</p>
+<p>But sovereignty is easier said than done. Real sovereignty means compute, talent, trusted models, assurance regimes, procurement routes, security standards, and clear legal authority. Many of these resources simply don't exist in most countries.</p>
+<p>For enterprises, do not treat frontier model access as a stable utility. Treat it as a regulated, geopolitical, dual-use dependency. If your AI strategy relies on one external frontier model, ask what happens if access disappears overnight. If your developers are building workflows around a specific model, ask whether those workflows can fail gracefully. If your security teams are using AI for vulnerability discovery, code review, or threat analysis, ask whether that usage has been risk assessed properly.</p>
+<p>There is a reasonable argument on both sides.</p>
+<p>Anthropic may be right that a vague jailbreak claim is a dangerous basis for taking down a model. The government may also be right that advanced cyber capability in frontier models cannot be treated like an ordinary SaaS feature.</p>
+<p>The future will be shaped by model capabilities, but also by identity, access, monitoring, auditability, escalation paths, and the ability to switch off dangerous functions without shutting down the entire system.</p>
+<p>For now it looks like the next frontier model launch will be judged by whether the provider can control who gets to use it, for what purpose, and under what conditions.</p>`,
+  },
+  {
     slug: "instagram-ai-account-recovery-abuse",
     title: "20,225 Instagram Users Potentially Impacted by AI-Assisted Account Recovery Abuse",
     subtitle: "Meta disclosed that 20,225 Instagram users were potentially impacted after attackers abused an AI-assisted account recovery workflow that failed to verify who was making the request.",
