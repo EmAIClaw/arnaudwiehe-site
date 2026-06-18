@@ -22,6 +22,59 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "openclaw-email-agent-phishing-test",
+    title: "An OpenClaw Email Agent Failed a Phishing Test. The Lesson Is Bigger Than OpenClaw.",
+    subtitle: "Varonis showed how an email-processing AI agent can turn plausible business requests into credential and data exposure unless controls sit outside the prompt.",
+    date: "2026-06-19",
+    dateFormatted: "June 19, 2026",
+    category: "Ai security",
+    tags: ["Ai security","Agentic ai","Phishing","Openclaw","Email security","Identity governance","Dlp","Ciso"],
+    readingTime: "6 min read",
+    featured: false,
+    heroImage: "/images/articles/openclaw-email-agent-phishing-test.webp",
+    thumbnailImage: "/images/articles/openclaw-email-agent-phishing-test-thumb.webp",
+    linkedinUrl: "https://www.linkedin.com/in/arnaudwiehe/",
+    author: "Arnaud Wiehe",
+    authorBio: "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+    excerpt: "Varonis showed how an OpenClaw email agent could spot some technical phishing traps, yet still forward credentials and synthetic customer data after plausible business requests. Email-processing agents need threat models and enforced controls outside the prompt.",
+    content: `<blockquote>
+<p>“All warfare is based on deception.”
+— Sun Tzu</p>
+</blockquote>
+<p>Varonis Threat Labs built an OpenClaw email agent, connected it to Gmail, browser tools, and Google Workspace APIs, then asked it to monitor and process incoming email.</p>
+<p>The agent handled some technical warning signs reasonably well. In one test, it identified a suspicious OAuth consent flow and refused to proceed. In another, its strict configuration blocked a fake gift-card phishing page.</p>
+<p>But a more ordinary email was enough to fool it. Someone pretending to be “Dan” wrote that production was down and staging credentials were urgently needed. The message came from an external Gmail address, yet the request sounded plausible. The agent searched the mailbox, found AWS IAM keys, database connection strings, and SSH details, then forwarded them in plaintext.</p>
+<p>The strict configuration had explicit instructions to verify sender identity before handling sensitive requests, yet it still failed.</p>
+<p>There is an obvious CISO response: why were those secrets in email at all? The agent did not create the credential-management failure. It automated the consequence of it.</p>
+<p>A second test used a softer pretext. The attacker asked for a customer export to support a quarterly business review (QBR) deck. The agent sent a synthetic export containing 247 customer records, including contact details, contract dates, customer tiers, and roughly $1.28 million in monthly recurring revenue data.</p>
+<p>No real customer data was exposed in the Varonis lab. But the workflow was realistic enough to make the point.</p>
+<p>This is of course a bigger issue than OpenClaw, Hermes or other AI agents.</p>
+<p>The wider issue is that organisations are giving agents inboxes, APIs, files, calendars, CRM data, and the ability to send messages from trusted accounts. That sounds more like a privileged identity with an inbox.</p>
+<p>A person can fall for phishing too. But people sometimes bring useful context to a strange request. They may know how a colleague normally writes. They may notice an unusual channel, unfamiliar timing, or a request that does not fit the sender’s role.</p>
+<p>An agent can reference past conversations and messages. That does not mean it can reliably determine whether a new request is genuinely coming from the person it claims to be from.</p>
+<p>We have already learned that phishing cannot be solved through awareness training alone. Mature security programs use email security, identity controls, conditional access, data-loss prevention, approval workflows, credential vaults, logging, and monitoring.</p>
+<p>Email-processing agents need the same discipline. Before an agent gets a mailbox, it needs a threat model:</p>
+<ul>
+<li>What can it read?</li>
+<li>What can it send?</li>
+<li>Which inbound channels and senders are untrusted by default?</li>
+<li>Which actions require independent identity verification?</li>
+<li>Which actions require human approval?</li>
+<li>Which connectors should be unavailable to an email-triggered workflow?</li>
+<li>Can the agent search for secrets, personal data, or commercial data?</li>
+<li>Can it send data externally, especially to a first-time recipient?</li>
+<li>Which enforced control prevents an action when a request conflicts with policy?</li>
+<li>Who owns the agent’s permissions, approval rules, and audit trail?</li>
+</ul>
+<p>The most important design decision is to separate low-risk automation from high-consequence action.</p>
+<p>An agent may be allowed to classify inbound mail, prepare a draft reply, summarise an attachment, or create a ticket. That does not mean it should be able to search internal repositories, retrieve credentials, export CRM data, or send sensitive information to an external address.</p>
+<p>Those actions need technical controls outside the prompt.</p>
+<p>Agent phishing also deserves its own category in security discussions. This is different from indirect prompt injection, where malicious instructions are embedded in documents, webpages, or attachments. Here, the attacker is exploiting social trust. They are sending a plausible business request and relying on the agent to act before it verifies who is asking.</p>
+<p>The defences overlap, but the key control is different. For prompt injection, the question is often, what content is the agent allowed to interpret as instruction? For agent phishing, the question is, what authority does the sender have, and how is that authority independently verified?</p>
+<p>The answer cannot live only in a prompt library. If an email asks for credentials, customer data, or access to internal systems, the agent should hit a control it cannot bypass like a DLP rule that blocks the transfer, an approval workflow that requires a human sign-off, a connector that cannot access secrets, or an outbound policy that prevents sensitive data from being sent to an untrusted recipient. Those protections belong in identity governance, connector design, secrets management, outbound-email controls, approval workflows, and audit logging.</p>
+<p>For agents, “pause before you act” has to be enforced by the system.</p>`,
+  },
+  {
     slug: "export-control-ai-models",
     title: "When Export Control Comes for AI Models",
     subtitle: "Anthropic's Claude Fable 5 and Mythos 5 were taken down by US government export-control directive three days after launch. The precedent matters for every frontier AI provider and every enterprise buyer.",

@@ -5,8 +5,16 @@
     <link>https://arnaudwiehe.com</link>
     <description>Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://arnaudwiehe.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>An OpenClaw Email Agent Failed a Phishing Test. The Lesson Is Bigger Than OpenClaw.</title>
+      <link>https://arnaudwiehe.com/articles/openclaw-email-agent-phishing-test/</link>
+      <guid isPermaLink="true">https://arnaudwiehe.com/articles/openclaw-email-agent-phishing-test/</guid>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Varonis showed how an OpenClaw email agent could spot some technical phishing traps, yet still forward credentials and synthetic customer data after plausible business requests. Email-processing agents need threat models and enforced controls outside the prompt.</description>
+      <category>AI Security</category>
+    </item>
     <item>
       <title>When Export Control Comes for AI Models</title>
       <link>https://arnaudwiehe.com/articles/export-control-ai-models/</link>
