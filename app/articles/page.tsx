@@ -49,7 +49,7 @@ export default function ArticlesPage() {
           <h1>Writing</h1>
           <p className="subtitle">
             Thoughts on AI governance, cybersecurity leadership, emerging technologies,
-            and what I'm learning along the way.
+            and what I’m learning along the way.
           </p>
         </header>
 

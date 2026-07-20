@@ -46,7 +46,7 @@ function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-export default async function handler(req, context) {
+export default async function handler(req) {
   // Only POST
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
@@ -61,7 +61,6 @@ export default async function handler(req, context) {
   // Rate limiting
   const clientId = getClientId(req);
   const rateLimit = checkRateLimit(clientId);
-  const rateLimitHeaders = {};
 
   if (!rateLimit.allowed) {
     return new Response(JSON.stringify({ error: 'Too many requests. Please try again later.' }), {

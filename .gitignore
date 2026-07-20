@@ -24,6 +24,11 @@ npm-debug.log*
 
 # Misc
 *.pem
+*.bak
+*.bak-precompress
+.devserver.pid
+.port
+.hermes/
 
 # TypeScript
 tsconfig.tsbuildinfo

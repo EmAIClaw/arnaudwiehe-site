@@ -24,6 +24,7 @@ export function ScrollReveal({
   useEffect(() => {
     const element = ref.current
     if (!element) return
+    let revealTimeout: ReturnType<typeof setTimeout> | undefined
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -38,11 +39,9 @@ export function ScrollReveal({
           if (entry.isIntersecting) {
             // Add delay if specified
             if (delay > 0) {
-              const timeoutId = setTimeout(() => {
+              revealTimeout = setTimeout(() => {
                 entry.target.classList.add('visible')
               }, delay * 1000)
-              // Store timeout on element for cleanup
-              ;(entry.target as any)._revealTimeout = timeoutId
             } else {
               entry.target.classList.add('visible')
             }
@@ -61,8 +60,8 @@ export function ScrollReveal({
 
     return () => {
       // Clear any pending timeouts
-      if ((element as any)._revealTimeout) {
-        clearTimeout((element as any)._revealTimeout)
+      if (revealTimeout) {
+        clearTimeout(revealTimeout)
       }
       observer.disconnect()
     }

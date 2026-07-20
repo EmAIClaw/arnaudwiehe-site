@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
-import YouTubeEmbed from '../components/YouTubeEmbed'
 
 import { getAllArticles } from './articles/data'
 

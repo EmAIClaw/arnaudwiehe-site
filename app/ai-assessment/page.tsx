@@ -210,7 +210,7 @@ export default function AIAssessmentPage() {
                     <input type="hidden" name="assessment-level" value={currentLevel.toString()} />
                     <input type="hidden" name="assessment-title" value={result.title} />
                     <p style={{ position: 'absolute', left: '-9999px', overflow: 'hidden', height: 0 }}>
-                      <label>Don't fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+                      <label>Don’t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
                     </p>
                     <input
                       type="email"
@@ -237,7 +237,7 @@ export default function AIAssessmentPage() {
         <div className="assessment-container">
           <header className="assessment-header">
             <h1>Board AI Readiness Assessment</h1>
-            <p>Discover your organization's AI governance maturity level</p>
+            <p>Discover your organization’s AI governance maturity level</p>
           </header>
 
           <div className="progress-bar">

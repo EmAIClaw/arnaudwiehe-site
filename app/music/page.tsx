@@ -67,7 +67,7 @@ export default function MusicPage() {
               technical skill and artistic vision to bring to life.
             </p>
             <p>
-              That same balance, precision, restraint, and performance under pressure also shapes Arnaud's work
+              That same balance, precision, restraint, and performance under pressure also shapes Arnaud’s work
               with boards and executives navigating AI, cybersecurity, and emerging technology risk.
             </p>
           </div>

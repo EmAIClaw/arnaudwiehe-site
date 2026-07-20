@@ -8,25 +8,27 @@
     "prebuild": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "build": "next build",
     "start": "next start",
-    "articles:generate": "node scripts/generate-articles-data.mjs"
+    "articles:generate": "node scripts/generate-articles-data.mjs",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/*.test.mjs",
+    "lint": "eslint . --max-warnings=0"
   },
   "dependencies": {
     "marked": "^18.0.4",
     "sanitize-html": "^2.17.4"
   },
   "devDependencies": {
-    "@netlify/blobs": "^10.7.4",
     "@types/node": "25.5.0",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@types/sanitize-html": "^2.16.1",
-    "autoprefixer": "^10.5.0",
-    "jsdom": "^29.1.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.10",
     "next": "^16.2.6",
-    "postcss": "^8.5.15",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "tailwindcss": "^4.3.0",
     "typescript": "5.9.3"
+  },
+  "overrides": {
+    "postcss": "8.5.19"
   }
 }

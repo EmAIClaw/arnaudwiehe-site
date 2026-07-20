@@ -81,6 +81,7 @@ export default function AboutPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

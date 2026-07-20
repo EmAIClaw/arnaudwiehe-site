@@ -43,6 +43,8 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
             aria-label={`Play ${title} video`}
             onClick={() => setIsLoaded(true)}
           >
+            {/* A native img preserves the external thumbnail fallback chain without Next image-host configuration. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={thumbnails[thumbnailIndex]}
               alt={title}
