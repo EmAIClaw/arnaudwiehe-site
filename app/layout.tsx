@@ -121,14 +121,6 @@ export default function RootLayout({
               url: siteUrl,
               description: 'Cybersecurity executive, author, and international speaker specializing in AI governance, emerging technologies, and digital risk.',
               inLanguage: 'en-US',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: {
-                  '@type': 'EntryPoint',
-                  urlTemplate: siteUrl + '/search?q={search_term_string}',
-                },
-                'query-input': 'required name=search_term_string',
-              },
             }),
           }}
         />

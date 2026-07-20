@@ -1,4 +1,3 @@
-import { execSync } from 'child_process'
 import fs from 'fs'
 
 const BASE_URL = 'https://arnaudwiehe.com'
@@ -9,10 +8,20 @@ function extractSlugs(filePath, pattern) {
   return [...content.matchAll(pattern)].map(m => m[1])
 }
 
-const articleSlugs = extractSlugs(
-  'app/articles/data.generated.ts',
-  /slug:\s*['"]([^'"]+)['"]/g
-)
+function extractArticles(filePath) {
+  const content = fs.readFileSync(filePath, 'utf-8')
+  const articles = [...content.matchAll(
+    /slug:\s*['"]([^'"]+)['"][\s\S]*?\n\s*date:\s*['"](\d{4}-\d{2}-\d{2})['"]/g
+  )].map(([, slug, date]) => ({ slug, date }))
+
+  if (articles.length === 0) {
+    throw new Error(`No article metadata found in ${filePath}`)
+  }
+
+  return articles
+}
+
+const articles = extractArticles('app/articles/data.generated.ts')
 
 const speakingSlugs = extractSlugs(
   'app/speaking/data.ts',
@@ -30,6 +39,7 @@ const staticPages = [
   { url: '/books/', priority: 0.8, changefreq: 'monthly' },
   { url: '/speaking/', priority: 0.8, changefreq: 'monthly' },
   { url: '/articles/', priority: 0.8, changefreq: 'weekly' },
+  { url: '/ai-assessment/', priority: 0.8, changefreq: 'monthly' },
   { url: '/contact/', priority: 0.7, changefreq: 'monthly' },
   { url: '/music/', priority: 0.5, changefreq: 'monthly' },
 ]
@@ -38,7 +48,6 @@ function fileLastModified(filePath) {
   return fs.statSync(filePath).mtime.toISOString().split('T')[0]
 }
 
-const articleLastmod = fileLastModified('app/articles/data.generated.ts')
 const speakingLastmod = fileLastModified('app/speaking/data.ts')
 const bookLastmod = fileLastModified('app/books/data.ts')
 
@@ -49,9 +58,9 @@ const urls = [
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`),
-  ...articleSlugs.map(slug => `  <url>
-    <loc>${BASE_URL}/articles/${slug}/</loc>
-    <lastmod>${articleLastmod}</lastmod>
+  ...articles.map(article => `  <url>
+    <loc>${BASE_URL}/articles/${article.slug}/</loc>
+    <lastmod>${article.date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`),

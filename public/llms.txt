@@ -27,7 +27,20 @@ GITEX Global Dubai, World Summit AI, Economist Metaverse Summit, ISACA Risk Even
 
 ## Articles
 
-Published at https://arnaudwiehe.com/articles/ — covering AI governance, agent security, vendor risk, vulnerability management, and board oversight.
+The complete article index is available at https://arnaudwiehe.com/articles/.
+
+Selected source material:
+
+- [An OpenClaw Email Agent Failed a Phishing Test](https://arnaudwiehe.com/articles/openclaw-email-agent-phishing-test/) — agent identity, phishing, data access, and controls outside the prompt.
+- [AI Agent Debt — The Governance Gap Nobody Is Measuring](https://arnaudwiehe.com/articles/ai-agent-debt/) — accumulated governance and operational risk from deployed agents.
+- [Before You Scale AI Agents, Give Them an Identity, a Privilege Boundary, and a Kill Switch](https://arnaudwiehe.com/articles/agent-governance-kill-switch/) — identity, least privilege, runtime boundaries, and termination controls.
+- [Your AI Vendor Questionnaire Doesn't Ask the Questions That Matter Anymore](https://arnaudwiehe.com/articles/ai-vendor-questionnaire-obsolete/) — modern AI third-party risk and assurance questions.
+- [Prompt Injection: Why Runtime Controls Beat Policy Checklists](https://arnaudwiehe.com/articles/prompt-injection-runtime-controls/) — prompt injection risk and enforced runtime controls.
+- [When Export Control Comes for AI Models](https://arnaudwiehe.com/articles/export-control-ai-models/) — geopolitical and supply-chain implications for AI providers and enterprise buyers.
+
+## Tools
+
+- [Board AI Readiness Assessment](https://arnaudwiehe.com/ai-assessment/) — interactive assessment of organizational AI-governance maturity.
 
 ## Credentials
 
