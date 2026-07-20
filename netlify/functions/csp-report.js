@@ -7,9 +7,26 @@
  */
 
 const MAX_REPORT_BODY_SIZE = 65536; // 64 KB
-const MAX_REPORTS_PER_CONTENT = 1;   // one csp-report per request
+const MAX_REPORTS_PER_REQUEST = 10;
 
-export default async function handler(req, context) {
+function safeText(value, maxLength = 500) {
+  return String(value || '')
+    .replace(/[\r\n\t\0]/g, ' ')
+    .substring(0, maxLength);
+}
+
+function logViolation(report) {
+  const body = report.body || report;
+  console.log('CSP Violation:', JSON.stringify({
+    'blocked-uri': safeText(body.blockedURL || body['blocked-uri']),
+    'violated-directive': safeText(body.effectiveDirective || body['violated-directive']),
+    'document-uri': safeText(body.documentURL || body['document-uri']),
+    'script-sample': safeText(body.sample || body['script-sample'], 100),
+    timestamp: new Date().toISOString(),
+  }));
+}
+
+export default async function handler(req) {
   // Only POST with JSON content-type
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
@@ -19,7 +36,13 @@ export default async function handler(req, context) {
   }
 
   const contentType = req.headers.get('content-type') || '';
-  if (!contentType.includes('application/json') && !contentType.includes('application/csp-report')) {
+  const supportedContentType = [
+    'application/json',
+    'application/csp-report',
+    'application/reports+json',
+  ].some((type) => contentType.includes(type));
+
+  if (!supportedContentType) {
     return new Response(null, { status: 415 });
   }
 
@@ -56,15 +79,13 @@ export default async function handler(req, context) {
     }
   }
 
-  if (report && report['csp-report']) {
-    const r = report['csp-report'];
-    console.log('CSP Violation:', JSON.stringify({
-      'blocked-uri': r['blocked-uri'],
-      'violated-directive': r['violated-directive'],
-      'document-uri': r['document-uri'],
-      'script-sample': (r['script-sample'] || '').substring(0, 100),
-      timestamp: new Date().toISOString(),
-    }));
+  if (Array.isArray(report)) {
+    report
+      .filter((item) => item?.type === 'csp-violation' && item.body)
+      .slice(0, MAX_REPORTS_PER_REQUEST)
+      .forEach(logViolation);
+  } else if (report && report['csp-report']) {
+    logViolation(report['csp-report']);
   }
 
   // Always return 204 — browsers don't need feedback
