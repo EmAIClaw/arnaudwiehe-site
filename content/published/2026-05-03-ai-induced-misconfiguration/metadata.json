@@ -1,0 +1,14 @@
+{
+  "slug": "ai-induced-misconfiguration",
+  "title": "AI Governance Is Becoming Operational",
+  "subtitle": "The near-term risk is not that AI will produce bad content. It is that organizations will deploy AI-enabled systems with unsafe permissions, weak defaults, and incomplete controls — then discover too late that the real exposure came from configuration, not cognition.",
+  "date": "2026-05-03",
+  "publishDate": "2026-05-03T00:00:00Z",
+  "category": "AI Security",
+  "tags": ["AI Security", "AI Governance", "Cloud Security", "IAM", "Vulnerability Management", "CISO", "DevSecOps"],
+  "readingTime": "6 min read",
+  "featured": false,
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of \"Emerging Tech, Emerging Threats\" and \"AI Governance Guide\".",
+  "status": "published"
+}

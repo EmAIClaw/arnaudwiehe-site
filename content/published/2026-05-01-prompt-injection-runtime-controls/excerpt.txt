@@ -1,0 +1,1 @@
+Google's field data shows a 32% increase in prompt injection attacks in a single quarter. Two research papers, published the same day, converge on the same architecture: runtime controls, not better prompts, are the correct defense. Here's why your AI governance committee can't stop prompt injection — and what can.

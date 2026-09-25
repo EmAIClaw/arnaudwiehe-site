@@ -6,6 +6,8 @@ export interface SpeakingEvent {
   name: string
   shortName: string
   date: string
+  // Month-only dates are retained for sorting, never asserted as an exact schema date.
+  datePrecision?: 'day'
   dateFormatted: string
   year: string
   location: string
@@ -138,6 +140,7 @@ export const speakingEvents: SpeakingEvent[] = [
     shortName: 'GITEX Global 2025',
     date: '2025-10-14',
     dateFormatted: 'October 14–18, 2025',
+    datePrecision: 'day',
     year: '2025',
     location: 'Dubai, UAE',
     topic: 'AI, Cybersecurity & Emerging Technologies',
@@ -192,6 +195,7 @@ export const speakingEvents: SpeakingEvent[] = [
     shortName: 'Dutch Cloud Conference',
     date: '2024-09-24',
     dateFormatted: 'September 24, 2024',
+    datePrecision: 'day',
     year: '2024',
     location: 'Postillion Convention Centre, Netherlands',
     topic: 'Cloud & AI Security',
@@ -209,6 +213,7 @@ export const speakingEvents: SpeakingEvent[] = [
     shortName: 'IT & SAM Belgium',
     date: '2024-11-19',
     dateFormatted: 'November 19, 2024',
+    datePrecision: 'day',
     year: '2024',
     location: 'Lamot Congrescentrum, Belgium',
     topic: 'IT Asset Management & Security',
@@ -282,6 +287,7 @@ export const speakingEvents: SpeakingEvent[] = [
     shortName: 'World Summit AI',
     date: '2023-10-11',
     dateFormatted: 'October 11–12, 2023',
+    datePrecision: 'day',
     year: '2023',
     location: 'Amsterdam, Netherlands',
     topic: 'Cybersecurity Considerations for AI Systems',

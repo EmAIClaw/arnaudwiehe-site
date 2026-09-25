@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import PrivacyNote from '../../components/PrivacyNote'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -90,6 +91,7 @@ export default function ContactForm() {
         />
       </div>
 
+      <PrivacyNote />
       <button
         className="contact-form-submit"
         type="submit"

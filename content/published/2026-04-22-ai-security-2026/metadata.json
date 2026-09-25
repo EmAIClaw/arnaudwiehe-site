@@ -1,0 +1,15 @@
+{
+  "slug": "ai-security-2026",
+  "title": "AI Security in 2026",
+  "subtitle": "The shift from model intelligence to connected autonomy, tool use, and containment",
+  "date": "2026-04-22",
+  "category": "AI Security",
+  "tags": ["AI Security", "Agentic AI", "AISI", "Containment", "Governance", "OWASP", "CISA", "NIST", "NCSC"],
+  "readingTime": "5 min read",
+  "featured": false,
+  "heroImage": "/images/articles/ai-security-2026.jpg",
+  "linkedinUrl": "",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'.",
+  "excerpt": "The real AI security story of 2026 is no longer just model intelligence. It is connected autonomy, tool use, and weak containment."
+}

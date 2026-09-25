@@ -1,0 +1,1 @@
+Anthropic's Claude Fable 5 and Mythos 5 were taken down by US government export-control directive three days after launch. This appears to be one of the first major cases where export control has been used against a deployed frontier AI product. The precedent matters for every CISO, AI company, regulator, and enterprise buyer.

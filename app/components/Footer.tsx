@@ -11,6 +11,7 @@ export default function Footer() {
           <Link href="/speaking/">Speaking</Link>
           <Link href="/music/">Music</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/privacy/">Privacy</Link>
         </nav>
         <div className="footer-social">
           <a href="https://www.linkedin.com/in/arnaudwiehe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>

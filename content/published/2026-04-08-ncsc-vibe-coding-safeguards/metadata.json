@@ -1,0 +1,12 @@
+{
+  "title": "NCSC on Vibe Coding Safeguards: The Real Risk Is Control, Not Code",
+  "slug": "ncsc-vibe-coding-safeguards",
+  "date": "2026-04-08",
+  "excerpt": "The NCSC's clear signal to security leaders: AI-generated \"vibe coding\" is inevitable. The question isn't whether to adopt it, but how to control it before it scales insecurity across your organization.",
+  "authors": ["Arnaud Wiehe"],
+  "tags": ["NCSC", "Vibe Coding", "AI Security", "Software Supply Chain", "Governance", "RSA 2026"],
+  "image": "/public/images/articles/ncsc-vibe-coding-safeguards.png",
+  "readingTime": 6,
+  "status": "published",
+  "canonicalUrl": "/articles/ncsc-vibe-coding-safeguards"
+}

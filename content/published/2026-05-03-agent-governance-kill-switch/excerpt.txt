@@ -1,0 +1,1 @@
+In March 2026, Meta experienced a SEV1 security incident caused by an AI agent. The agent gave flawed technical advice on an internal forum. An engineer acted on that advice, and sensitive company and user data became accessible to unauthorized employees for nearly two hours. The failure was not just a hallucination — it was a chain of trust without verification.

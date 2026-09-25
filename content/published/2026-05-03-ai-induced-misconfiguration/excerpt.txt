@@ -1,0 +1,1 @@
+Between March 31 and April 8, 2026, Palo Alto Networks Unit 42 published three separate research reports on AI agent security. Together they paint a clear picture: the near-term AI risk is not that models will produce bad content. It is that organizations will deploy AI-enabled systems with unsafe permissions, weak defaults, and incomplete controls.

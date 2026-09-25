@@ -1,0 +1,19 @@
+{
+  "slug": "export-control-ai-models",
+  "title": "When Export Control Comes for AI Models",
+  "subtitle": "Anthropic's Claude Fable 5 and Mythos 5 were taken down by US government export-control directive three days after launch. The precedent matters for every frontier AI provider and every enterprise buyer.",
+  "date": "2026-06-14",
+  "publishDate": "2026-06-14T00:00:00Z",
+  "category": "AI Governance",
+  "tags": ["AI Governance", "AI Security", "Export Control", "Frontier Models", "Anthropic", "National Security", "Cyber Capabilities", "CISO"],
+  "readingTime": "6 min read",
+  "heroImage": "/images/articles/export-control-ai-models.png",
+  "linkedinUrl": "https://www.linkedin.com/in/arnaudwiehe/",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "status": "published",
+  "seo": {
+    "readingTime": "6 minutes",
+    "featured": false
+  }
+}

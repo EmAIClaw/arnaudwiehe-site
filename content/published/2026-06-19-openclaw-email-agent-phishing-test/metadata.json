@@ -1,0 +1,28 @@
+{
+  "slug": "openclaw-email-agent-phishing-test",
+  "title": "An OpenClaw Email Agent Failed a Phishing Test. The Lesson Is Bigger Than OpenClaw.",
+  "subtitle": "Varonis showed how an email-processing AI agent can turn plausible business requests into credential and data exposure unless controls sit outside the prompt.",
+  "date": "2026-06-19",
+  "publishDate": "2026-06-19T00:00:00Z",
+  "category": "AI Security",
+  "tags": [
+    "AI Security",
+    "Agentic AI",
+    "Phishing",
+    "OpenClaw",
+    "Email Security",
+    "Identity Governance",
+    "DLP",
+    "CISO"
+  ],
+  "readingTime": "6 min read",
+  "heroImage": "/images/articles/openclaw-email-agent-phishing-test.webp",
+  "linkedinUrl": "https://www.linkedin.com/in/arnaudwiehe/",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "status": "published",
+  "seo": {
+    "readingTime": "6 minutes",
+    "featured": false
+  }
+}

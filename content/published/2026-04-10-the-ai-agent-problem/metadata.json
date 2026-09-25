@@ -1,0 +1,23 @@
+{
+  "slug": "the-ai-agent-problem",
+  "title": "The AI Agent Problem",
+  "date": "2026-04-10",
+  "dateFormatted": "April 10, 2026",
+  "category": "Article",
+  "tags": [
+    "AI Governance",
+    "AI Security",
+    "Agentic AI",
+    "Cybersecurity",
+    "Board Governance",
+    "EU AI Act",
+    "Risk Management"
+  ],
+  "readingTime": "4 min read",
+  "excerpt": "Enterprise leaders say they expect a major AI agent security incident within the next year, but most still lack the governance, visibility, and accountability needed to manage that risk.",
+  "linkedinUrl": "",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of “Emerging Tech, Emerging Threats” and “AI Governance Guide”.",
+  "featured": false,
+  "heroImage": "/images/articles/the-ai-agent-problem.png"
+}

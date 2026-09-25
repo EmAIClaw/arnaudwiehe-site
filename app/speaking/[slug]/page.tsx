@@ -80,7 +80,7 @@ export default async function SpeakingEventPage({ params }: Props) {
       '@type': 'Place',
       name: event.location,
     },
-    startDate: event.date,
+    startDate: event.datePrecision === 'day' ? event.date : undefined,
     eventAttendanceMode: event.location.toLowerCase().includes('online') || event.location.toLowerCase().includes('virtual')
       ? 'https://schema.org/OnlineEventAttendanceMode'
       : 'https://schema.org/OfflineEventAttendanceMode',
@@ -90,11 +90,7 @@ export default async function SpeakingEventPage({ params }: Props) {
       name: 'Arnaud Wiehe',
       url: siteUrl,
     },
-    organizer: {
-      '@type': 'Person',
-      name: 'Arnaud Wiehe',
-      url: siteUrl,
-    },
+    // Speaking does not imply organizing; omit until the organizer is verified.
     url: `${siteUrl}/speaking/${slug}/`,
   }
 

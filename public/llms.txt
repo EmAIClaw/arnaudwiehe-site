@@ -4,7 +4,7 @@
 
 ## Who
 
-Arnaud Wiehe is Managing Director of Information Security and AI Governance. He holds AIGP, CISSP, CCSP, CISM, CISA, and CIPP/E certifications. With over two decades of experience, he helps organizations translate complex technological change into clear, actionable business strategy.
+Arnaud Wiehe is Managing Director of Information Security and AI Governance. He holds AIGP, CISSP, CCSP, CISM, CISA, CIPP/E, and CFE certifications. With over two decades of experience, he helps organizations translate complex technological change into clear, actionable business strategy.
 
 ## Topics
 
@@ -18,6 +18,7 @@ Arnaud Wiehe is Managing Director of Information Security and AI Governance. He 
 
 ## Books
 
+- **AI Governance for Leaders**: Turning Risk into Competitive Advantage — https://arnaudwiehe.com/books/ai-governance-for-leaders/
 - **The Book on Cybersecurity**: How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World
 - **Emerging Tech, Emerging Threats**: A Cybersecurity Guide for Innovative Leaders
 
@@ -38,13 +39,10 @@ Selected source material:
 - [Prompt Injection: Why Runtime Controls Beat Policy Checklists](https://arnaudwiehe.com/articles/prompt-injection-runtime-controls/) — prompt injection risk and enforced runtime controls.
 - [When Export Control Comes for AI Models](https://arnaudwiehe.com/articles/export-control-ai-models/) — geopolitical and supply-chain implications for AI providers and enterprise buyers.
 
-## Tools
-
-- [Board AI Readiness Assessment](https://arnaudwiehe.com/ai-assessment/) — interactive assessment of organizational AI-governance maturity.
 
 ## Credentials
 
-AIGP · CISSP · CCSP · CISM · CISA · CIPP/E
+AIGP · CISSP · CCSP · CISM · CISA · CIPP/E · CFE
 
 ## Contact
 

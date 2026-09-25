@@ -1,0 +1,15 @@
+{
+  "title": "MCP Security: A New Attack Surface Emerges",
+  "subtitle": "The Model Context Protocol has become the newest front in AI security — and most organizations haven't even mapped it yet",
+  "slug": "mcp-security-new-attack-surface",
+  "date": "2026-04-27",
+  "category": "AI Security",
+  "tags": ["MCP", "AI security", "Agentic AI", "MCP Security", "OWASP", "Supply chain", "AI governance"],
+  "readingTime": "6 min read",
+  "featured": false,
+  "status": "published",
+  "priority": "high",
+  "linkedinUrl": "",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise."
+}

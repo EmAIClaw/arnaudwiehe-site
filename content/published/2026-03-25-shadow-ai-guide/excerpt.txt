@@ -1,0 +1,1 @@
+In 2023, Samsung employees inadvertently uploaded sensitive information to ChatGPT—becoming the most cited example of shadow AI. With 28% of employees now using unapproved AI tools at work, organizations need a Shadow AI Discovery and Response Programme. The EU AI Act now imposes fines up to €15 million for deploying high-risk AI without proper governance.

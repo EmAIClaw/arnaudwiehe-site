@@ -47,17 +47,13 @@ export default async function BookDetailPage({ params }: Props) {
     '@type': 'Book',
     name: book.title,
     description: book.description,
-    author: {
-      '@type': 'Person',
-      name: book.coauthor ? `Arnaud Wiehe, ${book.coauthor}` : 'Arnaud Wiehe',
-    },
+    author: book.authors.map(name => ({ '@type': 'Person', name })),
     datePublished: book.year,
     image: `${siteUrl}${book.cover}`,
     url: `${siteUrl}/books/${book.slug}`,
     sameAs: book.amazonUrl,
-    isbn: book.slug === 'the-book-on-cybersecurity' ? 'B0C2SCKX7J' : 'B0CXXL8W58',
-    numberOfPages: book.slug === 'the-book-on-cybersecurity' ? 228 : 242,
-    bookFormat: 'https://schema.org/Paperback',
+    ...(book.asin ? { identifier: { '@type': 'PropertyValue', propertyID: 'ASIN', value: book.asin } } : {}),
+    // Add ISBN, page count and format only after verifying a matching edition.
     inLanguage: 'en',
   }
 
@@ -109,20 +105,20 @@ export default async function BookDetailPage({ params }: Props) {
               <p className="book-coauthor">Co-authored with {book.coauthor}</p>
             )}
             <blockquote className="book-page-quote">{book.quote}</blockquote>
-            <p className="book-description">{book.description}</p>
+            {(book.detailDescription ?? book.description).split('\n\n').map((paragraph, i) => (
+              <p key={i} className="book-description">{paragraph}</p>
+            ))}
 
             <div className="book-detail-actions">
-              <a
+              {book.amazonUrl ? <a
                 href={book.amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="book-page-link"
               >
                 Buy on Amazon →
-              </a>
-              <Link href="/contact" className="btn-primary">
-                Get in Touch →
-              </Link>
+              </a> : <span className="book-purchase-pending">Amazon link coming soon</span>}
+
             </div>
           </div>
         </article>
@@ -167,8 +163,9 @@ export default async function BookDetailPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="book-section">
-            <h2 className="book-section-title">What Readers Are Saying</h2>
+          {book.testimonials.length > 0 && <div className="book-section">
+            <h2 className="book-section-title">Feedback on Arnaud’s Books and Speaking</h2>
+            <p className="book-description">These comments cover Arnaud’s writing and speaking work; they are not all reviews of this title.</p>
             <div className="book-testimonials">
               {book.testimonials.map((testimonial, i) => (
                 <div key={`testimonial-${i}`} className="book-testimonial-card">
@@ -180,7 +177,7 @@ export default async function BookDetailPage({ params }: Props) {
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
         </section>
       </main>
     </>

@@ -9,21 +9,26 @@
 const MAX_REPORT_BODY_SIZE = 65536; // 64 KB
 const MAX_REPORTS_PER_REQUEST = 10;
 
-function safeText(value, maxLength = 500) {
-  return String(value || '')
-    .replace(/[\r\n\t\0]/g, ' ')
-    .substring(0, maxLength);
+const directives = new Set(['script-src', 'script-src-elem', 'script-src-attr', 'style-src', 'style-src-elem', 'style-src-attr', 'img-src', 'font-src', 'connect-src', 'frame-src', 'frame-ancestors', 'form-action', 'object-src', 'base-uri', 'default-src', 'media-src', 'worker-src', 'manifest-src', 'upgrade-insecure-requests'])
+
+function sourceCategory(value) {
+  if (value === 'inline' || value === 'eval') return value
+  try {
+    const url = new URL(value)
+    if (!['http:', 'https:'].includes(url.protocol)) return 'other'
+    return url.hostname === 'arnaudwiehe.com' ? 'same-site' : 'external'
+  } catch { return 'unknown' }
 }
 
 function logViolation(report) {
-  const body = report.body || report;
+  const body = report.body || report
+  const directive = body.effectiveDirective || body['violated-directive']
+  // Only categories are retained: no URL paths, hosts, queries, fragments or code samples.
   console.log('CSP Violation:', JSON.stringify({
-    'blocked-uri': safeText(body.blockedURL || body['blocked-uri']),
-    'violated-directive': safeText(body.effectiveDirective || body['violated-directive']),
-    'document-uri': safeText(body.documentURL || body['document-uri']),
-    'script-sample': safeText(body.sample || body['script-sample'], 100),
+    source: sourceCategory(body.blockedURL || body['blocked-uri']),
+    directive: directives.has(directive) ? directive : 'other',
     timestamp: new Date().toISOString(),
-  }));
+  }))
 }
 
 export default async function handler(req) {

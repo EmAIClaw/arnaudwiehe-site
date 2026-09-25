@@ -1,0 +1,22 @@
+{
+  "title": "The OWASP Top 10 for Agentic Applications",
+  "subtitle": "Why security leaders need a new risk lens for autonomous AI systems",
+  "slug": "owasp-top-10-agentic-ai",
+  "publishDate": "2026-04-01T00:00:00Z",
+  "category": "ai-security",
+  "tags": ["agentic-ai", "owasp", "ai-security", "cybersecurity", "ai-governance"],
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of \u201cEmerging Tech, Emerging Threats\u201d and \u201cAI Governance Guide\u201d.",
+  "status": "published",
+  "workflow": {
+    "publishedToWebsiteLocal": true,
+    "publishedToLinkedIn": true,
+    "publishedAt": "2026-04-01T14:44:00+02:00",
+    "canonicalPackage": true
+  },
+  "seo": {
+    "featured": false,
+    "readingTime": "6 min read"
+  },
+  "linkedinUrl": ""
+}

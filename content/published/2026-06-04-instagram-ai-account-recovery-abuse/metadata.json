@@ -1,0 +1,19 @@
+{
+  "slug": "instagram-ai-account-recovery-abuse",
+  "title": "20,225 Instagram Users Potentially Impacted by AI-Assisted Account Recovery Abuse",
+  "subtitle": "Meta disclosed that 20,225 Instagram users were potentially impacted after attackers abused an AI-assisted account recovery workflow that failed to verify who was making the request.",
+  "date": "2026-06-04",
+  "publishDate": "2026-06-04T00:00:00Z",
+  "category": "AI Security",
+  "tags": ["AI Security", "AI Governance", "Account Recovery", "Identity Security", "MFA", "Instagram", "Meta", "Cybersecurity"],
+  "readingTime": "5 min read",
+  "heroImage": "/images/articles/instagram-ai-account-recovery-abuse.webp",
+  "linkedinUrl": "https://www.linkedin.com/in/arnaudwiehe/",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "status": "published",
+  "seo": {
+    "readingTime": "5 minutes",
+    "featured": false
+  }
+}

@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
+import './review.css'
 import { defaultOgImage, siteUrl } from './metadata'
 import Footer from './components/Footer'
 
@@ -102,9 +103,11 @@ export default function RootLayout({
                 { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CCSP' },
                 { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CISM' },
                 { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CISA' },
-                { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CIPP/E' }
+                { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CIPP/E' },
+                { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CFE' }
               ],
               author: [
+                { '@type': 'Book', name: 'AI Governance for Leaders', url: `${siteUrl}/books/ai-governance-for-leaders/` },
                 { '@type': 'Book', name: 'The Book on Cybersecurity', url: 'https://www.amazon.com/dp/B0C2SCKX7J' },
                 { '@type': 'Book', name: 'Emerging Tech, Emerging Threats', url: 'https://www.amazon.com/dp/B0CXXL8W58' }
               ]

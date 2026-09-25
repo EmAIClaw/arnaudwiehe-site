@@ -1,0 +1,1 @@
+Varonis showed how an OpenClaw email agent could spot some technical phishing traps, yet still forward credentials and synthetic customer data after plausible business requests. Email-processing agents need threat models and enforced controls outside the prompt.

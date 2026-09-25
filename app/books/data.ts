@@ -7,7 +7,10 @@ export interface Book {
   coverHeight: number
   quote: string
   description: string
-  amazonUrl: string
+  detailDescription?: string
+  amazonUrl?: string
+  asin?: string
+  authors: string[]
   year: string
   alt: string
   coauthor?: string
@@ -20,6 +23,70 @@ export interface Book {
 
 export const books: Book[] = [
   {
+    slug: 'ai-governance-for-leaders',
+    amazonUrl: 'https://www.amazon.com/AI-GOVERNANCE-LEADERS-COMPETITIVE-ADVANTAGE/dp/B0HKLDGF3R',
+    asin: 'B0HKLDGF3R',
+    title: 'AI Governance for Leaders',
+    subtitle: 'Turning Risk into Competitive Advantage',
+    cover: '/images/books/ai-governance-for-leaders-display.webp',
+    coverWidth: 700,
+    coverHeight: 875,
+    quote: 'A practical guide to governing AI with confidence and turning responsible leadership into competitive advantage.',
+    description: `AI is already making decisions across your organisation. Can your leadership see it, govern it, and answer for it? This book gives board members and executives a practical roadmap for building AI governance that earns trust and supports innovation.
+
+Written for leaders without requiring a technical background, it takes you from discovering hidden AI use to establishing accountability, assessing risk, preparing for incidents, and scaling responsible AI across the organisation.`,
+    detailDescription: `AI is already making decisions across your organisation. Can your leadership see it, govern it, and answer for it? This book gives board members and executives a practical roadmap for building AI governance that earns trust and supports innovation.
+
+Written for leaders without requiring a technical background, it takes you from discovering hidden AI use to establishing accountability, assessing risk, preparing for incidents, and scaling responsible AI across the organisation.
+
+Across nine chapters, Arnaud Wiehe connects the EU AI Act, ISO/IEC 42001, and the NIST AI Risk Management Framework to the decisions leaders face in practice. Each chapter closes with “Your move”: concrete actions to help you turn what you have learned into a working governance programme.`,
+    authors: ['Arnaud Wiehe'],
+    year: '2026',
+    alt: 'AI Governance for Leaders by Arnaud Wiehe — Turning Risk into Competitive Advantage',
+    toc: [
+      'Chapter 1: The Awakening: You Have an AI Problem (and You Don’t Know It Yet)',
+      'Chapter 2: The Refusal: Why Governance Gets Ignored',
+      'Chapter 3: The Mentor: Finding Your North Star',
+      'Chapter 4: Crossing the Threshold: Building the Foundation',
+      'Chapter 5: Tests, Allies, Enemies: Risk Assessment in Practice',
+      'Chapter 6: The Ordeal: When AI Goes Wrong',
+      'Chapter 7: The Reward: Operationalising Governance',
+      'Chapter 8: The Road Back: Scaling and Embedding',
+      'Chapter 9: The Return: Leading with Responsible AI',
+    ],
+    excerpts: [
+      {
+        title: 'The Governance Gap',
+        content: '“How many AI systems are we running?” “Who is accountable for each of them?” These questions from Chapter 1 expose the gap between AI adoption and leadership oversight. The chapter shows how to uncover hidden AI use and build an inventory that gives leaders a clear starting point for governance.',
+      },
+      {
+        title: 'From Frameworks to Decisions',
+        content: 'Chapter 3 explains how the EU AI Act, ISO/IEC 42001, and the NIST AI Risk Management Framework fit together. It helps leaders understand their different purposes and choose a practical approach suited to their organisation, building on the governance structures they already have.',
+      },
+      {
+        title: 'When AI Acts Alone',
+        content: '“As AI systems transition from tools that respond to queries to agents that pursue objectives, the burden on human governance intensifies.” Chapter 9 examines what changes when AI can plan, act, and make connected decisions with limited human review. It explores the boundaries, oversight, and accountability leaders need as these systems take on greater responsibility.',
+      },
+    ],
+    takeaways: [
+      'Effective AI governance starts with knowing which systems your organisation uses and who is accountable for them.',
+      'Governance creates business value by supporting reliable deployment, customer trust, and access to new opportunities.',
+      'The EU AI Act, ISO/IEC 42001, and the NIST AI Risk Management Framework provide complementary foundations for a governance programme.',
+      'Risk assessment must address bias, explainability, vendor dependencies, and the distinct challenges of generative and agentic AI.',
+      'Incident preparation, clear decision rights, and meaningful human oversight help organisations respond when AI goes wrong.',
+      'Lasting governance depends on measurement, AI literacy, and shared responsibility across the organisation.',
+    ],
+    audience: [
+      'Board members and corporate directors overseeing AI',
+      'Chief AI Officers and executives building governance programmes',
+      'Chief risk officers and compliance leaders',
+      'General counsel and data protection officers',
+      'CISOs and technology leaders',
+      'Business leaders responsible for adopting and deploying AI',
+    ],
+    testimonials: [],
+  },
+  {
     slug: 'emerging-tech-emerging-threats',
     title: 'Emerging Tech, Emerging Threats',
     subtitle: 'A Cybersecurity Guide for Innovative Leaders',
@@ -29,6 +96,8 @@ export const books: Book[] = [
     quote: '"A strategic guide to navigating the intersection of innovation and risk."',
     description: `AI, quantum computing, extended reality, and IoT are reshaping every industry — and every threat landscape. This book equips technology and business leaders with the strategic thinking needed to harness emerging technologies safely. It examines how each technology creates new attack surfaces, what leaders must understand to govern them responsibly, and how to move beyond fear-driven narratives toward a more nuanced view of innovation and risk.`,
     amazonUrl: 'https://www.amazon.com/dp/B0CXXL8W58',
+    asin: 'B0CXXL8W58',
+    authors: ['Arnaud Wiehe', 'Tiago Teles'],
     year: '2024',
     alt: 'Emerging Tech, Emerging Threats cover',
     coauthor: 'Tiago Teles (CISSP, MBA)',
@@ -102,6 +171,8 @@ export const books: Book[] = [
     quote: '"A must-read for leaders who want to move from cyber confusion to confident decision-making."',
     description: `Cybersecurity doesn't have to be intimidating. This book cuts through the jargon and gives corporate leaders and board members the practical knowledge they need to make confident decisions in a world of mounting digital risk. Written for the non-technical executive, it covers the fundamentals of cyber risk, governance frameworks, and the boardroom conversations that matter.`,
     amazonUrl: 'https://www.amazon.com/dp/B0C2SCKX7J',
+    asin: 'B0C2SCKX7J',
+    authors: ['Arnaud Wiehe'],
     year: '2023',
     alt: 'The Book on Cybersecurity cover',
     toc: [

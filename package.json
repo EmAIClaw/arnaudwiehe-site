@@ -7,6 +7,9 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-articles-data.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "build": "next build",
+    "postbuild": "node scripts/generate-security-headers.mjs",
+    "test:browser": "playwright test",
+    "verify": "npm run build && npm test && npm run lint && npm run test:browser",
     "start": "next start",
     "articles:generate": "node scripts/generate-articles-data.mjs",
     "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/*.test.mjs",
@@ -17,18 +20,21 @@
     "sanitize-html": "^2.17.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@types/node": "25.5.0",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@types/sanitize-html": "^2.16.1",
+    "axe-core": "^4.13.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.2.10",
     "next": "^16.2.6",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "sharp": "^0.35.4",
     "typescript": "5.9.3"
   },
   "overrides": {
-    "postcss": "8.5.19"
+    "postcss": "8.5.28"
   }
 }

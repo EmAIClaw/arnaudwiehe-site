@@ -1,0 +1,14 @@
+{
+  "slug": "agent-governance-kill-switch",
+  "title": "Before You Scale AI Agents, Give Them an Identity, a Privilege Boundary, and a Kill Switch",
+  "subtitle": "Agent governance is moving from policy decks to runtime controls. The organizations that implement this now will be the ones with a defensible position when incidents occur.",
+  "date": "2026-05-03",
+  "publishDate": "2026-05-03T00:00:00Z",
+  "category": "AI Governance",
+  "tags": ["AI Governance", "AI Security", "Agentic AI", "Cybersecurity", "Board Governance", "Risk Management", "OWASP"],
+  "readingTime": "7 min read",
+  "featured": false,
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of \"Emerging Tech, Emerging Threats\" and \"AI Governance Guide\".",
+  "status": "published"
+}

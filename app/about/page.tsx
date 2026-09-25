@@ -6,7 +6,7 @@ import { buildPageMetadata, siteUrl } from '../metadata'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'About | Arnaud Wiehe — AI Governance & Cybersecurity Executive',
-  description: 'Arnaud Wiehe is a cybersecurity executive, author of two books, and international speaker specializing in AI governance, emerging technologies, and digital risk. AIGP, CISSP, CCSP, CISM, CISA, CIPP/E certified.',
+  description: 'Arnaud Wiehe is a cybersecurity executive, author of three books, and international speaker specializing in AI governance, emerging technologies, and digital risk. AIGP, CISSP, CCSP, CISM, CISA, CIPP/E, CFE certified.',
   path: '/about',
 })
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
     name: 'Arnaud Wiehe',
     url: siteUrl,
     jobTitle: 'Managing Director of Information Security and AI Governance',
-    description: 'Cybersecurity executive, author, and international speaker specializing in AI governance, emerging technologies, and digital risk. AIGP, CISSP, CCSP, CISM, CISA, CIPP/E certified.',
+    description: 'Cybersecurity executive, author, and international speaker specializing in AI governance, emerging technologies, and digital risk. AIGP, CISSP, CCSP, CISM, CISA, CIPP/E, CFE certified.',
     sameAs: ['https://www.linkedin.com/in/arnaudwiehe'],
     knowsAbout: [
       'AI Governance',
@@ -72,8 +72,10 @@ export default function AboutPage() {
       { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CISM' },
       { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CISA' },
       { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CIPP/E' },
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Certification', name: 'CFE' },
     ],
     author: [
+      { '@type': 'Book', name: 'AI Governance for Leaders', url: `${siteUrl}/books/ai-governance-for-leaders/` },
       { '@type': 'Book', name: 'The Book on Cybersecurity', url: 'https://www.amazon.com/dp/B0C2SCKX7J' },
       { '@type': 'Book', name: 'Emerging Tech, Emerging Threats', url: 'https://www.amazon.com/dp/B0CXXL8W58' },
     ],
@@ -130,7 +132,7 @@ export default function AboutPage() {
                 With over two decades of experience spanning cybersecurity leadership, AI governance, risk management, and technology strategy, Arnaud helps organizations translate complex technological change into clear, actionable business strategy. His work focuses on how emerging technologies — AI, quantum computing, extended reality — are reshaping risk and opportunity for global enterprises.
               </p>
               <p>
-                Arnaud holds AIGP, CISSP, CCSP, CISM, CISA, and CIPP/E certifications. He is the author of two books: <em>The Book on Cybersecurity: How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World</em> and <em>Emerging Tech, Emerging Threats: A Cybersecurity Guide for Innovative Leaders.</em>
+                Arnaud holds AIGP, CISSP, CCSP, CISM, CISA, CIPP/E, and CFE certifications. He is the author of three books: <em>AI Governance for Leaders: Turning Risk into Competitive Advantage</em>, <em>Emerging Tech, Emerging Threats: A Cybersecurity Guide for Innovative Leaders</em>, and <em>The Book on Cybersecurity: How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World</em>.
               </p>
               <p>
                 His speaking engagements have taken him to stages across Europe, the Middle East, and North America — including GITEX Global Dubai, World Summit AI, the Economist Metaverse Summit, and ISACA Risk Events — where he addresses AI governance, cybersecurity strategy, and the leadership dimensions of technology risk.

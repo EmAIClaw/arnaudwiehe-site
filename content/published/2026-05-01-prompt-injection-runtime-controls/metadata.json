@@ -1,0 +1,18 @@
+{
+  "slug": "prompt-injection-runtime-controls",
+  "title": "Prompt Injection: Why Runtime Controls Beat Policy Checklists",
+  "subtitle": "Google's field data, two convergent research papers, and why your AI governance committee can't stop prompt injection",
+  "date": "2026-05-01",
+  "publishDate": "2026-05-02T00:00:00Z",
+  "category": "AI Security",
+  "tags": ["AI Security", "Prompt Injection", "Agentic AI", "Runtime Controls", "CISO", "AI Governance"],
+  "readingTime": "8 min read",
+  "featured": true,
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "source": "LinkedIn + Website",
+  "seo": {
+    "readingTime": "8 minutes",
+    "featured": true
+  }
+}

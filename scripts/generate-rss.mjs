@@ -5,8 +5,7 @@ const BASE_URL = 'https://arnaudwiehe.com'
 const SITE_TITLE = 'Arnaud Wiehe | AI & Emerging Tech Strategist'
 const SITE_DESC = 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.'
 
-const workspaceRoot = path.resolve(process.cwd(), '..', '..', '..')
-const publishedRoot = path.join(workspaceRoot, 'memory', 'content', 'published')
+const publishedRoot = path.join(process.cwd(), 'content', 'published')
 const rssPath = path.resolve('public/rss.xml')
 const atomPath = path.resolve('public/atom.xml')
 

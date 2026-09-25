@@ -6,25 +6,5 @@
 [build.environment]
   NODE_VERSION = "22"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), fullscreen=(self)"
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.youtube-nocookie.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; media-src 'self'; upgrade-insecure-requests; report-uri /api/csp-report; report-to csp-endpoint"
-    Reporting-Endpoints = "csp-endpoint=\"https://arnaudwiehe.com/api/csp-report\""
-    Cross-Origin-Opener-Policy = "same-origin"
-    Cross-Origin-Resource-Policy = "same-origin"
-
-[[redirects]]
-  from = "/articles/*"
-  to = "/articles/:splat.html"
-  status = 200
-
-[[redirects]]
-  from = "/speaking/*"
-  to = "/speaking/:splat.html"
-  status = 200
+# Headers: public/_headers plus generated per-page policies in out/_headers.
+# Next exports directory/index.html routes; no extension rewrite is necessary.

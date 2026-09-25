@@ -15,10 +15,10 @@ test('WebSite structured data does not advertise a nonexistent search endpoint',
   assert.doesNotMatch(layout, /search_term_string/)
 })
 
-test('sitemap generator includes the public AI assessment page', async () => {
+test('sitemap generator excludes the retired AI assessment page', async () => {
   const generator = await read('scripts/generate-sitemap.mjs')
 
-  assert.match(generator, /url:\s*['"]\/ai-assessment\/['"]/)
+  assert.doesNotMatch(generator, /url:\s*['"]\/ai-assessment\/['"]/)
 })
 
 test('article sitemap entries use article publication dates instead of a shared file timestamp', async () => {
@@ -36,11 +36,11 @@ test('package manifest excludes unused build dependencies', async () => {
     assert.equal(dependencies[packageName], undefined, `${packageName} should not be installed`)
   }
 
-  assert.equal(manifest.overrides?.postcss, '8.5.19')
+  assert.equal(manifest.overrides?.postcss, '8.5.28')
 })
 
 test('CSP config sends legacy and modern reports to the collector', async () => {
-  for (const configPath of ['netlify.toml', 'public/_headers']) {
+  for (const configPath of ['public/_headers']) {
     const config = await read(configPath)
 
     assert.match(config, /report-uri \/api\/csp-report/)
@@ -50,12 +50,12 @@ test('CSP config sends legacy and modern reports to the collector', async () => 
   }
 })
 
-test('llms.txt links directly to curated articles and the assessment', async () => {
+test('llms.txt links directly to curated articles without the retired assessment', async () => {
   const llms = await read('public/llms.txt')
   const directArticleLinks = llms.match(/https:\/\/arnaudwiehe\.com\/articles\/[^\s)]+\//g) || []
 
   assert.ok(new Set(directArticleLinks).size >= 5, 'expected at least five direct article links')
-  assert.match(llms, /https:\/\/arnaudwiehe\.com\/ai-assessment\//)
+  assert.doesNotMatch(llms, /https:\/\/arnaudwiehe\.com\/ai-assessment\//)
 })
 
 test('obsolete OpenAI plugin manifest is not published', async () => {

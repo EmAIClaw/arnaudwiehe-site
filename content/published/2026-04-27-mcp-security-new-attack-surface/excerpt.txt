@@ -1,0 +1,1 @@
+MCP is becoming a critical dependency layer for AI systems. The real question is no longer what the model can do — it is what it can reach.

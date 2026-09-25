@@ -1,0 +1,91 @@
+{
+  "slug": "openclaw-security-crisis-5-cves-2026",
+  "title": "5 CVEs in 7 Days: The OpenClaw Security Crisis Is Here",
+  "subtitle": "When China's Government Warns About AI Agent Security, the Industry Should Listen",
+  "author": "Arnaud",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building ClawBlade.ai - Security tools for OpenClaw.",
+ "publishDate": "2026-03-20T18:00:00Z",
+  "linkedinUrl": "",
+  "clawbladeUrl": "https://clawblade.ai/blog/openclaw-security-crisis",
+  "status": "published",
+  "category": "cybersecurity",
+  "contentType": "thought-leadership",
+  "tags": [
+    "openclaw",
+    "cve",
+    "security",
+    "ai-agents",
+    "cybersecurity",
+    "vulnerability",
+    "china-cybersecurity",
+    "emerging-tech"
+  ],
+  "seo": {
+    "keywords": [
+      "openclaw security",
+      "cve 2026",
+      "ai agent security",
+      "openclaw vulnerability",
+      "ai governance"
+    ],
+    "description": "Five critical CVEs discovered in OpenClaw this week. China's government issued a formal warning. Here's what you need to know about AI agent security in 2026.",
+    "featured": true,
+    "readingTime": "5 minutes",
+    "difficulty": "intermediate"
+  },
+  "performance": {
+    "linkedinViews": 0,
+    "linkedinLikes": 0,
+    "linkedinComments": 0,
+    "linkedinShares": 0,
+    "websiteViews": 0,
+    "websiteUniqueVisitors": 0,
+    "avgTimeOnPage": 0,
+    "bounceRate": 0,
+    "newsletterSignups": 0,
+    "lastUpdated": "2026-03-20T18:00:00Z"
+  },
+  "relatedContent": [
+    {
+      "slug": "2026-03-18-openclaw-security",
+      "title": "OpenClaw Security Best Practices",
+      "relation": "prequel"
+    },
+    {
+      "slug": "the-rise-of-openclaw",
+      "title": "The Rise of OpenClaw",
+      "relation": "context"
+    }
+  ],
+  "sources": [
+    {
+      "name": "RedPacket Security",
+      "url": "https://www.redpacketsecurity.com/cve-alert-cve-2026-31995/",
+      "description": "CVE-2026-31995 Command Injection"
+    },
+    {
+      "name": "China Ministry of Public Security",
+      "url": "",
+      "description": "Government warning about OpenClaw deployments"
+    }
+  ],
+  "bookReferences": [
+    {
+      "title": "Emerging Tech, Emerging Threats",
+      "chapter": "Security First Principles",
+      "quote": "Technology doesn't achieve mainstream adoption until it's secure enough for ordinary people to trust it."
+    }
+  ],
+  "cta": {
+    "primary": {
+      "text": "Check Your OpenClaw Security Score",
+      "url": "https://clawblade.ai/system-guardian",
+      "type": "tool"
+    },
+    "secondary": {
+      "text": "Get the AI Governance Book",
+      "url": "https://clawblade.ai/book",
+      "type": "product"
+    }
+  }
+}

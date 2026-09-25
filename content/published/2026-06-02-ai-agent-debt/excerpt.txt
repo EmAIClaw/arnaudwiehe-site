@@ -1,0 +1,1 @@
+AI agent debt is the accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify. Organisations are deploying agents faster than they can govern them, and the lifecycle conversation has barely started.

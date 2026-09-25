@@ -1,0 +1,16 @@
+{
+  "slug": "iso-42001-compliance-final",
+  "title": "ISO 42001 Compliance: A Practical Guide for AI Governance",
+  "subtitle": "What the standard requires, how it aligns with the EU AI Act and NIST AI RMF, and what boards should ask before certification.",
+  "status": "published",
+  "category": "ai-governance",
+  "tags": ["ISO 42001", "AI Management System", "AI Governance", "EU AI Act", "NIST AI RMF", "Compliance"],
+  "publishDate": "2026-04-04T09:00:00Z",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "linkedinUrl": "",
+  "seo": {
+    "readingTime": "6 minutes",
+    "featured": false
+  }
+}

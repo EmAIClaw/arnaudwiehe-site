@@ -39,7 +39,7 @@ const staticPages = [
   { url: '/books/', priority: 0.8, changefreq: 'monthly' },
   { url: '/speaking/', priority: 0.8, changefreq: 'monthly' },
   { url: '/articles/', priority: 0.8, changefreq: 'weekly' },
-  { url: '/ai-assessment/', priority: 0.8, changefreq: 'monthly' },
+
   { url: '/contact/', priority: 0.7, changefreq: 'monthly' },
   { url: '/music/', priority: 0.5, changefreq: 'monthly' },
 ]

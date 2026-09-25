@@ -1,0 +1,22 @@
+{
+  "slug": "rise-of-openclaw",
+  "title": "The Rise of OpenClaw: Why AI Agents Are Taking Over",
+  "author": "Arnaud",
+  "publishDate": "2026-03-16T17:00:00Z",
+  "linkedinUrl": "",
+  "clawbladeUrl": "https://clawblade.ai/blog/rise-of-openclaw",
+  "status": "published",
+  "category": "industry-trends",
+  "tags": ["openclaw", "ai-agents", "trends", "emerging-tech"],
+  "seo": {
+    "keywords": ["openclaw", "ai agents", "ai automation", "agent frameworks"],
+    "description": "OpenClaw is the fastest-growing AI agent framework. Here's why developers are flocking to it and what it means for the future of work.",
+    "featured": false
+  },
+  "performance": {
+    "linkedinViews": 0,
+    "linkedinLikes": 0,
+    "linkedinComments": 0,
+    "lastUpdated": "2026-03-16T17:00:00Z"
+  }
+}

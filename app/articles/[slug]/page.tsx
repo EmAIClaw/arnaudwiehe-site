@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 import { getArticleBySlug, getAdjacentArticles, getAllArticles } from '../data'
 import { notFound } from 'next/navigation'
 import { buildPageMetadata, siteUrl } from '../../metadata'
+import imageManifest from '../../../content/article-images.json'
 
 export const dynamic = 'force-static'
 
@@ -82,6 +83,7 @@ export default async function ArticlePage({ params }: Props) {
 
   const { prev, next } = getAdjacentArticles(slug)
   const imageDimensions = getArticleImageDimensions(article.slug)
+  const responsiveImage = (imageManifest as Record<string, { width: number; height: number; srcSet: string }>)[article.heroImage || '']
   const isBookCover = article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level'
 
   const breadcrumbSchema = {
@@ -125,7 +127,14 @@ export default async function ArticlePage({ params }: Props) {
 
           {article.heroImage && (
             <div className={`article-hero-image-wrap${isBookCover ? ' book-cover-hero' : ''}`}>
-              <Image
+              {responsiveImage ? (
+                // Static export has no image service: serve pre-generated, dimensioned variants.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={article.heroImage} srcSet={responsiveImage.srcSet}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  width={responsiveImage.width} height={responsiveImage.height}
+                  alt={article.title} className="article-hero-image" fetchPriority="high" decoding="async" />
+              ) : <Image
                 src={article.heroImage}
                 alt={article.title}
                 className="article-hero-image"
@@ -133,7 +142,7 @@ export default async function ArticlePage({ params }: Props) {
                 height={imageDimensions.height}
                 priority
                 sizes={isBookCover ? '(max-width: 768px) 200px, 200px' : '(max-width: 768px) 100vw, 800px'}
-              />
+              />}
             </div>
           )}
 
@@ -160,14 +169,14 @@ export default async function ArticlePage({ params }: Props) {
             </div>
             {article.linkedinUrl && (
               <div className="share-section">
-                <p>Share this article:</p>
+                <p>Connect with the discussion:</p>
                 <a
                   href={article.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="share-link"
                 >
-                  Share on LinkedIn →
+                  View on LinkedIn →
                 </a>
               </div>
             )}

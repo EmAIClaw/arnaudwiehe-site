@@ -1,0 +1,18 @@
+{
+  "slug": "future-crimes",
+  "title": "Future Crimes — The Next Crime Wave Will Target the Control Planes of Everyday Life",
+  "subtitle": "Cars, homes, hospitals, AI agents, and satellites — the attack surface has shifted from data to control",
+  "date": "2026-05-01",
+  "publishDate": "2026-05-02T00:00:00Z",
+  "category": "Cybersecurity",
+  "tags": ["Control Plane Security", "AI Risk", "Automotive Cybersecurity", "Healthcare Cyber", "Satellite Security", "Agentic AI", "Governance"],
+  "readingTime": "8 min read",
+  "featured": false,
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "source": "LinkedIn + Website",
+  "seo": {
+    "readingTime": "8 minutes",
+    "featured": false
+  }
+}

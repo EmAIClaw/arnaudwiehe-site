@@ -1,0 +1,22 @@
+{
+  "slug": "openclaw-security-best-practices",
+  "title": "OpenClaw Security Best Practices: A Practical Guide",
+  "author": "Arnaud",
+  "publishDate": "2026-03-18T18:00:00Z",
+  "linkedinUrl": "",
+  "clawbladeUrl": "https://clawblade.ai/blog/openclaw-security-best-practices",
+  "status": "published",
+  "category": "cybersecurity",
+  "tags": ["openclaw", "security", "best-practices", "ai-agents"],
+  "seo": {
+    "keywords": ["openclaw security", "ai agent best practices", "openclaw hardening"],
+    "description": "Practical security best practices for OpenClaw deployments. Protect your AI agents with these actionable tips.",
+    "featured": false
+  },
+  "performance": {
+    "linkedinViews": 0,
+    "linkedinLikes": 0,
+    "linkedinComments": 0,
+    "lastUpdated": "2026-03-18T18:00:00Z"
+  }
+}

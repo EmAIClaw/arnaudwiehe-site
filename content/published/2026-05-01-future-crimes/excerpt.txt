@@ -1,0 +1,1 @@
+The most dangerous cyber threat isn't a new zero-day. It's a target shift. For thirty years, cybersecurity was built around keeping bad actors out. The next wave of crime is about taking control of the systems we already trust — cars, homes, hospitals, satellites, and AI agents.

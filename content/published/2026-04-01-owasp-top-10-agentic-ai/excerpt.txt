@@ -1,0 +1,1 @@
+OWASP’s Top 10 for Agentic Applications is one of the clearest early frameworks for understanding how autonomous AI systems change the cybersecurity risk landscape. Here is why it matters for security leaders now.

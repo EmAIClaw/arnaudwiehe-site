@@ -1,0 +1,42 @@
+{
+  "/images/articles/future-crimes.webp": {
+    "width": 1280,
+    "height": 720,
+    "srcSet": "/images/articles/future-crimes-640.webp 640w, /images/articles/future-crimes-960.webp 960w, /images/articles/future-crimes.webp 1280w"
+  },
+  "/images/articles/prompt-injection-runtime-controls.webp": {
+    "width": 1280,
+    "height": 720,
+    "srcSet": "/images/articles/prompt-injection-runtime-controls-640.webp 640w, /images/articles/prompt-injection-runtime-controls-960.webp 960w, /images/articles/prompt-injection-runtime-controls.webp 1280w"
+  },
+  "/images/articles/ai-induced-misconfiguration.webp": {
+    "width": 1280,
+    "height": 720,
+    "srcSet": "/images/articles/ai-induced-misconfiguration-640.webp 640w, /images/articles/ai-induced-misconfiguration-960.webp 960w, /images/articles/ai-induced-misconfiguration.webp 1280w"
+  },
+  "/images/articles/ai-vendor-questionnaire-obsolete.webp": {
+    "width": 1280,
+    "height": 720,
+    "srcSet": "/images/articles/ai-vendor-questionnaire-obsolete-640.webp 640w, /images/articles/ai-vendor-questionnaire-obsolete-960.webp 960w, /images/articles/ai-vendor-questionnaire-obsolete.webp 1280w"
+  },
+  "/images/articles/ai-governance-is-about-visibility.webp": {
+    "width": 1280,
+    "height": 720,
+    "srcSet": "/images/articles/ai-governance-is-about-visibility-640.webp 640w, /images/articles/ai-governance-is-about-visibility-960.webp 960w, /images/articles/ai-governance-is-about-visibility.webp 1280w"
+  },
+  "/images/articles/agent-governance-kill-switch.webp": {
+    "width": 1280,
+    "height": 720,
+    "srcSet": "/images/articles/agent-governance-kill-switch-640.webp 640w, /images/articles/agent-governance-kill-switch-960.webp 960w, /images/articles/agent-governance-kill-switch.webp 1280w"
+  },
+  "/images/articles/export-control-ai-models.webp": {
+    "width": 1280,
+    "height": 960,
+    "srcSet": "/images/articles/export-control-ai-models-640.webp 640w, /images/articles/export-control-ai-models-960.webp 960w, /images/articles/export-control-ai-models.webp 1280w"
+  },
+  "/images/articles/ai-agent-debt.webp": {
+    "width": 1280,
+    "height": 853,
+    "srcSet": "/images/articles/ai-agent-debt-640.webp 640w, /images/articles/ai-agent-debt-960.webp 960w, /images/articles/ai-agent-debt.webp 1280w"
+  }
+}

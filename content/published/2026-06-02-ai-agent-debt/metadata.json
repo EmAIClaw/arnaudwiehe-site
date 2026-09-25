@@ -1,0 +1,19 @@
+{
+  "slug": "ai-agent-debt",
+  "title": "AI Agent Debt — The Governance Gap Nobody Is Measuring",
+  "subtitle": "The accumulation of abandoned, forgotten, or ungoverned AI agents that continue running with access nobody remembers granting and ownership nobody can identify.",
+  "date": "2026-06-02",
+  "publishDate": "2026-06-02T00:00:00Z",
+  "category": "AI Governance",
+  "tags": ["AI Governance", "AI Security", "Agentic AI", "Technical Debt", "Cybersecurity", "Risk Management", "CISO"],
+  "readingTime": "6 min read",
+  "heroImage": "/images/articles/ai-agent-debt.webp",
+  "linkedinUrl": "https://www.linkedin.com/in/arnaudwiehe/",
+  "author": "Arnaud Wiehe",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building AI governance frameworks for enterprise.",
+  "status": "published",
+  "seo": {
+    "readingTime": "3 minutes",
+    "featured": false
+  }
+}

@@ -1,0 +1,1 @@
+Meta disclosed that 20,225 Instagram users were potentially impacted after attackers abused an AI-assisted account recovery workflow that failed to verify who was making the request. The incident shows why AI agents connected to sensitive actions need hard identity checks, MFA, human approval, and audit trails.

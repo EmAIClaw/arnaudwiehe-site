@@ -1,0 +1,31 @@
+{
+  "slug": "year-of-autonomous-agents",
+  "title": "The Year of Autonomous Agents",
+  "subtitle": "Why 2026 feels like the inflection point for agent security and governance",
+  "author": "Arnaud",
+  "authorBio": "Author of 'Emerging Tech, Emerging Threats' and 'AI Governance Guide'. Building ClawBlade.ai - security tools for OpenClaw users.",
+  "publishDate": "2026-03-22T18:00:00Z",
+  "linkedinUrl": "",
+  "websiteUrl": "https://arnaudwiehe.com/articles/year-of-autonomous-agents",
+  "status": "published",
+  "category": "ai-governance",
+  "contentType": "thought-leadership",
+  "tags": ["autonomous-agents", "openclaw", "ai-governance", "agent-security", "emerging-tech"],
+  "seo": {
+    "keywords": ["autonomous agents", "agent security", "ai governance", "openclaw", "agentic ai"],
+    "description": "Autonomous agents change the security model fundamentally. Why 2026 feels like an inflection point for AI governance, accountability, and agent security.",
+    "featured": false,
+    "readingTime": "4 minutes"
+  },
+  "assets": {
+    "websiteHero": "images/website-hero.png"
+  },
+  "performance": {
+    "linkedinViews": 0,
+    "linkedinLikes": 0,
+    "linkedinComments": 0,
+    "linkedinShares": 0,
+    "websiteViews": 0,
+    "lastUpdated": "2026-03-22T18:00:00Z"
+  }
+}

@@ -1,0 +1,1 @@
+The good news is that effective AI governance does not require inventing entirely new frameworks. Organizations that have built robust cybersecurity governance already have the foundation. The challenge is extending those structures to address AI's unique risks.

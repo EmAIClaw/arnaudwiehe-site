@@ -1,0 +1,94 @@
+/* Accessible supporting UI shared by forms and editorial pages. */
+.form-privacy-note {
+  flex-basis: 100%;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+.form-privacy-note a,
+.review-notice a,
+.article-body a {
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.email-capture .form-privacy-note {
+  color: var(--cream);
+  font-size: 0.875rem;
+}
+.review-notice {
+  padding: 1.25rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-sm);
+  margin: 1.5rem 0 2rem;
+  background: var(--cream-dark);
+  color: var(--text-dark);
+}
+.review-notice p:last-child { margin-bottom: 0; }
+.btn-primary:hover,
+.contact-form-submit:hover,
+.book-page-link:hover,
+.btn-yes:hover {
+  background: var(--gold-light);
+  color: var(--text-dark);
+}
+.view-all-link:hover,
+.article-list-item:hover .article-list-cta,
+.read-more:hover {
+  color: var(--orange-dark);
+  text-decoration: underline;
+}
+.expertise-section .view-all-link,
+.expertise-section .view-all-link:hover {
+  color: var(--gold-light);
+}
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+.mobile-nav-dialog {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  width: min(85vw, 360px);
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 1.5rem;
+  border: 0;
+  background: var(--brown);
+  color: var(--cream);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.mobile-nav-dialog::backdrop { background: rgba(42, 36, 32, 0.65); }
+.mobile-nav-dialog .mobile-nav-close { color: var(--cream); }
+.mobile-nav-dialog .mobile-nav-panel-links { gap: 0.5rem; }
+.mobile-nav-dialog .mobile-nav-panel-header { margin-bottom: 1rem; }
+.mobile-nav-dialog:not([open]) { display: none; }
+.nojs-navigation { display: none; }
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .nav-hamburger { display: flex; min-height: 44px; min-width: 44px; padding: 10px 8px; justify-content: center; }
+  .nojs-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    position: relative;
+    margin-top: 88px;
+    padding: 1rem;
+    background: var(--brown);
+    color: var(--cream);
+  }
+  .nojs-navigation a { padding: 0.5rem; text-decoration: underline; }
+}
+@media print { .mobile-nav-dialog, .nojs-navigation { display: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

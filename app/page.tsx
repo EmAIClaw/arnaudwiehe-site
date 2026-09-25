@@ -40,6 +40,22 @@ const speakingPhotos = {
 
 const featuredEngagements = [
   {
+    year: '2026',
+    name: 'GITEX Europe 2026',
+    location: 'Berlin, Germany',
+    topic: 'AI, Cybersecurity & Emerging Technologies',
+    slug: 'gitex-europe-berlin-2026',
+    hasVideo: false,
+  },
+  {
+    year: '2026',
+    name: 'Next IT Security – Benelux',
+    location: 'Amsterdam, Netherlands',
+    topic: 'AI & Cybersecurity',
+    slug: 'next-it-security-benelux-2026',
+    hasVideo: false,
+  },
+  {
     year: '2025',
     name: 'Re:invent Security Podcast',
     location: 'Global',
@@ -61,30 +77,6 @@ const featuredEngagements = [
     location: 'Stockholm, Sweden',
     topic: 'Leadership, Talent & Strategy',
     slug: 'next-it-security-c-suite-stockholm-2024',
-    hasVideo: false,
-  },
-  {
-    year: '2023',
-    name: 'ISACA Risk Event',
-    location: 'Netherlands',
-    topic: 'Cybersecurity considerations for AI systems',
-    slug: 'isaca-risk-event-2023',
-    hasVideo: true,
-  },
-  {
-    year: '2023',
-    name: 'World Summit AI',
-    location: 'Amsterdam',
-    topic: 'AI security and governance',
-    slug: 'world-summit-ai-2023',
-    hasVideo: false,
-  },
-  {
-    year: '2023',
-    name: 'Economist Metaverse Summit',
-    location: 'Virtual',
-    topic: 'Securing the metaverse',
-    slug: 'economist-impact-metaverse-summit-2023',
     hasVideo: false,
   },
 ]
@@ -129,10 +121,10 @@ export default function Home() {
               Helping leaders navigate AI governance, cybersecurity risk, and the strategic opportunities of emerging technology.
             </p>
             <h2 className="hero-credentials-heading">
-              Author of 2 books · International speaker
+              Author of 3 books · International speaker
             </h2>
             <p className="hero-credentials-sub">
-              CISSP, CCSP, CISM, CISA, CIPP/E, AIGP
+              CISSP, CCSP, CISM, CISA, CIPP/E, AIGP, CFE
             </p>
             <div className="hero-actions">
               <Link href="/contact" className="btn-primary">Get in Touch →</Link>
@@ -167,6 +159,18 @@ export default function Home() {
               <h2 className="expertise-title">Books</h2>
             </div>
             <div className="books-showcase">
+              <Link href="/books/ai-governance-for-leaders" className="book-showcase-item book-showcase-launch">
+                <div className="book-cover-wrap">
+                  <Image src="/images/books/ai-governance-for-leaders-thumb.webp" alt="AI Governance for Leaders" className="book-cover" width={400} height={500} loading="lazy" sizes="200px" />
+                </div>
+                <div className="book-showcase-details">
+                  <p className="book-showcase-eyebrow">Latest book · 2026</p>
+                  <h3 className="book-showcase-title">AI Governance for Leaders</h3>
+                  <p className="book-showcase-subtitle">Turning Risk into Competitive Advantage</p>
+                  <p className="book-showcase-summary">A practical guide to governing AI with confidence and turning responsible leadership into competitive advantage.</p>
+                  <span className="book-showcase-link">Explore the book →</span>
+                </div>
+              </Link>
               <Link href="/books/the-book-on-cybersecurity" className="book-showcase-item">
                 <div className="book-cover-wrap">
                   <Image src="/images/books/cybersecurity-cover-thumb.webp" alt="The Book on Cybersecurity" className="book-cover" width={600} height={900} loading="lazy" sizes="(max-width: 768px) 200px, 200px" />
