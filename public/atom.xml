@@ -4,7 +4,7 @@
   <link href="https://arnaudwiehe.com" rel="alternate" type="text/html"/>
   <link href="https://arnaudwiehe.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://arnaudwiehe.com/</id>
-  <updated>2026-09-25T00:00:00.000Z</updated>
+  <updated>2026-10-06T00:00:00.000Z</updated>
   <subtitle>Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.</subtitle>
     <entry>
       <title>An OpenClaw Email Agent Failed a Phishing Test. The Lesson Is Bigger Than OpenClaw.</title>
@@ -131,15 +131,6 @@
       <updated>2026-04-16T00:00:00.000Z</updated>
       <summary type="html">Many future AI incidents may not start with attackers breaking in. They may start with trusted features doing exactly what they were allowed to do, inside workflows that were never governed tightly enough.</summary>
       <category term="AI Governance"/>
-    </entry>
-    <entry>
-      <title>Board oversight of AI is getting real, but most companies still have no operating model beneath the slide deck</title>
-      <link href="https://arnaudwiehe.com/articles/board-oversight-operating-model/" rel="alternate" type="text/html"/>
-      <id>https://arnaudwiehe.com/articles/board-oversight-operating-model/</id>
-      <published>2026-04-12T00:00:00.000Z</published>
-      <updated>2026-04-12T00:00:00.000Z</updated>
-      <summary type="html">AI has clearly entered the boardroom. Directors are asking harder questions. Regulators are raising obligations. Audit and risk committees increasingly want to know where AI is used, who is accountable, and what could go wrong. That is progress. But in many organizations, the visible maturity is still misleading. The board deck looks polished. The principles sound sensible. The policy exists. The steering committee has been announced. And underneath that, the operating model is still missing.</summary>
-      <category term="Article"/>
     </entry>
     <entry>
       <title>The AI Agent Problem</title>
