@@ -34,8 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = getSpeakingEventBySlug(slug)
   if (!event) return { title: 'Speaking Event Not Found | Arnaud Wiehe' }
 
+  const reviewedTitles: Record<string, string> = {
+    'next-it-security-benelux-2024': 'Next IT Security – Benelux 2024',
+    'next-it-security-benelux-2026': 'Next IT Security – Benelux 2026',
+  }
+
   return buildPageMetadata({
-    title: `${event.name} | Arnaud Wiehe`,
+    title: `${reviewedTitles[slug] ?? event.name} | Arnaud Wiehe`,
     description: event.topic || `Arnaud Wiehe speaking at ${event.name} in ${event.location}.`,
     path: `/speaking/${slug}`,
     type: 'article',

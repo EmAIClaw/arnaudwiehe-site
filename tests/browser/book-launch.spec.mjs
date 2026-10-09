@@ -9,7 +9,11 @@ test('launch book listing and detail use the supplied Amazon URL', async ({ page
   await expect(page).toHaveURL(/books\/ai-governance-for-leaders\//)
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('AI Governance for Leaders')
   await expect(page.getByText('Amazon link coming soon')).toHaveCount(0)
-  await expect(page.getByRole('link', { name: 'Buy on Amazon' })).toHaveAttribute('href', 'https://www.amazon.com/AI-GOVERNANCE-LEADERS-COMPETITIVE-ADVANTAGE/dp/B0HKLDGF3R')
+  const purchaseLinks = page.getByRole('link', { name: 'Buy on Amazon' })
+  await expect(purchaseLinks).toHaveCount(2)
+  for (const link of await purchaseLinks.all()) {
+    await expect(link).toHaveAttribute('href', 'https://www.amazon.com/AI-GOVERNANCE-LEADERS-COMPETITIVE-ADVANTAGE/dp/B0HKLDGF3R')
+  }
   await expect(page.getByRole('heading', { name: 'What Readers Are Saying' })).toHaveCount(0)
   await expect(page.locator('.book-toc-item')).toHaveCount(9)
   await expect(page.locator('.book-excerpt-card')).toHaveCount(3)

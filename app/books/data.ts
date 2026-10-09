@@ -7,6 +7,7 @@ export interface Book {
   coverHeight: number
   quote: string
   description: string
+  metaDescription: string
   detailDescription?: string
   amazonUrl?: string
   asin?: string
@@ -24,6 +25,7 @@ export interface Book {
 export const books: Book[] = [
   {
     slug: 'ai-governance-for-leaders',
+    metaDescription: 'A practical guide for boards and executives to govern AI, clarify accountability, and manage risk. By Arnaud Wiehe.',
     amazonUrl: 'https://www.amazon.com/AI-GOVERNANCE-LEADERS-COMPETITIVE-ADVANTAGE/dp/B0HKLDGF3R',
     asin: 'B0HKLDGF3R',
     title: 'AI Governance for Leaders',
@@ -88,6 +90,7 @@ Across nine chapters, Arnaud Wiehe connects the EU AI Act, ISO/IEC 42001, and th
   },
   {
     slug: 'emerging-tech-emerging-threats',
+    metaDescription: 'Explore the cybersecurity risks of emerging technologies and their implications for leaders. By Arnaud Wiehe and Tiago Teles.',
     title: 'Emerging Tech, Emerging Threats',
     subtitle: 'A Cybersecurity Guide for Innovative Leaders',
     cover: '/images/books/emerging-tech-cover.webp',
@@ -163,6 +166,7 @@ Across nine chapters, Arnaud Wiehe connects the EU AI Act, ISO/IEC 42001, and th
   },
   {
     slug: 'the-book-on-cybersecurity',
+    metaDescription: 'Understand cybersecurity fundamentals and their practical implications for protecting organizations. By Arnaud Wiehe.',
     title: 'The Book on Cybersecurity',
     subtitle: 'How Nontechnical Corporate Leaders and Boards Can Manage in a Scary Digital World',
     cover: '/images/books/cybersecurity-cover.webp',

@@ -1,6 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/Nav'
+import { buildPageMetadata, siteUrl } from './metadata'
+import { books } from './books/data'
+import { bookSchema } from './books/schema'
+
+export const metadata = buildPageMetadata({
+  title: 'Arnaud Wiehe | AI & Emerging Tech Strategist',
+  description: 'Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.',
+  image: `${siteUrl}/images/sharing/homepage.png`,
+})
 
 import { getAllArticles } from './articles/data'
 
@@ -94,6 +103,10 @@ export default function Home() {
 
   return (
     <main id="main-content" className="min-h-screen bg-cream">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': books.map(bookSchema) }) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

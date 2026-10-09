@@ -1002,7 +1002,7 @@ Do you have SOC 2? Penetration test reports?
     linkedinUrl: "",
     author: "Arnaud Wiehe",
     authorBio: "Arnaud Wiehe is the author of “AI Governance for Leaders”, “Emerging Tech, Emerging Threats”, and “The Book on Cybersecurity”.",
-    excerpt: "On April 14, 2026, Cloudflare published a framing of agents as non-human identity problems — exactly the right way to think about them. The industry is converging on a runtime-first defense model. Your vendor questionnaire should be updated to reflect this.",
+    excerpt: "AI is compressing the time between vulnerability discovery and exploitation. Security leaders need faster exposure detection, decisions, remediation, and containment.",
     content: `<h2>Why AI Is Changing the Security Operating Model Forever</h2>
 <p>For years, vulnerability management ran on a standard process. A flaw is discovered. Someone validates it. Someone assesses exposure. Engineering schedules a fix. Change management approves it. Deployment happens when business conditions allow.</p>
 <p>That model was never perfect, but it worked because there was usually some distance between vulnerability discovery and exploitation. That distance is now closing fast.</p>

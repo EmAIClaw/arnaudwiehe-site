@@ -32,7 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: article.excerpt || article.title,
     path: `/articles/${slug}`,
     type: 'article',
-    image: article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
+    image: slug === 'export-control-ai-models'
+      ? `${siteUrl}/images/sharing/export-control-ai-models.png`
+      : article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
   })
 }
 
@@ -49,6 +51,8 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) {
     notFound()
   }
+
+  const isLinkedInProfile = /^https:\/\/(?:www\.)?linkedin\.com\/in\/[^/?#]+\/?(?:[?#].*)?$/i.test(article.linkedinUrl || '')
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -169,14 +173,14 @@ export default async function ArticlePage({ params }: Props) {
             </div>
             {article.linkedinUrl && (
               <div className="share-section">
-                <p>Connect with the discussion:</p>
+                <p>{isLinkedInProfile ? 'For more perspectives on AI governance and cybersecurity.' : 'Connect with the discussion:'}</p>
                 <a
                   href={article.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="share-link"
                 >
-                  View on LinkedIn →
+                  {isLinkedInProfile ? 'Follow Arnaud on LinkedIn' : 'View on LinkedIn'} →
                 </a>
               </div>
             )}

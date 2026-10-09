@@ -5,7 +5,7 @@
     <link>https://arnaudwiehe.com</link>
     <description>Cybersecurity executive, author, and international speaker specializing in AI, emerging technologies, and digital risk.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://arnaudwiehe.com/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>An OpenClaw Email Agent Failed a Phishing Test. The Lesson Is Bigger Than OpenClaw.</title>
@@ -68,7 +68,7 @@
       <link>https://arnaudwiehe.com/articles/vulnerability-timeline-compression-hero/</link>
       <guid isPermaLink="true">https://arnaudwiehe.com/articles/vulnerability-timeline-compression-hero/</guid>
       <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
-      <description>On April 14, 2026, Cloudflare published a framing of agents as non-human identity problems — exactly the right way to think about them. The industry is converging on a runtime-first defense model. Your vendor questionnaire should be updated to reflect this.</description>
+      <description>AI is compressing the time between vulnerability discovery and exploitation. Security leaders need faster exposure detection, decisions, remediation, and containment.</description>
       <category>AI Security</category>
     </item>
     <item>

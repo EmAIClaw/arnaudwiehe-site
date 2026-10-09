@@ -5,6 +5,7 @@ import Nav from '../../../components/Nav'
 import { Metadata } from 'next'
 import { buildPageMetadata, siteUrl } from '../../metadata'
 import { books, getBookBySlug } from '../data'
+import { bookSchema as buildBookSchema } from '../schema'
 
 export const dynamic = 'force-static'
 
@@ -30,10 +31,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildPageMetadata({
     title: `${book.title} | Arnaud Wiehe`,
-    description: book.description,
+    description: book.metaDescription,
     path: `/books/${book.slug}`,
-    image: `${siteUrl}${book.cover}`,
+    image: book.slug === 'ai-governance-for-leaders'
+      ? `${siteUrl}/images/sharing/ai-governance-for-leaders.png`
+      : `${siteUrl}${book.cover}`,
   })
+}
+
+function PurchaseAction({ url }: { url?: string }) {
+  return (
+    <div className="book-detail-actions">
+      {url ? <a href={url} target="_blank" rel="noopener noreferrer" className="book-page-link">
+        Buy on Amazon →
+      </a> : <span className="book-purchase-pending">Amazon link coming soon</span>}
+    </div>
+  )
 }
 
 export default async function BookDetailPage({ params }: Props) {
@@ -42,20 +55,7 @@ export default async function BookDetailPage({ params }: Props) {
 
   if (!book) notFound()
 
-  const bookSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Book',
-    name: book.title,
-    description: book.description,
-    author: book.authors.map(name => ({ '@type': 'Person', name })),
-    datePublished: book.year,
-    image: `${siteUrl}${book.cover}`,
-    url: `${siteUrl}/books/${book.slug}`,
-    sameAs: book.amazonUrl,
-    ...(book.asin ? { identifier: { '@type': 'PropertyValue', propertyID: 'ASIN', value: book.asin } } : {}),
-    // Add ISBN, page count and format only after verifying a matching edition.
-    inLanguage: 'en',
-  }
+  const bookSchema = buildBookSchema(book)
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -101,6 +101,7 @@ export default async function BookDetailPage({ params }: Props) {
             <p className="book-year">{book.year}</p>
             <h1>{book.title}</h1>
             <p className="book-page-subtitle">{book.subtitle}</p>
+            {book.slug === 'ai-governance-for-leaders' && <PurchaseAction url={book.amazonUrl} />}
             {book.coauthor && (
               <p className="book-coauthor">Co-authored with {book.coauthor}</p>
             )}
@@ -109,17 +110,7 @@ export default async function BookDetailPage({ params }: Props) {
               <p key={i} className="book-description">{paragraph}</p>
             ))}
 
-            <div className="book-detail-actions">
-              {book.amazonUrl ? <a
-                href={book.amazonUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="book-page-link"
-              >
-                Buy on Amazon →
-              </a> : <span className="book-purchase-pending">Amazon link coming soon</span>}
-
-            </div>
+            {book.slug !== 'ai-governance-for-leaders' && <PurchaseAction url={book.amazonUrl} />}
           </div>
         </article>
 
@@ -178,6 +169,7 @@ export default async function BookDetailPage({ params }: Props) {
               ))}
             </div>
           </div>}
+          {book.slug === 'ai-governance-for-leaders' && <PurchaseAction url={book.amazonUrl} />}
         </section>
       </main>
     </>
