@@ -131,17 +131,18 @@ export default function Home() {
             <p className="hero-eyebrow">AI & Emerging Tech Strategist</p>
             <h1 className="hero-name">Arnaud Wiehe</h1>
             <p className="hero-tagline">
-              Helping leaders navigate AI governance, cybersecurity risk, and the strategic opportunities of emerging technology.
+              Helping boards and executives navigate AI governance, cybersecurity, and emerging technology risk.
             </p>
+            <div className="hero-actions">
+              <Link href="/books/ai-governance-for-leaders" className="btn-primary">Explore the latest book</Link>
+              <Link href="/contact" className="btn-ghost">Enquire about speaking</Link>
+            </div>
             <h2 className="hero-credentials-heading">
               Author of 3 books · International speaker
             </h2>
             <p className="hero-credentials-sub">
               CISSP, CCSP, CISM, CISA, CIPP/E, AIGP, CFE
             </p>
-            <div className="hero-actions">
-              <Link href="/contact" className="btn-primary">Get in Touch →</Link>
-            </div>
           </div>
         </div>
       </section>

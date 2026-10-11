@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '../../components/Nav'
+import ArticleSearch from '../../components/ArticleSearch'
 import { getAllArticles } from './data'
 import { buildPageMetadata } from '../metadata'
 
@@ -53,7 +54,7 @@ export default function ArticlesPage() {
           </p>
         </header>
 
-        <div className="articles-list">
+        <ArticleSearch items={allArticles.map(({ slug, title, excerpt }) => ({ slug, title, excerpt }))}>
           {allArticles.map((article) => {
             const imageDimensions = getArticleImageDimensions(article.slug)
 
@@ -93,7 +94,7 @@ export default function ArticlesPage() {
               </article>
             )
           })}
-        </div>
+        </ArticleSearch>
 
         <div className="newsletter-cta">
           <h3>Stay current</h3>

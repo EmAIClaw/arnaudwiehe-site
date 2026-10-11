@@ -37,8 +37,9 @@ export default function PrivacyPage() {
             within six months of the last interaction, unless needed for an ongoing relationship or a
             legal obligation. Provider-managed logs and backups follow the providers’ own retention practices.</p>
           <h2>Videos and external links</h2>
-          <p>YouTube preview images share connection information with YouTube when they load; the video
-            player loads only when you choose to play it. Amazon, LinkedIn and other external sites have
+          <p>Video preview images are served by this website, without connecting to YouTube. Choosing
+            Play loads the YouTube player and shares connection information with YouTube. Opening a
+            YouTube link also connects you to YouTube. Amazon, LinkedIn and other external sites have
             their own privacy practices.</p>
           <h2>Your choices and rights</h2>
           <p>Where applicable, you can request access, correction, deletion, restriction or portability

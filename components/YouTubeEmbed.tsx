@@ -10,14 +10,7 @@ interface YouTubeEmbedProps {
 
 export default function YouTubeEmbed({ videoId, title, className = '' }: YouTubeEmbedProps) {
   const [isLoaded, setIsLoaded] = useState(false)
-  const [thumbnailIndex, setThumbnailIndex] = useState(0)
 
-  const thumbnails = [
-    `https://i.ytimg.com/vi_webp/${videoId}/maxresdefault.webp`,
-    `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
-    `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`,
-    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
-  ]
 
   const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`
   const watchUrl = `https://www.youtube.com/watch?v=${videoId}`
@@ -43,17 +36,17 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
             aria-label={`Play ${title} video`}
             onClick={() => setIsLoaded(true)}
           >
-            {/* A native img preserves the external thumbnail fallback chain without Next image-host configuration. */}
+            {/* Preview is served locally; never fall back to a third-party request. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={thumbnails[thumbnailIndex]}
+              src={`/images/video-previews/${videoId}.webp`}
               alt={title}
               className="youtube-embed-thumbnail"
               loading="lazy"
               fetchPriority="low"
               width="1280"
               height="720"
-              onError={() => setThumbnailIndex((current) => Math.min(current + 1, thumbnails.length - 1))}
+
             />
             <span className="youtube-embed-play" aria-hidden="true">
               <svg viewBox="0 0 68 48" className="youtube-embed-play-btn">

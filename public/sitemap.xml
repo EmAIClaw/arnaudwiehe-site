@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://arnaudwiehe.com/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1</priority>
   </url>
@@ -20,13 +20,13 @@
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/articles/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -199,110 +199,116 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://arnaudwiehe.com/speaking/next-it-security-benelux-november-2026/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://arnaudwiehe.com/speaking/gitex-europe-berlin-2026/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/next-it-security-benelux-2026/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/ikea-corporate-2025/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/heliview-dutch-cloud-ai-2025/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/cloud-computing-conference-athens-2025/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/reinvent-security-podcast/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/gitex-global-dubai-2025/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/next-it-security-benelux-2024/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/next-it-security-c-suite-stockholm-2024/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/dutch-cloud-conference-2024/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/it-software-asset-management-belgium-2024/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/isaca-risk-event-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/evanta-gartner-benelux-cio-ciso-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/economist-space-economy-summit-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/world-summit-ai-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/techex-cyber-security-cloud-expo-europe-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/network-circle-ciso-executive-circle-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://arnaudwiehe.com/speaking/economist-impact-metaverse-summit-2023/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

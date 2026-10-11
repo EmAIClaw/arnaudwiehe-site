@@ -15,7 +15,7 @@ test('book metadata uses typed ASINs and separate people, not invented ISBNs or 
 })
 
 test('speaking schema does not turn month-only records into exact dates or speakers into organizers', async ({ page }) => {
-  const event = await schema(page, '/speaking/gitex-europe-berlin-2026/', 'Event')
+  const event = await schema(page, '/speaking/ikea-corporate-2025/', 'Event')
   expect(event.startDate).toBeUndefined()
   expect(event.organizer).toBeUndefined()
   const exactEvent = await schema(page, '/speaking/gitex-global-dubai-2025/', 'Event')

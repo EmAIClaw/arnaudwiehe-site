@@ -41,10 +41,7 @@ export default function SpeakingPage() {
 
   return (
     <>
-      <head>
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
-      </head>
+
       <BreadcrumbJsonLd />
       <Nav />
 
@@ -123,7 +120,8 @@ function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEv
   return (
     <div className="speaking-list-item">
       <div className="speaking-list-meta">
-        <span className="speaking-list-year">{event.year}</span>
+        <span className="speaking-list-year">{event.dateFormatted}</span>
+        <span>{event.status === 'upcoming' ? 'Upcoming' : 'Past'}</span>
         <span className="speaking-list-location">{event.location}</span>
         <span className="speaking-list-category">{event.category}</span>
       </div>

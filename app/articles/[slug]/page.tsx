@@ -171,6 +171,13 @@ export default async function ArticlePage({ params }: Props) {
               <p className="author-name">{article.author}</p>
               <p className="author-bio">{article.authorBio}</p>
             </div>
+            {['ai-governance-is-about-visibility', 'ai-governance-journey', 'ai-governance-cybersecurity', 'iso-42001-compliance-final', 'ai-agent-debt'].includes(article.slug) && (
+              <p className="article-book-note">
+                <strong>Explore further:</strong>{' '}
+                <Link href="/books/ai-governance-for-leaders"><em>AI Governance for Leaders</em></Link>
+                {' '}— a practical guide for boards and executives.
+              </p>
+            )}
             {article.linkedinUrl && (
               <div className="share-section">
                 <p>{isLinkedInProfile ? 'For more perspectives on AI governance and cybersecurity.' : 'Connect with the discussion:'}</p>

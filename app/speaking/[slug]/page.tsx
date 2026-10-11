@@ -86,6 +86,7 @@ export default async function SpeakingEventPage({ params }: Props) {
       name: event.location,
     },
     startDate: event.datePrecision === 'day' ? event.date : undefined,
+    endDate: event.datePrecision === 'day' ? event.endDate : undefined,
     eventAttendanceMode: event.location.toLowerCase().includes('online') || event.location.toLowerCase().includes('virtual')
       ? 'https://schema.org/OnlineEventAttendanceMode'
       : 'https://schema.org/OfflineEventAttendanceMode',
@@ -115,10 +116,7 @@ export default async function SpeakingEventPage({ params }: Props) {
 
   return (
     <>
-      <head>
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
-      </head>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
@@ -138,6 +136,7 @@ export default async function SpeakingEventPage({ params }: Props) {
           <div className="speaking-event-hero-meta">
             <span className="speaking-event-hero-category">{event.category}</span>
             <span className="speaking-event-hero-year">{event.dateFormatted}</span>
+            <span className="speaking-event-status">{event.status === 'upcoming' ? 'Upcoming' : 'Past'}</span>
             <span className="speaking-event-hero-location">{event.location}</span>
           </div>
           <h1 className="speaking-event-hero-title">{event.name}</h1>
@@ -179,7 +178,7 @@ export default async function SpeakingEventPage({ params }: Props) {
             />
           </section>
 
-          <section className="speaking-event-takeaways">
+          {event.keyTakeaways.length > 0 && <section className="speaking-event-takeaways">
             <h2 className="speaking-event-section-heading">Key Takeaways</h2>
             <ul className="speaking-event-takeaways-list">
               {event.keyTakeaways.map((takeaway, i) => (
@@ -189,7 +188,7 @@ export default async function SpeakingEventPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-          </section>
+          </section>}
 
           {event.relatedTopics.length > 0 && (
             <section className="speaking-event-related">
