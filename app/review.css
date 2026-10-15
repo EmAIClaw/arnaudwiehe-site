@@ -47,6 +47,10 @@
   outline: 3px solid currentColor;
   outline-offset: 4px;
 }
+.contact-form-submit:focus-visible {
+  outline: 3px solid var(--brown);
+  outline-offset: 4px;
+}
 .mobile-nav-dialog {
   position: fixed;
   inset: 0 0 0 auto;

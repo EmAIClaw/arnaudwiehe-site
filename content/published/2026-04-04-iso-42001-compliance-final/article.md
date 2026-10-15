@@ -119,5 +119,5 @@ The certification is voluntary. The risks of unmanaged AI are not.
 
 **Sources:**
 - ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system
-- EU AI Act (Regulation 2024/1689)
-- NIST AI Risk Management Framework 1.0 (January 2023)
+- [EU AI Act (Regulation 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
+- [NIST AI Risk Management Framework 1.0 (January 2023)](https://www.nist.gov/itl/ai-risk-management-framework)

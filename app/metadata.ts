@@ -1,5 +1,15 @@
+import imageDimensions from './image-dimensions.generated.json'
+
 export const siteUrl = 'https://arnaudwiehe.com'
 export const defaultOgImage = `${siteUrl}/images/og-default.webp`
+
+export function buildSharingImage(image: string, alt: string) {
+  const url = new URL(image, siteUrl)
+  if (url.origin !== siteUrl) return { url: image, alt }
+  const dimensions = (imageDimensions as Record<string, { width: number; height: number }>)[decodeURIComponent(url.pathname)]
+  if (!dimensions) throw new Error(`Missing sharing-image dimensions for ${image}; regenerate image dimensions`)
+  return { url: image, ...dimensions, alt }
+}
 
 export function buildPageMetadata({
   title,
@@ -27,7 +37,7 @@ export function buildPageMetadata({
       description,
       url,
       type,
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      images: [buildSharingImage(image, title)],
     },
     twitter: {
       card: 'summary_large_image' as const,

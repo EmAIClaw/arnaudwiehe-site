@@ -33,7 +33,7 @@ If you cannot identify an agent, you cannot govern it. Every production agent ne
 
 This matters because identity is the foundation for everything else. You cannot scope permissions, attribute actions, investigate incidents, revoke access, or decommission an agent properly if you do not know exactly what the agent is and who is accountable for it.
 
-OWASP’s Top 10 for Agentic Applications 2026 explicitly identifies Agent Identity and Privilege Abuse as one of the key risks in agentic systems. It sits alongside risks such as Agent Goal Hijack, Tool Misuse, Insecure Inter-Agent Communication, Cascading Agent Failures, and Rogue Agents.  
+[OWASP’s Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026) explicitly identifies Agent Identity and Privilege Abuse as one of the key risks in agentic systems. It sits alongside risks such as Agent Goal Hijack, Tool Misuse, Insecure Inter-Agent Communication, Cascading Agent Failures, and Rogue Agents.
 
 In agentic systems, identity is not paperwork. It is the foundation of governance.
 

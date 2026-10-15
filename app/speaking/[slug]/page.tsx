@@ -164,7 +164,7 @@ export default async function SpeakingEventPage({ params }: Props) {
         )}
 
         {event.youtubeId && (
-          <div className="speaking-event-video-wrap">
+          <div id="recording" className="speaking-event-video-wrap" style={{ scrollMarginTop: '120px' }}>
             <YouTubeEmbed videoId={event.youtubeId} title={`${event.name} — ${event.topic}`} className="speaking-event-video-iframe" />
           </div>
         )}

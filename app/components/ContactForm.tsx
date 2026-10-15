@@ -1,13 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import PrivacyNote from '../../components/PrivacyNote'
 
 export default function ContactForm() {
+  return (
+    <Suspense fallback={<ContactFormFields />}>
+      <ContactFormWithContext />
+    </Suspense>
+  )
+}
+
+function ContactFormWithContext() {
+  const searchParams = useSearchParams()
+  const suggestedSubject = searchParams.get('subject') === 'speaking' ? 'Speaking engagement' : ''
+  return <ContactFormFields suggestedSubject={suggestedSubject} />
+}
+
+function ContactFormFields({ suggestedSubject = '' }: { suggestedSubject?: string }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: null as string | null,
     message: '',
   })
   const [submitting, setSubmitting] = useState(false)
@@ -47,6 +62,7 @@ export default function ContactForm() {
           type="text"
           id="name"
           name="name"
+          autoComplete="name"
           value={formData.name}
           onChange={handleChange}
           required
@@ -60,6 +76,10 @@ export default function ContactForm() {
           type="email"
           id="email"
           name="email"
+          autoComplete="email"
+          inputMode="email"
+          autoCapitalize="none"
+          spellCheck={false}
           value={formData.email}
           onChange={handleChange}
           required
@@ -73,7 +93,7 @@ export default function ContactForm() {
           type="text"
           id="subject"
           name="subject"
-          value={formData.subject}
+          value={formData.subject ?? suggestedSubject}
           onChange={handleChange}
         />
       </div>

@@ -10,8 +10,14 @@ export default function NotFound() {
           The page you are looking for does not exist or has been moved.
         </p>
         <div className="not-found-actions">
-          <Link href="/" className="not-found-home-btn">
-            Return Home
+          <Link href="/articles" className="not-found-home-btn">
+            Browse articles
+          </Link>
+          <Link href="/books" className="not-found-secondary-btn">
+            Explore books
+          </Link>
+          <Link href="/" className="not-found-secondary-btn">
+            Go to the homepage
           </Link>
         </div>
       </div>

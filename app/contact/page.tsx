@@ -48,7 +48,7 @@ export default function ContactPage() {
           <div className="contact-info">
             <div className="contact-info-divider" />
             <a
-              href="https://linkedin.com/in/arnaudwiehe"
+              href="https://www.linkedin.com/in/arnaudwiehe"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-info-link"

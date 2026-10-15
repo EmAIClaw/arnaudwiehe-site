@@ -277,7 +277,7 @@ Russian proverb, popularized by Ronald Reagan</p>
 </ol>
 <p>If you cannot identify an agent, you cannot govern it. Every production agent needs a defined identity. Not just a friendly name in a register, but a control-level identity that links the agent to an owner, purpose, environment, permissions, logs, and lifecycle.</p>
 <p>This matters because identity is the foundation for everything else. You cannot scope permissions, attribute actions, investigate incidents, revoke access, or decommission an agent properly if you do not know exactly what the agent is and who is accountable for it.</p>
-<p>OWASP’s Top 10 for Agentic Applications 2026 explicitly identifies Agent Identity and Privilege Abuse as one of the key risks in agentic systems. It sits alongside risks such as Agent Goal Hijack, Tool Misuse, Insecure Inter-Agent Communication, Cascading Agent Failures, and Rogue Agents.  </p>
+<p><a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026">OWASP’s Top 10 for Agentic Applications 2026</a> explicitly identifies Agent Identity and Privilege Abuse as one of the key risks in agentic systems. It sits alongside risks such as Agent Goal Hijack, Tool Misuse, Insecure Inter-Agent Communication, Cascading Agent Failures, and Rogue Agents.</p>
 <p>In agentic systems, identity is not paperwork. It is the foundation of governance.</p>
 <ol>
 <li>Privilege Boundary</li>
@@ -901,7 +901,7 @@ Do you have SOC 2? Penetration test reports?
 <p>Prompt injection is an architectural problem. It demands an architectural answer. The research community just handed us two of them in the same 72-hour window. The question is whether security leaders will act on them, or keep writing policy documents while the clock ticks down.</p>
 <h3>Sources</h3>
 <ol>
-<li><p>Google Security Blog — "AI threats in the wild: The current state of prompt injections on the web," April 23, 2026. Thomas Brunner, Yu-Han Liu, Moni Pande. <a href="https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html">https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html</a></p>
+<li><p>Google Security Blog — "AI threats in the wild: The current state of prompt injections on the web," April 23, 2026. Thomas Brunner, Yu-Han Liu, Moni Pande. <a href="https://blog.google/security/prompt-injections-web/">https://blog.google/security/prompt-injections-web/</a></p>
 </li>
 <li><p>arXiv:2604.24118 — "AgentVisor: Defending LLM Agents Against Prompt Injection via Semantic Virtualization," April 27, 2026. Ying Zonghao, Wang Haozheng, Liu Jiangfan, Liu Xianglong et al. <a href="https://arxiv.org/abs/2604.24118">https://arxiv.org/abs/2604.24118</a></p>
 </li>
@@ -1520,8 +1520,8 @@ Organizations that treat it as infrastructure will outpace their competitors.</p
 <p><strong>Sources:</strong></p>
 <ul>
 <li>ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system</li>
-<li>EU AI Act (Regulation 2024/1689)</li>
-<li>NIST AI Risk Management Framework 1.0 (January 2023)</li>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">EU AI Act (Regulation 2024/1689)</a></li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework 1.0 (January 2023)</a></li>
 </ul>`,
   },
   {

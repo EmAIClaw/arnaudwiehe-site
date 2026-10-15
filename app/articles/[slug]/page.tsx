@@ -2,6 +2,7 @@ import sanitizeHtml from 'sanitize-html'
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../../../components/Nav'
+import CopyArticleLink from '../../../components/CopyArticleLink'
 import { Metadata } from 'next'
 import { getArticleBySlug, getAdjacentArticles, getAllArticles } from '../data'
 import { notFound } from 'next/navigation'
@@ -9,6 +10,15 @@ import { buildPageMetadata, siteUrl } from '../../metadata'
 import imageManifest from '../../../content/article-images.json'
 
 export const dynamic = 'force-static'
+
+// Editorially reviewed pairings; no automatic or archive-wide recommendations.
+const relatedReading: Record<string, string[]> = {
+  'openclaw-email-agent-phishing-test': ['agent-governance-kill-switch', 'ai-agent-debt'],
+  'ai-agent-debt': ['ai-governance-is-about-visibility', 'agent-governance-kill-switch'],
+  'agent-governance-kill-switch': ['openclaw-email-agent-phishing-test', 'ai-agent-debt'],
+  'ai-governance-is-about-visibility': ['ai-agent-debt', 'ai-governance-journey'],
+  'ai-governance-journey': ['ai-governance-is-about-visibility', 'iso-42001-compliance-final'],
+}
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -32,8 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: article.excerpt || article.title,
     path: `/articles/${slug}`,
     type: 'article',
-    image: slug === 'export-control-ai-models'
-      ? `${siteUrl}/images/sharing/export-control-ai-models.png`
+    image: ['export-control-ai-models', 'ai-governance-cybersecurity', 'boards-cyber-agenda-2026'].includes(slug)
+      ? `${siteUrl}/images/sharing/${slug}.png`
       : article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
   })
 }
@@ -86,6 +96,10 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   const { prev, next } = getAdjacentArticles(slug)
+  const relatedArticles = (relatedReading[slug] || []).flatMap(targetSlug => {
+    const target = getArticleBySlug(targetSlug)
+    return target ? [target] : []
+  })
   const imageDimensions = getArticleImageDimensions(article.slug)
   const responsiveImage = (imageManifest as Record<string, { width: number; height: number; srcSet: string }>)[article.heroImage || '']
   const isBookCover = article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level'
@@ -178,6 +192,18 @@ export default async function ArticlePage({ params }: Props) {
                 {' '}— a practical guide for boards and executives.
               </p>
             )}
+            {relatedArticles.length > 0 && (
+              <section className="article-related-reading" aria-labelledby="related-reading-heading">
+                <h2 id="related-reading-heading">Related reading</h2>
+                <ul>
+                  {relatedArticles.map(related => (
+                    <li key={related.slug}>
+                      <Link href={`/articles/${related.slug}`}>{related.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
             {article.linkedinUrl && (
               <div className="share-section">
                 <p>{isLinkedInProfile ? 'For more perspectives on AI governance and cybersecurity.' : 'Connect with the discussion:'}</p>
@@ -191,9 +217,10 @@ export default async function ArticlePage({ params }: Props) {
                 </a>
               </div>
             )}
+            <CopyArticleLink url={`${siteUrl}/articles/${article.slug}/`} />
           </footer>
 
-          <nav className="article-nav">
+          <nav className="article-nav" aria-label="Previous and next articles">
             <div className="article-nav-prev">
               {prev && (
                 <Link href={`/articles/${prev.slug}`} className="article-nav-link">

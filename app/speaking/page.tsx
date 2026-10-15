@@ -133,8 +133,8 @@ function SpeakingListItem({ event }: { event: ReturnType<typeof getAllSpeakingEv
         </p>
       </div>
       {event.youtubeId && (
-        <Link href={`/speaking/${event.slug}`} className="speaking-list-cta" aria-label={`Watch ${event.name}`}>
-          Watch here →
+        <Link href={`/speaking/${event.slug}/#recording`} className="speaking-list-cta" aria-label={`Watch recording: ${event.name}`}>
+          Watch recording →
         </Link>
       )}
     </div>

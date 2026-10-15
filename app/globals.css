@@ -481,6 +481,13 @@ p {
   text-underline-offset: 3px;
 }
 
+.article-related-reading { margin: 24px 0; font-size: 1rem; line-height: 1.7; }
+.article-related-reading h2 { margin: 0 0 8px; font-size: 1.125rem; }
+.article-related-reading ul { margin: 0; padding-left: 1.25rem; }
+.article-related-reading li + li { margin-top: 8px; }
+.article-related-reading a { text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.article-related-reading a:focus-visible { outline: 2px solid var(--brown); outline-offset: 3px; }
+
 /* Scroll Indicator */
 .hero-scroll-indicator {
   position: absolute;
@@ -2012,11 +2019,18 @@ p {
   line-height: 1.5;
 }
 
+.article-copy-link { margin-top: 24px; font-size: 0.95rem; }
+.article-copy-link button { padding: 6px 0; border: 0; background: transparent; color: var(--brown); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.article-copy-link button:focus-visible { outline: 2px solid var(--brown); outline-offset: 3px; }
+.article-copy-link [role="status"] { margin-left: 12px; }
+.article-copy-link input { display: block; width: 100%; margin-top: 8px; padding: 8px; font: inherit; }
+
 /* Article Navigation */
 .article-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
   max-width: var(--container-max);
   margin: 4rem auto 0;
   padding: 2rem 3rem 0;
@@ -2026,7 +2040,9 @@ p {
 .article-nav-link {
   display: flex;
   flex-direction: column;
-  max-width: 40%;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .article-nav-link span {
@@ -2861,7 +2877,7 @@ p {
   }
 
   .article-nav {
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
     padding: 2rem 1.5rem 0;
   }

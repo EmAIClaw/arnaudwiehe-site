@@ -1,0 +1,686 @@
+{
+  "/images/articles/agent-governance-kill-switch-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/agent-governance-kill-switch-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/agent-governance-kill-switch.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/ai-agent-debt-640.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/ai-agent-debt-960.webp": {
+    "width": 960,
+    "height": 640
+  },
+  "/images/articles/ai-agent-debt.webp": {
+    "width": 1280,
+    "height": 853
+  },
+  "/images/articles/ai-governance-cybersecurity.svg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/articles/ai-governance-is-about-visibility-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/ai-governance-is-about-visibility-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/ai-governance-is-about-visibility-ai-governance.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/ai-governance-is-about-visibility.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/ai-governance-journey-optimized-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/ai-governance-journey-optimized.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/ai-governance-journey-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/ai-governance-journey.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/ai-induced-misconfiguration-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/ai-induced-misconfiguration-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/ai-induced-misconfiguration.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/ai-security-2026-thumb.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/ai-security-2026.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/ai-security-2026.webp": {
+    "width": 1200,
+    "height": 675
+  },
+  "/images/articles/ai-vendor-questionnaire-obsolete-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/ai-vendor-questionnaire-obsolete-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/ai-vendor-questionnaire-obsolete.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/board-oversight-operating-model-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/board-oversight-operating-model.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/boards-cyber-agenda-2026.svg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/articles/cyber-resilience-after-the-hype.png": {
+    "width": 320,
+    "height": 400
+  },
+  "/images/articles/cyber-resilience-after-the-hype.webp": {
+    "width": 320,
+    "height": 400
+  },
+  "/images/articles/export-control-ai-models-640.webp": {
+    "width": 640,
+    "height": 480
+  },
+  "/images/articles/export-control-ai-models-960.webp": {
+    "width": 960,
+    "height": 720
+  },
+  "/images/articles/export-control-ai-models.webp": {
+    "width": 1280,
+    "height": 960
+  },
+  "/images/articles/future-crimes-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/future-crimes-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/future-crimes.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/instagram-ai-account-recovery-abuse-thumb.webp": {
+    "width": 800,
+    "height": 450
+  },
+  "/images/articles/instagram-ai-account-recovery-abuse.webp": {
+    "width": 1599,
+    "height": 900
+  },
+  "/images/articles/iso-42001-compliance-final-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/iso-42001-compliance-final.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/mcp-security-new-attack-surface-thumb.png": {
+    "width": 2057,
+    "height": 1152
+  },
+  "/images/articles/mcp-security-new-attack-surface.webp": {
+    "width": 791,
+    "height": 527
+  },
+  "/images/articles/microsoft-agent-365-shadow-agent-discovery-shadow-ai-agents.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/microsoft-shadow-ai-agents.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/ncsc-vibe-coding-safeguards-optimized-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/ncsc-vibe-coding-safeguards-optimized.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/ncsc-vibe-coding-safeguards-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/ncsc-vibe-coding-safeguards.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/openclaw-email-agent-phishing-test-thumb.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/openclaw-email-agent-phishing-test.webp": {
+    "width": 1122,
+    "height": 1402
+  },
+  "/images/articles/openclaw-security-best-practices-optimized-thumb.webp": {
+    "width": 640,
+    "height": 357
+  },
+  "/images/articles/openclaw-security-best-practices-optimized.webp": {
+    "width": 1200,
+    "height": 670
+  },
+  "/images/articles/openclaw-security-best-practices-thumb.webp": {
+    "width": 640,
+    "height": 357
+  },
+  "/images/articles/openclaw-security-best-practices.webp": {
+    "width": 1200,
+    "height": 670
+  },
+  "/images/articles/openclaw-security-crisis-optimized-thumb.webp": {
+    "width": 640,
+    "height": 349
+  },
+  "/images/articles/openclaw-security-crisis-optimized.webp": {
+    "width": 1200,
+    "height": 655
+  },
+  "/images/articles/openclaw-security-crisis-thumb.webp": {
+    "width": 640,
+    "height": 349
+  },
+  "/images/articles/openclaw-security-crisis.webp": {
+    "width": 1200,
+    "height": 655
+  },
+  "/images/articles/owasp-top-10-agentic-ai-hero-optimized-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/owasp-top-10-agentic-ai-hero-optimized.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/owasp-top-10-agentic-ai-hero-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/owasp-top-10-agentic-ai-hero.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/owasp-top-10-agentic-ai-optimized-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/owasp-top-10-agentic-ai-optimized.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/owasp-top-10-agentic-ai-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/owasp-top-10-agentic-ai.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/prompt-injection-runtime-controls-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/prompt-injection-runtime-controls-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/prompt-injection-runtime-controls.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/articles/prompt-injection-why-runtime-controls-beat-policy-checklists-prompt-injection-1.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/prompt-injection-why-runtime-controls-beat-policy-checklists-prompt-injection-2.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/prompt-injection-why-runtime-controls-beat-policy-checklists-prompt-injection-3.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/prompt-injection-why-runtime-controls-beat-policy-checklists-prompt-injection.png": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/rise-of-openclaw-optimized-thumb.webp": {
+    "width": 640,
+    "height": 338
+  },
+  "/images/articles/rise-of-openclaw-optimized.webp": {
+    "width": 1200,
+    "height": 634
+  },
+  "/images/articles/rise-of-openclaw-thumb.webp": {
+    "width": 640,
+    "height": 338
+  },
+  "/images/articles/rise-of-openclaw.webp": {
+    "width": 1200,
+    "height": 634
+  },
+  "/images/articles/shadow-ai-guide-2026-thumb.webp": {
+    "width": 640,
+    "height": 349
+  },
+  "/images/articles/shadow-ai-guide-2026.jpg": {
+    "width": 1024,
+    "height": 559
+  },
+  "/images/articles/shadow-ai-guide-2026.webp": {
+    "width": 1024,
+    "height": 559
+  },
+  "/images/articles/the-ai-agent-problem-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/the-ai-agent-problem.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/the-next-ai-breach-may-not-be-a-hack-trusted-feature-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/the-next-ai-breach-may-not-be-a-hack-trusted-feature.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/third-party-cyber-risk-board-level.png": {
+    "width": 320,
+    "height": 400
+  },
+  "/images/articles/third-party-cyber-risk-board-level.webp": {
+    "width": 320,
+    "height": 400
+  },
+  "/images/articles/trusted-feature-breach-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/articles/trusted-feature-breach.webp": {
+    "width": 1200,
+    "height": 800
+  },
+  "/images/articles/vulnerability-timeline-compression-hero.webp": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/images/articles/year-of-autonomous-agents-optimized-thumb.webp": {
+    "width": 640,
+    "height": 349
+  },
+  "/images/articles/year-of-autonomous-agents-optimized.webp": {
+    "width": 1024,
+    "height": 559
+  },
+  "/images/articles/year-of-autonomous-agents-thumb.webp": {
+    "width": 640,
+    "height": 349
+  },
+  "/images/articles/year-of-autonomous-agents.jpg": {
+    "width": 1024,
+    "height": 559
+  },
+  "/images/articles/year-of-autonomous-agents.webp": {
+    "width": 1024,
+    "height": 559
+  },
+  "/images/books/ai-governance-for-leaders-display.webp": {
+    "width": 700,
+    "height": 875
+  },
+  "/images/books/ai-governance-for-leaders-thumb.webp": {
+    "width": 400,
+    "height": 500
+  },
+  "/images/books/ai-governance-for-leaders.webp": {
+    "width": 1122,
+    "height": 1402
+  },
+  "/images/books/book-cover-thumb.webp": {
+    "width": 640,
+    "height": 800
+  },
+  "/images/books/book-cover.webp": {
+    "width": 700,
+    "height": 875
+  },
+  "/images/books/cybersecurity-cover-thumb.webp": {
+    "width": 640,
+    "height": 800
+  },
+  "/images/books/cybersecurity-cover.jpg": {
+    "width": 2400,
+    "height": 3000
+  },
+  "/images/books/cybersecurity-cover.webp": {
+    "width": 700,
+    "height": 875
+  },
+  "/images/books/emerging-tech-cover-thumb.webp": {
+    "width": 640,
+    "height": 800
+  },
+  "/images/books/emerging-tech-cover.jpg": {
+    "width": 2400,
+    "height": 3000
+  },
+  "/images/books/emerging-tech-cover.webp": {
+    "width": 700,
+    "height": 875
+  },
+  "/images/certifications/aigp.png": {
+    "width": 225,
+    "height": 225
+  },
+  "/images/certifications/aigp.webp": {
+    "width": 225,
+    "height": 225
+  },
+  "/images/certifications/ccsp.png": {
+    "width": 340,
+    "height": 340
+  },
+  "/images/certifications/ccsp.webp": {
+    "width": 300,
+    "height": 300
+  },
+  "/images/certifications/cippe.png": {
+    "width": 225,
+    "height": 225
+  },
+  "/images/certifications/cippe.webp": {
+    "width": 225,
+    "height": 225
+  },
+  "/images/certifications/cisa.png": {
+    "width": 340,
+    "height": 340
+  },
+  "/images/certifications/cisa.webp": {
+    "width": 300,
+    "height": 300
+  },
+  "/images/certifications/cism.png": {
+    "width": 340,
+    "height": 340
+  },
+  "/images/certifications/cism.webp": {
+    "width": 300,
+    "height": 300
+  },
+  "/images/certifications/cissp.png": {
+    "width": 340,
+    "height": 340
+  },
+  "/images/certifications/cissp.webp": {
+    "width": 300,
+    "height": 300
+  },
+  "/images/headshots/headshot-thumb.webp": {
+    "width": 640,
+    "height": 960
+  },
+  "/images/headshots/headshot.jpg": {
+    "width": 933,
+    "height": 1400
+  },
+  "/images/headshots/headshot.webp": {
+    "width": 700,
+    "height": 1050
+  },
+  "/images/instruments/IMG_5935-thumb.webp": {
+    "width": 640,
+    "height": 857
+  },
+  "/images/instruments/IMG_5935.jpg": {
+    "width": 2592,
+    "height": 1936
+  },
+  "/images/instruments/IMG_5935.webp": {
+    "width": 1195,
+    "height": 1600
+  },
+  "/images/instruments/IMG_9109-thumb.webp": {
+    "width": 640,
+    "height": 857
+  },
+  "/images/instruments/IMG_9109.jpg": {
+    "width": 2592,
+    "height": 1936
+  },
+  "/images/instruments/IMG_9109.webp": {
+    "width": 1195,
+    "height": 1600
+  },
+  "/images/logos/fedex.png": {
+    "width": 600,
+    "height": 600
+  },
+  "/images/logos/fedex.webp": {
+    "width": 500,
+    "height": 500
+  },
+  "/images/logos/gitex.png": {
+    "width": 510,
+    "height": 196
+  },
+  "/images/logos/gitex.webp": {
+    "width": 500,
+    "height": 192
+  },
+  "/images/logos/ikea.png": {
+    "width": 900,
+    "height": 343
+  },
+  "/images/logos/ikea.webp": {
+    "width": 500,
+    "height": 191
+  },
+  "/images/logos/kpmg.png": {
+    "width": 2648,
+    "height": 1510
+  },
+  "/images/logos/kpmg.webp": {
+    "width": 500,
+    "height": 285
+  },
+  "/images/logos/tnt-express.png": {
+    "width": 706,
+    "height": 174
+  },
+  "/images/logos/tnt-express.webp": {
+    "width": 500,
+    "height": 123
+  },
+  "/images/music/IMG_0099-thumb.webp": {
+    "width": 640,
+    "height": 959
+  },
+  "/images/music/IMG_0099.webp": {
+    "width": 854,
+    "height": 1280
+  },
+  "/images/music/IMG_0470-thumb.webp": {
+    "width": 640,
+    "height": 960
+  },
+  "/images/music/IMG_0470.webp": {
+    "width": 1066,
+    "height": 1600
+  },
+  "/images/music/IMG_0472-thumb.webp": {
+    "width": 629,
+    "height": 960
+  },
+  "/images/music/IMG_0472.webp": {
+    "width": 1049,
+    "height": 1600
+  },
+  "/images/music/IMG_5695-thumb.webp": {
+    "width": 640,
+    "height": 640
+  },
+  "/images/music/IMG_5695.webp": {
+    "width": 1200,
+    "height": 1200
+  },
+  "/images/music/IMG_5954-thumb.webp": {
+    "width": 640,
+    "height": 954
+  },
+  "/images/music/IMG_5954.webp": {
+    "width": 1073,
+    "height": 1600
+  },
+  "/images/music/IMG_9896-thumb.webp": {
+    "width": 640,
+    "height": 853
+  },
+  "/images/music/IMG_9896.webp": {
+    "width": 1200,
+    "height": 1600
+  },
+  "/images/og-default.webp": {
+    "width": 800,
+    "height": 1200
+  },
+  "/images/sharing/ai-governance-cybersecurity.png": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/sharing/ai-governance-for-leaders.png": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/sharing/boards-cyber-agenda-2026.png": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/sharing/export-control-ai-models.png": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/sharing/homepage.png": {
+    "width": 1200,
+    "height": 630
+  },
+  "/images/speaking/ISACA Risk Speaker Photo1-thumb.webp": {
+    "width": 640,
+    "height": 960
+  },
+  "/images/speaking/ISACA Risk Speaker Photo1.jpg": {
+    "width": 1707,
+    "height": 2560
+  },
+  "/images/speaking/ISACA Risk Speaker Photo1.webp": {
+    "width": 934,
+    "height": 1400
+  },
+  "/images/speaking/ISACA Risk Speaker Photo2-thumb.webp": {
+    "width": 640,
+    "height": 960
+  },
+  "/images/speaking/ISACA Risk Speaker Photo2.jpg": {
+    "width": 1707,
+    "height": 2560
+  },
+  "/images/speaking/ISACA Risk Speaker Photo2.webp": {
+    "width": 934,
+    "height": 1400
+  },
+  "/images/speaking/gitex-dubai-2025-1-thumb.webp": {
+    "width": 640,
+    "height": 960
+  },
+  "/images/speaking/gitex-dubai-2025-1.jpg": {
+    "width": 1066,
+    "height": 1600
+  },
+  "/images/speaking/gitex-dubai-2025-1.webp": {
+    "width": 933,
+    "height": 1400
+  },
+  "/images/speaking/gitex-dubai-2025-2-thumb.webp": {
+    "width": 640,
+    "height": 427
+  },
+  "/images/speaking/gitex-dubai-2025-2.jpg": {
+    "width": 1800,
+    "height": 1200
+  },
+  "/images/speaking/gitex-dubai-2025-2.webp": {
+    "width": 1400,
+    "height": 933
+  },
+  "/images/speaking/world-summit-ai-2023-thumb.webp": {
+    "width": 640,
+    "height": 960
+  },
+  "/images/speaking/world-summit-ai-2023.jpg": {
+    "width": 1067,
+    "height": 1600
+  },
+  "/images/speaking/world-summit-ai-2023.webp": {
+    "width": 934,
+    "height": 1400
+  },
+  "/images/video-previews/HqTlT8vjIyI.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/video-previews/O2wc5s-I6_o.webp": {
+    "width": 1280,
+    "height": 720
+  },
+  "/images/video-previews/fi0KHOQ1e74.webp": {
+    "width": 1280,
+    "height": 720
+  }
+}

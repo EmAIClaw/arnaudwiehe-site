@@ -172,7 +172,7 @@ Prompt injection is an architectural problem. It demands an architectural answer
 
 ### Sources
 
-1. Google Security Blog — "AI threats in the wild: The current state of prompt injections on the web," April 23, 2026. Thomas Brunner, Yu-Han Liu, Moni Pande. https://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html
+1. Google Security Blog — "AI threats in the wild: The current state of prompt injections on the web," April 23, 2026. Thomas Brunner, Yu-Han Liu, Moni Pande. https://blog.google/security/prompt-injections-web/
 
 2. arXiv:2604.24118 — "AgentVisor: Defending LLM Agents Against Prompt Injection via Semantic Virtualization," April 27, 2026. Ying Zonghao, Wang Haozheng, Liu Jiangfan, Liu Xianglong et al. https://arxiv.org/abs/2604.24118
 

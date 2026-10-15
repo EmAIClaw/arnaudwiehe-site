@@ -135,7 +135,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <Link href="/books/ai-governance-for-leaders" className="btn-primary">Explore the latest book</Link>
-              <Link href="/contact" className="btn-ghost">Enquire about speaking</Link>
+              <Link href="/contact/?subject=speaking" className="btn-ghost">Enquire about speaking</Link>
             </div>
             <h2 className="hero-credentials-heading">
               Author of 3 books · International speaker
