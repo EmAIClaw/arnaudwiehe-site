@@ -447,7 +447,9 @@ p {
 .hero-actions { margin-top: 20px; }
 
 .article-search {
-  margin: 24px 0 32px;
+  max-width: var(--container-max);
+  margin: 24px auto 32px;
+  padding: 0 3rem;
 }
 .article-search label {
   display: block;
@@ -2828,6 +2830,7 @@ p {
     padding: 0 1.5rem 3rem;
   }
 
+  .article-search,
   .articles-list,
   .article-content,
   .books-page-list,
@@ -4784,7 +4787,7 @@ p {
   font-size: 1rem;
   color: var(--text-dark);
   background-color: var(--cream);
-  border: 1px solid var(--warm-200);
+  border: 1px solid var(--text-muted);
   border-radius: var(--radius-sm);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   outline: none;
@@ -4802,7 +4805,7 @@ p {
   font-size: 1rem;
   color: var(--text-dark);
   background-color: var(--cream);
-  border: 1px solid var(--warm-200);
+  border: 1px solid var(--text-muted);
   border-radius: var(--radius-sm);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   outline: none;
