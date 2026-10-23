@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "marked": "^18.0.4",
-    "sanitize-html": "^2.17.4"
+    "sanitize-html": "^2.18.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
@@ -30,8 +30,8 @@
     "@types/sanitize-html": "^2.16.1",
     "axe-core": "^4.13.0",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.2.10",
-    "next": "^16.2.6",
+    "eslint-config-next": "^16.4.2",
+    "next": "^16.4.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "sharp": "^0.35.4",
