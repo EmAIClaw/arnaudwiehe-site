@@ -88,7 +88,7 @@ function markdownToHtml(markdown) {
 
   return sanitizeHtml(rendered, {
     allowedTags: [
-      'p', 'br', 'strong', 'em', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'blockquote', 'a', 'code', 'pre'
+      'p', 'br', 'hr', 'strong', 'em', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'blockquote', 'a', 'code', 'pre'
     ],
     allowedAttributes: {
       a: ['href'],
@@ -181,6 +181,7 @@ async function collectArticles() {
       readingTime,
       featured: Boolean(metadata?.seo?.featured),
       heroImage,
+      heroAlt: metadata.heroAlt || '',
       thumbnailImage,
       linkedinUrl: metadata.linkedinUrl || '',
       author: metadata.author || fallbackAuthor,
@@ -216,6 +217,7 @@ export interface Article {
   authorBio: string
   featured: boolean
   heroImage?: string
+  heroAlt?: string
   thumbnailImage?: string
 }
 
@@ -230,7 +232,7 @@ ${articles.map(article => `  {
     tags: ${JSON.stringify(article.tags)},
     readingTime: ${JSON.stringify(article.readingTime)},
     featured: ${article.featured},
-    ${article.heroImage ? `heroImage: ${JSON.stringify(article.heroImage)},` : ''}
+    ${article.heroImage ? `heroImage: ${JSON.stringify(article.heroImage)},` : ''}${article.heroAlt ? `\n    heroAlt: ${JSON.stringify(article.heroAlt)},` : ''}
     ${article.thumbnailImage ? `thumbnailImage: ${JSON.stringify(article.thumbnailImage)},` : ''}
     linkedinUrl: ${JSON.stringify(article.linkedinUrl)},
     author: ${JSON.stringify(article.author)},

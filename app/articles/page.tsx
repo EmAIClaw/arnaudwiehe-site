@@ -65,7 +65,7 @@ export default function ArticlesPage() {
                     <div className="article-list-image-wrap">
                       <Image
                         src={article.thumbnailImage || article.heroImage}
-                        alt={article.title}
+                        alt={article.heroAlt || article.title}
                         className={`article-list-image${article.slug === 'cyber-resilience-after-the-hype' || article.slug === 'third-party-cyber-risk-board-level' ? ' book-cover' : ''}`}
                         width={imageDimensions.width}
                         height={imageDimensions.height}

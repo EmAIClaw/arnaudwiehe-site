@@ -151,10 +151,10 @@ export default async function ArticlePage({ params }: Props) {
                 <img src={article.heroImage} srcSet={responsiveImage.srcSet}
                   sizes="(max-width: 768px) 100vw, 800px"
                   width={responsiveImage.width} height={responsiveImage.height}
-                  alt={article.title} className="article-hero-image" fetchPriority="high" decoding="async" />
+                  alt={article.heroAlt || article.title} className="article-hero-image" fetchPriority="high" decoding="async" />
               ) : <Image
                 src={article.heroImage}
-                alt={article.title}
+                alt={article.heroAlt || article.title}
                 className="article-hero-image"
                 width={imageDimensions.width}
                 height={imageDimensions.height}
@@ -167,7 +167,7 @@ export default async function ArticlePage({ params }: Props) {
           <div
             className="article-body"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content, {
-              allowedTags: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'blockquote', 'a', 'img', 'code', 'pre', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+              allowedTags: ['p', 'br', 'hr', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'blockquote', 'a', 'img', 'code', 'pre', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
               allowedAttributes: {
                 'a': ['href', 'target', 'rel'],
                 'img': ['src', 'alt', 'width', 'height'],

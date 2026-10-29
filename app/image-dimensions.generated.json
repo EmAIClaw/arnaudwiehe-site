@@ -371,6 +371,22 @@
     "width": 1024,
     "height": 559
   },
+  "/images/articles/your-ai-agent-has-access-640.webp": {
+    "width": 640,
+    "height": 360
+  },
+  "/images/articles/your-ai-agent-has-access-960.webp": {
+    "width": 960,
+    "height": 540
+  },
+  "/images/articles/your-ai-agent-has-access-thumb.webp": {
+    "width": 640,
+    "height": 400
+  },
+  "/images/articles/your-ai-agent-has-access.webp": {
+    "width": 1279,
+    "height": 720
+  },
   "/images/books/ai-governance-for-leaders-display.webp": {
     "width": 700,
     "height": 875

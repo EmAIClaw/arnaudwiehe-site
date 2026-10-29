@@ -1,0 +1,65 @@
+# Your AI Agent Has Access. But Who Decides What It Is Allowed to Do?
+
+<p><em>"An AI agent's objective should never become its permission." Arnaud Wiehe author of AI Governance for Leaders, and Emerging Tech, Emerging Threats</em></p>
+
+<p>In July 2025, a technology entrepreneur was developing an application using an AI coding agent. After nine days, the application contained information about more than 1,200 executives and nearly 1,200 companies. Then something went terribly wrong. Despite explicit instructions to freeze changes, the AI agent deleted the production database.</p>
+
+<p>When questioned, it initially provided misleading information about what had happened and incorrectly claimed the data could not be recovered. Fortunately, the database was eventually restored, and the company behind the AI agent introduced additional safeguards.</p>
+
+<p>The problem is this incident was that the agent had the ability to execute an action it should never have been authorized to perform. This highlights one of the most important challenges emerging as organizations embrace AI agents. AI agent access is a technical capability, but authority is a governance decision. We should not confuse the two.</p>
+
+<h3>From intelligent models to autonomous actions</h3>
+
+<p>We've spent years making AI increasingly capable. Now we're faced with the challenge of governing what it can do at scale. AI agents can already write code, interact with corporate systems, access sensitive information, execute transactions and coordinate complex workflows.</p>
+
+<p>This presents incredible opportunities like AI agents eliminating repetitive administrative work, accelerating scientific discovery, improving cybersecurity or transforming how organizations operate. While I am optimistic and excited about this future, there's a fundamental difference between an AI model that provides an answer and an AI agent that independently takes action.</p>
+
+<p>An agent may pursue a perfectly legitimate goal while deciding to perform actions its creators never intended. Relying on instructions alone is not sufficient to prevent that. The challenge we face is moving from governing what AI can generate to governing what AI can actually do.</p>
+
+<h3>Five essential controls for responsible AI agents</h3>
+
+<p>Fortunately, we don't need to reinvent cybersecurity. Many of the foundations already exist. We simply need to adapt them to systems that can independently plan, make decisions and execute actions. In my recent talks on The Rise of AI Agents, I highlight five key controls which deserve particular attention.</p>
+
+<h3>1. Agent identity: Know who or what is acting</h3>
+
+<p>Every AI agent needs a distinct, traceable identity, linked to an accountable human or business owner. Agents shouldn't operate through shared accounts or borrowed employee credentials. Organizations must be able to identify which agent performed an action, who owns it and what permissions it has been granted. As autonomous agents proliferate, managing their identities and lifecycles will become as important as managing human identities.</p>
+
+<h3>2. Least-privilege access: Give agents only what they need</h3>
+
+<p>An agent reviewing invoices doesn't also need permission to approve payments. An agent analyzing vulnerabilities shouldn't be able to modify production systems. Access should be restricted to the minimum necessary for each task, preferably through narrowly scoped, short-lived credentials. The principle is simple, an AI agent should never have more access than its assigned responsibilities require. An AI agent should NEVER have admin permissions.</p>
+
+<h3>3. Action-level authorization. Access isn't permission</h3>
+
+<p>This is perhaps the most important distinction. Imagine an agent with legitimate access to your financial systems. It can review invoices, retrieve supplier information and analyze payment records. But should it automatically be authorized to transfer €100,000 or change a supplier's banking details? NO. Organizations need safeguards that evaluate the specific action being proposed, its context and its potential consequences. High-impact actions should require additional authorization, including human approval where appropriate. Having access to a system should never imply unrestricted authority to act within it.</p>
+
+<h3>4. Independent monitoring. Don't let agents supervise themselves</h3>
+
+<p>The database deletion incident illustrates why independent monitoring is important. The AI agent not only performed an unauthorized action but also gave inaccurate information about what had happened. We cannot rely solely on an AI agent's own account of its behavior. Monitoring and enforcement must operate independently, with tamper-resistant audit records and mechanisms to detect unexpected actions. An AI agent should never be able to disable the very safeguards designed to constrain it.</p>
+
+<h3>5. Human intervention. Always maintain the ability to stop</h3>
+
+<p>Autonomy shouldn't mean an absence of accountability. Organizations need mechanisms to suspend an AI agent, revoke its credentials, block dangerous actions and require human approval when necessary. Sometimes automated containment will be essential because AI agents can act faster than humans can respond. The important principle is that meaningful control must remain outside the AI agent itself.</p>
+
+<h3>The opportunity. Governance as an accelerator</h3>
+
+<p>None of these principles is particularly revolutionary. Cybersecurity professionals have spent decades developing controls for identity, access, authorization, monitoring and accountability. What's changed is the speed, scale and autonomy with which AI agents can operate. Traditional applications generally execute predefined workflows. AI agents can dynamically determine which tools to use and which actions to take in pursuit of an objective.</p>
+
+<p>It's no longer sufficient to ask whether an AI agent should have access to a particular system. We must also ask whether it should be authorized to perform a particular action, under particular circumstances, with particular consequences.</p>
+
+<p>I don't see this as a reason to slow down AI innovation. Quite the opposite. The better we become at establishing clear boundaries around autonomous systems, the more confidently organizations can deploy them. Good AI governance creates the conditions for greater autonomy, faster adoption and more ambitious innovation.</p>
+
+<p>This is also a central theme of my book, <em>AI Governance for Leaders: Turning Risk into Competitive Advantage</em>. Responsible AI governance should be viewed not merely as a compliance obligation, but as a strategic capability that enables organizations to innovate with confidence.</p>
+
+<p>The organizations that get this right won't necessarily be those with the most restrictive AI policies. They'll be those that successfully translate governance principles into practical, enforceable controls while enabling their people and technologies to achieve more. The future of AI isn't just about building more capable agents. It's about giving them the freedom to act within boundaries we can trust.</p>
+
+<p>So here's my question to fellow technology and risk leaders:</p>
+
+<p>Are we governing what our AI agents are allowed to do, or simply controlling which systems they can access?</p>
+
+<hr>
+
+<p><em>For more on translating AI governance into strategic advantage, explore my book, </em><em><a href="https://www.amazon.com/AI-GOVERNANCE-LEADERS-COMPETITIVE-ADVANTAGE/dp/B0HKLDGF3R">AI Governance for Leaders: Turning Risk into Competitive Advantage</a></em><em>.</em></p>
+
+<p><em>Source for the opening incident: </em><em><a href="https://www.fastcompany.com/91372483/replit-ceo-what-really-happened-when-ai-agent-wiped-jason-lemkins-database-exclusive?trk=article-ssr-frontend-pulse_little-text-block">Fast Company, July 2025, Replit AI coding agent database deletion</a></em><em>.</em></p>
+
+<p>#AIGovernance #AgenticAI #Cybersecurity #ResponsibleAI #AI</p>

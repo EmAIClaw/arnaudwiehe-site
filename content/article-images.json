@@ -1,4 +1,9 @@
 {
+  "/images/articles/your-ai-agent-has-access.webp": {
+    "width": 1279,
+    "height": 720,
+    "srcSet": "/images/articles/your-ai-agent-has-access-640.webp 640w, /images/articles/your-ai-agent-has-access-960.webp 960w, /images/articles/your-ai-agent-has-access.webp 1279w"
+  },
   "/images/articles/future-crimes.webp": {
     "width": 1280,
     "height": 720,

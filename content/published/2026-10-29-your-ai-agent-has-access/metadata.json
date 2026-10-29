@@ -1,0 +1,22 @@
+{
+  "slug": "your-ai-agent-has-access",
+  "title": "Your AI Agent Has Access. But Who Decides What It Is Allowed to Do?",
+  "subtitle": "",
+  "date": "2026-10-29",
+  "publishDate": "2026-10-29T00:00:00Z",
+  "category": "ai-governance",
+  "tags": [
+    "ai-governance",
+    "agentic-ai",
+    "cybersecurity",
+    "responsible-ai"
+  ],
+  "author": "Arnaud Wiehe",
+  "status": "published",
+  "heroAlt": "Five glass blocks representing agent identity, least-privilege access, action-level authorization, independent monitoring and human intervention.",
+  "linkedinUrl": "https://www.linkedin.com/pulse/your-ai-agent-has-access-who-decides-what-allowed-do-arnaud-wiehe-ra2te/",
+  "seo": {
+    "readingTime": "6 minutes",
+    "featured": false
+  }
+}
