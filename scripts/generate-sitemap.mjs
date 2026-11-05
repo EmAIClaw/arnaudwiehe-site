@@ -11,8 +11,8 @@ function extractSlugs(filePath, pattern) {
 function extractArticles(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8')
   const articles = [...content.matchAll(
-    /slug:\s*['"]([^'"]+)['"][\s\S]*?\n\s*date:\s*['"](\d{4}-\d{2}-\d{2})['"]/g
-  )].map(([, slug, date]) => ({ slug, date }))
+    /slug:\s*['"]([^'"]+)['"][\s\S]*?\n\s*date:\s*['"](\d{4}-\d{2}-\d{2})['"](?:,\n\s*dateFormatted:[^\n]*\n\s*dateModified:\s*['"](\d{4}-\d{2}-\d{2})['"])?/g
+  )].map(([, slug, date, modified]) => ({ slug, date: modified || date }))
 
   if (articles.length === 0) {
     throw new Error(`No article metadata found in ${filePath}`)

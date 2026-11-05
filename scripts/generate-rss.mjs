@@ -47,6 +47,7 @@ async function extractArticles() {
         slug: meta.slug,
         title: meta.title,
         date: meta.publishDate?.slice(0, 10) || dirName.slice(0, 10),
+        modified: meta.dateModified?.slice(0, 10),
         excerpt: excerptRaw.trim(),
         category: meta.category || 'Article',
       })
@@ -111,7 +112,7 @@ ${rssItems}
       <link href="${BASE_URL}/articles/${a.slug}/" rel="alternate" type="text/html"/>
       <id>${BASE_URL}/articles/${a.slug}/</id>
       <published>${isoDate(a.date)}</published>
-      <updated>${isoDate(a.date)}</updated>
+      <updated>${isoDate(a.modified || a.date)}</updated>
       <summary type="html">${escapeXml(a.excerpt)}</summary>
       <category term="${escapeXml(a.category)}"/>
     </entry>`).join('\n')

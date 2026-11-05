@@ -1,24 +1,30 @@
 # When Export Control Comes for AI Models
 
+**Subsequent developments — June 30–July 1, 2026**
+
+On June 30, 2026, Anthropic said the export controls on Fable 5 and Mythos 5 had been lifted. Its [July 1 update](https://www.anthropic.com/news/redeploying-fable-5) states that access to both models was restored. The article below examines the June 12 suspension and its implications for enterprise AI governance; it does not describe an ongoing blanket suspension.[4]
+
 > “Technology is neither good nor bad; nor is it neutral.”
 >
 > — Melvin Kranzberg, historian of technology
 
-On June 9, Anthropic launched Claude Fable 5 and Claude Mythos 5.
+On June 9, 2026, Anthropic announced Claude Fable 5 and Claude Mythos 5.[2]
 
 Three days later, both were offline.
 
-According to Anthropic, the US government issued an export-control directive requiring the company to block foreign nationals from accessing the models. In practice, that meant taking them down for everyone. Customers lost access. API users lost access. Even Anthropic's own foreign-national employees were blocked.
+According to Anthropic’s June 12 statement, the US government issued an export-control directive requiring the company to block foreign nationals from accessing the models, including foreign-national employees. Anthropic said it was disabling access for all customers to comply. This is the company’s published account; it is not an independently verified copy of the directive.[3]
 
 That is a remarkable moment.
 
 We are used to export controls applying to chips, cryptography, defense technology, and other sensitive tools. We are less used to seeing them applied to a commercial AI model that had already launched and was already in customers' hands.
 
-The trigger appears to have been a jailbreak. Someone reportedly found a way to get Fable 5 to review a codebase and identify software flaws. Anthropic says it reviewed the demo and found only minor, already-known bugs, the sort of thing other public models could also reproduce.
+Anthropic said the government’s concern involved a potential jailbreak that let Fable 5 review a codebase and identify software flaws. The company characterised the demonstrated vulnerabilities as minor and already known, and said other publicly available models could identify them too.[3]
 
 Its public response was sharp:
 
 > “If this standard was applied across the industry, we believe it would essentially halt all new model deployments for all frontier model providers.”
+
+— Anthropic, June 12, 2026.[3]
 
 I understand Anthropic's concern.
 
@@ -34,7 +40,7 @@ The government may also be looking at a different picture. Intelligence agencies
 
 That is why the precedent matters.
 
-This appears to be one of the first major cases where export control has been used against a deployed frontier AI product. A model was live in the market, then taken down by government order over a disputed security concern.
+The case shows how export control can affect a deployed frontier AI product. According to the provider, access was suspended after launch following a government directive over a disputed security concern.[3]
 
 That should make AI companies, regulators, enterprise buyers, and security leaders pay attention.
 
@@ -65,7 +71,7 @@ If frontier AI providers are going to launch models with powerful cyber capabili
 
 There is also a sovereignty angle here.
 
-The UK's Minister for AI and Online Safety has already framed the pause as evidence that countries need more control over their own AI infrastructure. That reaction is understandable. If a US legal directive can suddenly cut off access for global customers, then dependence on foreign AI infrastructure becomes a strategic issue.
+If a legal directive in a provider’s home jurisdiction can suddenly cut off access for global customers, dependence on foreign AI infrastructure becomes a strategic issue.
 
 But sovereignty is easier said than done. Real sovereignty means compute, talent, trusted models, assurance regimes, procurement routes, security standards, and clear legal authority. Many of these resources simply don't exist in most countries.
 
@@ -78,3 +84,9 @@ Anthropic may be right that a vague jailbreak claim is a dangerous basis for tak
 The future will be shaped by model capabilities, but also by identity, access, monitoring, auditability, escalation paths, and the ability to switch off dangerous functions without shutting down the entire system.
 
 For now it looks like the next frontier model launch will be judged by whether the provider can control who gets to use it, for what purpose, and under what conditions.
+
+## Sources
+
+[2] https://www.anthropic.com/news/claude-fable-5-mythos-5
+[3] https://www.anthropic.com/news/fable-mythos-access
+[4] https://www.anthropic.com/news/redeploying-fable-5

@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: article.excerpt || article.title,
     path: `/articles/${slug}`,
     type: 'article',
+    ...(article.dateModified ? { publishedTime: article.date, modifiedTime: article.dateModified } : {}),
     image: ['export-control-ai-models', 'ai-governance-cybersecurity', 'boards-cyber-agenda-2026'].includes(slug)
       ? `${siteUrl}/images/sharing/${slug}.png`
       : article.heroImage ? `${siteUrl}${article.heroImage}` : undefined,
@@ -70,6 +71,7 @@ export default async function ArticlePage({ params }: Props) {
     headline: article.title,
     description: article.excerpt,
     datePublished: article.date,
+    dateModified: article.dateModified || undefined,
     author: {
       '@type': 'Person',
       name: 'Arnaud Wiehe',
@@ -129,8 +131,9 @@ export default async function ArticlePage({ params }: Props) {
       <main id="main-content" className="article-page">
         <article className="article-content">
           <header className="article-header">
-            <div className="article-meta">
+            <div className={`article-meta${article.dateModified ? ' article-meta-updated' : ''}`}>
               <span className="article-date">{article.dateFormatted}</span>
+              {article.dateModified && <span className="article-updated">Last updated: <time dateTime={article.dateModified}>{article.dateModifiedFormatted}</time></span>}
               <span className="article-category">{article.category}</span>
               <span className="article-reading-time">{article.readingTime}</span>
             </div>

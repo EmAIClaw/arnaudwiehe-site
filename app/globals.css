@@ -1796,6 +1796,11 @@ p {
   margin-bottom: 1rem;
 }
 
+.article-meta-updated {
+  flex-wrap: wrap;
+}
+
+.article-updated,
 .article-date {
   font-size: 0.8rem;
   color: var(--text-muted);

@@ -15,9 +15,22 @@ const navItems = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  // Start opaque for server-rendered/no-JavaScript navigation.
+  const [scrolled, setScrolled] = useState(true)
   const dialog = useRef<HTMLDialogElement>(null)
   const trigger = useRef<HTMLButtonElement>(null)
   const closeButton = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    const updateScroll = () => setScrolled(window.scrollY > 16)
+    updateScroll()
+    window.addEventListener('scroll', updateScroll, { passive: true })
+    window.addEventListener('pageshow', updateScroll)
+    return () => {
+      window.removeEventListener('scroll', updateScroll)
+      window.removeEventListener('pageshow', updateScroll)
+    }
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -54,7 +67,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="nav-wrapper" aria-label="Main navigation">
+      <nav className={`nav-wrapper${scrolled ? ' scrolled' : ''}`} aria-label="Main navigation">
         <div className="nav-inner">
           <Link href="/" className="nav-logo">Arnaud Wiehe</Link>
           <div className="nav-links">

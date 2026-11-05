@@ -176,6 +176,8 @@ async function collectArticles() {
       subtitle: metadata.subtitle || '',
       date,
       dateFormatted: formatDate(date),
+      dateModified: metadata.dateModified || '',
+      dateModifiedFormatted: metadata.dateModified ? formatDate(metadata.dateModified) : '',
       category: toDisplayCategory(metadata.category),
       tags: Array.isArray(metadata.tags) ? metadata.tags.map(normalizeTag) : [],
       readingTime,
@@ -207,6 +209,8 @@ export interface Article {
   subtitle: string
   date: string
   dateFormatted: string
+  dateModified?: string
+  dateModifiedFormatted?: string
   category: string
   tags: string[]
   readingTime: string
@@ -227,7 +231,7 @@ ${articles.map(article => `  {
     title: ${JSON.stringify(article.title)},
     subtitle: ${JSON.stringify(article.subtitle)},
     date: ${JSON.stringify(article.date)},
-    dateFormatted: ${JSON.stringify(article.dateFormatted)},
+    dateFormatted: ${JSON.stringify(article.dateFormatted)},${article.dateModified ? `\n    dateModified: ${JSON.stringify(article.dateModified)},\n    dateModifiedFormatted: ${JSON.stringify(article.dateModifiedFormatted)},` : ''}
     category: ${JSON.stringify(article.category)},
     tags: ${JSON.stringify(article.tags)},
     readingTime: ${JSON.stringify(article.readingTime)},

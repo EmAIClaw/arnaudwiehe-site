@@ -17,12 +17,16 @@ export function buildPageMetadata({
   path = '',
   type = 'website',
   image = defaultOgImage,
+  publishedTime,
+  modifiedTime,
 }: {
   title: string
   description: string
   path?: string
   type?: 'website' | 'article'
   image?: string
+  publishedTime?: string
+  modifiedTime?: string
 }) {
   const url = path ? `${siteUrl}${path}` : siteUrl
 
@@ -37,6 +41,8 @@ export function buildPageMetadata({
       description,
       url,
       type,
+      ...(type === 'article' && publishedTime ? { publishedTime } : {}),
+      ...(type === 'article' && modifiedTime ? { modifiedTime } : {}),
       images: [buildSharingImage(image, title)],
     },
     twitter: {
